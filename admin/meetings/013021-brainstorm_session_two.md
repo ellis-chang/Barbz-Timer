@@ -1,7 +1,13 @@
 ## 01/25 Meeting Notes - Preparation for Second Brainstorming
 
 #### Attendance:
--
+- Ellis Chang
+- Bill Wu
+- Thang Phan
+- Andrew Ngo
+- Jasmine Takei
+- Linh Le
+- Nathan Bui
 
 ### Agenda:
 - Get everyone situated with MIRO
