@@ -24,6 +24,3 @@
 
 #### To-Do List:
 - [ ] Everyone read the "Shape Up" book
-- [ ]
-- [ ]
-- [ ]
