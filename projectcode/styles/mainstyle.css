@@ -1,0 +1,99 @@
+#head {
+    text-align: center;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+#barbz-header {
+    
+    /* Border Properties */
+    border: solid gray;
+    border-radius: 100px;
+    box-shadow: 5px 10px 8px #888888;
+
+    /* Box Sizing */
+    width: 300px;
+    height: 10px;
+    padding: 50px;
+    
+    /* Positioning */
+    margin: auto;
+    position: relative;
+}
+
+#timeBox {
+    
+    /* Border Properties */
+    border: solid gray;
+    border-radius: 100px;
+    box-shadow: 5px 10px 8px #888888;
+
+    /* Box Sizing */
+    width: 400px;
+    height: 125px;
+    padding: 30px;
+    
+    /* Positioning */
+    margin: auto;
+    position: relative;
+    
+}
+
+#timer {
+    
+    /* Border Properties */
+    border: solid gray;
+    border-radius: 10px;
+    box-shadow: 5px 10px 8px #888888;
+
+    /* Box Sizing */
+    width: 500px;
+    height: 225px;
+    padding: 50px;
+    
+    /* Positioning */
+    margin: auto;
+    position: relative;
+    
+}
+
+#states {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-evenly;
+    padding-left: 0px;
+}
+
+#clock {
+    text-align: center;
+    font-size: 50px;
+}
+
+#startButton {
+    /* Style */
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    display: inline-block;
+    font-size: 25px;
+    box-shadow: 1px 1px 1px #888888;
+    border-radius: 5px;
+
+    /* Position */
+    margin: auto;
+    display: block;
+}
+
+#startButton:hover {
+    background-color: rgb(245, 126, 229);
+    color: white;
+}
+
+#startButton:active {
+    background-color: rgb(245, 86, 224);
+    box-shadow: 3px 3px 3px #3d3d3d;
+    transform: translateY(4px);
+}
