@@ -12,7 +12,6 @@
     /* Border Properties */
     border: solid gray;
     border-radius: 100px;
-    box-shadow: 5px 10px 8px #888888;
 
     /* Box Sizing */
     width: 300px;
@@ -28,8 +27,7 @@
     
     /* Border Properties */
     border: solid gray;
-    border-radius: 100px;
-    box-shadow: 5px 10px 8px #888888;
+    border-radius: 10px;
 
     /* Box Sizing */
     width: 400px;
@@ -47,12 +45,11 @@
     /* Border Properties */
     border: solid gray;
     border-radius: 10px;
-    box-shadow: 5px 10px 8px #888888;
 
     /* Box Sizing */
     width: 500px;
-    height: 225px;
-    padding: 50px;
+    height: 325px;
+    padding: 25px 50px 25px 50px;
     
     /* Positioning */
     margin: auto;
@@ -60,12 +57,9 @@
     
 }
 
-#states {
-    display: flex;
-    list-style-type: none;
-    justify-content: space-evenly;
-    padding-left: 0px;
-}
+#state {
+    text-align: center;
+} 
 
 #clock {
     text-align: center;
@@ -79,7 +73,6 @@
     border: 2px solid black;
     display: inline-block;
     font-size: 25px;
-    box-shadow: 1px 1px 1px #888888;
     border-radius: 5px;
 
     /* Position */
@@ -93,6 +86,98 @@
 }
 
 #startButton:active {
+    background-color: rgb(245, 86, 224);
+    box-shadow: 3px 3px 3px #3d3d3d;
+    transform: translateY(4px);
+}
+
+#currentTaskBox {
+    /* Border Properties */
+    border: solid gray;
+    border-radius: 10px;
+    
+    /* Box Sizing */
+    width: 500px;
+    height: auto;
+    padding: 25px 50px 25px 50px;
+        
+    /* Positioning */
+    margin: auto;
+    position: relative;
+}
+
+#currentTaskHeader {
+    text-align: center;
+}
+
+#check {
+    width: 20px;
+    height: 20px;
+}
+
+#currentTask {
+    text-align: center;
+}
+
+#taskBox { 
+    /* Border Properties */
+    border: solid gray;
+    border-radius: 10px;
+    
+    /* Box Sizing */
+    width: 500px;
+    height: auto;
+    padding: 25px 50px 25px 50px;
+        
+    /* Positioning */
+    margin: auto;
+    position: relative;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#taskList {
+    margin: 0px;
+}
+
+.tasks {
+    /* Border Properties */
+    border: solid gray;
+    border-radius: 10px;
+
+    /* Box Sizing */
+    width: 200px;
+    height: 10px;
+    padding: 10px;
+
+    margin: 5px;
+    text-align: center;
+
+    list-style-type: none;
+}
+
+#addTask {
+    /* Style */
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    display: inline-block;
+    font-size: 25px;
+    border-radius: 5px;
+
+    /* Position */
+    margin: auto;
+    display: block;
+}
+
+#addTask:hover {
+    background-color: rgb(245, 126, 229);
+    color: white;
+}
+
+#addTask:active {
     background-color: rgb(245, 86, 224);
     box-shadow: 3px 3px 3px #3d3d3d;
     transform: translateY(4px);

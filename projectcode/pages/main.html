@@ -10,28 +10,40 @@
     </head>
     <body>
         <br>
-        <header id = barbz-header>
+        <header id="barbz-header">
             <h1 id="head">Barbz Timer</h1>
             <!-- Add hamburger Menu Here -->
         </header>
         <br>
         <div id="timer">
+            <h1 id="state">Work</h1>
             <div id="timeBox">
-                <ul id="states">
-                    <li class="state">Work</li>
-                    <li class="state">Short Break</li>
-                    <li class="state">Long Break</li>
-                </ul>
                 <h2 id="clock">25:00</h2>
             </div>
             <br>
             <br>
             <button id="startButton" onclick="timeStart()">Start</button>
         </div>
-        <div class="tasksBox">
-            <h3>Tasks List:</h3>
-            <input type="textarea" name="task1" id="task1">
+        <br>
+
+        <div id="currentTaskBox">
+            <h2 id="currentTaskHeader">Current Task</h2>
+            <input type="checkbox" id="check">
+            <p id="currentTask">Sample Current Task</p>
         </div>
+        <br>
+
+        <div id="taskBox">
+            <h2 id="taskHeader">Upcoming Tasks</h2>
+            <ul id="taskList"></ul>
+                <li name="task1" id="task1" class="tasks"> Sample Task 1 </li>
+                <li name="task2" id="task2" class="tasks"> Sample Task 2 </li>
+                <li name="task3" id="task3" class="tasks"> Sample Task 3 </li>
+            </ul>
+            <br>
+            <button id="addTask">Add a task</button>   
+        </div>
+        <br>
         <script src="../scripts/timer.js"></script>
     </body>
 </html>
