@@ -21,27 +21,37 @@
                 <h2 id="clock">25:00</h2>
             </div>
             <br>
-            <br>
-            <button id="startButton" onclick="timeStart()">Start</button>
+            <button id="startButton" onclick="timeStart()">START</button>
         </div>
         <br>
+        
+        <div id="middleOfPage">
+            <span id="currentTaskBox">
+                <h2 id="currentTaskHeader">Current Task</h2>
+                <input type="checkbox" id="check">
+                <p id="currentTask">Sample Current Task</p>
+            </span>
 
-        <div id="currentTaskBox">
-            <h2 id="currentTaskHeader">Current Task</h2>
-            <input type="checkbox" id="check">
-            <p id="currentTask">Sample Current Task</p>
+            <span id="pomoCounter">
+                <h2 id="workPeriodsHeader">Work Periods Completed</h2>
+                <p id="workPeriods">0</p>
+            </span>
         </div>
+
         <br>
 
         <div id="taskBox">
             <h2 id="taskHeader">Upcoming Tasks</h2>
-            <ul id="taskList"></ul>
-                <li name="task1" id="task1" class="tasks"> Sample Task 1 </li>
-                <li name="task2" id="task2" class="tasks"> Sample Task 2 </li>
-                <li name="task3" id="task3" class="tasks"> Sample Task 3 </li>
-            </ul>
-            <br>
-            <button id="addTask">Add a task</button>   
+            <div id="innerTaskBox">
+                <ul id="taskList"></ul>
+                    <li name="task1" id="task1" class="tasks"> Sample Task 1 </li>
+                    <li name="task2" id="task2" class="tasks"> Sample Task 2 </li>
+                    <li name="task3" id="task3" class="tasks"> Sample Task 3 </li>
+                </ul>
+                <br>
+                <br>
+                <button id="addTask">Add a task</button>   
+            <div>
         </div>
         <br>
         <script src="../scripts/timer.js"></script>

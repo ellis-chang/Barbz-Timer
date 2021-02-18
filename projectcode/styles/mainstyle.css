@@ -1,79 +1,107 @@
+@font-face {
+    font-family: roboto;
+    src: url(fonts/Roboto-Medium.ttf);
+}
+
+body {
+    background-color: #D46993;
+    color: black;
+
+    /* Account for header offset */
+    padding-top: 100px;
+
+    /* Roboto font */
+    font-family: roboto;
+}
+
 #head {
     text-align: center;
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
+
+    /* Box Sizing */
+    width: 200px;
+    height: auto;
+    padding: 10px;
+    margin: 10px;
+
+    /* Border Properties */
+    border: #F6D2D5;
+    border-radius: 10px;
+
+    background-color: #F6D2D5;
 }
 
 #barbz-header {
-    
-    /* Border Properties */
-    border: solid gray;
-    border-radius: 100px;
+    /* Fix the header to the top of the page */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
 
-    /* Box Sizing */
-    width: 300px;
-    height: 10px;
-    padding: 50px;
-    
-    /* Positioning */
-    margin: auto;
-    position: relative;
-}
+    background-color: #6A4163;
+} 
 
 #timeBox {
     
     /* Border Properties */
-    border: solid gray;
+    border: solid #F6D2D5;
     border-radius: 10px;
 
     /* Box Sizing */
     width: 400px;
-    height: 125px;
+    height: auto;
     padding: 30px;
     
     /* Positioning */
     margin: auto;
     position: relative;
     
+    /* Color */
+    background-color: #D46993;
+    
 }
 
 #timer {
     
     /* Border Properties */
-    border: solid gray;
+    border: solid #F6D2D5;
     border-radius: 10px;
 
     /* Box Sizing */
-    width: 500px;
-    height: 325px;
+    width: 750px;
+    height: auto;
     padding: 25px 50px 25px 50px;
     
     /* Positioning */
     margin: auto;
     position: relative;
+
+    /* Color */
+    background-color: #6A4163;
     
 }
 
 #state {
     text-align: center;
+    font-size: 50px;
 } 
 
 #clock {
     text-align: center;
-    font-size: 50px;
+    font-size: 75px;
 }
 
 #startButton {
     /* Style */
-    background-color: white;
+    background-color: #F6D2D5;
     color: black;
-    border: 2px solid black;
+    border: solid #F6D2D5;
     display: inline-block;
     font-size: 25px;
     border-radius: 5px;
+
+    /* Sizing */
+    width: 125px;
+    padding: 10px;
 
     /* Position */
     margin: auto;
@@ -81,29 +109,46 @@
 }
 
 #startButton:hover {
-    background-color: rgb(245, 126, 229);
+    background-color: #D46993;
     color: white;
 }
 
 #startButton:active {
-    background-color: rgb(245, 86, 224);
+    background-color: #D46993;
     box-shadow: 3px 3px 3px #3d3d3d;
     transform: translateY(4px);
 }
 
-#currentTaskBox {
-    /* Border Properties */
-    border: solid gray;
-    border-radius: 10px;
-    
-    /* Box Sizing */
-    width: 500px;
+#middleOfPage {
+    /* Sizing */
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: center;
+    align-items: center;
+    width: 875px;
     height: auto;
-    padding: 25px 50px 25px 50px;
-        
+
     /* Positioning */
     margin: auto;
     position: relative;
+}
+
+#currentTaskBox {
+    /* Border Properties */
+    border: solid #F6D2D5;
+    border-radius: 10px;
+    
+    /* Box Sizing */
+    width: 600px;
+    height: auto;
+    padding: 20px;
+        
+    /* Positioning */
+    margin: 10px;
+    position: relative;
+
+    /* Color */
+    background-color: #6A4163;
 }
 
 #currentTaskHeader {
@@ -111,21 +156,58 @@
 }
 
 #check {
+    display: inline-block;
     width: 20px;
     height: 20px;
 }
 
 #currentTask {
+    /* Border Properties */
+    border: solid #F6D2D5;
+    border-radius: 10px;
+
     text-align: center;
+    width: 450px;
+    padding: 10px;
+    height: auto;
+
+    /* Positioning */
+    margin: 10px;
+    display: inline-block;
+
+
+    /* Color */
+    background-color: #D46993;
+}
+
+#pomoCounter {
+    /* Border Properties */
+    border: solid #F6D2D5;
+    border-radius: 10px;
+
+    text-align: center;
+    width: 200px;
+    padding: 20px;
+    height: auto;
+
+    /* Positioning */
+    margin: 10px;
+
+    /* Color */
+    background-color: #6A4163;
+}
+
+#workPeriods {
+    font-size: 20px;
 }
 
 #taskBox { 
     /* Border Properties */
-    border: solid gray;
+    border: solid #F6D2D5;
     border-radius: 10px;
     
     /* Box Sizing */
-    width: 500px;
+    width: 750px;
     height: auto;
     padding: 25px 50px 25px 50px;
         
@@ -136,6 +218,30 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+
+    /* Color */
+    background-color: #6A4163;
+}
+
+#innerTaskBox {
+    /* Border Properties */
+    border: solid #F6D2D5;
+    border-radius: 10px;
+
+    width: 375px;
+    height: auto;
+    padding: 25px 50px 25px 50px;
+
+    /* Positioning */
+    margin: auto;
+    position: relative;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    /* Color */
+    background-color: #F6D2D5;
 }
 
 #taskList {
@@ -144,7 +250,7 @@
 
 .tasks {
     /* Border Properties */
-    border: solid gray;
+    border: solid #F6D2D5;
     border-radius: 10px;
 
     /* Box Sizing */
@@ -156,16 +262,23 @@
     text-align: center;
 
     list-style-type: none;
+
+    /* Color */
+    background-color: #D46993;
 }
 
 #addTask {
     /* Style */
-    background-color: white;
+    background-color: #D46993;
     color: black;
-    border: 2px solid black;
+    border: solid #F6D2D5;
     display: inline-block;
     font-size: 25px;
-    border-radius: 5px;
+    border-radius: 10px;
+
+    /* Sizing */
+    width: 175px;
+    padding: 10px;
 
     /* Position */
     margin: auto;
@@ -173,12 +286,12 @@
 }
 
 #addTask:hover {
-    background-color: rgb(245, 126, 229);
+    background-color: #D46993;
     color: white;
 }
 
 #addTask:active {
-    background-color: rgb(245, 86, 224);
+    background-color: #D46993;
     box-shadow: 3px 3px 3px #3d3d3d;
     transform: translateY(4px);
 }
