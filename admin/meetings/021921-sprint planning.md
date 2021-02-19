@@ -1,4 +1,4 @@
-## MM/DD Meeting Notes
+## 02/21 Meeting Notes
 
 #### Attendance:
 - Thang Phan  
@@ -6,8 +6,7 @@
 - Bill Wu
 - Jasmine Takei
 - Ellis Chang
--
--
+
 
 ### Agenda:
 - Design updates
