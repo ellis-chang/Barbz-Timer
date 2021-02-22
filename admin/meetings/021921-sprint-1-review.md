@@ -1,4 +1,4 @@
-## 02/21 Meeting Notes
+## 02/19 Meeting Notes
 
 #### Attendance:
 - Thang Phan  
