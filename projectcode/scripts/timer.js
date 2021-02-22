@@ -3,13 +3,17 @@ let seconds;
 let interval;
 let pomos = 0;
 let longBreakCounter = 0;
+myStorage = window.localStorage;
+var totalPomos = 0;
 
 function timeStart() {
+    totalPomos = parseInt(localStorage.getItem('totalPomos'));
     if (document.getElementById("startButton").textContent == "START") {
         minutes = 25;
         seconds = 0;
+        alert(totalPomos);
         interval = setInterval(count, 1000);
-        //document.getElementById("clock").innerHTML = "25:00";
+        document.getElementById("clock").innerHTML = "25:00";
         document.getElementById("startButton").textContent = "STOP";
     } else {
         stop();
@@ -23,6 +27,9 @@ function count() {
         
         if(minutes == -1){
             clearInterval(interval);
+            if(document.getElementById("state").textContent == "Work"){
+
+            }
             switchTimes();
         } else {
             seconds = 59;
@@ -33,6 +40,13 @@ function count() {
     } else {
         document.getElementById("clock").innerHTML = minutes + ":0" + seconds;
     } 
+}
+
+function taskTrack(){
+    if(document.getElementById("state").textContent == "Short Break" 
+    || document.getElementById("state").textContent == "Long Break"){
+
+    }
 }
 
 function switchTimes() {
