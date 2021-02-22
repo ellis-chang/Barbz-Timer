@@ -3,6 +3,7 @@ var taskName = document.getElementById("taskName");
 var taskPomos = document.getElementById("taskPomos");
 var numberOfTasks = 0;
 
+
 function displayInput(){
     if(taskInput.style.display == "none"){
         taskInput.style.display = "block";
@@ -21,3 +22,4 @@ function createTask(){
 function deleteTask(event){
     event.target.parentNode.parentNode.removeChild(event.target.parentNode);
 }
+
