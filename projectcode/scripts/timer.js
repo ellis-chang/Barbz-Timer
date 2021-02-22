@@ -9,7 +9,7 @@ function timeStart() {
         minutes = 25;
         seconds = 0;
         interval = setInterval(count, 1000);
-        document.getElementById("clock").innerHTML = "25:00";
+        //document.getElementById("clock").innerHTML = "25:00";
         document.getElementById("startButton").textContent = "STOP";
     } else {
         stop();

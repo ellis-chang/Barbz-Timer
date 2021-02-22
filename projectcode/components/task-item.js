@@ -49,7 +49,7 @@ template.innerHTML = `
 <li class="uniqueTask">
     <p class="name"></p>
     <p class="numPomos"></p>
-    <button class="delete" onclick="alert('delete')">X</button>
+    <button class="delete" onclick="deleteTask(event)">X</button>
 </li>`
 class TaskItem extends HTMLElement {
     constructor(){

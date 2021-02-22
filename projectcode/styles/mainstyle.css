@@ -246,6 +246,10 @@ body {
 
 #taskList {
     margin: 0px;
+    height:200px; 
+    width: 420px;
+    overflow:hidden; 
+    overflow-y:scroll;
 }
 
 .tasks {
@@ -345,50 +349,4 @@ body {
     background-color: #D46993;
     box-shadow: 3px 3px 3px #3d3d3d;
     transform: translateY(4px);
-}
-
-/* TaskList */
-
-#taskList {
-    list-style-type: none;
-}
-
-.uniqueTask {
-    list-style-type: none;
-    width: 400px;
-}
-
-.name {
-    /*position*/
-    display: inline-block;
-    width: 250px;
-    margin-left: 10px;
-    
-    /*border*/
-    border: solid black;
-    border-radius: 30px;
-    
-    /*text*/
-    text-align: center;
-    font-size: 20px;
-}
-
-.numPomos {
-    /*position*/
-    display: inline-block;
-    width: 40px;
-    margin-left: 30px;
-
-    /*border*/
-    border: solid black;
-    border-radius: 30px;
-    
-    /*text*/
-    text-align: center;
-    font-size: 20px;
-}
-
-.delete {
-    display: inline-block;
-    margin-left: 20px;
 }
