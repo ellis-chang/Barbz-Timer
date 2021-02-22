@@ -44,16 +44,36 @@
             <h2 id="taskHeader">Upcoming Tasks</h2>
             <div id="innerTaskBox">
                 <ul id="taskList"></ul>
-                    <li name="task1" id="task1" class="tasks"> Sample Task 1 </li>
-                    <li name="task2" id="task2" class="tasks"> Sample Task 2 </li>
-                    <li name="task3" id="task3" class="tasks"> Sample Task 3 </li>
+                    <!--li name="task1" id="task1" class="tasks"> Sample Task 1 </li -->
+                    <!--li name="task2" id="task2" class="tasks"> Sample Task 2 </li -->
+                    <!--li name="task3" id="task3" class="tasks"> Sample Task 3 </li -->
                 </ul>
                 <br>
                 <br>
-                <button id="addTask">Add a task</button>   
+                <button id="addTask" onclick="displayInput()">Add a task</button>   
             <div>
+
+            <br>
+
+            <div id="taskInput" style="display: none;">
+                <label for="taskName">Task Name: </label>
+                <input type="taskName" name="taskName" id="taskName">
+                
+                <br>
+                <br>
+
+                <label for="taskPomos">Number of Expected Pomos: </label>
+                <input type="number" name="taskPomos" id="taskPomos" min="1" max="99">
+
+                <br>
+                <br>
+
+                <button id="createButton" onclick="createTask()">Create</button>
+            </div>    
         </div>
         <br>
         <script src="../scripts/timer.js"></script>
+        <script src="../scripts/taskAdd.js"></script>
+        <script src="../components/task-item.js"></script>
     </body>
 </html>
