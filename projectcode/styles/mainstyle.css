@@ -246,6 +246,238 @@ body {
 
 #taskList {
     margin: 0px;
+    height:200px; 
+    width: 420px;
+    overflow:hidden; 
+    overflow-y:scroll;
+}
+
+.tasks {
+    /* Border Properties */
+    border: solid #F6D2D5;
+    border-radius: 10px;
+
+    /* Box Sizing */
+    width: 200px;
+    height: 10px;
+    padding: 10px;
+
+    margin: 5px;
+    text-align: center;
+
+    list-style-type: none;
+
+    /* Color */
+    background-color: #D46993;
+}
+
+#addTask {
+    /* Style */
+    background-color: #D46993;
+    color: black;
+    border: solid #F6D2D5;
+    display: inline-block;
+    font-size: 25px;
+    border-radius: 10px;
+
+    /* Sizing */
+    width: 175px;
+    padding: 10px;
+
+    /* Position */
+    margin: auto;
+    display: block;
+}
+
+#addTask:hover {
+    background-color: #D46993;
+    color: white;
+}
+
+#addTask:active {
+    background-color: #D46993;
+    box-shadow: 3px 3px 3px #3d3d3d;
+    transform: translateY(4px);
+}
+
+#taskInput {
+    /* Border Properties */
+    border: solid #F6D2D5;
+    border-radius: 10px;
+
+    /* Box Sizing */
+    width: 300px;
+    height: auto;
+    padding: 25px 50px 25px 50px;
+    
+    /* Positioning */
+    margin: auto;
+    position: relative;
+
+    /* Color */
+    background-color: #6A4163;
+}
+
+#taskPomos {
+    width: 35px;
+}
+
+#createTask {
+    /* Style */
+    background-color: #D46993;
+    color: black;
+    border: solid #F6D2D5;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 10px;
+
+    /* Sizing */
+    width: 100px;
+    padding: 10px;
+
+    /* Position */
+    margin: auto;
+    display: block;
+}
+
+#createTask:hover {
+    background-color: #D46993;
+    color: white;
+}
+
+#createTask:active {
+    background-color: #D46993;
+    box-shadow: 3px 3px 3px #3d3d3d;
+    transform: translateY(4px);
+}
+
+#middleOfPage {
+    /* Sizing */
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: center;
+    align-items: center;
+    width: 875px;
+    height: auto;
+
+    /* Positioning */
+    margin: auto;
+    position: relative;
+}
+
+#currentTaskBox {
+    /* Border Properties */
+    border: solid #F6D2D5;
+    border-radius: 10px;
+    
+    /* Box Sizing */
+    width: 600px;
+    height: auto;
+    padding: 20px;
+        
+    /* Positioning */
+    margin: 10px;
+    position: relative;
+
+    /* Color */
+    background-color: #6A4163;
+}
+
+#currentTaskHeader {
+    text-align: center;
+}
+
+#check {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+#currentTask {
+    /* Border Properties */
+    border: solid #F6D2D5;
+    border-radius: 10px;
+
+    text-align: center;
+    width: 450px;
+    padding: 10px;
+    height: auto;
+
+    /* Positioning */
+    margin: 10px;
+    display: inline-block;
+
+
+    /* Color */
+    background-color: #D46993;
+}
+
+#pomoCounter {
+    /* Border Properties */
+    border: solid #F6D2D5;
+    border-radius: 10px;
+
+    text-align: center;
+    width: 200px;
+    padding: 20px;
+    height: auto;
+
+    /* Positioning */
+    margin: 10px;
+
+    /* Color */
+    background-color: #6A4163;
+}
+
+#workPeriods {
+    font-size: 20px;
+}
+
+#taskBox { 
+    /* Border Properties */
+    border: solid #F6D2D5;
+    border-radius: 10px;
+    
+    /* Box Sizing */
+    width: 750px;
+    height: auto;
+    padding: 25px 50px 25px 50px;
+        
+    /* Positioning */
+    margin: auto;
+    position: relative;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    /* Color */
+    background-color: #6A4163;
+}
+
+#innerTaskBox {
+    /* Border Properties */
+    border: solid #F6D2D5;
+    border-radius: 10px;
+
+    width: 375px;
+    height: auto;
+    padding: 25px 50px 25px 50px;
+
+    /* Positioning */
+    margin: auto;
+    position: relative;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    /* Color */
+    background-color: #F6D2D5;
+}
+
+#taskList {
+    margin: 0px;
 }
 
 .tasks {
