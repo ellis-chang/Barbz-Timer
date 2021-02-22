@@ -1,33 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barbz Timer</title>
-    <link rel="stylesheet" href="../styles/mainstyle.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Barbz Timer</title>
+        <link rel="stylesheet" href="../styles/mainstyle.css">
 
-</head>
-<body>
-    <br>
-    <header id = barbz-header>
-        <h1 id="head">Barbz Timer</h1>
-    </header>
-    <br>
+    </head>
+    <body>
+        <br>
+        <header id="barbz-header">
+            <h1 id="head">Barbz Timer</h1>
+            <!-- Add hamburger Menu Here -->
+        </header>
+        <br>
         <div id="timer">
+            <h1 id="state">Work</h1>
             <div id="timeBox">
-                <ul id="states">
-                    <li class="state">Work</li>
-                    <li class="state">Short Break</li>
-                    <li class="state">Long Break</li>
-                </ul>
                 <h2 id="clock">25:00</h2>
             </div>
             <br>
-            <br>
-            <button id="startButton" onclick="timeStart()">Start</button>
+            <button id="startButton" onclick="timeStart()">START</button>
+        </div>
+        <br>
+        
+        <div id="middleOfPage">
+            <span id="currentTaskBox">
+                <h2 id="currentTaskHeader">Current Task</h2>
+                <input type="checkbox" id="check">
+                <p id="currentTask">Sample Current Task</p>
+            </span>
+
+            <span id="pomoCounter">
+                <h2 id="workPeriodsHeader">Work Periods Completed</h2>
+                <p id="workPeriods">0</p>
+            </span>
         </div>
 
+        <br>
+
+        <div id="taskBox">
+            <h2 id="taskHeader">Upcoming Tasks</h2>
+            <div id="innerTaskBox">
+                <ul id="taskList"></ul>
+                    <!--li name="task1" id="task1" class="tasks"> Sample Task 1 </li -->
+                    <!--li name="task2" id="task2" class="tasks"> Sample Task 2 </li -->
+                    <!--li name="task3" id="task3" class="tasks"> Sample Task 3 </li -->
+                </ul>
+                <br>
+                <br>
+                <button id="addTask" onclick="displayInput()">Add a task</button>   
+            <div>
+
+            <br>
+
+            <div id="taskInput" style="display: none;">
+                <label for="taskName">Task Name: </label>
+                <input type="taskName" name="taskName" id="taskName">
+                
+                <br>
+                <br>
+
+                <label for="taskPomos">Number of Expected Pomos: </label>
+                <input type="number" name="taskPomos" id="taskPomos" min="1" max="99">
+
+                <br>
+                <br>
+
+                <button id="createButton" onclick="createTask()">Create</button>
+            </div>    
+        </div>
+        <br>
         <script src="../scripts/timer.js"></script>
-</body>
+        <script src="../scripts/taskAdd.js"></script>
+        <script src="../components/task-item.js"></script>
+    </body>
 </html>
