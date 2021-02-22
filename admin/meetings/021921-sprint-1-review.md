@@ -9,6 +9,9 @@
 
 
 ### Agenda:
+- Sprint Review
+  - Did we achieve our goals
+    - Development 
 - Design updates
   - Made designs for task tracking
 - Development updates
