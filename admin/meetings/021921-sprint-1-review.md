@@ -11,6 +11,7 @@
 ### Agenda:
 - Sprint Review
   - Did we achieve our goals for Sprint 1
+    - Everyone will go around and give their opinions and main points will be added to the meeting notes
     - Development 
       - For the most part yes
       - Completed basic functionality of the timer
