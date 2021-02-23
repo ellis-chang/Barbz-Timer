@@ -3,17 +3,19 @@ let seconds;
 let interval;
 let pomos = 0;
 let longBreakCounter = 0;
-myStorage = window.localStorage;
-var totalPomos = 0;
+var currPomos = 0;
 
 function timeStart() {
-    totalPomos = parseInt(localStorage.getItem('totalPomos'));
     if (document.getElementById("startButton").textContent == "START") {
-        minutes = 25;
+        if(document.getElementById('taskList').firstChild == null){
+            alert('There are no tasks to do!');
+            return;
+        }
+        moveTask();
+        minutes = 1;
         seconds = 0;
-        alert(totalPomos);
-        interval = setInterval(count, 1000);
-        document.getElementById("clock").innerHTML = "25:00";
+        interval = setInterval(count, 500);
+        document.getElementById("clock").innerHTML = "1:00";
         document.getElementById("startButton").textContent = "STOP";
     } else {
         stop();
@@ -28,10 +30,19 @@ function count() {
         if(minutes == -1){
             clearInterval(interval);
             if(document.getElementById("state").textContent == "Work"){
-
+                
+                taskTracker();
+                
+                if(document.getElementById('taskList').firstChild == null && currPomos == 0){
+                    stop();
+                    return;
+                }
             }
+            
             switchTimes();
-        } else {
+        
+        } 
+        else {
             seconds = 59;
         }
     }
@@ -42,12 +53,35 @@ function count() {
     } 
 }
 
-function taskTrack(){
-    if(document.getElementById("state").textContent == "Short Break" 
-    || document.getElementById("state").textContent == "Long Break"){
-
-    }
+function moveTask(){
+    currPomos = parseInt(document.getElementById('taskList').firstChild.getAttribute('taskPomos'));
+    document.getElementById('taskList').removeChild(document.getElementById('taskList').firstChild);
 }
+function taskTracker(){
+        currPomos--;
+    if(currPomos == 0 && document.getElementById('taskList').firstChild != null){
+        moveTask();
+    }
+    /*if(document.getElementById('taskList').firstChild == null){
+        stop();
+    }
+    else if(currPomos == 0){
+        currPomos = parseInt(document.getElementById('taskList').firstChild.getAttribute('taskPomos'));
+        document.getElementById('taskList').removeChild(document.getElementById('taskList').firstChild);
+    }
+    else{
+        currPomos--;
+        if(currPomos == 0){
+            if(document.getElementById('taskList').firstChild == null){
+                stop();
+                return;
+            }
+            currPomos = parseInt(document.getElementById('taskList').firstChild.getAttribute('taskPomos'));
+            document.getElementById('taskList').removeChild(document.getElementById('taskList').firstChild);
+        }
+    }*/
+}
+
 
 function switchTimes() {
     if (document.getElementById("state").textContent == "Work") {
@@ -61,10 +95,10 @@ function switchTimes() {
         // If less than 4 pomos, take a short break
         if(longBreakCounter < 4) {
             document.getElementById("state").textContent = "Short Break";
-            minutes = 5;
+            minutes = 1;
             seconds = 0;
-            interval = setInterval(count, 1000);
-            document.getElementById("clock").innerHTML = "5:00";
+            interval = setInterval(count, 500);
+            document.getElementById("clock").innerHTML = "1:00";
         } else { // Take a long break
             longBreakCounter = 0;
             document.getElementById("state").textContent = "Long Break";
@@ -77,21 +111,31 @@ function switchTimes() {
     } else if (document.getElementById("state").textContent == "Short Break" 
             || document.getElementById("state").textContent == "Long Break") {
         document.getElementById("state").textContent = "Work";
-        minutes = 25;
+        minutes = 1;
         seconds = 0;
-        interval = setInterval(count, 1000);
-        document.getElementById("clock").innerHTML = "25:00";
+        interval = setInterval(count, 500);
+        document.getElementById("clock").innerHTML = "1:00";
     } 
 }
 
 function stop() {
-    if (confirm("This will stop the timer and reset all Pomodoro breaks. Are you sure you want to continue?")) {
+    if(document.getElementById('taskList').firstChild == null){
+        alert('No tasks left to do!');
         clearInterval(interval);
-        minutes = 25;
+        minutes = 1;
         seconds = 0;
-        document.getElementById("clock").innerHTML = "25:00";
+        document.getElementById("clock").innerHTML = "1:00";
         document.getElementById("startButton").textContent = "START";
         document.getElementById("state").textContent = "Work";
+    }
+    else if (confirm("This will stop the timer and reset all Pomodoro breaks. Are you sure you want to continue?")) {
+        clearInterval(interval);
+        minutes = 1;
+        seconds = 0;
+        document.getElementById("clock").innerHTML = "1:00";
+        document.getElementById("startButton").textContent = "START";
+        document.getElementById("state").textContent = "Work";
+        currPomos = 0;
     } else {
         alert("The timer will continue!");
     }
