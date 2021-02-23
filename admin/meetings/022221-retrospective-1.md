@@ -33,7 +33,7 @@
     - Be more transparent about development and code updates 
     - Finish up basic functionality and start implementing features off our backlog
     - Be more organized in terms of documentation
-    - 
+   
   
 #### Other Notes and Discussions:
 - Sprint 2 will be working on tasks that were defined the project managers based off the goals we want to achieve that were reviewed in the Sprint 1 Review
