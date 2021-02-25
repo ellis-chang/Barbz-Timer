@@ -10,11 +10,43 @@
     </head>
     <body>
         <br>
-        <header id="barbz-header">
+        <header id="barbzHeader">
             <h1 id="head">Barbz Timer</h1>
-            <!-- Add hamburger Menu Here -->
+            <button class="hamburgerMenu"></button>
+            <div>
+                <nav class="nav">
+                    <ul id="menu">
+                        <li><button class="menuButton" id="mute-notifications">Mute Notifications</button></li>
+                        <li><button class="menuButton" id="settings" onclick=displaySettings()>Settings</button></li>
+                        <li><button class="menuButton" id="view-activity">View Activity</button></li>
+                    </ul>
+                </nav>
+            </div>
         </header>
+
+        <div id="settingsInput" style="display: none;">
+            <p id="settingsTitle">Settings</p>
+            <div id="timerSettings">
+                <button id="closeSettings" onclick="settingsClose()"></button>
+                <p id="timerSettingsTitle">Timer Settings</p>
+                <p id="timeSettings">Time (minutes)</p>
+                <label for="workSettings">Work</label>
+                <input type="number" min="0" step="1" max="60" value="25" name="workSettings" id="workSettings">
+                <br>
+                <br>
+                <label for="shortBreakSettings">Short Break</label>
+                <input type="number" min="0" step="1" max="60" value="5" name="shortBreakSettings" id="shortBreakSettings">
+                <br>
+                <br>
+                <label for="longBreakSettings">Long Break</label>
+                <input type="number" min="0" step="1" max="60" value="30" name="longBreakSettings" id="longBreakSettings">
+            </div>
+            <br>
+            <button id="saveButton" onclick="save()">Save</button>
+        </div>  
+
         <br>
+
         <div id="timer">
             <h1 id="state">Work</h1>
             <div id="timeBox">
@@ -68,9 +100,11 @@
                 <button id="createButton" onclick="createTask()">Create</button>
             </div>    
         </div>
+        <div id="overlay"></div>
         <br>
         <script src="../scripts/timer.js"></script>
         <script src="../scripts/taskAdd.js"></script>
         <script src="../components/task-item.js"></script>
+        <script src="../scripts/menu.js"></script>
     </body>
 </html>
