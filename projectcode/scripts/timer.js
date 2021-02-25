@@ -82,3 +82,16 @@ function stop() {
         alert("The timer will continue!");
     }
 }
+
+let settingsInput = document.getElementById("settingsInput");
+let overlay = document.getElementById("overlay");
+
+function displaySettings() {
+    settingsInput.style.display = "block";
+    overlay.style.display = "block";
+}
+
+function settingsClose() {
+    settingsInput.style.display = "none";
+    overlay.style.display = "none";
+}
