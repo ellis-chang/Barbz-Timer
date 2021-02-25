@@ -1,4 +1,4 @@
-## MM/DD Meeting Notes
+## 02/26 Meeting Notes
 
 #### Attendance:
 - 
