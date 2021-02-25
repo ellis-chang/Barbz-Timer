@@ -30,7 +30,8 @@ body {
     background-color: #F6D2D5;
 }
 
-#barbz-header {
+
+#barbzHeader {
     /* Fix the header to the top of the page */
     position: absolute;
     top: 0;
@@ -39,6 +40,145 @@ body {
 
     background-color: #6A4163;
 } 
+
+.hamburgerMenu {
+    position: absolute;
+    z-index: 1000;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: #F6D2D5;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #F6D2D5;
+    background-image: url("../images/hamburger-menu.png");
+    background-size: 100%;
+    outline: none;
+}
+
+.hamburgerMenu:hover {
+    background-color: #D46993;
+    background-image: url("../images/hamburger-menu-white.png");
+    border: solid white;
+}
+
+.showClose {
+    background-image: url("../images/exit.png");
+}
+
+.showClose:hover {
+    background-color: #D46993;
+    background-image: url("../images/exit-white.png");
+    border: solid white;
+}
+
+.nav {
+    position: absolute;
+    z-index: 1000;
+    top: 0px;
+    right: 15px;
+    background: #6A4163;
+    width: 180px;
+    height: 250px;
+    overflow: hidden;
+    color: #F6D2D5;
+    border: solid white;
+    border-radius: 10px;
+    transform: translateY(-100%);
+    transition: transform 0.2s ease;
+}
+
+.showNav {
+    transform: translateY(35%);
+}
+
+.nav ul {
+    width: 60%;
+    height: 90%;
+    list-style: none;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+  
+.nav ul li button {
+    color: black;
+    background-color: #F6D2D5;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: roboto;
+    font-size: 1.2rem;
+    align-items: center;
+    height: 50px;
+    width: 150px;
+}
+  
+.nav ul li button:hover, .navbar ul li button:focus {
+    background-color: #D46993;
+    color: white;
+    border-color: white;
+}
+
+#closeSettings {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: white;
+    background-image: url("../images/exit.png");
+    background-size: 100%;
+    height: 25px;
+    width: 25px;
+    margin-top: 2px;
+    margin-right: 2px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#closeSettings:hover {
+    background-color: #D46993;
+    background-image: url("../images/exit-white.png");
+    border: solid white;
+}
+
+
+#settingsInput {
+    position: fixed;
+    top: 35%;
+    left: 43.3%;
+    text-align: center;
+    z-index: 1000;
+    background-color: #F6D2D5;
+    height: 350px;
+    width: 250px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#settingsTitle {
+    font-size: 25px;
+}
+
+#timerSettingsTitle {
+    font-size: 20px;
+}
+
+#timeSettings {
+    font-size: 18px;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    display: none;
+}
 
 #timeBox {
     
@@ -349,4 +489,279 @@ body {
     background-color: #D46993;
     box-shadow: 3px 3px 3px #3d3d3d;
     transform: translateY(4px);
+
+}
+
+#middleOfPage {
+    /* Sizing */
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: center;
+    align-items: center;
+    width: 875px;
+    height: auto;
+
+    /* Positioning */
+    margin: auto;
+    position: relative;
+}
+
+#currentTaskBox {
+    /* Border Properties */
+    border: solid #F6D2D5;
+    border-radius: 10px;
+    
+    /* Box Sizing */
+    width: 600px;
+    height: auto;
+    padding: 20px;
+        
+    /* Positioning */
+    margin: 10px;
+    position: relative;
+
+    /* Color */
+    background-color: #6A4163;
+}
+
+#currentTaskHeader {
+    text-align: center;
+}
+
+#check {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+#currentTask {
+    /* Border Properties */
+    border: solid #F6D2D5;
+    border-radius: 10px;
+
+    text-align: center;
+    width: 450px;
+    padding: 10px;
+    height: auto;
+
+    /* Positioning */
+    margin: 10px;
+    display: inline-block;
+
+
+    /* Color */
+    background-color: #D46993;
+}
+
+#pomoCounter {
+    /* Border Properties */
+    border: solid #F6D2D5;
+    border-radius: 10px;
+
+    text-align: center;
+    width: 200px;
+    padding: 20px;
+    height: auto;
+
+    /* Positioning */
+    margin: 10px;
+
+    /* Color */
+    background-color: #6A4163;
+}
+
+#workPeriods {
+    font-size: 20px;
+}
+
+#taskBox { 
+    /* Border Properties */
+    border: solid #F6D2D5;
+    border-radius: 10px;
+    
+    /* Box Sizing */
+    width: 750px;
+    height: auto;
+    padding: 25px 50px 25px 50px;
+        
+    /* Positioning */
+    margin: auto;
+    position: relative;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    /* Color */
+    background-color: #6A4163;
+}
+
+#innerTaskBox {
+    /* Border Properties */
+    border: solid #F6D2D5;
+    border-radius: 10px;
+
+    width: 375px;
+    height: auto;
+    padding: 25px 50px 25px 50px;
+
+    /* Positioning */
+    margin: auto;
+    position: relative;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    /* Color */
+    background-color: #F6D2D5;
+}
+
+#taskList {
+    margin: 0px;
+}
+
+.tasks {
+    /* Border Properties */
+    border: solid #F6D2D5;
+    border-radius: 10px;
+
+    /* Box Sizing */
+    width: 200px;
+    height: 10px;
+    padding: 10px;
+
+    margin: 5px;
+    text-align: center;
+
+    list-style-type: none;
+
+    /* Color */
+    background-color: #D46993;
+}
+
+#addTask {
+    /* Style */
+    background-color: #D46993;
+    color: black;
+    border: solid #F6D2D5;
+    display: inline-block;
+    font-size: 25px;
+    border-radius: 10px;
+
+    /* Sizing */
+    width: 175px;
+    padding: 10px;
+
+    /* Position */
+    margin: auto;
+    display: block;
+}
+
+#addTask:hover {
+    background-color: #D46993;
+    color: white;
+}
+
+#addTask:active {
+    background-color: #D46993;
+    box-shadow: 3px 3px 3px #3d3d3d;
+    transform: translateY(4px);
+}
+
+#taskInput {
+    /* Border Properties */
+    border: solid #F6D2D5;
+    border-radius: 10px;
+
+    /* Box Sizing */
+    width: 300px;
+    height: auto;
+    padding: 25px 50px 25px 50px;
+    
+    /* Positioning */
+    margin: auto;
+    position: relative;
+
+    /* Color */
+    background-color: #6A4163;
+}
+
+#taskPomos {
+    width: 35px;
+}
+
+#createTask {
+    /* Style */
+    background-color: #D46993;
+    color: black;
+    border: solid #F6D2D5;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 10px;
+
+    /* Sizing */
+    width: 100px;
+    padding: 10px;
+
+    /* Position */
+    margin: auto;
+    display: block;
+}
+
+#createTask:hover {
+    background-color: #D46993;
+    color: white;
+}
+
+#createTask:active {
+    background-color: #D46993;
+    box-shadow: 3px 3px 3px #3d3d3d;
+    transform: translateY(4px);
+}
+
+/* TaskList */
+
+#taskList {
+    list-style-type: none;
+}
+
+.uniqueTask {
+    list-style-type: none;
+    width: 400px;
+}
+
+.name {
+    /*position*/
+    display: inline-block;
+    width: 250px;
+    margin-left: 10px;
+    
+    /*border*/
+    border: solid black;
+    border-radius: 30px;
+    
+    /*text*/
+    text-align: center;
+    font-size: 20px;
+}
+
+.numPomos {
+    /*position*/
+    display: inline-block;
+    width: 40px;
+    margin-left: 30px;
+
+    /*border*/
+    border: solid black;
+    border-radius: 30px;
+    
+    /*text*/
+    text-align: center;
+    font-size: 20px;
+}
+
+.delete {
+    display: inline-block;
+    margin-left: 20px;
 }

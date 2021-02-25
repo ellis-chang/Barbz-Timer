@@ -13,6 +13,7 @@ function timeStart() {
             return;
         }
         moveTask();
+
         minutes = 25;
         seconds = 0;
         interval = setInterval(count, 1000);
@@ -124,4 +125,17 @@ function stop() {
     } else {
         alert("The timer will continue!");
     }
+}
+
+let settingsInput = document.getElementById("settingsInput");
+let overlay = document.getElementById("overlay");
+
+function displaySettings() {
+    settingsInput.style.display = "block";
+    overlay.style.display = "block";
+}
+
+function settingsClose() {
+    settingsInput.style.display = "none";
+    overlay.style.display = "none";
 }
