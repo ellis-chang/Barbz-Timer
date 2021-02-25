@@ -4,6 +4,7 @@ let interval;
 let pomos = 0;
 let longBreakCounter = 0;
 var currPomos = 0;
+var currTask = document.getElementById('currentTask');
 
 function timeStart() {
     if (document.getElementById("startButton").textContent == "START") {
@@ -55,8 +56,10 @@ function count() {
 
 function moveTask(){
     currPomos = parseInt(document.getElementById('taskList').firstChild.getAttribute('taskPomos'));
+    currTask.innerHTML = document.getElementById('taskList').firstChild.getAttribute('taskName');
     document.getElementById('taskList').removeChild(document.getElementById('taskList').firstChild);
 }
+
 function taskTracker(){
         currPomos--;
     if(currPomos == 0 && document.getElementById('taskList').firstChild != null){
