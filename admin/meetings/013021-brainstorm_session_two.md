@@ -20,5 +20,5 @@
 
 
 #### To-Do List:
-- [ ] More brainstorming
-- [ ] Project managers will come up with tentative roadmap with weekly milestones by next week
+- [x] More brainstorming
+- [x] Project managers will come up with tentative roadmap with weekly milestones by next week
