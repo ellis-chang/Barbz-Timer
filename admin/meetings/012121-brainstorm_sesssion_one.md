@@ -48,7 +48,3 @@ Continue brainstorming
 
 #### To-Do List:
 - [x] Brainstorm more ideas
-- [ ]
-- [ ]
-- [ ]
-
