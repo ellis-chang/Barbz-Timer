@@ -13,7 +13,6 @@
 - Continue working on the webpage
 - Design Team help with CSS
 - Discuss about the pipeline
--
 
 #### Pipeline
 - Build and testing will be automated through github actions
@@ -31,6 +30,3 @@
 #### To-Do List:
 - [ ] Work on dev tasks and design tasks
 - [ ] Update the pipeline to automate build and testing
-- [ ]
-- [ ]
-
