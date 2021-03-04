@@ -5,6 +5,7 @@ let pomos = 0;
 let longBreakCounter = 0;
 var currPomos = 0;
 var currTask = document.getElementById('currentTask');
+var check = document.getElementById('check');
 
 function timeStart() {
     if (document.getElementById("startButton").textContent == "START") {
@@ -108,15 +109,16 @@ function stop() {
     if(document.getElementById('taskList').firstChild == null){
         alert('No tasks left to do!');
         clearInterval(interval);
-        minutes = 1;
+        minutes = 25;
         seconds = 0;
         document.getElementById("clock").innerHTML = "25:00";
         document.getElementById("startButton").textContent = "START";
         document.getElementById("state").textContent = "Work";
+        currPomos = 0;
     }
     else if (confirm("This will stop the timer and reset all Pomodoro breaks. Are you sure you want to continue?")) {
         clearInterval(interval);
-        minutes = 1;
+        minutes = 25;
         seconds = 0;
         document.getElementById("clock").innerHTML = "25:00";
         document.getElementById("startButton").textContent = "START";
@@ -138,4 +140,17 @@ function displaySettings() {
 function settingsClose() {
     settingsInput.style.display = "none";
     overlay.style.display = "none";
+}
+
+function taskComplete(){
+    if (document.getElementById("state").textContent == "Work") {
+        clearInterval(interval);
+        switchTimes();
+    }
+    if(document.getElementById('taskList').firstChild == null){
+        currTask.innerHTML = "Sample Current Task";
+        stop();
+    }else{
+        moveTask();
+    }
 }
