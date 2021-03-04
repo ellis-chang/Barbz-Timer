@@ -19,6 +19,7 @@
                         <li><button class="menuButton" id="mute-notifications">Mute Notifications</button></li>
                         <li><button class="menuButton" id="settings" onclick=displaySettings()>Settings</button></li>
                         <li><button class="menuButton" id="view-activity">View Activity</button></li>
+                        <li><button class="menuButton" id="about-page" onclick=displayAbout()>About Page</button></li>
                     </ul>
                 </nav>
             </div>
@@ -44,6 +45,22 @@
             <br>
             <button id="saveButton" onclick="save()">Save</button>
         </div>  
+
+        <div id="aboutPage" style="display: none;">
+            <h2 id="aboutTitle">The Pomodoro Technique</h2>
+            <button id="closeAbout" onclick="aboutClose()"></button>
+            <p id="aboutText">The Pomodoro Technique will provide a simple tool/process for improving productivity (your own and that of your team members) which can do the following: </p>
+            <ul id="aboutList">
+                <li class="aboutItems">Alleviate anxiety linked to beginning</li>
+                <li class="aboutItems">Enhance focus and concentration by cutting down on interruptions</li>
+                <li class="aboutItems">Increase awareness of your decisions</li>
+                <li class="aboutItems">Boost motivation and keep it constant</li>
+                <li class="aboutItems">Bolster the determination to achieve your goals</li>
+                <li class="aboutItems">Refine the estimation process, both in qualitative and quantitative terms</li>
+                <li class="aboutItems">Improve your work or study process</li>
+                <li class="aboutItems">Strengthen your resolve to keep on applying yourself in the face of complex situations</li>
+            </ul>              
+        </div>
 
         <br>
 
