@@ -29,7 +29,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: jsdoc -r ./projectcode/scripts/.js
+    - run: jsdoc -r ./source/scripts/
     - run: npm install jest
     - run: npm ci
     - run: npm run build --if-present
