@@ -6,11 +6,11 @@ name: Node.js CI
 on:
   push:
     branches:
-      - 'rough-draft'
+      - 'DemoProject'
       - '!master'
   pull_request:
     branches:
-      - 'rough-draft'
+      - 'DemoProject'
       - '!master'
 
 jobs:
@@ -29,6 +29,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - run: jsdoc -r ./source/scripts/
+    - run: npm install jest
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+    - run: ./node_modules/.bin/cypress open
