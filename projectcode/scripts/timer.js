@@ -14,10 +14,10 @@ function timeStart() {
         }
         moveTask();
 
-        minutes = 25;
-        seconds = 0;
+        minutes = 0;
+        seconds = 3;
         interval = setInterval(count, 1000);
-        document.getElementById("clock").innerHTML = "25:00";
+        document.getElementById("clock").innerHTML = "00:03";
         document.getElementById("startButton").textContent = "STOP";
     } else {
         stop();
@@ -30,7 +30,12 @@ function count() {
         minutes--;
         
         if(minutes == -1){
+            //alert("sound");
+            
+            soundNotification("../sounds/notification.mp3");
+            
             clearInterval(interval);
+            
             if(document.getElementById("state").textContent == "Work"){
                 
                 taskTracker();
@@ -54,7 +59,21 @@ function count() {
         document.getElementById("clock").innerHTML = minutes + ":0" + seconds;
     } 
 }
+function popUp(){
 
+}
+function soundNotification(url){
+    const audio = new Audio(url);
+    audio.play();
+}
+function addTime(){
+    soundNotification("../sounds/notification.mp3");
+    currPomos = prompt("The estimated pomos is up. How much time would you like to add?");
+    if(currPomos == null || currPomos  == "" || currPomos == 0){
+        currPomos = 0;
+        alert("You have chosen not to add additional pomos to this task");
+    }
+}
 function moveTask(){
     currPomos = parseInt(document.getElementById('taskList').firstChild.getAttribute('taskPomos'));
     currTask.innerHTML = document.getElementById('taskList').firstChild.getAttribute('taskName');
@@ -62,12 +81,14 @@ function moveTask(){
 }
 
 function taskTracker(){
-        currPomos--;
+    currPomos--;
+    if(currPomos == 0){
+        addTime();
+    }
     if(currPomos == 0 && document.getElementById('taskList').firstChild != null){
         moveTask();
     }
 }
-
 
 function switchTimes() {
     if (document.getElementById("state").textContent == "Work") {
@@ -81,26 +102,28 @@ function switchTimes() {
         // If less than 4 pomos, take a short break
         if(longBreakCounter < 4) {
             document.getElementById("state").textContent = "Short Break";
-            minutes = 5;
-            seconds = 0;
+            minutes = 0;
+            seconds = 2;
+            
             interval = setInterval(count, 1000);
-            document.getElementById("clock").innerHTML = "5:00";
+            document.getElementById("clock").innerHTML = "0:02";
         } else { // Take a long break
             longBreakCounter = 0;
             document.getElementById("state").textContent = "Long Break";
-            minutes = 30;
-            seconds = 0;
+            minutes = 0;
+            seconds = 4;
+            
             interval = setInterval(count, 1000);
-            document.getElementById("clock").innerHTML = "30:00";
+            document.getElementById("clock").innerHTML = "0:04";
         }
     // After break, get back to work
     } else if (document.getElementById("state").textContent == "Short Break" 
             || document.getElementById("state").textContent == "Long Break") {
         document.getElementById("state").textContent = "Work";
-        minutes = 25;
-        seconds = 0;
+        minutes = 0;
+        seconds = 3;
         interval = setInterval(count, 1000);
-        document.getElementById("clock").innerHTML = "25:00";
+        document.getElementById("clock").innerHTML = "0:03";
     } 
 }
 
@@ -110,7 +133,7 @@ function stop() {
         clearInterval(interval);
         minutes = 1;
         seconds = 0;
-        document.getElementById("clock").innerHTML = "25:00";
+        document.getElementById("clock").innerHTML = "0:03";
         document.getElementById("startButton").textContent = "START";
         document.getElementById("state").textContent = "Work";
     }
@@ -118,7 +141,7 @@ function stop() {
         clearInterval(interval);
         minutes = 1;
         seconds = 0;
-        document.getElementById("clock").innerHTML = "25:00";
+        document.getElementById("clock").innerHTML = "0:03";
         document.getElementById("startButton").textContent = "START";
         document.getElementById("state").textContent = "Work";
         currPomos = 0;
