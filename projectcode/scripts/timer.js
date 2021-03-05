@@ -1,12 +1,13 @@
 let minutes;
 let seconds;
 let interval;
+let interval2;
 let pomos = 0;
 let longBreakCounter = 0;
 var currPomos = 0;
 var currTask = document.getElementById('currentTask');
 
-function timeStart() {
+function timeStart() { 
     if (document.getElementById("startButton").textContent == "START") {
         if(document.getElementById('taskList').firstChild == null){
             alert('There are no tasks to do!');
@@ -17,25 +18,22 @@ function timeStart() {
         minutes = 0;
         seconds = 3;
         interval = setInterval(count, 1000);
-        document.getElementById("clock").innerHTML = "00:03";
+        interval2 = setInterval(soundNotification, 1000);
+        document.getElementById("clock").innerHTML = "0:03";
         document.getElementById("startButton").textContent = "STOP";
     } else {
         stop();
     }
 }
-
 function count() {
     seconds--;
     if (seconds == -1) {
         minutes--;
         
         if(minutes == -1){
-            //alert("sound");
-            
-            soundNotification("../sounds/notification.mp3");
-            
             clearInterval(interval);
-            
+            clearInterval(interval2);
+
             if(document.getElementById("state").textContent == "Work"){
                 
                 taskTracker();
@@ -47,8 +45,7 @@ function count() {
             }
             
             switchTimes();
-        
-        } 
+        }
         else {
             seconds = 59;
         }
@@ -59,16 +56,18 @@ function count() {
         document.getElementById("clock").innerHTML = minutes + ":0" + seconds;
     } 
 }
-function popUp(){
 
-}
-function soundNotification(url){
-    const audio = new Audio(url);
-    audio.play();
+function soundNotification(){
+    if(seconds == 0 && minutes == 0){
+        var audio = new Audio("../sounds/notification.mp3");
+        audio.play();
+    }
 }
 function addTime(){
-    soundNotification("../sounds/notification.mp3");
-    currPomos = prompt("The estimated pomos is up. How much time would you like to add?");
+    currPomos = prompt("The estimated pomos is up. \nHow many work periods would you like to add? \nPlease input a number:");
+    while(isNaN(currPomos)){
+        currPomos = prompt("You have not entered a number. \nPlease re-enter a number of work periods you would like to add:");
+    }
     if(currPomos == null || currPomos  == "" || currPomos == 0){
         currPomos = 0;
         alert("You have chosen not to add additional pomos to this task");
@@ -106,6 +105,7 @@ function switchTimes() {
             seconds = 2;
             
             interval = setInterval(count, 1000);
+            interval2 = setInterval(soundNotification, 1000);
             document.getElementById("clock").innerHTML = "0:02";
         } else { // Take a long break
             longBreakCounter = 0;
@@ -114,6 +114,7 @@ function switchTimes() {
             seconds = 4;
             
             interval = setInterval(count, 1000);
+            interval2 = setInterval(soundNotification, 1000);
             document.getElementById("clock").innerHTML = "0:04";
         }
     // After break, get back to work
@@ -123,12 +124,16 @@ function switchTimes() {
         minutes = 0;
         seconds = 3;
         interval = setInterval(count, 1000);
+        interval2 = setInterval(soundNotification, 1000);
+
         document.getElementById("clock").innerHTML = "0:03";
     } 
 }
 
 function stop() {
     if(document.getElementById('taskList').firstChild == null){
+        pomos++;
+        document.getElementById("workPeriods").innerHTML = pomos;
         alert('No tasks left to do!');
         clearInterval(interval);
         minutes = 1;
