@@ -15,6 +15,10 @@ function displayInput(){
 
 function createTask(){
     numberOfTasks++;
+    if(taskPomos.value < 1){
+        alert("Please re-enter a positive number for the number of expected pomos.");
+        return;
+    }
     var task = `<task-item taskName="${taskName.value}" taskPomos="${taskPomos.value}" id="${numberOfTasks}">`;
     document.getElementById("taskList").insertAdjacentHTML('beforeend', task);
 }
