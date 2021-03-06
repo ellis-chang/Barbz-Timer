@@ -24,6 +24,7 @@ function count() {
         if(minutes == -1){
             clearInterval(interval);
             switchTimes();
+            switchThemes();
         } else {
             seconds = 59;
         }
@@ -54,7 +55,7 @@ function switchTimes() {
         } else { // Take a long break
             longBreakCounter = 0;
             document.getElementById("state").textContent = "Long Break";
-            minutes = 30;
+            minutes = 15;
             seconds = 0;
             interval = setInterval(count, 1000);
             document.getElementById("clock").innerHTML = "30:00";
@@ -63,11 +64,24 @@ function switchTimes() {
     } else if (document.getElementById("state").textContent == "Short Break" 
             || document.getElementById("state").textContent == "Long Break") {
         document.getElementById("state").textContent = "Work";
-        minutes = 25;
-        seconds = 0;
+        minutes = 0;
+        seconds = 2;
         interval = setInterval(count, 1000);
         document.getElementById("clock").innerHTML = "25:00";
     } 
+}
+
+function switchThemes() {
+    if (document.getElementById("state").textContent == "Short Break") {
+        theme.setAttribute('href', "../styles/shortbreakstyle.css");  
+    }
+    else if (document.getElementById("state").textContent == "Long Break") {
+        theme.setAttribute('href', "../styles/longbreakstyle.css");  
+    }  
+    else {
+        theme.setAttribute('href', "../styles/mainstyle.css");  
+    } 
+
 }
 
 function stop() {
@@ -78,6 +92,7 @@ function stop() {
         document.getElementById("clock").innerHTML = "25:00";
         document.getElementById("startButton").textContent = "START";
         document.getElementById("state").textContent = "Work";
+        switchThemes();
     } else {
         alert("The timer will continue!");
     }

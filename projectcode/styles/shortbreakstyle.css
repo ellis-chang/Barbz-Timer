@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: #F6D2D5;
+    background-color: #F1F0F0;
     color: #582323;
 
     /* Account for header offset */
@@ -31,7 +31,7 @@ body {
     margin-left: 2%;
 
     /* Border Properties */
-    background: #F6D2D5;
+    background: #F1F0F0;
     border: 1px solid #582323;
     box-sizing: border-box;
     border-radius: 12px;
@@ -45,7 +45,7 @@ body {
     left: 0;
     width: 100%;
 
-    background-color: #F49FB7;
+    background-color: #DBBFB3;
     border: 1px solid #582323;
     box-sizing: border-box;
 } 
@@ -68,7 +68,7 @@ body {
     position: relative;
     
     /* Color */
-    background-color: #F6D2D5;
+    background-color: #F1F0F0;
     border: 1px solid #582323;
     box-sizing: border-box;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -94,7 +94,7 @@ body {
     margin: auto;
 
     /* Color */
-    background-color: #F49FB7; 
+    background-color: #D5C7BE; 
 }
 
 /*Current state in timer*/
@@ -122,9 +122,8 @@ body {
 
 #startButton {
     /* Style */
-    background-color: #F6D2D5;
+    background-color: #F1F0F0;
     color: #582323;
-    border: solid #F6D2D5;
     display: inline-block;
     font-family: livvic;
     font-size: 260%;
@@ -151,12 +150,12 @@ body {
 }
 
 #startButton:hover {
-    background-color: #D46993;
+    background-color: #DBBFB3;
     color: white;
 }
 
 #startButton:active {
-    background-color: #D46993;
+    background-color: #DBBFB3;
     box-shadow: 3px 3px 3px #3d3d3d;
     transform: translateY(4px);
 }
@@ -193,7 +192,7 @@ body {
     position: relative;
 
     /* Color */
-    background-color: #F49FB7;
+    background-color: #D5C7BE;
 }
 
 #currentTaskHeader {
@@ -226,7 +225,7 @@ body {
 
 
     /* Color */
-    background-color: #F6D2D5;
+    background-color: #DBBFB3;
 }
 
 #pomoCounter {
@@ -245,7 +244,7 @@ body {
     margin: 10px;
 
     /* Color */
-    background-color: #F49FB7;
+    background-color: #D5C7BE;
 }
 
 #workPeriods {
@@ -266,7 +265,7 @@ body {
 
 
     /* Color */
-    background-color: #F6D2D5;
+    background-color: #DBBFB3;
 
     font-size: 20px;
 }
@@ -293,7 +292,7 @@ body {
     flex-direction: column;
 
     /* Color */
-    background-color: #F49FB7;
+    background-color: #D5C7BE;
 }
 
 #innerTaskBox {
@@ -317,7 +316,7 @@ body {
     flex-direction: column;
 
     /* Color */
-    background-color: #F6D2D5;
+    background-color: #F1F0F0;
 }
 
 #taskList {
@@ -343,12 +342,12 @@ border-radius: 12px;
     list-style-type: none;
 
     /* Color */
-    background-color: #F49FB7;
+    background-color: #DBBFB3;
 }
 
 #addTask {
     /* Style */
-    background-color: #F49FB7;
+    background-color: #DBBFB3;
     color: #582323;
     border: 1px solid #582323;
     box-sizing: border-box;
@@ -368,12 +367,12 @@ border-radius: 12px;
 }
 
 #addTask:hover {
-    background-color: #D46993;
+    background-color: #DBBFB3;
     color: white;
 }
 
 #addTask:active {
-    background-color: #F49FB7;
+    background-color: #DBBFB3;
     box-shadow: 3px 3px 3px #3d3d3d;
     transform: translateY(4px);
 }
