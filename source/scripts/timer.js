@@ -8,6 +8,10 @@ var currPomos = 0;
 var currTask = document.getElementById('currentTask');
 var notification;
 var endOfEstimated = false;
+/**
+ * Starts the timer when start button is clicked
+ * and lets user know if they don't have tasks to do.
+ */
 function timeStart() { 
     if (document.getElementById("startButton").textContent == "START") {
         if(document.getElementById('taskList').firstChild == null){
@@ -15,17 +19,23 @@ function timeStart() {
             return;
         }
         moveTask();
-
-        minutes = 0;
-        seconds = 15;
+        minutes = 25;
+        seconds = 0;
         interval = setInterval(count, 1000);
         interval2 = setInterval(notifications, 1000);
-        document.getElementById("clock").innerHTML = "0:15";
+        document.getElementById("clock").innerHTML = "25:00";
+
         document.getElementById("startButton").textContent = "STOP";
     } else {
         stop();
     }
 }
+
+
+/**
+ * Timer to countdown every second based off the default
+ * timer settings and changes based off the changes.
+ */
 function count() {
     seconds--;
     if (seconds == -1) {
@@ -99,32 +109,31 @@ function switchTimes() {
         // If less than 4 pomos, take a short break
         if(longBreakCounter < 4) {
             document.getElementById("state").textContent = "Short Break";
-            minutes = 0;
-            seconds = 3;
-            
+            minutes = 5;
+            seconds = 0;
             interval = setInterval(count, 1000);
             interval2 = setInterval(notifications, 1000);
-            document.getElementById("clock").innerHTML = "0:03";
+            document.getElementById("clock").innerHTML = "05:00";
         } else { // Take a long break
             longBreakCounter = 0;
             document.getElementById("state").textContent = "Long Break";
-            minutes = 0;
-            seconds = 5;
-            
+            minutes = 30;
+            seconds = 0;
             interval = setInterval(count, 1000);
             interval2 = setInterval(notifications, 1000);
-            document.getElementById("clock").innerHTML = "0:05";
+            document.getElementById("clock").innerHTML = "30:00";
+
         }
     // After break, get back to work
     } else if (document.getElementById("state").textContent == "Short Break" 
             || document.getElementById("state").textContent == "Long Break") {
         document.getElementById("state").textContent = "Work";
-        minutes = 0;
-        seconds = 15;
+        minutes = 25;
+        seconds = 0;
         interval = setInterval(count, 1000);
         interval2 = setInterval(notifications, 1000);
 
-        document.getElementById("clock").innerHTML = "0:15";
+        document.getElementById("clock").innerHTML = "25:00";
     } 
 }
 
@@ -138,17 +147,17 @@ function stop() {
         setTimeout(notification.close(), 1 * 1000);
         alert('No tasks left to do!');
         clearInterval(interval);
-        minutes = 1;
+        minutes = 25;
         seconds = 0;
-        document.getElementById("clock").innerHTML = "0:15";
+        document.getElementById("clock").innerHTML = "25:00";
         document.getElementById("startButton").textContent = "START";
         document.getElementById("state").textContent = "Work";
     }
     else if (confirm("This will stop the timer and reset all Pomodoro breaks. Are you sure you want to continue?")) {
         clearInterval(interval);
-        minutes = 1;
+        minutes = 25;
         seconds = 0;
-        document.getElementById("clock").innerHTML = "0:15";
+        document.getElementById("clock").innerHTML = "25:00";
         document.getElementById("startButton").textContent = "START";
         document.getElementById("state").textContent = "Work";
         currPomos = 0;
@@ -225,6 +234,11 @@ function displaySettings() {
     settingsInput.style.display = "block";
     overlay.style.display = "block";
 }
+
+
+/**
+ * Closes the settings page.
+ */
 
 function settingsClose() {
     settingsInput.style.display = "none";
