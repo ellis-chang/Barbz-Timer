@@ -175,6 +175,10 @@ function settingsClose() {
 }
 
 function taskComplete(){
+    if(currPomos == 0){
+        alert("There is no current task!");
+        return;
+    }
     if (document.getElementById("state").textContent == "Work") {
         clearInterval(interval);
         switchTimes();
