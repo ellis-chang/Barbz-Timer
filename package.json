@@ -1,12 +1,12 @@
 {
   "name": "cse110-w21-group8",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {
     "jsdoc": "^3.6.6"
   },
   "devDependencies": {
+    "cypress": "^6.6.0",
     "jest": "^26.6.3"
   },
   "scripts": {
@@ -22,5 +22,6 @@
   "bugs": {
     "url": "https://github.com/elliscchang/cse110-w21-group8/issues"
   },
-  "homepage": "https://github.com/elliscchang/cse110-w21-group8#readme"
+  "homepage": "https://github.com/elliscchang/cse110-w21-group8#readme",
+  "description": ""
 }
