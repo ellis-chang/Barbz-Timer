@@ -8,14 +8,14 @@ template.innerHTML = `
 
     .uniqueTask {
         list-style-type: none;
-        width: 500px;
+        width: 600px;
     }
 
     .name {
         /*position*/
         display: inline-block;
         width: 250px;
-        margin-left: 5px;
+        margin-left: 0px;
         
         /*border*/
         border: solid black;
@@ -30,7 +30,7 @@ template.innerHTML = `
         /*position*/
         display: inline-block;
         width: 40px;
-        margin-left: 10px;
+        margin-left: 5px;
 
         /*border*/
         border: solid black;
@@ -43,18 +43,34 @@ template.innerHTML = `
 
     .delete {
         display: inline-block;
-        margin-left: 5px;
+        margin-left: 1px;
+        width: fit-content;
+        text-align: center;
+        font-size: 10px;
     }
     
-    .swapTask {
+    .upTask {
         display: inline-block;
-        margin-left: 20px;
+        margin-left: 10px;
+        width: fit-content;
+        text-align: center;
+        font-size: 10px;
     }
+
+    .downTask {
+        display: inline-block;
+        margin-left: 0px;
+        width: fit-content;
+        text-align: center;
+        font-size: 10px;
+    }
+
 </style>
 <li class="uniqueTask">
     <p class="name"></p>
     <p class="numPomos"></p>
-    <button class="swapTask" onclick="swapTask(event)">^</button>
+    <button class="upTask" onclick="upTask(event)">U</button>
+    <button class="downTask" onclick="downTask(event)">D</button>
     <button class="delete" onclick="deleteTask(event)">X</button>
 </li>`
 class TaskItem extends HTMLElement {

@@ -23,12 +23,12 @@ function deleteTask(event){
     event.target.parentNode.parentNode.removeChild(event.target.parentNode);
 }
 
-function swapTask(event){
-    var orderedList = document.getElementById("taskList").children;
-    var current = event.target.parentNode.children;
+function upTask(event){
+    let orderedList = document.getElementById("taskList").children;
+    let current = event.target.parentNode.children;
     var temp;
-    var tempNum;
-    var i = 0;
+    let tempNum;
+    let i = 0;
     
     while(current[0].innerHTML != orderedList[i].shadowRoot.querySelector(".name").innerHTML){
         i++;
@@ -45,6 +45,31 @@ function swapTask(event){
         current[1].innerHTML = orderedList[i-1].shadowRoot.querySelector(".numPomos").innerHTML;
         orderedList[i-1].shadowRoot.querySelector(".name").innerHTML = temp;
         orderedList[i-1].shadowRoot.querySelector(".numPomos").innerHTML = tempNum;
+    }
+}
+
+function downTask(event){
+    let orderedList = document.getElementById("taskList").children;
+    let current = event.target.parentNode.children;
+    var temp;
+    let tempNum;
+    let i = 0;
+    
+    while(current[0].innerHTML != orderedList[i].shadowRoot.querySelector(".name").innerHTML){
+        i++;
+    }
+
+    if(orderedList[i+1] == null){
+        alert("The task is at the bottom already.");
+        return;
+    }
+    else{
+        temp = current[0].innerHTML;
+        tempNum = current[1].innerHTML;
+        current[0].innerHTML = orderedList[i+1].shadowRoot.querySelector(".name").innerHTML;
+        current[1].innerHTML = orderedList[i+1].shadowRoot.querySelector(".numPomos").innerHTML;
+        orderedList[i+1].shadowRoot.querySelector(".name").innerHTML = temp;
+        orderedList[i+1].shadowRoot.querySelector(".numPomos").innerHTML = tempNum;
     }
 }
 
