@@ -148,6 +148,18 @@ function stop() {
 
 let settingsInput = document.getElementById("settingsInput");
 let overlay = document.getElementById("overlay");
+let activity = document.getElementById("activity");
+
+function displayActivity() {
+    activity.style.display = "block";
+    overlay.style.display = "block";
+}
+
+function activityClose() {
+    activity.style.display = "none";
+    overlay.style.display = "none";
+}
+
 
 function displaySettings() {
     settingsInput.style.display = "block";

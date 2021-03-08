@@ -121,6 +121,39 @@ body {
     border-color: white;
 }
 
+#activity {
+    position: fixed;
+    top: 15%;
+    left: 30%;
+    z-index: 1000;
+    background-color: #F6D2D5;
+    height: 600px;
+    width: 600px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#activityHeaders {
+        /* Sizing */
+        display: flex;
+        flex-direction: horizontal;
+        justify-content: center;
+        align-items: center;
+        width: 400px;
+        height: auto;
+    
+        /* Positioning */
+        margin: auto;
+        position: relative;
+}
+
+#totalWorkTime {
+    position: relative;
+}
+
+#totalPomosCompleted {
+    position: relative;
+}
 #closeSettings {
     position: absolute;
     top: 0;

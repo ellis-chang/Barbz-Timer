@@ -18,7 +18,7 @@
                     <ul id="menu">
                         <li><button class="menuButton" id="mute-notifications">Mute Notifications</button></li>
                         <li><button class="menuButton" id="settings" onclick=displaySettings()>Settings</button></li>
-                        <li><button class="menuButton" id="view-activity">View Activity</button></li>
+                        <li><button class="menuButton" id="view-activity" onclick=displayActivity()>View Activity</button></li>
                     </ul>
                 </nav>
             </div>
@@ -44,6 +44,30 @@
             <br>
             <button id="saveButton" onclick="save()">Save</button>
         </div>  
+
+        <div id="activity" style="display: none;">
+            <button id="closeSettings" onclick="activityClose()"></button>
+            <p id="activityTitle">Activity Summary</p>
+            <div id="activityHeaders">
+                <p id="totalWorkTime">Total Work Time</p>
+                <p id="totalPomosCompleted">Total Pomos Completed</p>
+            </div>    
+            <div id="worktimeBox">
+                <p id="worktimes">0</p>
+            </div>
+            <div id="totalCompletedTasksBox">
+                <p id="totalCompletedTasks">0</p>
+            </div>
+            <div id="completedTasksListBox">
+                <p id="completedTasksList">Tasks Completed</p>
+                <p id="estimatedPomos">Estimated Pomos</p>
+                <p id="actualPomos">Actual Pomos</p>
+                <ul id="completedTasks">
+
+                </ul>
+            </div>
+        </div>
+
 
         <br>
 
