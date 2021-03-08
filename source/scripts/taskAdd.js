@@ -27,7 +27,6 @@ function deleteTask(event){
         i++;
     }
     document.getElementById("taskList").removeChild(orderedList[i]);
-    console.log(document.getElementById("taskList"));
 }
 
 function upTask(event){
