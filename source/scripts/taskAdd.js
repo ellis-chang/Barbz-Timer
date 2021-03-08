@@ -20,13 +20,20 @@ function createTask(){
 }
 
 function deleteTask(event){
-    event.target.parentNode.parentNode.removeChild(event.target.parentNode);
+    let orderedList = document.getElementById("taskList").children;
+    let current = event.target.parentNode.children;
+    let i = 0;
+    while(current[0].innerHTML != orderedList[i].shadowRoot.querySelector(".name").innerHTML){
+        i++;
+    }
+    document.getElementById("taskList").removeChild(orderedList[i]);
+    console.log(document.getElementById("taskList"));
 }
 
 function upTask(event){
     let orderedList = document.getElementById("taskList").children;
     let current = event.target.parentNode.children;
-    var temp;
+    let temp;
     let tempNum;
     let i = 0;
     
@@ -43,6 +50,10 @@ function upTask(event){
         tempNum = current[1].innerHTML;
         current[0].innerHTML = orderedList[i-1].shadowRoot.querySelector(".name").innerHTML;
         current[1].innerHTML = orderedList[i-1].shadowRoot.querySelector(".numPomos").innerHTML;
+        orderedList[i].setAttribute("taskName", current[0].innerHTML);
+        orderedList[i].setAttribute("taskPomos", current[1].innerHTML);
+        orderedList[i-1].setAttribute("taskName", temp);
+        orderedList[i-1].setAttribute("taskPomos", tempNum);
         orderedList[i-1].shadowRoot.querySelector(".name").innerHTML = temp;
         orderedList[i-1].shadowRoot.querySelector(".numPomos").innerHTML = tempNum;
     }
@@ -51,7 +62,7 @@ function upTask(event){
 function downTask(event){
     let orderedList = document.getElementById("taskList").children;
     let current = event.target.parentNode.children;
-    var temp;
+    let temp;
     let tempNum;
     let i = 0;
     
@@ -68,6 +79,10 @@ function downTask(event){
         tempNum = current[1].innerHTML;
         current[0].innerHTML = orderedList[i+1].shadowRoot.querySelector(".name").innerHTML;
         current[1].innerHTML = orderedList[i+1].shadowRoot.querySelector(".numPomos").innerHTML;
+        orderedList[i].setAttribute("taskName", current[0].innerHTML);
+        orderedList[i].setAttribute("taskPomos", current[1].innerHTML);
+        orderedList[i+1].setAttribute("taskName", temp);
+        orderedList[i+1].setAttribute("taskPomos", tempNum);
         orderedList[i+1].shadowRoot.querySelector(".name").innerHTML = temp;
         orderedList[i+1].shadowRoot.querySelector(".numPomos").innerHTML = tempNum;
     }

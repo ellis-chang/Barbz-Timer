@@ -76,6 +76,7 @@ function count() {
 function moveTask(){
     currPomos = parseInt(document.getElementById('taskList').firstChild.getAttribute('taskPomos'));
     currTask.innerHTML = document.getElementById('taskList').firstChild.getAttribute('taskName');
+    console.log(document.getElementById('taskList').firstChild.getAttribute('taskName'));
     document.getElementById('taskList').removeChild(document.getElementById('taskList').firstChild);
 }
 
