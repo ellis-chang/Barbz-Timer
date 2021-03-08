@@ -7,6 +7,7 @@
 ### Agenda:
 - Retrospective
   - All members take 10 minutes to fill out the anonymous Google form
+    - https://forms.gle/uuge2dpd6PWCXh5u8 
   - Discussion (see next line items)
   - What Worked Well?
   - Where can we improve?
