@@ -79,7 +79,7 @@ function count() {
             }
             
             switchTimes();
-        }
+        } 
         else {
             seconds = 59;
         }
@@ -185,6 +185,7 @@ function stop() {
     if(document.getElementById('taskList').firstChild == null){
         alert('No tasks left to do!');
         clearInterval(interval);
+        clearInterval(interval2);
         minutes = valueWork;
         seconds = 0;
         document.getElementById("clock").innerHTML = `${valueWork}:00`;
@@ -194,6 +195,7 @@ function stop() {
     }
     else if (confirm("This will stop the timer and reset all Pomodoro breaks. Are you sure you want to continue?")) {
         clearInterval(interval);
+        clearInterval(interval2);
         minutes = valueWork;
         seconds = 0;
         document.getElementById("clock").innerHTML = `${valueWork}:00`;
@@ -283,6 +285,23 @@ function notifications(){
 
 let settingsInput = document.getElementById("settingsInput");
 let overlay = document.getElementById("overlay");
+let activity = document.getElementById("activity");
+
+/**
+ * Opens the activity display.
+ */
+function displayActivity() {
+    activity.style.display = "block";
+    overlay.style.display = "block";
+}
+
+/**
+ * Closes the activity display.
+ */
+function activityClose() {
+    activity.style.display = "none";
+    overlay.style.display = "none";
+}
 
 /**
  * Makes the settings visible.
@@ -311,6 +330,7 @@ function settingsClose() {
 function taskComplete(){
     if (document.getElementById("state").textContent == "Work") {
         clearInterval(interval);
+        clearInterval(interval2);
         switchTimes();
     }
     if(document.getElementById('taskList').firstChild == null){
