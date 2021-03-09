@@ -11,6 +11,10 @@ var valueShort = 5;
 var valueLong = 30;
 myStorage = window.localStorage;
 
+/**
+ * On page load, the function sets the settings to what was stored in the
+ * local storage.
+ */
 window.onload = function(){
     if(localStorage.getItem('workSettings') != null){
         valueWork = parseInt(localStorage.getItem('workSettings'));
@@ -24,6 +28,7 @@ window.onload = function(){
         document.getElementById("longBreakSettings").value = valueLong;
     }
 }
+
 function timeStart() {
     if (document.getElementById("startButton").textContent == "START") {
         if(document.getElementById('taskList').firstChild == null){
@@ -73,12 +78,20 @@ function count() {
     } 
 }
 
+/**
+ * Moves the task up the task list. The task at the top of the task list is moved
+ * to the current task bar.
+ */
 function moveTask(){
     currPomos = parseInt(document.getElementById('taskList').firstChild.getAttribute('taskPomos'));
     currTask.innerHTML = document.getElementById('taskList').firstChild.getAttribute('taskName');
     document.getElementById('taskList').removeChild(document.getElementById('taskList').firstChild);
 }
 
+/**
+ * Keeps track of the pomos left for the current task and then calls moveTask() when
+ * the pomos left for the current task is zero.
+ */
 function taskTracker(){
         currPomos--;
     if(currPomos == 0 && document.getElementById('taskList').firstChild != null){
@@ -86,7 +99,9 @@ function taskTracker(){
     }
 }
 
-
+/**
+ * Switches the work periods between work, short break, and long break.
+ */
 function switchTimes() {
     if (document.getElementById("state").textContent == "Work") {
         // Increment total pomo counter and update page
@@ -122,6 +137,11 @@ function switchTimes() {
     } 
 }
 
+/**
+ * Depending on whether the Stop button is clicked or there are no tasks left, the stop
+ * function will be called and stop the timer. It will reset all the values to its
+ * original state.
+ */
 function stop() {
     if(document.getElementById('taskList').firstChild == null){
         alert('No tasks left to do!');
@@ -149,6 +169,9 @@ function stop() {
 let settingsInput = document.getElementById("settingsInput");
 let overlay = document.getElementById("overlay");
 
+/**
+ * Makes the settings visible.
+ */
 function displaySettings() {
     settingsInput.style.display = "block";
     overlay.style.display = "block";
@@ -162,6 +185,11 @@ function settingsClose() {
     document.getElementById("longBreakSettings").value = valueLong;
 }
 
+/**
+ * Clicking the done button will mark the current task as complete
+ * and remove it from the current task bar. The next task will be
+ * moved up and the current period will automatically be switched.
+ */
 function taskComplete(){
     if (document.getElementById("state").textContent == "Work") {
         clearInterval(interval);
@@ -175,6 +203,11 @@ function taskComplete(){
     }
 }
 
+/**
+ * Clicking the save button in the settings page will store the values
+ * into local storage and adjust the timer accordingly.
+ * @returns nothing if inputs values are invalid
+ */
 function save(){
     if(document.getElementById("workSettings").value < 1){
         alert("Please use positive number for the inputs!");
