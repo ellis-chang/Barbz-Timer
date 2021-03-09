@@ -3,20 +3,15 @@ const template = document.createElement('template');
 template.innerHTML = `
 <style>
 
-    .uniqueTask {
-        list-style-type: none;
-        width: 600px;
-    }
-
     .name {
         /*position*/
         display: inline-block;
-        width: 250px;
+        width: 17vw;
         margin-left: 0px;
         
         /*border*/
         border: solid black;
-        border-radius: 30px;
+        border-radius: 1vh;
         
         /*text*/
         text-align: center;
@@ -26,12 +21,12 @@ template.innerHTML = `
     .numPomos {
         /*position*/
         display: inline-block;
-        width: 40px;
-        margin-left: 5px;
+        width: 3vw;
+        margin-left: 1vw;
 
         /*border*/
         border: solid black;
-        border-radius: 30px;
+        border-radius: 1vh;
         
         /*text*/
         text-align: center;
@@ -40,7 +35,7 @@ template.innerHTML = `
 
     .delete {
         display: inline-block;
-        margin-left: 1px;
+        margin-left: 0.5vw;
         width: fit-content;
         text-align: center;
         font-size: 10px;
@@ -48,7 +43,7 @@ template.innerHTML = `
     
     .upTask {
         display: inline-block;
-        margin-left: 10px;
+        margin-left: 0.5vw;
         width: fit-content;
         text-align: center;
         font-size: 10px;
@@ -56,7 +51,7 @@ template.innerHTML = `
 
     .downTask {
         display: inline-block;
-        margin-left: 0px;
+        margin-left: 0.5vw;
         width: fit-content;
         text-align: center;
         font-size: 10px;
