@@ -2,9 +2,6 @@
 const template = document.createElement('template');
 template.innerHTML = `
 <style>
-    #taskList {
-        list-style-type: none;
-    }
 
     .uniqueTask {
         list-style-type: none;
