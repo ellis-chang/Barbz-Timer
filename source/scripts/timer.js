@@ -1,6 +1,7 @@
 let minutes;
 let seconds;
 let interval;
+let interval2;
 let pomos = 0;
 let longBreakCounter = 0;
 var currPomos = 0;
@@ -29,7 +30,14 @@ window.onload = function(){
     }
 }
 
-function timeStart() {
+var notification;
+var endOfEstimated = false;
+
+/**
+ * Starts the timer when start button is clicked
+ * and lets user know if they don't have tasks to do.
+ */
+function timeStart() { 
     if (document.getElementById("startButton").textContent == "START") {
         if(document.getElementById('taskList').firstChild == null){
             alert('There are no tasks to do!');
@@ -40,6 +48,7 @@ function timeStart() {
         minutes = valueWork;
         seconds = 0;
         interval = setInterval(count, 1000);
+        interval2 = setInterval(notifications, 1000);
         document.getElementById("clock").innerHTML = `${valueWork}:00`;
         document.getElementById("startButton").textContent = "STOP";
     } else {
@@ -47,6 +56,10 @@ function timeStart() {
     }
 }
 
+/**
+ * Timer to countdown every second based off the default
+ * timer settings and changes based off the changes.
+ */
 function count() {
     seconds--;
     if (seconds == -1) {
@@ -54,6 +67,7 @@ function count() {
         
         if(minutes == -1){
             clearInterval(interval);
+            clearInterval(interval2);
             if(document.getElementById("state").textContent == "Work"){
                 
                 taskTracker();
@@ -65,8 +79,7 @@ function count() {
             }
             
             switchTimes();
-        
-        } 
+        }
         else {
             seconds = 59;
         }
@@ -93,9 +106,32 @@ function moveTask(){
  * the pomos left for the current task is zero.
  */
 function taskTracker(){
-        currPomos--;
+    currPomos--;
+    if(currPomos == 0){
+        /*
+        notification = new Notification("Task's Estimated Pomos Over", {
+            body: "Good job! The current task's estimated pomos are over. \nPlease return to the website to input whether you want to add more pomos to this task.",
+        });
+        */
+        addTime();
+    }
     if(currPomos == 0 && document.getElementById('taskList').firstChild != null){
         moveTask();
+    }
+}
+
+/**
+ * Prompt the user if they want more pomos for the current task if they aren't done with the current task
+ * and the estimated number of pomos for the current task has been reached.
+ */
+function addTime(){
+    currPomos = prompt("The estimated pomos are up. \nHow many work periods would you like to add? \nPlease input a number:");
+    while(isNaN(currPomos)){
+        currPomos = prompt("You have not entered a number. \nPlease re-enter a number of work periods you would like to add:");
+    }
+    if(currPomos == null || currPomos  == "" || currPomos == 0){
+        currPomos = 0;
+        alert("You have chosen not to add additional pomos to this task");
     }
 }
 
@@ -117,6 +153,7 @@ function switchTimes() {
             minutes = valueShort;
             seconds = 0;
             interval = setInterval(count, 1000);
+            interval2 = setInterval(notifications, 1000);
             document.getElementById("clock").innerHTML = `${valueShort}:00`;
         } else { // Take a long break
             longBreakCounter = 0;
@@ -124,6 +161,7 @@ function switchTimes() {
             minutes = valueLong;
             seconds = 0;
             interval = setInterval(count, 1000);
+            interval2 = setInterval(notifications, 1000);
             document.getElementById("clock").innerHTML = `${valueLong}:00`;
         }
     // After break, get back to work
@@ -133,6 +171,7 @@ function switchTimes() {
         minutes = valueWork;
         seconds = 0;
         interval = setInterval(count, 1000);
+        interval2 = setInterval(notifications, 1000);
         document.getElementById("clock").innerHTML = `${valueWork}:00`;
     } 
 }
@@ -166,6 +205,82 @@ function stop() {
     }
 }
 
+/**
+ * Ask the user for notification permissions.
+ */
+function notificationPermission(){
+    if (!window.Notification) {
+        alert("Browser does not support notifications");
+    }
+    else {
+        if(Notification.permission === 'granted'){
+            //alert("granted"); 
+        }
+        else if (Notification.permission !== 'denied'){
+            //alert("not granted");
+            Notification.requestPermission().then(function (p) {
+                if(p === 'granted'){
+                }
+            });
+        }
+    }
+}
+
+/**
+ * Makes a pop up display to notify the user at the end of a period.
+ */
+function popupNotification() {
+    
+    if(currPomos == 1 && document.getElementById("state").textContent == "Work"){
+        notification = new Notification("Task's Estimated Pomos Over", {
+            body: "Good job! The current task's estimated pomos are over. \nPlease return to the website to input whether you want to add more pomos to this task.",
+        });
+    }
+    else if (document.getElementById("state").textContent == "Work" && currPomos > 1){
+        if(longBreakCounter < 3){
+            notification = new Notification("Work Period Over", {
+                body: "Good job on the work so far! \nHere is a short break.",
+            });
+        }
+        else{
+            notification = new Notification("Work Period Over", {
+                body: "Good job staying on task! \nHere is a well-deserved long break.",
+            });
+        }
+    }
+    else if (document.getElementById("state").textContent == "Short Break"){
+        notification = new Notification("Short Break Over", {
+            body: "Your break time is up \n You should resume working",
+        });
+    }
+    else if (document.getElementById("state").textContent == "Long Break"){
+        notification = new Notification("Long Break Over", {
+            body: "Your break time is up \n You should resume working",
+        });
+    }
+    setTimeout(notification.close(), 1 * 1000);
+
+}
+
+/**
+ * Plays an audio notification for the user.
+ */
+function soundNotification(){
+    var audio = new Audio("../sounds/samsung_whistle.mp3");
+    audio.play();
+}
+
+/**
+ * Notifications will be activated at the end of each period.
+ */
+function notifications(){
+    if(seconds == 0 && minutes == 0){
+        popupNotification();
+        soundNotification();
+    }
+}
+
+
 let settingsInput = document.getElementById("settingsInput");
 let overlay = document.getElementById("overlay");
 
@@ -177,6 +292,9 @@ function displaySettings() {
     overlay.style.display = "block";
 }
 
+/**
+ * Closes the settings page.
+ */
 function settingsClose() {
     settingsInput.style.display = "none";
     overlay.style.display = "none";

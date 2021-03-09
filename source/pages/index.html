@@ -8,7 +8,8 @@
         <link rel="stylesheet" href="../styles/style.css">
 
     </head>
-    <body>
+    <body onload="notificationPermission()">
+
         <br>
         <header id="barbzHeader">
             <h1 id="head">Barbz Timer</h1>
@@ -61,6 +62,7 @@
             <span id="currentTaskBox">
                 <h2 id="currentTaskHeader">Current Task</h2>
                 <button id="check" onclick="taskComplete()">Done</button>
+
                 <p id="currentTask">Sample Current Task</p>
             </span>
 

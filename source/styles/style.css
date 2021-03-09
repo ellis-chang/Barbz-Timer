@@ -385,14 +385,6 @@ body {
     background-color: #F6D2D5;
 }
 
-#taskList {
-    margin: 0px;
-    height:200px; 
-    width: 420px;
-    overflow:hidden; 
-    overflow-y:scroll;
-}
-
 .tasks {
     /* Border Properties */
     border: solid #F6D2D5;
@@ -496,6 +488,11 @@ body {
 /* TaskList */
 #taskList {
     list-style-type: none;
+    margin: 0px;
+    height:200px; 
+    width: 420px;
+    overflow:hidden; 
+    overflow-y:scroll;
 }
 
 .uniqueTask {
