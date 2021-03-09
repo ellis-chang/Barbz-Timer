@@ -17,3 +17,15 @@ menuButtons.forEach(
     menuButton => {
         menuButton.addEventListener("click", toggleMenu);
 });
+
+let aboutPage = document.getElementById("aboutPage");
+
+function displayAbout() {
+    aboutPage.style.display = "block";
+    overlay.style.display = "block";
+}
+
+function aboutClose() {
+    aboutPage.style.display = "none";
+    overlay.style.display = "none";
+}

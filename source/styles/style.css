@@ -8,7 +8,7 @@ body {
     color: black;
 
     /* Account for header offset */
-    padding-top: 100px;
+    padding-top: 10vh;
 
     /* Roboto font */
     font-family: roboto;
@@ -18,14 +18,14 @@ body {
     text-align: center;
 
     /* Box Sizing */
-    width: 200px;
-    height: auto;
-    padding: 10px;
-    margin: 10px;
+    width: 15vw;
+    padding: 1vh;
+    margin: 1vh;
 
     /* Border Properties */
     border: #F6D2D5;
-    border-radius: 10px;
+    border-radius: 1vh;
+
     background-color: #F6D2D5;
 }
 
@@ -35,7 +35,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
 
     background-color: #6A4163;
 } 
@@ -43,12 +43,12 @@ body {
 .hamburgerMenu {
     position: absolute;
     z-index: 1000;
-    top: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
+    top: 2vh;
+    right: 1.5vw;
+    width: 3vw;
+    height: 5.5vh;
     border: #F6D2D5;
-    border-radius: 5px;
+    border-radius: 1vh;
     cursor: pointer;
     background-color: #F6D2D5;
     background-image: url("../images/hamburger-menu.png");
@@ -76,14 +76,14 @@ body {
     position: absolute;
     z-index: 1000;
     top: 0px;
-    right: 15px;
+    right: 2vw;
     background: #6A4163;
-    width: 180px;
-    height: 250px;
+    width: 13vw;
+    height: 30vh;
     overflow: hidden;
     color: #F6D2D5;
     border: solid white;
-    border-radius: 10px;
+    border-radius: 1vh;
     transform: translateY(-100%);
     transition: transform 0.2s ease;
 }
@@ -105,54 +105,20 @@ body {
 .nav ul li button {
     color: black;
     background-color: #F6D2D5;
-    border: 2px solid black;
-    border-radius: 5px;
+    border: 1px solid black;
+    border-radius: 1vh;
     text-decoration: none;
     font-family: roboto;
     font-size: 1.2rem;
     align-items: center;
-    height: 50px;
-    width: 150px;
+    /*height: 50px; */
+    width: 10vw;
 }
   
 .nav ul li button:hover, .navbar ul li button:focus {
     background-color: #D46993;
     color: white;
     border-color: white;
-}
-
-#activity {
-    position: fixed;
-    top: 15%;
-    left: 30%;
-    z-index: 1000;
-    background-color: #F6D2D5;
-    height: 600px;
-    width: 600px;
-    border: 2px solid black;
-    border-radius: 5px;
-}
-
-#activityHeaders {
-        /* Sizing */
-        display: flex;
-        flex-direction: horizontal;
-        justify-content: center;
-        align-items: center;
-        width: 400px;
-        height: auto;
-    
-        /* Positioning */
-        margin: auto;
-        position: relative;
-}
-
-#totalWorkTime {
-    position: relative;
-}
-
-#totalPomosCompleted {
-    position: relative;
 }
 
 #closeSettings {
@@ -162,12 +128,12 @@ body {
     background-color: white;
     background-image: url("../images/exit.png");
     background-size: 100%;
-    height: 25px;
-    width: 25px;
-    margin-top: 2px;
-    margin-right: 2px;
+    height: 3.5vh;
+    width: 2vw;
+    margin-top: 1vh;
+    margin-right: 1vw;
     border: 2px solid black;
-    border-radius: 5px;
+    border-radius: 1vh;
 }
 
 #closeSettings:hover {
@@ -179,15 +145,16 @@ body {
 
 #settingsInput {
     position: fixed;
-    top: 35%;
-    left: 43.3%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     z-index: 1000;
     background-color: #F6D2D5;
-    height: 350px;
-    width: 250px;
+    height: 40vh;
+    width: 20vw;
     border: 2px solid black;
-    border-radius: 5px;
+    border-radius: 1vh;
 }
 
 #settingsTitle {
@@ -213,16 +180,59 @@ body {
     display: none;
 }
 
-#timeBox {
-    
+#aboutPage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: #F6D2D5;
+    height: 60vh;
+    width: 50vw;
+    padding: 5vh;
+    border: 2px solid black;
+    border-radius: 1vh;
+}
+
+#aboutTitle {
+    font-size: 25px;
+    text-align: center;
+}
+
+#aboutText {
+    font-size: 25px;
+    text-align: left;
+}
+
+.aboutItems {
+    font-size: 20px;
+    text-align: left;
+}
+
+#closeAbout {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: white;
+    background-image: url("../images/exit.png");
+    background-size: 100%;
+    height: 3.5vh;
+    width: 2vw;
+    margin-top: 1vh;
+    margin-right: 1vw;
+    border: 2px solid black;
+    border-radius: 1vh;
+}
+
+#timeBox {  
     /* Border Properties */
     border: solid #F6D2D5;
-    border-radius: 10px;
+    border-radius: 1vh;
 
     /* Box Sizing */
-    width: 400px;
+    width: 40vw;
     height: auto;
-    padding: 30px;
+    padding: 5vh;
     
     /* Positioning */
     margin: auto;
@@ -237,12 +247,12 @@ body {
     
     /* Border Properties */
     border: solid #F6D2D5;
-    border-radius: 10px;
+    border-radius: 1vh;
 
     /* Box Sizing */
-    width: 750px;
+    width: 55vw;
     height: auto;
-    padding: 25px 50px 25px 50px;
+    padding: 2.5vw 5vh 2.5vw 5vh;
     
     /* Positioning */
     margin: auto;
@@ -270,11 +280,11 @@ body {
     border: solid #F6D2D5;
     display: inline-block;
     font-size: 25px;
-    border-radius: 5px;
+    border-radius: 1vh;
 
     /* Sizing */
-    width: 125px;
-    padding: 10px;
+    width: 10vw;
+    padding: 1vh;
 
     /* Position */
     margin: auto;
@@ -298,7 +308,7 @@ body {
     flex-direction: horizontal;
     justify-content: center;
     align-items: center;
-    width: 875px;
+    width: 62vw;
     height: auto;
 
     /* Positioning */
@@ -309,15 +319,15 @@ body {
 #currentTaskBox {
     /* Border Properties */
     border: solid #F6D2D5;
-    border-radius: 10px;
+    border-radius: 1vh;
     
     /* Box Sizing */
-    width: 600px;
-    height: auto;
-    padding: 20px;
+    width: 40vw;
+    height: 20vh;
+    padding: 2.5vw 5vh 2.5vw 5vh;
         
     /* Positioning */
-    margin: 10px;
+    margin: 1vh;
     position: relative;
 
     /* Color */
@@ -338,15 +348,15 @@ body {
 #currentTask {
     /* Border Properties */
     border: solid #F6D2D5;
-    border-radius: 10px;
+    border-radius: 1vh;
 
     text-align: center;
-    width: 450px;
-    padding: 10px;
+    width: 25vw;
+    padding: 2.5vh;
     height: auto;
 
     /* Positioning */
-    margin: 10px;
+    margin: 1vh;
     display: inline-block;
 
 
@@ -360,12 +370,12 @@ body {
     border-radius: 10px;
 
     text-align: center;
-    width: 200px;
-    padding: 20px;
-    height: auto;
+    width: 20vw;
+    padding: 2.5vw 5vh 2.5vw 5vh;
+    height: 20vh;
 
     /* Positioning */
-    margin: 10px;
+    margin: 1vh;
 
     /* Color */
     background-color: #6A4163;
@@ -378,12 +388,12 @@ body {
 #taskBox { 
     /* Border Properties */
     border: solid #F6D2D5;
-    border-radius: 10px;
+    border-radius: 1vh;
     
     /* Box Sizing */
-    width: 750px;
+    width: 55vw;
     height: auto;
-    padding: 25px 50px 25px 50px;
+    padding: 2.5vw 5vh 2.5vw 5vh;
         
     /* Positioning */
     margin: auto;
@@ -400,11 +410,11 @@ body {
 #innerTaskBox {
     /* Border Properties */
     border: solid #F6D2D5;
-    border-radius: 10px;
+    border-radius: 1vh;
 
-    width: 375px;
+    width: 30vw;
     height: auto;
-    padding: 25px 50px 25px 50px;
+    padding: 2.5vw 5vh 2.5vw 5vh;
 
     /* Positioning */
     margin: auto;
@@ -416,25 +426,6 @@ body {
 
     /* Color */
     background-color: #F6D2D5;
-}
-
-.tasks {
-    /* Border Properties */
-    border: solid #F6D2D5;
-    border-radius: 10px;
-
-    /* Box Sizing */
-    width: 200px;
-    height: 10px;
-    padding: 10px;
-
-    margin: 5px;
-    text-align: center;
-
-    list-style-type: none;
-
-    /* Color */
-    background-color: #D46993;
 }
 
 #addTask {
@@ -472,9 +463,9 @@ body {
     border-radius: 10px;
 
     /* Box Sizing */
-    width: 300px;
+    width: 20vw;
     height: auto;
-    padding: 25px 50px 25px 50px;
+    padding: 2.5vw 5vh 2.5vw 5vh;
     
     /* Positioning */
     margin: auto;
@@ -485,7 +476,7 @@ body {
 }
 
 #taskPomos {
-    width: 35px;
+    width: 3vw;
 }
 
 #createTask {
@@ -495,11 +486,11 @@ body {
     border: solid #F6D2D5;
     display: inline-block;
     font-size: 20px;
-    border-radius: 10px;
+    border-radius: 1vh;
 
     /* Sizing */
-    width: 100px;
-    padding: 10px;
+    width: 10vw;
+    padding: 1vh;
 
     /* Position */
     margin: auto;
@@ -519,12 +510,45 @@ body {
 }
 
 /* TaskList */
+
 #taskList {
     list-style-type: none;
-    margin: 0px;
-    height:200px; 
-    width: 420px;
-    overflow:hidden; 
-    overflow-y:scroll;
+    width: 30vw;
+    height: 30vh;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
+#activity {
+    position: fixed;
+    top: 15%;
+    left: 30%;
+    z-index: 1000;
+    background-color: #F6D2D5;
+    height: 600px;
+    width: 600px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#activityHeaders {
+        /* Sizing */
+        display: flex;
+        flex-direction: horizontal;
+        justify-content: center;
+        align-items: center;
+        width: 400px;
+        height: auto;
+    
+        /* Positioning */
+        margin: auto;
+        position: relative;
+}
+
+#totalWorkTime {
+    position: relative;
+}
+
+#totalPomosCompleted {
+    position: relative;
+}
