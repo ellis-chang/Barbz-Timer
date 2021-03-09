@@ -45,8 +45,10 @@ function timeStart() {
         }
         moveTask();
 
-        minutes = valueWork;
-        seconds = 0;
+        // minutes = valueWork;
+        // seconds = 0;
+        minutes = 0;
+        seconds = 5;
         interval = setInterval(count, 1000);
         interval2 = setInterval(notifications, 1000);
         document.getElementById("clock").innerHTML = `${valueWork}:00`;
@@ -150,16 +152,20 @@ function switchTimes() {
         // If less than 4 pomos, take a short break
         if(longBreakCounter < 4) {
             document.getElementById("state").textContent = "Short Break";
-            minutes = valueShort;
-            seconds = 0;
+            // minutes = valueShort;
+            // seconds = 0;
+            minutes = 0;
+            seconds = 5;
             interval = setInterval(count, 1000);
             interval2 = setInterval(notifications, 1000);
             document.getElementById("clock").innerHTML = `${valueShort}:00`;
         } else { // Take a long break
             longBreakCounter = 0;
             document.getElementById("state").textContent = "Long Break";
-            minutes = valueLong;
-            seconds = 0;
+            // minutes = valueLong;
+            // seconds = 0;
+            minutes = 0;
+            seconds = 5;
             interval = setInterval(count, 1000);
             interval2 = setInterval(notifications, 1000);
             document.getElementById("clock").innerHTML = `${valueLong}:00`;
@@ -168,8 +174,10 @@ function switchTimes() {
     } else if (document.getElementById("state").textContent == "Short Break" 
             || document.getElementById("state").textContent == "Long Break") {
         document.getElementById("state").textContent = "Work";
-        minutes = valueWork;
-        seconds = 0;
+        // minutes = valueWork;
+        // seconds = 0;
+        minutes = 0;
+        seconds = 5;
         interval = setInterval(count, 1000);
         interval2 = setInterval(notifications, 1000);
         document.getElementById("clock").innerHTML = `${valueWork}:00`;
