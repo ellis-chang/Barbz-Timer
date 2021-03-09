@@ -3,7 +3,11 @@ var taskName = document.getElementById("taskName");
 var taskPomos = document.getElementById("taskPomos");
 var numberOfTasks = 0;
 
-
+/**
+ * Displays a form to allow users to input a name
+ * of the task as well as the expected pomos it 
+ * would take.
+ */
 function displayInput(){
     if(taskInput.style.display == "none"){
         taskInput.style.display = "block";
@@ -13,12 +17,24 @@ function displayInput(){
     }
 }
 
+/**
+ * Creates the task and adds it to the task list.
+ */
 function createTask(){
+    if(taskPomos.value < 1){
+        alert("Please re-enter a positive number for the number of expected pomos.");
+        return;
+    }
     numberOfTasks++;
     var task = `<task-item taskName="${taskName.value}" taskPomos="${taskPomos.value}" id="${numberOfTasks}">`;
     document.getElementById("taskList").insertAdjacentHTML('beforeend', task);
 }
 
+/**
+ * Deletes the event from the task list.
+ * 
+ * @param {event} event The event related to the task that will be deleted. 
+ */
 function deleteTask(event){
     let orderedList = document.getElementById("taskList").children;
     let current = event.target.parentNode.children;
@@ -29,6 +45,10 @@ function deleteTask(event){
     document.getElementById("taskList").removeChild(orderedList[i]);
 }
 
+/**
+ * Swap the current task with the task above it. If there is no task above the current then
+ * alert the user and return nothing.
+ */
 function upTask(event){
     let orderedList = document.getElementById("taskList").children;
     let current = event.target.parentNode.children;
@@ -58,6 +78,10 @@ function upTask(event){
     }
 }
 
+/**
+ * Swap the current task with the task below it. If there is no task below the current then
+ * alert the user and return nothing.
+ */
 function downTask(event){
     let orderedList = document.getElementById("taskList").children;
     let current = event.target.parentNode.children;

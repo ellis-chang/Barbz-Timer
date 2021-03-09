@@ -65,6 +65,7 @@ template.innerHTML = `
         font-size: 10px;
     }
 
+
 </style>
 <li class="uniqueTask">
     <p class="name"></p>
