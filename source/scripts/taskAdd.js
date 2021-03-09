@@ -4,6 +4,7 @@ var taskPomos = document.getElementById("taskPomos");
 var numberOfTasks = 0;
 
 
+
 /**
  * Displays a form to allow users to input a name
  * of the task as well as the expected pomos it 
@@ -29,9 +30,11 @@ function createTask(){
         return;
     }
 
+
     var task = `<task-item taskName="${taskName.value}" taskPomos="${taskPomos.value}" id="${numberOfTasks}">`;
     document.getElementById("taskList").insertAdjacentHTML('beforeend', task);
 }
+
 
 
 /**
@@ -39,7 +42,6 @@ function createTask(){
  * 
  * @param {event} event The event related to the task that will be deleted. 
  */
-
 function deleteTask(event){
     event.target.parentNode.parentNode.removeChild(event.target.parentNode);
 }

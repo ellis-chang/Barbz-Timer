@@ -6,8 +6,33 @@ let pomos = 0;
 let longBreakCounter = 0;
 var currPomos = 0;
 var currTask = document.getElementById('currentTask');
+var check = document.getElementById('check');
+var valueWork = 25;
+var valueShort = 5;
+var valueLong = 30;
+myStorage = window.localStorage;
+
+/**
+ * On page load, the function sets the settings to what was stored in the
+ * local storage.
+ */
+window.onload = function(){
+    if(localStorage.getItem('workSettings') != null){
+        valueWork = parseInt(localStorage.getItem('workSettings'));
+        document.getElementById("workSettings").value = valueWork;
+        document.getElementById("clock").innerHTML = `${valueWork}:00`;
+    } else if(localStorage.getItem('shortBreakSettings') != null){
+        valueShort = parseInt(localStorage.getItem('shortBreakSettings'));
+        document.getElementById("shortBreakSettings").value = valueShort;
+    } else if(localStorage.getItem('longBreakSettings') != null){
+        valueLong = parseInt(localStorage.getItem('longBreakSettings'));
+        document.getElementById("longBreakSettings").value = valueLong;
+    }
+}
+
 var notification;
 var endOfEstimated = false;
+
 /**
  * Starts the timer when start button is clicked
  * and lets user know if they don't have tasks to do.
@@ -19,18 +44,17 @@ function timeStart() {
             return;
         }
         moveTask();
-        minutes = 25;
+
+        minutes = valueWork;
         seconds = 0;
         interval = setInterval(count, 1000);
         interval2 = setInterval(notifications, 1000);
-        document.getElementById("clock").innerHTML = "25:00";
-
+        document.getElementById("clock").innerHTML = `${valueWork}:00`;
         document.getElementById("startButton").textContent = "STOP";
     } else {
         stop();
     }
 }
-
 
 /**
  * Timer to countdown every second based off the default
@@ -44,7 +68,6 @@ function count() {
         if(minutes == -1){
             clearInterval(interval);
             clearInterval(interval2);
-
             if(document.getElementById("state").textContent == "Work"){
                 
                 taskTracker();
@@ -67,6 +90,21 @@ function count() {
         document.getElementById("clock").innerHTML = minutes + ":0" + seconds;
     } 
 }
+
+/**
+ * Moves the task up the task list. The task at the top of the task list is moved
+ * to the current task bar.
+ */
+function moveTask(){
+    currPomos = parseInt(document.getElementById('taskList').firstChild.getAttribute('taskPomos'));
+    currTask.innerHTML = document.getElementById('taskList').firstChild.getAttribute('taskName');
+    document.getElementById('taskList').removeChild(document.getElementById('taskList').firstChild);
+}
+
+/**
+ * Keeps track of the pomos left for the current task and then calls moveTask() when
+ * the pomos left for the current task is zero.
+ */
 function taskTracker(){
     currPomos--;
     if(currPomos == 0){
@@ -81,6 +119,11 @@ function taskTracker(){
         moveTask();
     }
 }
+
+/**
+ * Prompt the user if they want more pomos for the current task if they aren't done with the current task
+ * and the estimated number of pomos for the current task has been reached.
+ */
 function addTime(){
     currPomos = prompt("The estimated pomos are up. \nHow many work periods would you like to add? \nPlease input a number:");
     while(isNaN(currPomos)){
@@ -91,12 +134,10 @@ function addTime(){
         alert("You have chosen not to add additional pomos to this task");
     }
 }
-function moveTask(){
-    currPomos = parseInt(document.getElementById('taskList').firstChild.getAttribute('taskPomos'));
-    currTask.innerHTML = document.getElementById('taskList').firstChild.getAttribute('taskName');
-    document.getElementById('taskList').removeChild(document.getElementById('taskList').firstChild);
-}
 
+/**
+ * Switches the work periods between work, short break, and long break.
+ */
 function switchTimes() {
     if (document.getElementById("state").textContent == "Work") {
         // Increment total pomo counter and update page
@@ -109,55 +150,53 @@ function switchTimes() {
         // If less than 4 pomos, take a short break
         if(longBreakCounter < 4) {
             document.getElementById("state").textContent = "Short Break";
-            minutes = 5;
+            minutes = valueShort;
             seconds = 0;
             interval = setInterval(count, 1000);
             interval2 = setInterval(notifications, 1000);
-            document.getElementById("clock").innerHTML = "05:00";
+            document.getElementById("clock").innerHTML = `${valueShort}:00`;
         } else { // Take a long break
             longBreakCounter = 0;
             document.getElementById("state").textContent = "Long Break";
-            minutes = 30;
+            minutes = valueLong;
             seconds = 0;
             interval = setInterval(count, 1000);
             interval2 = setInterval(notifications, 1000);
-            document.getElementById("clock").innerHTML = "30:00";
-
+            document.getElementById("clock").innerHTML = `${valueLong}:00`;
         }
     // After break, get back to work
     } else if (document.getElementById("state").textContent == "Short Break" 
             || document.getElementById("state").textContent == "Long Break") {
         document.getElementById("state").textContent = "Work";
-        minutes = 25;
+        minutes = valueWork;
         seconds = 0;
         interval = setInterval(count, 1000);
         interval2 = setInterval(notifications, 1000);
-
-        document.getElementById("clock").innerHTML = "25:00";
+        document.getElementById("clock").innerHTML = `${valueWork}:00`;
     } 
 }
 
+/**
+ * Depending on whether the Stop button is clicked or there are no tasks left, the stop
+ * function will be called and stop the timer. It will reset all the values to its
+ * original state.
+ */
 function stop() {
     if(document.getElementById('taskList').firstChild == null){
-        pomos++;
-        document.getElementById("workPeriods").innerHTML = pomos;
-        notification = new Notification("No more tasks", {
-            body: "Congratulations! You have finished all your tasks! \nPlease input more tasks if needed.\nIf not, thank you for using our service!",
-        });
-        setTimeout(notification.close(), 1 * 1000);
         alert('No tasks left to do!');
         clearInterval(interval);
-        minutes = 25;
+        minutes = valueWork;
         seconds = 0;
-        document.getElementById("clock").innerHTML = "25:00";
+        document.getElementById("clock").innerHTML = `${valueWork}:00`;
         document.getElementById("startButton").textContent = "START";
         document.getElementById("state").textContent = "Work";
+        currPomos = 0;
     }
     else if (confirm("This will stop the timer and reset all Pomodoro breaks. Are you sure you want to continue?")) {
         clearInterval(interval);
-        minutes = 25;
+        minutes = valueWork;
         seconds = 0;
-        document.getElementById("clock").innerHTML = "25:00";
+        document.getElementById("clock").innerHTML = `${valueWork}:00`;
         document.getElementById("startButton").textContent = "START";
         document.getElementById("state").textContent = "Work";
         currPomos = 0;
@@ -166,6 +205,9 @@ function stop() {
     }
 }
 
+/**
+ * Ask the user for notification permissions.
+ */
 function notificationPermission(){
     if (!window.Notification) {
         alert("Browser does not support notifications");
@@ -183,6 +225,10 @@ function notificationPermission(){
         }
     }
 }
+
+/**
+ * Makes a pop up display to notify the user at the end of a period.
+ */
 function popupNotification() {
     
     if(currPomos == 1 && document.getElementById("state").textContent == "Work"){
@@ -215,10 +261,18 @@ function popupNotification() {
     setTimeout(notification.close(), 1 * 1000);
 
 }
+
+/**
+ * Plays an audio notification for the user.
+ */
 function soundNotification(){
     var audio = new Audio("../sounds/samsung_whistle.mp3");
     audio.play();
 }
+
+/**
+ * Notifications will be activated at the end of each period.
+ */
 function notifications(){
     if(seconds == 0 && minutes == 0){
         popupNotification();
@@ -230,17 +284,66 @@ function notifications(){
 let settingsInput = document.getElementById("settingsInput");
 let overlay = document.getElementById("overlay");
 
+/**
+ * Makes the settings visible.
+ */
 function displaySettings() {
     settingsInput.style.display = "block";
     overlay.style.display = "block";
 }
 
-
 /**
  * Closes the settings page.
  */
-
 function settingsClose() {
     settingsInput.style.display = "none";
     overlay.style.display = "none";
+    document.getElementById("workSettings").value = valueWork;
+    document.getElementById("shortBreakSettings").value = valueShort;
+    document.getElementById("longBreakSettings").value = valueLong;
+}
+
+/**
+ * Clicking the done button will mark the current task as complete
+ * and remove it from the current task bar. The next task will be
+ * moved up and the current period will automatically be switched.
+ */
+function taskComplete(){
+    if (document.getElementById("state").textContent == "Work") {
+        clearInterval(interval);
+        switchTimes();
+    }
+    if(document.getElementById('taskList').firstChild == null){
+        currTask.innerHTML = "Sample Current Task";
+        stop();
+    }else{
+        moveTask();
+    }
+}
+
+/**
+ * Clicking the save button in the settings page will store the values
+ * into local storage and adjust the timer accordingly.
+ * @returns nothing if inputs values are invalid
+ */
+function save(){
+    if(document.getElementById("workSettings").value < 1){
+        alert("Please use positive number for the inputs!");
+        return;
+    } else if(document.getElementById("shortBreakSettings").value < 1){
+        alert("Please use positive number for the inputs!");
+        return;
+    } else if(document.getElementById("longBreakSettings").value < 1){
+        alert("Please use positive number for the inputs!");
+        return;
+    }
+    
+    valueWork = document.getElementById("workSettings").value;
+    valueShort = document.getElementById("shortBreakSettings").value;
+    valueLong = document.getElementById("longBreakSettings").value;
+    document.getElementById("clock").innerHTML = `${valueWork}:00`;
+
+    localStorage.setItem('workSettings', `${valueWork}`);
+    localStorage.setItem('shortBreakSettings', `${valueShort}`);
+    localStorage.setItem('longBreakSettings', `${valueLong}`);
 }

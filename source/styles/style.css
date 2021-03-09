@@ -297,8 +297,9 @@ body {
 
 #check {
     display: inline-block;
-    width: 20px;
+    width: 50px;
     height: 20px;
+    text-align: center;
 }
 
 #currentTask {
@@ -382,14 +383,6 @@ body {
 
     /* Color */
     background-color: #F6D2D5;
-}
-
-#taskList {
-    margin: 0px;
-    height:200px; 
-    width: 420px;
-    overflow:hidden; 
-    overflow-y:scroll;
 }
 
 .tasks {
@@ -493,9 +486,13 @@ body {
 }
 
 /* TaskList */
-
 #taskList {
     list-style-type: none;
+    margin: 0px;
+    height:200px; 
+    width: 420px;
+    overflow:hidden; 
+    overflow-y:scroll;
 }
 
 .uniqueTask {
