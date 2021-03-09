@@ -512,44 +512,8 @@ body {
 
 #taskList {
     list-style-type: none;
-}
-
-.uniqueTask {
-    list-style-type: none;
-    width: 400px;
-}
-
-.name {
-    /*position*/
-    display: inline-block;
-    width: 20vw;
-    margin-left: 5vw;
-    
-    /*border*/
-    border: solid black;
-    border-radius: 1vh;
-    
-    /*text*/
-    text-align: center;
-    font-size: 20px;
-}
-
-.numPomos {
-    /*position*/
-    display: inline-block;
-    width: 4vw;
-    margin-left: 3vh;
-
-    /*border*/
-    border: solid black;
-    border-radius: 1vh;
-    
-    /*text*/
-    text-align: center;
-    font-size: 20px;
-}
-
-.delete {
-    display: inline-block;
-    margin-left: 2vw;
+    width: 30vw;
+    height: auto;
+    overflow: hidden;
+    overflow-y: scroll;
 }
