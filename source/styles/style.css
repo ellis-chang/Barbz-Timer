@@ -462,9 +462,9 @@ body {
     border-radius: 10px;
 
     /* Box Sizing */
-    width: 300px;
+    width: 20vw;
     height: auto;
-    padding: 25px 50px 25px 50px;
+    padding: 2.5vw 5vh 2.5vw 5vh;
     
     /* Positioning */
     margin: auto;
