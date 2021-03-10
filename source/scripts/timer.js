@@ -79,6 +79,7 @@ function count() {
             }
             
             switchTimes();
+            switchThemes();
         } 
         else {
             seconds = 59;
@@ -176,6 +177,24 @@ function switchTimes() {
     } 
 }
 
+theme = document.getElementById("style");
+
+/**
+ * Switches themes from work period to work period.
+ */
+function switchThemes() {
+    if (document.getElementById("state").textContent == "Short Break") {
+        theme.setAttribute('href', "../styles/shortbreakstyle.css");  
+    }
+    else if (document.getElementById("state").textContent == "Long Break") {
+        theme.setAttribute('href', "../styles/longbreakstyle.css");  
+    }  
+    else {
+        theme.setAttribute('href', "../styles/style.css");  
+    } 
+
+}
+
 /**
  * Depending on whether the Stop button is clicked or there are no tasks left, the stop
  * function will be called and stop the timer. It will reset all the values to its
@@ -192,6 +211,8 @@ function stop() {
         document.getElementById("startButton").textContent = "START";
         document.getElementById("state").textContent = "Work";
         currPomos = 0;
+        longBreakCounter = 0;
+        switchThemes();
     }
     else if (confirm("This will stop the timer and reset all Pomodoro breaks. Are you sure you want to continue?")) {
         clearInterval(interval);
@@ -202,6 +223,8 @@ function stop() {
         document.getElementById("startButton").textContent = "START";
         document.getElementById("state").textContent = "Work";
         currPomos = 0;
+        longBreakCounter = 0;
+        switchThemes();
     } else {
         alert("The timer will continue!");
     }
@@ -332,6 +355,7 @@ function taskComplete(){
         clearInterval(interval);
         clearInterval(interval2);
         switchTimes();
+        switchThemes();
     }
     if(document.getElementById('taskList').firstChild == null){
         currTask.innerHTML = "Sample Current Task";
