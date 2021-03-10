@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: #F6D2D5;
+    background-color: #F1F0F0;
     color: #582323;
 
     /* Account for header offset */
@@ -27,7 +27,7 @@ body {
     box-sizing: border-box;
     border-radius: 1vh;
 
-    background-color: #F6D2D5;
+    background-color: #F1F0F0;
 }
 
 
@@ -38,7 +38,7 @@ body {
     left: 0;
     width: 100vw;
 
-    background-color: #F49FB7;
+    background-color: #D5C7BE; 
     border: 1px solid #582323;
     box-sizing: border-box;
 } 
@@ -53,14 +53,14 @@ body {
     border: 1px solid #582323;
     border-radius: 1vh;
     cursor: pointer;
-    background-color: #F6D2D5;
+    background-color: #F1F0F0;
     background-image: url("../images/hamburger-menu.png");
     background-size: 100%;
     outline: none;
 }
 
 .hamburgerMenu:hover {
-    background-color: #D46993;
+    background-color: #DBBFB3;
     background-image: url("../images/hamburger-menu-white.png");
     border: 1px solid white;
 }
@@ -70,7 +70,7 @@ body {
 }
 
 .showClose:hover {
-    background-color: #D46993;
+    background-color: #DBBFB3;
     background-image: url("../images/exit-white.png");
     border: 1px solid white;
 }
@@ -80,7 +80,7 @@ body {
     z-index: 1000;
     top: 0px;
     right: 2vw;
-    background-color: #F49FB7;
+    background-color: #D5C7BE; 
     width: 13vw;
     height: 30vh;
     overflow: hidden;
@@ -106,7 +106,7 @@ body {
   
 .nav ul li button {
     color: #582323;
-    background-color: #F6D2D5;
+    background-color: #F1F0F0;
     border: 1px solid #582323;
     border-radius: 1vh;
     text-decoration: none;
@@ -117,7 +117,7 @@ body {
 }
   
 .nav ul li button:hover, .navbar ul li button:focus {
-    background-color: #D46993;
+    background-color: #DBBFB3;
     color: white;
     border-color: white;
 }
@@ -264,7 +264,7 @@ body {
     position: relative;
     
     /* Color */
-    background-color: #F6D2D5;
+    background-color: #F1F0F0;
 }
 
 #timer { 
@@ -284,7 +284,7 @@ body {
     position: relative;
 
     /* Color */
-    background-color: #F49FB7;
+    background-color: #D5C7BE; 
     
 }
 
@@ -303,7 +303,7 @@ body {
 
 #startButton {
     /* Style */
-    background-color: #F6D2D5;
+    background-color: #F1F0F0;
     color: #582323;
     display: inline-block;
 
@@ -325,12 +325,12 @@ body {
 }
 
 #startButton:hover {
-    background-color: #D46993;
+    background-color: #DBBFB3;
     color: white;
 }
 
 #startButton:active {
-    background-color: #D46993;
+    background-color: #DBBFB3;
     box-shadow: 3px 3px 3px #3d3d3d;
     transform: translateY(4px);
 }
@@ -350,7 +350,6 @@ body {
 }
 
 #currentTaskBox {
-
     display: flex;
     flex-direction: horizontal;
     justify-content: center;
@@ -375,7 +374,7 @@ body {
     position: relative;
 
     /* Color */
-    background-color: #F49FB7;
+    background-color: #D5C7BE;
 }
 
 #currentTaskHeader {
@@ -397,7 +396,7 @@ body {
     font-size: 2vh;
 
     /* Color */
-    background-color: #F6D2D5;
+    background-color: #F1F0F0;
     display: inline-block;
     
     /* Border Properties */
@@ -408,11 +407,11 @@ body {
 }
 
 #check:hover {
-    background-color: #D46993;
+    background-color: #DBBFB3;
 }
 
 #check:active {
-    background-color: #D46993;
+    background-color: #DBBFB3;
     box-shadow: 3px 3px 3px #3d3d3d;
     transform: translateY(4px);
 }
@@ -437,7 +436,7 @@ body {
 
     /* Color */
     color: #582323;
-    background-color: #F6D2D5;
+    background-color: #F1F0F0;
 
     font-size: 2vh;
 }
@@ -459,7 +458,7 @@ body {
     display: inline-block;
 
     /* Color */
-    background-color: #F6D2D5;
+    background-color: #F1F0F0;
 
     font-size: 2vh;
 }
@@ -480,7 +479,7 @@ body {
     margin: 1vh;
 
     /* Color */
-    background-color: #F49FB7;
+    background-color: #D5C7BE;
 }
 
 #workPeriodsHeader {
@@ -506,7 +505,7 @@ body {
     margin: 1vh;
     
 
-    background-color: #F6D2D5;
+    background-color: #F1F0F0;
 }
 
 #taskBox { 
@@ -530,7 +529,7 @@ body {
     flex-direction: column;
 
     /* Color */
-    background-color: #F49FB7;
+    background-color: #D5C7BE;
 }
 
 #innerTaskBox {
@@ -553,7 +552,7 @@ body {
     flex-direction: column;
 
     /* Color */
-    background-color: #F6D2D5;
+    background-color: #F1F0F0;
 }
 
 #addTask {
@@ -574,17 +573,17 @@ body {
     margin: auto;
     display: block;
 
-    background-color: #F49FB7;
+    background-color: #D5C7BE;
     color: #582323;
 }
 
 #addTask:hover {
-    background-color: #D46993;
+    background-color: #DBBFB3;
     color: white;
 }
 
 #addTask:active {
-    background-color: #D46993;
+    background-color: #DBBFB3;
     box-shadow: 3px 3px 3px #3d3d3d;
     transform: translateY(4px);
 }
@@ -606,7 +605,7 @@ body {
     position: relative;
 
     /* Color */
-    background-color: #F49FB7;
+    background-color: #D5C7BE;
 }
 
 #taskPomos {
@@ -633,17 +632,17 @@ body {
     display: block;
 
     /* Style */
-    background-color: #F6D2D5;
+    background-color: #F1F0F0;
     color: #582323;
 }
 
 #createTask:hover {
-    background-color: #D46993;
+    background-color: #DBBFB3;
     color: white;
 }
 
 #createTask:active {
-    background-color: #D46993;
+    background-color: #DBBFB3;
     box-shadow: 3px 3px 3px #3d3d3d;
     transform: translateY(4px);
 
