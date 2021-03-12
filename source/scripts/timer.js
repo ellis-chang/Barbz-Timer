@@ -21,10 +21,12 @@ window.onload = function(){
         valueWork = parseInt(localStorage.getItem('workSettings'));
         document.getElementById("workSettings").value = valueWork;
         document.getElementById("clock").innerHTML = `${valueWork}:00`;
-    } else if(localStorage.getItem('shortBreakSettings') != null){
+    }
+    if(localStorage.getItem('shortBreakSettings') != null){
         valueShort = parseInt(localStorage.getItem('shortBreakSettings'));
         document.getElementById("shortBreakSettings").value = valueShort;
-    } else if(localStorage.getItem('longBreakSettings') != null){
+    }
+    if(localStorage.getItem('longBreakSettings') != null){
         valueLong = parseInt(localStorage.getItem('longBreakSettings'));
         document.getElementById("longBreakSettings").value = valueLong;
     }
