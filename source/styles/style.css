@@ -43,6 +43,25 @@ body {
     box-sizing: border-box;
 } 
 
+a {
+    cursor: pointer;
+}
+
+#en {
+    text-decoration: underline;
+}
+
+.languageMenu {
+    position: absolute;
+    z-index: 1000;
+    bottom: 1.4vw;
+    right: 6.0vw;
+}
+
+.languageMenu > a {
+    margin-right: 10px;
+}
+
 .hamburgerMenu {
     position: absolute;
     z-index: 1000;
@@ -302,6 +321,7 @@ body {
 }
 
 #startButton {
+
     /* Style */
     background-color: #F6D2D5;
     color: #582323;
