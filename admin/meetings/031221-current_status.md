@@ -22,7 +22,7 @@
 - 
 
 #### Other Notes and Discussions:
-
+- Last retrospective on Monday
 
 #### Conclusions and Next Step:
 
@@ -31,5 +31,4 @@
 - [ ] Last few tasks
 - [ ] Video
 - [ ] Testing
-- [ ]
 
