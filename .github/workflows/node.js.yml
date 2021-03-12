@@ -29,9 +29,13 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install -g jsdoc
-    - run: jsdoc -r ./source/scripts/
     - run: npm install --save-dev jest
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+    - name: Build
+      uses: andstor/jsdoc-action@v1
+      with:
+        source_dir: ./source
+        recurse: true
+        output_dir: ./out
