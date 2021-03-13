@@ -16,7 +16,7 @@
             <div>
                 <nav class="nav">
                     <ul id="menu">
-                        <li><button class="menuButton" id="mute-notifications">Mute Notifications</button></li>
+                        <li><button class="menuButton" id="mute-notifications" onclick=mute()>Mute Notifications</button></li>
                         <li><button class="menuButton" id="settings" onclick=displaySettings()>Settings</button></li>
                         <li><button class="menuButton" id="view-activity">View Activity</button></li>
                     </ul>
@@ -50,7 +50,7 @@
         <div id="timer">
             <h1 id="state">Work</h1>
             <div id="timeBox">
-                <h2 id="clock">0:15</h2>
+                <h2 id="clock">0:03</h2>
             </div>
             <br>
             <button id="startButton" onclick="timeStart()">START</button>
@@ -62,6 +62,7 @@
                 <h2 id="currentTaskHeader">Current Task</h2>
                 <input type="checkbox" id="check">
                 <p id="currentTask">Sample Current Task</p>
+                <input type="text" id="increaseTimeBox" name="increaseTimeBox">
             </span>
 
             <span id="pomoCounter">
