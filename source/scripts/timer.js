@@ -36,6 +36,9 @@ window.onload = function () {
         valueLong = parseInt(localStorage.getItem('longBreakSettings'));
         document.getElementById("longBreakSettings").value = valueLong;
     }
+
+    totalPomos = parseInt(localStorage.getItem('totalPomos'));
+    document.getElementById("worktimes").innerHTML = totalPomos;
 }
 
 var notification;
@@ -575,4 +578,7 @@ function addTaskActivity(){
     var taskActivity = `<activity-item taskName="${activityTaskName}" actualPomos="${actualPomos}" estimatedPomos="${estimatedPomos}">`;
     document.getElementById("completedTasks").insertAdjacentHTML('beforeend', taskActivity);
     actualPomos = 0;
+    document.getElementById("totalCompletedTasksBox").innerHTML = document.getElementById("completedTasks").children.length;
+    document.getElementById("worktimes").innerHTML = totalPomos;
+    localStorage.setItem('totalPomos', `${totalPomos}`);
 }

@@ -715,7 +715,7 @@ a {
 
 #totalPomosCompleted {
     position: relative;
-    margin-left: 110px;
+    margin-left: 120px;
 }
 
 #activityNumbers {
@@ -734,22 +734,40 @@ a {
 }
 
 #worktimeBox {
-    width: 65px;
-    height: 50px;
+    /*position*/
+    display: inline-block;
+    width: 3vw;
+    height: 3vw;
+    margin-left: 1vw;
+    padding-bottom: 1vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+
+    /*border*/
     border: solid black;
-    border-radius: 20px;
+    border-radius: 1vh;
+    
+    /*text*/
     text-align: center;
-    margin-left: 30px;
+    font-size: 20px;
 }
 
 #totalCompletedTasksBox {
-    width: 65px;
-    height: 50px;
+    display: inline-block;
+    width: 3vw;
+    height: 3vw;
+    margin-left: 12vw;
+    padding-bottom: 1vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+
+    /*border*/
     border: solid black;
-    border-radius: 20px;
+    border-radius: 1vh;
+    
+    /*text*/
     text-align: center;
-    margin-left: 210px;
-    margin-right: 50px;
+    font-size: 20px;
 }
 
 #completedTasksListBox {
@@ -788,6 +806,7 @@ a {
     overflow: hidden;
     overflow-y: scroll;
 }
+
 
 @media screen and (max-width: 800px) {
     #startButton {
