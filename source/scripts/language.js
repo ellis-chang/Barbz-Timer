@@ -12,7 +12,7 @@ function setLanguage(language) {
     if (language === 'en') {
         document.getElementById('head').textContent = "Barbz Timer";
 
-        document.getElementById('mute-notifications').textContent = "Mute Notification";
+        document.getElementById('mute-notifications').textContent = "Mute Notifications";
         document.getElementById('settings').textContent = "Settings";
         document.getElementById('view-activity').textContent = "View Activity";
         document.getElementById('about-page').textContent = "About Page";
@@ -23,6 +23,8 @@ function setLanguage(language) {
         document.getElementById('workSettingsLang').textContent = "Work";
         document.getElementById('shortBreakSettingsLang').textContent = "Short Break";
         document.getElementById('longBreakSettingsLang').textContent = "Long Break";
+        document.getElementById('volumeSettingsTitle').textContent = "Volume Settings";
+        document.getElementById('volume-text').textContent = "Volume";
         document.getElementById('saveButton').textContent = "Save";
 
         document.getElementById('activityTitle').textContent = "Activity";
@@ -90,6 +92,8 @@ function setLanguage(language) {
         document.getElementById('workSettingsLang').textContent = "Trabaja";
         document.getElementById('shortBreakSettingsLang').textContent = "Pequeño Descanso";
         document.getElementById('longBreakSettingsLang').textContent = "Largo Descanso";
+        document.getElementById('volumeSettingsTitle').textContent = "Configuraciones de Volumen";
+        document.getElementById('volume-text').textContent = "Volumen";
         document.getElementById('saveButton').textContent = "Salvar";
 
         document.getElementById('activityTitle').textContent = "Actividad";
@@ -155,6 +159,8 @@ function setLanguage(language) {
         document.getElementById('workSettingsLang').textContent = "工作";
         document.getElementById('shortBreakSettingsLang').textContent = "短暫休息";
         document.getElementById('longBreakSettingsLang').textContent = "長時間休息";
+        document.getElementById('volumeSettingsTitle').textContent = "音量设置";
+        document.getElementById('volume-text').textContent = "体积";
         document.getElementById('saveButton').textContent = "救";
 
         document.getElementById('activityTitle').textContent = "活動";
