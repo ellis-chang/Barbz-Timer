@@ -578,7 +578,7 @@ function addTaskActivity(){
     var taskActivity = `<activity-item taskName="${activityTaskName}" actualPomos="${actualPomos}" estimatedPomos="${estimatedPomos}">`;
     document.getElementById("completedTasks").insertAdjacentHTML('beforeend', taskActivity);
     actualPomos = 0;
-    document.getElementById("totalCompletedTasksBox").innerHTML = document.getElementById("completedTasks").children.length;
+    document.getElementById("totalCompletedTasks").innerHTML = document.getElementById("completedTasks").children.length;
     document.getElementById("worktimes").innerHTML = totalPomos;
     localStorage.setItem('totalPomos', `${totalPomos}`);
 }

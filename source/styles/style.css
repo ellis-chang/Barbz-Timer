@@ -733,15 +733,13 @@ a {
     position: relative;
 }
 
-#worktimeBox {
+#worktimes {
     /*position*/
     display: inline-block;
     width: 3vw;
-    height: 3vw;
+    height: 4vh;
     margin-left: 1vw;
-    padding-bottom: 1vw;
-    padding-left: 1vw;
-    padding-right: 1vw;
+    padding: 2vh;
 
     /*border*/
     border: solid black;
@@ -752,14 +750,12 @@ a {
     font-size: 20px;
 }
 
-#totalCompletedTasksBox {
+#totalCompletedTasks {
     display: inline-block;
     width: 3vw;
-    height: 3vw;
+    height: 4vh;
     margin-left: 12vw;
-    padding-bottom: 1vw;
-    padding-left: 1vw;
-    padding-right: 1vw;
+    padding: 2vh;
 
     /*border*/
     border: solid black;
