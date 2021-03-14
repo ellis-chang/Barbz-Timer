@@ -792,6 +792,96 @@ a {
     overflow-y: scroll;
 }
 
+#activityNumbers {
+    /* Sizing */
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: auto;
+
+    /* Positioning */
+    margin: auto;
+    margin-top: 20px;
+    position: relative;
+}
+
+#worktimeBox {
+    /*position*/
+    display: inline-block;
+    width: 3vw;
+    height: 3vw;
+    margin-left: 1vw;
+    padding-bottom: 1vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+
+    /*border*/
+    border: solid black;
+    border-radius: 1vh;
+    
+    /*text*/
+    text-align: center;
+    font-size: 20px;
+}
+
+#totalCompletedTasksBox {
+    display: inline-block;
+    width: 3vw;
+    height: 3vw;
+    margin-left: 12vw;
+    padding-bottom: 1vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+
+    /*border*/
+    border: solid black;
+    border-radius: 1vh;
+    
+    /*text*/
+    text-align: center;
+    font-size: 20px;
+}
+
+#completedTasksListBox {
+    /* Sizing */
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: auto;
+
+    /* Positioning */
+    margin: auto;
+    margin-top: 50px;
+    position: relative;
+}
+
+#completedTasksList {
+    position: relative;
+}
+
+#estimatedPomos {
+    position: relative;
+    margin-left: 50px;
+}
+
+#actualPomos {
+    position: relative;
+    margin-left: 25px;
+}
+
+#completedTasks {
+    list-style-type: none;
+    width: 30vw;
+    height: 30vh;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+
 @media screen and (max-width: 800px) {
     #startButton {
         /* Sizing */
