@@ -3,6 +3,7 @@ let seconds;
 let interval;
 let interval2;
 let pomos = 0;
+var totalPomos = 0;
 let longBreakCounter = 0;
 var currPomos = 0;
 var currTask = document.getElementById('currentTask');
@@ -72,6 +73,9 @@ function timeStart() {
         document.getElementById("clock").innerHTML = `${valueWork}:00`;
         document.getElementById("startButton").textContent = stopButtonText[localStorage.getItem("language")];
     } else {
+        if(document.getElementById("state").textContent == workText[localStorage.getItem("language")]){
+            actualPomos++;
+        }
         addTaskActivity();
         stop();
     }
@@ -113,6 +117,7 @@ function count() {
                 taskTracker();
 
                 if (document.getElementById('taskList').firstChild == null && currPomos == 0) {
+                    actualPomos++;
                     addTaskActivity();
                     stop();
                     return;
@@ -206,8 +211,11 @@ function addTime() {
  */
 function switchTimes() {
     if (document.getElementById("state").textContent == workText[localStorage.getItem("language")]) {
+        document.getElementById("check").disabled = true;
+        
         // Increment total pomo counter and update page
         pomos++;
+        totalPomos++;
         document.getElementById("workPeriods").innerHTML = pomos;
 
         actualPomos++;
@@ -236,6 +244,7 @@ function switchTimes() {
     } else if (document.getElementById("state").textContent == shortStateText[localStorage.getItem("language")]
         || document.getElementById("state").textContent == longStateText[localStorage.getItem("language")]) {
         document.getElementById("state").textContent = workText[localStorage.getItem("language")];
+        document.getElementById("check").disabled = false;
         minutes = valueWork;
         seconds = 0;
         interval = setInterval(count, 1000);
@@ -288,8 +297,14 @@ var timeContinueText = {
  * original state.
  */
 function stop() {
+    document.getElementById("check").disabled = false;
     if (document.getElementById('taskList').firstChild == null) {
         alert(noTasksLeftText[localStorage.getItem("language")]);
+        if(document.getElementById("state").textContent == workText[localStorage.getItem("language")]){
+            pomos++;
+            totalPomos++;
+        }
+        document.getElementById("workPeriods").innerHTML = pomos;
         clearInterval(interval);
         clearInterval(interval2);
         minutes = valueWork;
@@ -303,6 +318,11 @@ function stop() {
         switchThemes();
     }
     else if (confirm(stopTimerText[localStorage.getItem("language")])) {
+        if(document.getElementById("state").textContent == workText[localStorage.getItem("language")]){
+            pomos++;
+            totalPomos++;
+        }
+        document.getElementById("workPeriods").innerHTML = pomos;
         clearInterval(interval);
         clearInterval(interval2);
         minutes = valueWork;
@@ -496,13 +516,18 @@ function settingsClose() {
  * moved up and the current period will automatically be switched.
  */
 function taskComplete() {
-    if (document.getElementById("state").textContent == workText[localStorage.getItem("language")]) {
+    if (document.getElementById("startButton").textContent == startButtonText[localStorage.getItem("language")]){
+        alert("There is no current Task!");
+    } else if (document.getElementById("state").textContent == workText[localStorage.getItem("language")]) {
         clearInterval(interval);
         clearInterval(interval2);
         switchTimes();
         switchThemes();
     }
-    if (document.getElementById('taskList').firstChild == null) {
+
+    if (document.getElementById("startButton").textContent == startButtonText[localStorage.getItem("language")]){
+        return;
+    } else if (document.getElementById('taskList').firstChild == null ) {
         addTaskActivity();
         currTask.innerHTML = "";
         stop();
