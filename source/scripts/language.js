@@ -11,7 +11,6 @@ function setLanguage(language) {
     //change languages depending on what user clicks
     if (language === 'en') {
         document.getElementById('head').textContent = "Barbz Timer";
-
         document.getElementById('mute-notifications').textContent = "Mute Notification";
         document.getElementById('settings').textContent = "Settings";
         document.getElementById('view-activity').textContent = "View Activity";
@@ -23,11 +22,14 @@ function setLanguage(language) {
         document.getElementById('workSettingsLang').textContent = "Work";
         document.getElementById('shortBreakSettingsLang').textContent = "Short Break";
         document.getElementById('longBreakSettingsLang').textContent = "Long Break";
+        document.getElementById('volumeSettingsTitle').textContent = "Volume Settings";
+        document.getElementById('volume-text').textContent = "Volume";
         document.getElementById('saveButton').textContent = "Save";
 
-        document.getElementById('activityTitle').textContent = "Activity";
+        document.getElementById('activityTitle').textContent = "Session Activity";
         document.getElementById('totalWorkTime').textContent = "Total Work Time";
-        document.getElementById('totalPomosCompleted').textContent = "Total Pomos Completed";
+        document.getElementById('totalPomosCompleted').textContent = "Total Tasks Completed";
+
         document.getElementById('completedTasksList').textContent = "Tasks Completed";
         document.getElementById('estimatedPomos').textContent = "Estimated Pomos";
         document.getElementById('actualPomos').textContent = "Actual Pomos";
@@ -90,11 +92,15 @@ function setLanguage(language) {
         document.getElementById('workSettingsLang').textContent = "Trabaja";
         document.getElementById('shortBreakSettingsLang').textContent = "Pequeño Descanso";
         document.getElementById('longBreakSettingsLang').textContent = "Largo Descanso";
+
+        document.getElementById('volumeSettingsTitle').textContent = "Configuraciones de Volumen";
+        document.getElementById('volume-text').textContent = "Volumen";
         document.getElementById('saveButton').textContent = "Salvar";
 
-        document.getElementById('activityTitle').textContent = "Actividad";
+
+        document.getElementById('activityTitle').textContent = "Actividad de la sesión";
         document.getElementById('totalWorkTime').textContent = "Tiempo total de trabajo";
-        document.getElementById('totalPomosCompleted').textContent = "Total Pomos Completado";
+        document.getElementById('totalPomosCompleted').textContent = "Total Tareas Completado";
         document.getElementById('completedTasksList').textContent = "Tareas Completadas";
         document.getElementById('estimatedPomos').textContent = "Pomos Estimado";
         document.getElementById('actualPomos').textContent = "Pomos Actuales";
@@ -155,11 +161,15 @@ function setLanguage(language) {
         document.getElementById('workSettingsLang').textContent = "工作";
         document.getElementById('shortBreakSettingsLang').textContent = "短暫休息";
         document.getElementById('longBreakSettingsLang').textContent = "長時間休息";
+
+        document.getElementById('volumeSettingsTitle').textContent = "音量设置";
+        document.getElementById('volume-text').textContent = "体积";
         document.getElementById('saveButton').textContent = "救";
 
-        document.getElementById('activityTitle').textContent = "活動";
+        document.getElementById('activityTitle').textContent = "会议活动";
         document.getElementById('totalWorkTime').textContent = "總工作時間";
-        document.getElementById('totalPomosCompleted').textContent = "總Pomos已完成";
+        document.getElementById('totalPomosCompleted').textContent = "完成的任务总数";
+
         document.getElementById('completedTasksList').textContent = "任務完成";
         document.getElementById('estimatedPomos').textContent = "估計的Pomos";
         document.getElementById('actualPomos').textContent = "實際的Pomos";

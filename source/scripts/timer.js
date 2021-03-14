@@ -3,6 +3,7 @@ let seconds;
 let interval;
 let interval2;
 let pomos = 0;
+var totalPomos = 0;
 let longBreakCounter = 0;
 var currPomos = 0;
 var currTask = document.getElementById('currentTask');
@@ -10,6 +11,7 @@ var check = document.getElementById('check');
 var valueWork = 25;
 var valueShort = 5;
 var valueLong = 30;
+var valueSound = 100;
 var actualPomos = 0;
 var estimatedPomos = 0;
 var activityTaskName;
@@ -35,6 +37,13 @@ window.onload = function () {
         valueLong = parseInt(localStorage.getItem('longBreakSettings'));
         document.getElementById("longBreakSettings").value = valueLong;
     }
+    if (localStorage.getItem('volume-slider') != null) {
+        valueSound = parseInt(localStorage.getItem('volume-slider'));
+        document.getElementById("volume-slider").value = valueSound;
+    }
+
+    totalPomos = parseInt(localStorage.getItem('totalPomos'));
+    document.getElementById("worktimes").innerHTML = totalPomos;
 }
 
 var notification;
@@ -72,6 +81,9 @@ function timeStart() {
         document.getElementById("clock").innerHTML = `${valueWork}:00`;
         document.getElementById("startButton").textContent = stopButtonText[localStorage.getItem("language")];
     } else {
+        if(document.getElementById("state").textContent == workText[localStorage.getItem("language")]){
+            actualPomos++;
+        }
         addTaskActivity();
         stop();
     }
@@ -113,6 +125,8 @@ function count() {
                 taskTracker();
 
                 if (document.getElementById('taskList').firstChild == null && currPomos == 0) {
+
+                    actualPomos++;
                     addTaskActivity();
                     stop();
                     return;
@@ -155,6 +169,7 @@ function moveTask(state) {
 function taskTracker() {
     currPomos--;
     document.getElementById('currentPomos').innerHTML = currPomos;
+
     if (currPomos == 0) {
         /*
         notification = new Notification("Task's Estimated Pomos Over", {
@@ -208,8 +223,11 @@ function addTime() {
  */
 function switchTimes() {
     if (document.getElementById("state").textContent == workText[localStorage.getItem("language")]) {
+
+        document.getElementById("check").disabled = true;
         // Increment total pomo counter and update page
         pomos++;
+        totalPomos++;
         document.getElementById("workPeriods").innerHTML = pomos;
 
         actualPomos++;
@@ -238,6 +256,10 @@ function switchTimes() {
     } else if (document.getElementById("state").textContent == shortStateText[localStorage.getItem("language")]
         || document.getElementById("state").textContent == longStateText[localStorage.getItem("language")]) {
         document.getElementById("state").textContent = workText[localStorage.getItem("language")];
+
+
+        document.getElementById("check").disabled = false;
+
         minutes = valueWork;
         seconds = 0;
         interval = setInterval(count, 1000);
@@ -284,14 +306,56 @@ var timeContinueText = {
     ch: "計時器將繼續!"
 }
 
+var stopTimerText = {
+    en: "This will stop the timer and reset all Pomodoro breaks. Are you sure you want to continue?",
+    es: "Esto detendrá el temporizador y reiniciará todos los descansos Pomodoro. Estás seguro de que quieres continuar?",
+    ch: "這將停止計時器並重置所有番茄時間。你確定你要繼續嗎"
+}
+
+var noTasksLeftText = {
+    en: "No tasks left to do!",
+    es: "¡No quedan tareas por hacer!",
+    ch: "沒有任務可做！"
+}
+
+var timeContinueText = {
+    en: "The timer will continue!",
+    es: "¡El temporizador continuará!",
+    ch: "計時器將繼續!"
+}
+
+var stopTimerText = {
+    en: "This will stop the timer and reset all Pomodoro breaks. Are you sure you want to continue?",
+    es: "Esto detendrá el temporizador y reiniciará todos los descansos Pomodoro. Estás seguro de que quieres continuar?",
+    ch: "這將停止計時器並重置所有番茄時間。你確定你要繼續嗎"
+}
+
+var noTasksLeftText = {
+    en: "No tasks left to do!",
+    es: "¡No quedan tareas por hacer!",
+    ch: "沒有任務可做！"
+}
+
+var timeContinueText = {
+    en: "The timer will continue!",
+    es: "¡El temporizador continuará!",
+    ch: "計時器將繼續!"
+}
+
 /**
  * Depending on whether the Stop button is clicked or there are no tasks left, the stop
  * function will be called and stop the timer. It will reset all the values to its
  * original state.
  */
 function stop() {
+    document.getElementById("check").disabled = false;
     if (document.getElementById('taskList').firstChild == null) {
         alert(noTasksLeftText[localStorage.getItem("language")]);
+        if(document.getElementById("state").textContent == workText[localStorage.getItem("language")]){
+            pomos++;
+            totalPomos++;
+        }
+        document.getElementById("workPeriods").innerHTML = pomos;
         clearInterval(interval);
         clearInterval(interval2);
         minutes = valueWork;
@@ -306,6 +370,12 @@ function stop() {
         switchThemes();
     }
     else if (confirm(stopTimerText[localStorage.getItem("language")])) {
+
+        if(document.getElementById("state").textContent == workText[localStorage.getItem("language")]){
+            pomos++;
+            totalPomos++;
+        }
+        document.getElementById("workPeriods").innerHTML = pomos;
         clearInterval(interval);
         clearInterval(interval2);
         minutes = valueWork;
@@ -440,6 +510,7 @@ function popupNotification() {
  */
 function soundNotification() {
     var audio = new Audio("../sounds/samsung_whistle.mp3");
+    audio.volume = document.getElementById("volume-slider").value/100;
     audio.play();
 }
 
@@ -491,6 +562,7 @@ function settingsClose() {
     document.getElementById("workSettings").value = valueWork;
     document.getElementById("shortBreakSettings").value = valueShort;
     document.getElementById("longBreakSettings").value = valueLong;
+    document.getElementById("volume-slider").value = valueSound;
 }
 
 
@@ -500,13 +572,17 @@ function settingsClose() {
  * moved up and the current period will automatically be switched.
  */
 function taskComplete() {
-    if (document.getElementById("state").textContent == workText[localStorage.getItem("language")]) {
+    if (document.getElementById("startButton").textContent == startButtonText[localStorage.getItem("language")]){
+        alert("There is no current Task!");
+    } else if (document.getElementById("state").textContent == workText[localStorage.getItem("language")]) {
         clearInterval(interval);
         clearInterval(interval2);
         switchTimes();
         switchThemes();
     }
-    if (document.getElementById('taskList').firstChild == null) {
+    if (document.getElementById("startButton").textContent == startButtonText[localStorage.getItem("language")]){
+        return;
+    } else if (document.getElementById('taskList').firstChild == null ) {
         addTaskActivity();
         currTask.innerHTML = "";
         stop();
@@ -542,11 +618,13 @@ function save() {
     valueWork = document.getElementById("workSettings").value;
     valueShort = document.getElementById("shortBreakSettings").value;
     valueLong = document.getElementById("longBreakSettings").value;
+    valueSound = document.getElementById("volume-slider").value;
     document.getElementById("clock").innerHTML = `${valueWork}:00`;
 
     localStorage.setItem('workSettings', `${valueWork}`);
     localStorage.setItem('shortBreakSettings', `${valueShort}`);
     localStorage.setItem('longBreakSettings', `${valueLong}`);
+    localStorage.setItem('volume-slider', `${valueSound}`);
 }
 
 function addTaskActivity(){
@@ -554,9 +632,10 @@ function addTaskActivity(){
     var taskActivity = `<activity-item taskName="${activityTaskName}" actualPomos="${actualPomos}" estimatedPomos="${estimatedPomos}">`;
     document.getElementById("completedTasks").insertAdjacentHTML('beforeend', taskActivity);
     actualPomos = 0;
+    document.getElementById("totalCompletedTasksBox").innerHTML = document.getElementById("completedTasks").children.length;
+    document.getElementById("worktimes").innerHTML = totalPomos;
+    localStorage.setItem('totalPomos', `${totalPomos}`);
 }
-
-
 
 /**
  * Allows user to increase the estimated pomos on their current

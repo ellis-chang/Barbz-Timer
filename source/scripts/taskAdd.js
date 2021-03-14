@@ -27,6 +27,20 @@ var positiveNumberText = {
  * Creates the task and adds it to the task list.
  */
 function createTask() {
+
+
+    let orderedList = document.getElementById("taskList").children;
+    let i = 0;
+    
+    while (i < orderedList.length) {
+        if(taskName.value == orderedList[i].shadowRoot.querySelector(".name").innerHTML){
+            alert("That tasks already exists!");
+            return;
+        }
+        console.log(orderedList[i].shadowRoot.querySelector(".name").innerHTML);
+        i++;
+    }
+    
     if (taskPomos.value < 1) {
         alert(positiveNumberText[localStorage.getItem("language")]);
         return;
