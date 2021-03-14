@@ -690,6 +690,10 @@ a {
     border-radius: 5px;
 }
 
+#activityTitle {
+    text-align: center;
+}
+
 #activityHeaders {
         /* Sizing */
         display: flex;
@@ -710,6 +714,78 @@ a {
 
 #totalPomosCompleted {
     position: relative;
+    margin-left: 110px;
+}
+
+#activityNumbers {
+    /* Sizing */
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: auto;
+
+    /* Positioning */
+    margin: auto;
+    margin-top: 20px;
+    position: relative;
+}
+
+#worktimeBox {
+    width: 65px;
+    height: 50px;
+    border: solid black;
+    border-radius: 20px;
+    text-align: center;
+    margin-left: 30px;
+}
+
+#totalCompletedTasksBox {
+    width: 65px;
+    height: 50px;
+    border: solid black;
+    border-radius: 20px;
+    text-align: center;
+    margin-left: 210px;
+    margin-right: 50px;
+}
+
+#completedTasksListBox {
+    /* Sizing */
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: auto;
+
+    /* Positioning */
+    margin: auto;
+    margin-top: 50px;
+    position: relative;
+}
+
+#completedTasksList {
+    position: relative;
+}
+
+#estimatedPomos {
+    position: relative;
+    margin-left: 50px;
+}
+
+#actualPomos {
+    position: relative;
+    margin-left: 25px;
+}
+
+#completedTasks {
+    list-style-type: none;
+    width: 30vw;
+    height: 30vh;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 @media screen and (max-width: 800px) {

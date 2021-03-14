@@ -10,6 +10,9 @@ var check = document.getElementById('check');
 var valueWork = 25;
 var valueShort = 5;
 var valueLong = 30;
+var actualPomos = 0;
+var estimatedPomos = 0;
+var activityTaskName;
 myStorage = window.localStorage;
 
 /**
@@ -60,7 +63,7 @@ function timeStart() {
             alert(noTasksLeftText[localStorage.getItem("language")]);
             return;
         }
-        moveTask();
+        moveTask("start");
 
         minutes = valueWork;
         seconds = 0;
@@ -69,6 +72,7 @@ function timeStart() {
         document.getElementById("clock").innerHTML = `${valueWork}:00`;
         document.getElementById("startButton").textContent = stopButtonText[localStorage.getItem("language")];
     } else {
+        addTaskActivity();
         stop();
     }
 }
@@ -109,6 +113,7 @@ function count() {
                 taskTracker();
 
                 if (document.getElementById('taskList').firstChild == null && currPomos == 0) {
+                    addTaskActivity();
                     stop();
                     return;
                 }
@@ -132,7 +137,11 @@ function count() {
  * Moves the task up the task list. The task at the top of the task list is moved
  * to the current task bar.
  */
-function moveTask() {
+function moveTask(state) {
+    estimatedPomos = parseInt(document.getElementById('taskList').firstChild.getAttribute('taskPomos'));
+    if(state != "start"){
+        addTaskActivity();
+    }
     currPomos = parseInt(document.getElementById('taskList').firstChild.getAttribute('taskPomos'));
     currTask.innerHTML = document.getElementById('taskList').firstChild.getAttribute('taskName');
     document.getElementById('taskList').removeChild(document.getElementById('taskList').firstChild);
@@ -153,7 +162,7 @@ function taskTracker() {
         addTime();
     }
     if (currPomos == 0 && document.getElementById('taskList').firstChild != null) {
-        moveTask();
+        moveTask("next");
     }
 }
 
@@ -200,6 +209,8 @@ function switchTimes() {
         // Increment total pomo counter and update page
         pomos++;
         document.getElementById("workPeriods").innerHTML = pomos;
+
+        actualPomos++;
 
         // Increment long break counter
         longBreakCounter++;
@@ -492,10 +503,11 @@ function taskComplete() {
         switchThemes();
     }
     if (document.getElementById('taskList').firstChild == null) {
+        addTaskActivity();
         currTask.innerHTML = "";
         stop();
     } else {
-        moveTask();
+        moveTask("complete");
     }
 }
 
@@ -531,4 +543,11 @@ function save() {
     localStorage.setItem('workSettings', `${valueWork}`);
     localStorage.setItem('shortBreakSettings', `${valueShort}`);
     localStorage.setItem('longBreakSettings', `${valueLong}`);
+}
+
+function addTaskActivity(){
+    activityTaskName = currTask.innerHTML;
+    var taskActivity = `<activity-item taskName="${activityTaskName}" actualPomos="${actualPomos}" estimatedPomos="${estimatedPomos}">`;
+    document.getElementById("completedTasks").insertAdjacentHTML('beforeend', taskActivity);
+    actualPomos = 0;
 }
