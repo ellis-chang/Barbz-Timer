@@ -27,6 +27,7 @@ var positiveNumberText = {
  * Creates the task and adds it to the task list.
  */
 function createTask() {
+
     let orderedList = document.getElementById("taskList").children;
     let i = 0;
     

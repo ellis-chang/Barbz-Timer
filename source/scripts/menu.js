@@ -29,3 +29,15 @@ function aboutClose() {
     aboutPage.style.display = "none";
     overlay.style.display = "none";
 }
+
+let howToPage = document.getElementById("howTo");
+
+function displayHowTo() {
+    howToPage.style.display = "block";
+    overlay.style.display = "block";
+}
+
+function howToClose() {
+    howToPage.style.display = "none";
+    overlay.style.display = "none";
+}

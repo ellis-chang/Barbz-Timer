@@ -81,6 +81,7 @@ function timeStart() {
         document.getElementById("clock").innerHTML = `${valueWork}:00`;
         document.getElementById("startButton").textContent = stopButtonText[localStorage.getItem("language")];
     } else {
+
         if(document.getElementById("state").textContent == workText[localStorage.getItem("language")]){
             actualPomos++;
         }
@@ -126,7 +127,6 @@ function count() {
 
                 if (document.getElementById('taskList').firstChild == null && currPomos == 0) {
                     actualPomos++;
-
                     addTaskActivity();
                     stop();
                     return;
@@ -252,6 +252,7 @@ function switchTimes() {
     } else if (document.getElementById("state").textContent == shortStateText[localStorage.getItem("language")]
         || document.getElementById("state").textContent == longStateText[localStorage.getItem("language")]) {
         document.getElementById("state").textContent = workText[localStorage.getItem("language")];
+
         document.getElementById("check").disabled = false;
 
         minutes = valueWork;
@@ -280,6 +281,25 @@ function switchThemes() {
         theme.setAttribute('href', "../styles/style.css");
     }
 
+
+}
+
+var stopTimerText = {
+    en: "This will stop the timer and reset all Pomodoro breaks. Are you sure you want to continue?",
+    es: "Esto detendrá el temporizador y reiniciará todos los descansos Pomodoro. Estás seguro de que quieres continuar?",
+    ch: "這將停止計時器並重置所有番茄時間。你確定你要繼續嗎"
+}
+
+var noTasksLeftText = {
+    en: "No tasks left to do!",
+    es: "¡No quedan tareas por hacer!",
+    ch: "沒有任務可做！"
+}
+
+var timeContinueText = {
+    en: "The timer will continue!",
+    es: "¡El temporizador continuará!",
+    ch: "計時器將繼續!"
 }
 
 var stopTimerText = {
@@ -345,6 +365,7 @@ function stop() {
         switchThemes();
     }
     else if (confirm(stopTimerText[localStorage.getItem("language")])) {
+
         if(document.getElementById("state").textContent == workText[localStorage.getItem("language")]){
             pomos++;
             totalPomos++;
@@ -599,7 +620,6 @@ function save() {
     localStorage.setItem('shortBreakSettings', `${valueShort}`);
     localStorage.setItem('longBreakSettings', `${valueLong}`);
     localStorage.setItem('volume-slider', `${valueSound}`);
-
 }
 
 function addTaskActivity(){
