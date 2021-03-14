@@ -43,13 +43,13 @@ function setLanguage(language) {
         document.getElementById('aboutItemsLine7').textContent = "Improve your work or study process";
         document.getElementById('aboutItemsLine8').textContent = "Strengthen your resolve to keep on applying yourself in the face of complex situations";
 
-        if (document.getElementById('state').textContent === workText[localStorage.getItem("language")]) {
-            document.getElementById('state').textContent = "Work";
+        if (document.getElementById('state').textContent === longStateText[localStorage.getItem("language")]) {
+            document.getElementById('state').textContent = "Long Break";
         } else if (document.getElementById('state').textContent === shortStateText[localStorage.getItem("language")]) {
             document.getElementById('state').textContent = "Short Break";
         }
         else {
-            document.getElementById('state').textContent = "Long Break";
+            document.getElementById('state').textContent = "Work";
         }
 
         if (document.getElementById('startButton').textContent === startButtonText[localStorage.getItem("language")]) {
@@ -109,21 +109,21 @@ function setLanguage(language) {
         document.getElementById('aboutItemsLine6').textContent = "Perfeccionar el proceso de estimación, tanto en términos cualitativos como cuantitativos";
         document.getElementById('aboutItemsLine7').textContent = "Mejora tu proceso de trabajo o estudio";
         document.getElementById('aboutItemsLine8').textContent = "Fortalece tu determinación de seguir aplicándote frente a situaciones complejas";
-
-        if (document.getElementById('state').textContent === workText[localStorage.getItem("language")]) {
-            document.getElementById('state').textContent = "Trabaja";
+        
+        if (document.getElementById('state').textContent === longStateText[localStorage.getItem("language")]) {
+            document.getElementById('state').textContent = "Largo Descanso";
         } else if (document.getElementById('state').textContent === shortStateText[localStorage.getItem("language")]) {
             document.getElementById('state').textContent = "Pequeño Descanso";
         }
         else {
-            document.getElementById('state').textContent = "Largo Descanso";
+            document.getElementById('state').textContent = "Trabaja";
         }
 
-        if (document.getElementById('startButton').textContent === startButtonText[localStorage.getItem("language")]) {
-            document.getElementById('startButton').textContent = "COMIENZO";
+        if (document.getElementById('startButton').textContent === stopButtonText[localStorage.getItem("language")]) {
+            document.getElementById('startButton').textContent = "DETENER";
         }
         else {
-            document.getElementById('startButton').textContent = "DETENER";
+            document.getElementById('startButton').textContent = "COMIENZO";
         }
         document.getElementById('currentTaskHeader').textContent = "Tarea Actual";
         document.getElementById('check').textContent = "Hecho";
@@ -175,20 +175,20 @@ function setLanguage(language) {
         document.getElementById('aboutItemsLine7').textContent = "改善您的工作或學習過程";
         document.getElementById('aboutItemsLine8').textContent = "增強您的決心，以面對複雜的情況繼續努力";
 
-        if (document.getElementById('state').textContent === workText[localStorage.getItem("language")]) {
-            document.getElementById('state').textContent = "工作";
+        if (document.getElementById('state').textContent === longStateText[localStorage.getItem("language")]) {
+            document.getElementById('state').textContent = "長時間休息";
         } else if (document.getElementById('state').textContent === shortStateText[localStorage.getItem("language")]) {
             document.getElementById('state').textContent = "短暫休息";
         }
         else {
-            document.getElementById('state').textContent = "長時間休息";
+            document.getElementById('state').textContent = "工作";
         }
 
-        if (document.getElementById('startButton').textContent === startButtonText[localStorage.getItem("language")]) {
-            document.getElementById('startButton').textContent = "開始";
+        if (document.getElementById('startButton').textContent === stopButtonText[localStorage.getItem("language")]) {
+            document.getElementById('startButton').textContent = "停止";
         }
         else {
-            document.getElementById('startButton').textContent = "停止";
+            document.getElementById('startButton').textContent = "開始";
         }
         document.getElementById('currentTaskHeader').textContent = "當前任務";
         document.getElementById('check').textContent = "完畢";
