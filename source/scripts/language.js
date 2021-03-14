@@ -92,6 +92,7 @@ function setLanguage(language) {
         document.getElementById('longBreakSettingsLang').textContent = "Largo Descanso";
         document.getElementById('saveButton').textContent = "Salvar";
 
+
         document.getElementById('activityTitle').textContent = "Actividad de la sesión";
         document.getElementById('totalWorkTime').textContent = "Tiempo total de trabajo";
         document.getElementById('totalPomosCompleted').textContent = "Total Tareas Completado";
