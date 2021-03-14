@@ -36,25 +36,49 @@ template.innerHTML = `
     .delete {
         display: inline-block;
         margin-left: 0.5vw;
-        width: fit-content;
+        width: 1vw;
+        height: 1vw;
         text-align: center;
         font-size: 10px;
+        background-image: url("../images/exit.png");
+        background-size: 100%;
+    }
+
+    .delete:hover {
+        background-image: url("../images/exit-white.png");
+        background-size: 100%;
     }
     
     .upTask {
         display: inline-block;
         margin-left: 0.5vw;
-        width: fit-content;
+        width: 1vw;
+        height: 1vw;
         text-align: center;
         font-size: 10px;
+        background-image: url("../images/up.png");
+        background-size: 100%;
+    }
+
+    .upTask:hover {
+        background-image: url("../images/up-white.png");
+        background-size: 100%;
     }
 
     .downTask {
         display: inline-block;
         margin-left: 0.5vw;
-        width: fit-content;
+        width: 1vw;
+        height: 1vw;
         text-align: center;
         font-size: 10px;
+        background-image: url("../images/down.png");
+        background-size: 100%;
+    }
+
+    .downTask:hover {
+        background-image: url("../images/down-white.png");
+        background-size: 100%;
     }
 
 
@@ -62,9 +86,9 @@ template.innerHTML = `
 <li class="uniqueTask">
     <p class="name"></p>
     <p class="numPomos"></p>
-    <button class="upTask" onclick="upTask(event)">U</button>
-    <button class="downTask" onclick="downTask(event)">D</button>
-    <button class="delete" onclick="deleteTask(event)">X</button>
+    <button class="upTask" onclick="upTask(event)"></button>
+    <button class="downTask" onclick="downTask(event)"></button>
+    <button class="delete" onclick="deleteTask(event)"></button>
 </li>`
 class TaskItem extends HTMLElement {
     constructor(){

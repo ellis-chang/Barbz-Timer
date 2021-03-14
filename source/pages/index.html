@@ -29,6 +29,7 @@
                     <li><button class="menuButton" id="view-activity" onclick=displayActivity()>View Activity</button>
                     </li>
                     <li><button class="menuButton" id="about-page" onclick=displayAbout()>About Page</button></li>
+                    <li><button class="menuButton" id="howto-page" onclick=displayHowTo()>Getting Started</button></li>
                 </ul>
             </nav>
         </div>
@@ -50,6 +51,10 @@
             <br>
             <label id="longBreakSettingsLang" for="longBreakSettings">Long Break</label>
             <input type="number" min="0" step="1" max="60" value="30" name="longBreakSettings" id="longBreakSettings">
+            <p id="volumeSettingsTitle">Volume Settings</p>
+            <label for="volume-slider" id="volume-text">Volume</label>
+            <input id="volume-slider" name="volume-slider" type="range" min="0" max="100" value="100">
+
         </div>
         <br>
         <button id="saveButton" onclick="save()">Save</button>
@@ -98,6 +103,22 @@
         </div>
     </div>
 
+    <div id="howTo" style="display: none;">
+        <h2 id="howToTitle">How to use Barbz Timer</h2>
+        <button id="closeHowTo" onclick="howToClose()"></button>
+        <div id="howToText">
+            <ol id="howToList">
+                <li id="howToItemsLine1" class="howToItems">Add tasks to work on for the day with the amount of expected pomos that it will take to finish that task (one pomo = 25 minutes of work)</li>
+                <li id="howToItemsLine2" class="howToItems">Start the timer and work on your current task until time is up</li>
+                <li id="howToItemsLine3" class="howToItems">If you finish your task, press done on your current task</li>
+                <li id="howToItemsLine4" class="howToItems">Automatically take a short break (5 minutes) when the first work period is done or if you finish a task. You deserve it!</li>
+                <li id="howToItemsLine5" class="howToItems">The timer will repeat these steps 3 times then will automatically start a long break (15 minutes)</li>
+                <li id="howToItemsLine6" class="howToItems">The timer will repeat this process until all tasks are completed </li>
+                <li id="howToItemsLine7" class="howToItems">Reward yourself for working so hard!</li>
+            </ol>
+        </div>
+    </div> 
+
     <br>
 
     <div id="timer">
@@ -116,6 +137,7 @@
             <button id="check" onclick="taskComplete()">Done</button>
             <p id="currentTask"></p>
             <p id="currentPomos"></p>
+            <button id="increasePomosButton" onclick="increasePomos()">+</button>
         </span>
 
         <span id="pomoCounter">
@@ -126,11 +148,12 @@
 
     <br>
 
+    <br>
+
     <div id="taskBox">
         <h2 id="taskHeader">Upcoming Tasks</h2>
         <div id="innerTaskBox">
             <ol id="taskList"></ol>
-
             <br>
             <br>
 
