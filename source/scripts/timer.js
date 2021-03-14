@@ -144,6 +144,7 @@ function moveTask(state) {
     }
     currPomos = parseInt(document.getElementById('taskList').firstChild.getAttribute('taskPomos'));
     currTask.innerHTML = document.getElementById('taskList').firstChild.getAttribute('taskName');
+    document.getElementById('currentPomos').innerHTML = currPomos;
     document.getElementById('taskList').removeChild(document.getElementById('taskList').firstChild);
 }
 
@@ -153,6 +154,7 @@ function moveTask(state) {
  */
 function taskTracker() {
     currPomos--;
+    document.getElementById('currentPomos').innerHTML = currPomos;
     if (currPomos == 0) {
         /*
         notification = new Notification("Task's Estimated Pomos Over", {
@@ -298,6 +300,7 @@ function stop() {
         document.getElementById("startButton").textContent = startButtonText[localStorage.getItem("language")];
         document.getElementById("state").textContent = workText[localStorage.getItem("language")];
         currTask.innerHTML = "";
+        document.getElementById('currentPomos').innerHTML = "";
         currPomos = 0;
         longBreakCounter = 0;
         switchThemes();
@@ -311,6 +314,7 @@ function stop() {
         document.getElementById("startButton").textContent = startButtonText[localStorage.getItem("language")]
         document.getElementById("state").textContent = workText[localStorage.getItem("language")];
         currTask.innerHTML = "";
+        document.getElementById('currentPomos').innerHTML = "";
         currPomos = 0;
         longBreakCounter = 0;
         switchThemes();
@@ -550,4 +554,15 @@ function addTaskActivity(){
     var taskActivity = `<activity-item taskName="${activityTaskName}" actualPomos="${actualPomos}" estimatedPomos="${estimatedPomos}">`;
     document.getElementById("completedTasks").insertAdjacentHTML('beforeend', taskActivity);
     actualPomos = 0;
+}
+
+
+
+/**
+ * Allows user to increase the estimated pomos on their current
+ * task.
+ */
+function increasePomos() {
+    currPomos++;
+    document.getElementById('currentPomos').innerHTML = currPomos;
 }
