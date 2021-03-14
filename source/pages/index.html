@@ -30,6 +30,7 @@
                     </li>
                     <li><button class="menuButton" id="about-page" onclick=displayAbout()>About Page</button></li>
                     <li><button class="menuButton" id="howto-page" onclick=displayHowTo()>Getting Started</button></li>
+
                 </ul>
             </nav>
         </div>
@@ -61,10 +62,10 @@
 
     <div id="activity" style="display: none;">
         <button id="closeSettings" onclick="activityClose()"></button>
-        <p id="activityTitle">Activity Summary</p>
+        <p id="activityTitle">Session Activity</p>
         <div id="activityHeaders">
             <p id="totalWorkTime">Total Work Time</p>
-            <p id="totalPomosCompleted">Total Pomos Completed</p>
+            <p id="totalPomosCompleted">Total Tasks Completed</p>
         </div>
         <div id=activityNumbers>
             <div id="worktimeBox">
@@ -154,7 +155,6 @@
         <h2 id="taskHeader">Upcoming Tasks</h2>
         <div id="innerTaskBox">
             <ol id="taskList"></ol>
-
             <br>
             <br>
 
