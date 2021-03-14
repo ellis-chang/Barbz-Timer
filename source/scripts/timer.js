@@ -10,6 +10,7 @@ var check = document.getElementById('check');
 var valueWork = 25;
 var valueShort = 5;
 var valueLong = 30;
+var valueSound = 100;
 var actualPomos = 0;
 var estimatedPomos = 0;
 var activityTaskName;
@@ -35,6 +36,11 @@ window.onload = function () {
         valueLong = parseInt(localStorage.getItem('longBreakSettings'));
         document.getElementById("longBreakSettings").value = valueLong;
     }
+    if (localStorage.getItem('volume-slider') != null) {
+        valueSound = parseInt(localStorage.getItem('volume-slider'));
+        document.getElementById("volume-slider").value = valueSound;
+    }
+    
 }
 
 var notification;
@@ -436,6 +442,7 @@ function popupNotification() {
  */
 function soundNotification() {
     var audio = new Audio("../sounds/samsung_whistle.mp3");
+    audio.volume = document.getElementById("volume-slider").value/100;
     audio.play();
 }
 
@@ -487,6 +494,7 @@ function settingsClose() {
     document.getElementById("workSettings").value = valueWork;
     document.getElementById("shortBreakSettings").value = valueShort;
     document.getElementById("longBreakSettings").value = valueLong;
+    document.getElementById("volume-slider").value = valueSound;
 }
 
 
@@ -538,11 +546,13 @@ function save() {
     valueWork = document.getElementById("workSettings").value;
     valueShort = document.getElementById("shortBreakSettings").value;
     valueLong = document.getElementById("longBreakSettings").value;
+    valueSound = document.getElementById("volume-slider").value;
     document.getElementById("clock").innerHTML = `${valueWork}:00`;
 
     localStorage.setItem('workSettings', `${valueWork}`);
     localStorage.setItem('shortBreakSettings', `${valueShort}`);
     localStorage.setItem('longBreakSettings', `${valueLong}`);
+    localStorage.setItem('volume-slider', `${valueSound}`);
 }
 
 function addTaskActivity(){

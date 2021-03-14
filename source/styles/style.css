@@ -188,6 +188,9 @@ a {
 #timeSettings {
     font-size: 18px;
 }
+#volumeSettingsTitle {
+    font-size: 18px;
+}
 
 #saveButton {
     background-color: white;
