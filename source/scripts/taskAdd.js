@@ -28,6 +28,7 @@ var positiveNumberText = {
  */
 function createTask() {
 
+
     let orderedList = document.getElementById("taskList").children;
     let i = 0;
     

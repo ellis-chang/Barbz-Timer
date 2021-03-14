@@ -11,8 +11,6 @@ function setLanguage(language) {
     //change languages depending on what user clicks
     if (language === 'en') {
         document.getElementById('head').textContent = "Barbz Timer";
-
-
         document.getElementById('mute-notifications').textContent = "Mute Notification";
         document.getElementById('settings').textContent = "Settings";
         document.getElementById('view-activity').textContent = "View Activity";

@@ -81,7 +81,6 @@ function timeStart() {
         document.getElementById("clock").innerHTML = `${valueWork}:00`;
         document.getElementById("startButton").textContent = stopButtonText[localStorage.getItem("language")];
     } else {
-
         if(document.getElementById("state").textContent == workText[localStorage.getItem("language")]){
             actualPomos++;
         }
@@ -126,6 +125,7 @@ function count() {
                 taskTracker();
 
                 if (document.getElementById('taskList').firstChild == null && currPomos == 0) {
+
                     actualPomos++;
                     addTaskActivity();
                     stop();
@@ -158,6 +158,7 @@ function moveTask(state) {
     }
     currPomos = parseInt(document.getElementById('taskList').firstChild.getAttribute('taskPomos'));
     currTask.innerHTML = document.getElementById('taskList').firstChild.getAttribute('taskName');
+    document.getElementById('currentPomos').innerHTML = currPomos;
     document.getElementById('taskList').removeChild(document.getElementById('taskList').firstChild);
 }
 
@@ -167,6 +168,8 @@ function moveTask(state) {
  */
 function taskTracker() {
     currPomos--;
+    document.getElementById('currentPomos').innerHTML = currPomos;
+
     if (currPomos == 0) {
         /*
         notification = new Notification("Task's Estimated Pomos Over", {
@@ -220,6 +223,7 @@ function addTime() {
  */
 function switchTimes() {
     if (document.getElementById("state").textContent == workText[localStorage.getItem("language")]) {
+
         document.getElementById("check").disabled = true;
         // Increment total pomo counter and update page
         pomos++;
@@ -253,6 +257,7 @@ function switchTimes() {
         || document.getElementById("state").textContent == longStateText[localStorage.getItem("language")]) {
         document.getElementById("state").textContent = workText[localStorage.getItem("language")];
 
+
         document.getElementById("check").disabled = false;
 
         minutes = valueWork;
@@ -280,7 +285,6 @@ function switchThemes() {
     else {
         theme.setAttribute('href', "../styles/style.css");
     }
-
 
 }
 
@@ -360,6 +364,7 @@ function stop() {
         document.getElementById("startButton").textContent = startButtonText[localStorage.getItem("language")];
         document.getElementById("state").textContent = workText[localStorage.getItem("language")];
         currTask.innerHTML = "";
+        document.getElementById('currentPomos').innerHTML = "";
         currPomos = 0;
         longBreakCounter = 0;
         switchThemes();
@@ -379,6 +384,7 @@ function stop() {
         document.getElementById("startButton").textContent = startButtonText[localStorage.getItem("language")]
         document.getElementById("state").textContent = workText[localStorage.getItem("language")];
         currTask.innerHTML = "";
+        document.getElementById('currentPomos').innerHTML = "";
         currPomos = 0;
         longBreakCounter = 0;
         switchThemes();
@@ -574,7 +580,6 @@ function taskComplete() {
         switchTimes();
         switchThemes();
     }
-
     if (document.getElementById("startButton").textContent == startButtonText[localStorage.getItem("language")]){
         return;
     } else if (document.getElementById('taskList').firstChild == null ) {
@@ -630,4 +635,13 @@ function addTaskActivity(){
     document.getElementById("totalCompletedTasksBox").innerHTML = document.getElementById("completedTasks").children.length;
     document.getElementById("worktimes").innerHTML = totalPomos;
     localStorage.setItem('totalPomos', `${totalPomos}`);
+}
+
+/**
+ * Allows user to increase the estimated pomos on their current
+ * task.
+ */
+function increasePomos() {
+    currPomos++;
+    document.getElementById('currentPomos').innerHTML = currPomos;
 }

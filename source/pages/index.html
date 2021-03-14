@@ -30,7 +30,6 @@
                     </li>
                     <li><button class="menuButton" id="about-page" onclick=displayAbout()>About Page</button></li>
                     <li><button class="menuButton" id="howto-page" onclick=displayHowTo()>Getting Started</button></li>
-
                 </ul>
             </nav>
         </div>
@@ -55,6 +54,7 @@
             <p id="volumeSettingsTitle">Volume Settings</p>
             <label for="volume-slider" id="volume-text">Volume</label>
             <input id="volume-slider" name="volume-slider" type="range" min="0" max="100" value="100">
+
         </div>
         <br>
         <button id="saveButton" onclick="save()">Save</button>
@@ -141,6 +141,7 @@
             <button id="check" onclick="taskComplete()">Done</button>
             <p id="currentTask"></p>
             <p id="currentPomos"></p>
+            <button id="increasePomosButton" onclick="increasePomos()">+</button>
         </span>
 
         <span id="pomoCounter">
@@ -148,6 +149,8 @@
             <p id="workPeriods">0</p>
         </span>
     </div>
+
+    <br>
 
     <br>
 
