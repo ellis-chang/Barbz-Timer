@@ -36,49 +36,61 @@ template.innerHTML = `
     .delete {
         display: inline-block;
         margin-left: 0.5vw;
-        width: 1vw;
-        height: 1vw;
+        width: 1.2vw;
+        height: 1.2vw;
         text-align: center;
         font-size: 10px;
         background-image: url("../images/exit.png");
         background-size: 100%;
+        border: 2px solid black;
+        border-radius: 1vh;
+        background-color: #F6D2D5;
     }
 
     .delete:hover {
         background-image: url("../images/exit-white.png");
         background-size: 100%;
+        background-color: #D46993;
     }
     
     .upTask {
         display: inline-block;
         margin-left: 0.5vw;
-        width: 1vw;
-        height: 1vw;
+        width: 1.2vw;
+        height: 1.2vw;
         text-align: center;
         font-size: 10px;
         background-image: url("../images/up.png");
         background-size: 100%;
+        border: 2px solid black;
+        border-radius: 1vh;
+        background-color: #F6D2D5;
     }
 
     .upTask:hover {
         background-image: url("../images/up-white.png");
         background-size: 100%;
+        background-color: #D46993;
     }
 
     .downTask {
         display: inline-block;
         margin-left: 0.5vw;
-        width: 1vw;
-        height: 1vw;
+        width: 1.2vw;
+        height: 1.2vw;
         text-align: center;
         font-size: 10px;
         background-image: url("../images/down.png");
         background-size: 100%;
+        border: 2px solid black;
+        border-radius: 1vh;
+        background-color: #F6D2D5;
     }
 
     .downTask:hover {
         background-image: url("../images/down-white.png");
         background-size: 100%;
+        background-color: #D46993;
     }
 
 

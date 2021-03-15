@@ -30,13 +30,12 @@ body {
     background-color: #F6D2D5;
 }
 
-
 #barbzHeader {
     /* Fix the header to the top of the page */
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
 
     background-color: #F49FB7;
     border: 1px solid #582323;
