@@ -6,7 +6,7 @@ template2.innerHTML = `
         /*position*/
         display: inline-block;
         width: 17vw;
-        margin-left: 0px;
+        margin-right: 5vw;
         
         /*border*/
         border: solid black;
@@ -21,7 +21,7 @@ template2.innerHTML = `
         /*position*/
         display: inline-block;
         width: 3vw;
-        margin-left: 1vw;
+        margin-left: 13vw;
 
         /*border*/
         border: solid black;
@@ -36,7 +36,7 @@ template2.innerHTML = `
         /*position*/
         display: inline-block;
         width: 3vw;
-        margin-left: 1vw;
+        margin-left: 2vw;
 
         /*border*/
         border: solid black;

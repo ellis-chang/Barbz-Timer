@@ -44,13 +44,11 @@ template.innerHTML = `
         background-size: 100%;
         border: 2px solid black;
         border-radius: 1vh;
-        background-color: #F6D2D5;
     }
 
     .delete:hover {
         background-image: url("../images/exit-white.png");
         background-size: 100%;
-        background-color: #D46993;
     }
     
     .upTask {
@@ -64,13 +62,11 @@ template.innerHTML = `
         background-size: 100%;
         border: 2px solid black;
         border-radius: 1vh;
-        background-color: #F6D2D5;
     }
 
     .upTask:hover {
         background-image: url("../images/up-white.png");
         background-size: 100%;
-        background-color: #D46993;
     }
 
     .downTask {
@@ -84,13 +80,11 @@ template.innerHTML = `
         background-size: 100%;
         border: 2px solid black;
         border-radius: 1vh;
-        background-color: #F6D2D5;
     }
 
     .downTask:hover {
         background-image: url("../images/down-white.png");
         background-size: 100%;
-        background-color: #D46993;
     }
 
 
