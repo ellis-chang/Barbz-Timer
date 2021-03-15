@@ -27,11 +27,14 @@ var positiveNumberText = {
  * Creates the task and adds it to the task list.
  */
 function createTask() {
-
-
     let orderedList = document.getElementById("taskList").children;
     let i = 0;
     
+    if(taskName.value == ""){
+        alert("Please enter a name for the task!");
+        return;
+    }
+
     while (i < orderedList.length) {
         if(taskName.value == orderedList[i].shadowRoot.querySelector(".name").innerHTML){
             alert("That tasks already exists!");

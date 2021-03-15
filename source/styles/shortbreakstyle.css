@@ -788,6 +788,27 @@ a {
     overflow-y: scroll;
 }
 
+#increasePomosButton {
+    display: inline-block;
+    margin-left: 0.5vw;
+    width: 1.5vw;
+    height: 1.5vw;
+    text-align: center;
+    font-size: 10px;
+    background-image: url("../images/plus.png");
+    background-size: 100%;
+    border: 2px solid black;
+    border-radius: 1vh;
+    background-color: #F6D2D5;
+}
+
+#increasePomosButton:hover {
+    background-image: url("../images/plus-white.png");
+    background-size: 100%;
+    background-color: #D46993;
+}
+
+
 @media screen and (max-width: 800px) {
     #startButton {
         /* Sizing */

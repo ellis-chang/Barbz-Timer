@@ -10,7 +10,7 @@ template.innerHTML = `
         margin-left: 0px;
         
         /*border*/
-        border: solid black;
+        border: 2px solid black;
         border-radius: 1vh;
         
         /*text*/
@@ -25,7 +25,7 @@ template.innerHTML = `
         margin-left: 1vw;
 
         /*border*/
-        border: solid black;
+        border: 2px solid black;
         border-radius: 1vh;
         
         /*text*/
