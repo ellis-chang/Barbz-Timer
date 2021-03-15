@@ -151,7 +151,7 @@ function moveTask(state) {
         addTaskActivity();
     }
     currPomos = parseInt(document.getElementById('taskList').firstChild.getAttribute('taskPomos'));
-    currTask.innerHTML = document.getElementById('taskList').firstChild.getAttribute('taskName');
+    document.getElementById('currentTask').innerHTML = document.getElementById('taskList').firstChild.getAttribute('taskName');
     document.getElementById('currentPomos').innerHTML = currPomos;
     document.getElementById('taskList').removeChild(document.getElementById('taskList').firstChild);
 }
@@ -469,16 +469,6 @@ function soundNotification() {
     audio.play();
 }
 
-/**
- * Notifications will be activated at the end of each period.
- */
-function notifications() {
-    if (seconds == 0 && minutes == 0) {
-        popupNotification();
-        soundNotification();
-    }
-}
-
 
 let settingsInput = document.getElementById("settingsInput");
 let overlay = document.getElementById("overlay");
@@ -646,3 +636,4 @@ function notifications(){
     }
 }
 
+module.exports = {timeStart, count};

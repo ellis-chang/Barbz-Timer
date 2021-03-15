@@ -9,11 +9,11 @@ var numberOfTasks = 0;
  * would take.
  */
 function displayInput() {
-    if (taskInput.style.display == "none") {
-        taskInput.style.display = "block";
+    if (document.getElementById("taskInput").style.display == "none") {
+        document.getElementById("taskInput").style.display = "block";
     }
     else {
-        taskInput.style.display = "none";
+        document.getElementById("taskInput").style.display = "none";
     }
 }
 
@@ -146,3 +146,4 @@ function downTask(event) {
     }
 }
 
+module.exports = {displayInput}; 
