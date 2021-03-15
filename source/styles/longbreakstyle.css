@@ -136,10 +136,10 @@ a {
     border-radius: 1vh;
     text-decoration: none;
     font-family: roboto;
-    font-size: 1.2rem;
+    font-size: 1.25vw;
     align-items: center;
     width: 10vw;
-    height: 50px;
+    height: 6vh;
 }
   
 .nav ul li button:hover, .navbar ul li button:focus {
@@ -206,6 +206,7 @@ a {
     margin: 1vh;
     border: 1px solid #582323;
     border-radius: 1vh;
+    font-size: 1vw;
 }
 
 #saveButton:hover {
@@ -371,7 +372,7 @@ a {
 
 #state {
     text-align: center;
-    font-size: 50px;
+    font-size: 4vw;
 } 
 
 #clock {
