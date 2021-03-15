@@ -27,12 +27,10 @@ window.onload = function () {
         document.getElementById("workSettings").value = valueWork;
         document.getElementById("clock").innerHTML = `${valueWork}:00`;
     }
-
     if (localStorage.getItem('shortBreakSettings') != null) {
         valueShort = parseInt(localStorage.getItem('shortBreakSettings'));
         document.getElementById("shortBreakSettings").value = valueShort;
     }
-
     if (localStorage.getItem('longBreakSettings') != null) {
         valueLong = parseInt(localStorage.getItem('longBreakSettings'));
         document.getElementById("longBreakSettings").value = valueLong;
@@ -41,8 +39,9 @@ window.onload = function () {
         valueSound = parseInt(localStorage.getItem('volume-slider'));
         document.getElementById("volume-slider").value = valueSound;
     }
-
-    totalPomos = parseInt(localStorage.getItem('totalPomos'));
+    if (localStorage.getItem('totalPomos') != null &&  !isNaN(localStorage.getItem('totalPomos'))) {
+        totalPomos = parseInt(localStorage.getItem('totalPomos'));
+    }
     document.getElementById("worktimes").innerHTML = totalPomos;
 }
 
