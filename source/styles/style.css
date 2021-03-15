@@ -206,6 +206,7 @@ a {
     margin: 1vh;
     border: 1px solid #582323;
     border-radius: 1vh;
+    font-size: 1vw;
 }
 
 #saveButton:hover {
@@ -371,7 +372,7 @@ a {
 
 #state {
     text-align: center;
-    font-size: 50px;
+    font-size: 2.5vw;
 } 
 
 #clock {
