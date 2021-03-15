@@ -30,9 +30,9 @@ function createTask() {
     let orderedList = document.getElementById("taskList").children;
     let i = 0;
     
-    if(taskName.value == ""){
+    if(document.getElementById("taskName").value == ""){
         alert("Please enter a name for the task!");
-        return;
+        return "No Name";
     }
 
     while (i < orderedList.length) {
@@ -146,4 +146,4 @@ function downTask(event) {
     }
 }
 
-module.exports = {displayInput}; 
+module.exports = {displayInput, createTask};
