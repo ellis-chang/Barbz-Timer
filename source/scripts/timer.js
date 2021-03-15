@@ -170,14 +170,6 @@ function taskTracker() {
     currPomos--;
     document.getElementById('currentPomos').innerHTML = currPomos;
 
-    if (currPomos == 0) {
-        /*
-        notification = new Notification("Task's Estimated Pomos Over", {
-            body: "Good job! The current task's estimated pomos are over. \nPlease return to the website to input whether you want to add more pomos to this task.",
-        });
-        */
-        addTime();
-    }
     if (currPomos == 0 && document.getElementById('taskList').firstChild != null) {
         moveTask("next");
     }
@@ -200,23 +192,6 @@ var notChosenText = {
     es: "Has elegido no agregar pomos adicionales a esta tarea",
     ch: "您已選擇不向此任務添加其他pomos"
 }
-
-/**
- * Prompt the user if they want more pomos for the current task if they aren't done with the current task
- * and the estimated number of pomos for the current task has been reached.
- */
-function addTime() {
-    currPomos = prompt(addWorkPeriodText[localStorage.getItem("language")]);
-    while (isNaN(currPomos)) {
-        currPomos = prompt(notEnteredNumText[localStorage.getItem("language")]);
-    }
-    if (currPomos == null || currPomos == "" || currPomos == 0) {
-        currPomos = 0;
-        alert(notChosenText[localStorage.getItem("language")]);
-    }
-}
-
-
 
 /**
  * Switches the work periods between work, short break, and long break.
@@ -644,4 +619,52 @@ function addTaskActivity(){
 function increasePomos() {
     currPomos++;
     document.getElementById('currentPomos').innerHTML = currPomos;
+}
+
+function mute(){
+    if(document.getElementById("mute-notifications").textContent == "Mute Notifications"){
+        alert("Notifications are now muted");
+        document.getElementById("mute-notifications").textContent = "Unmute Notifications";
+        permission = false;
+    }
+    else if(document.getElementById("mute-notifications").textContent == "Unmute Notifications"){
+        alert("Notifications are now unmuted");
+        document.getElementById("mute-notifications").textContent = "Mute Notifications";
+        permission = true;
+    }
+}
+
+function notifications(){
+    if(permission === true){
+        if(seconds == 0 && minutes == 0){
+            popupNotification();
+            soundNotification();
+        }
+    }
+}
+
+function notificationPermission(){
+    if (!window.Notification) {
+        alert("Browser does not support notifications");
+    }
+    else {
+        if(Notification.permission === 'granted'){
+            //alert("granted"); 
+            permission = true;
+        }
+        else if (Notification.permission !== 'denied'){
+            //alert("not granted");
+            Notification.requestPermission().then(function (p) {
+                if(p === 'granted'){
+                    permission = true;
+                }
+                else {
+                    permission = false;
+                }
+            });
+        }
+        else {
+            permission = false;
+        }
+    }
 }
