@@ -116,23 +116,18 @@ function count() {
     seconds--;
     if (seconds == -1) {
         minutes--;
-
         if (minutes == -1) {
             clearInterval(interval);
             clearInterval(interval2);
             if (document.getElementById("state").textContent == workText[localStorage.getItem("language")]) {
-
                 taskTracker();
-
                 if (document.getElementById('taskList').firstChild == null && currPomos == 0) {
-
                     actualPomos++;
                     addTaskActivity();
                     stop();
                     return;
                 }
             }
-
             switchTimes();
             switchThemes();
         }
@@ -198,18 +193,14 @@ var notChosenText = {
  */
 function switchTimes() {
     if (document.getElementById("state").textContent == workText[localStorage.getItem("language")]) {
-
         document.getElementById("check").disabled = true;
         // Increment total pomo counter and update page
         pomos++;
         totalPomos++;
         document.getElementById("workPeriods").innerHTML = pomos;
-
         actualPomos++;
-
         // Increment long break counter
         longBreakCounter++;
-
         // If less than 4 pomos, take a short break
         if (longBreakCounter < 4) {
             document.getElementById("state").textContent = shortStateText[localStorage.getItem("language")];
@@ -231,10 +222,7 @@ function switchTimes() {
     } else if (document.getElementById("state").textContent == shortStateText[localStorage.getItem("language")]
         || document.getElementById("state").textContent == longStateText[localStorage.getItem("language")]) {
         document.getElementById("state").textContent = workText[localStorage.getItem("language")];
-
-
         document.getElementById("check").disabled = false;
-
         minutes = valueWork;
         seconds = 0;
         interval = setInterval(count, 1000);
@@ -245,19 +233,15 @@ function switchTimes() {
 
 theme = document.getElementById("style");
 
-
-
 /**
  * Switches themes from work period to work period.
  */
 function switchThemes() {
     if (document.getElementById("state").textContent == shortStateText[localStorage.getItem("language")]) {
         theme.setAttribute('href', "../styles/shortbreakstyle.css");
-    }
-    else if (document.getElementById("state").textContent == longStateText[localStorage.getItem("language")]) {
+    } else if (document.getElementById("state").textContent == longStateText[localStorage.getItem("language")]) {
         theme.setAttribute('href', "../styles/longbreakstyle.css");
-    }
-    else {
+    } else {
         theme.setAttribute('href', "../styles/style.css");
     }
 
@@ -343,9 +327,7 @@ function stop() {
         currPomos = 0;
         longBreakCounter = 0;
         switchThemes();
-    }
-    else if (confirm(stopTimerText[localStorage.getItem("language")])) {
-
+    } else if (confirm(stopTimerText[localStorage.getItem("language")])) {
         if(document.getElementById("state").textContent == workText[localStorage.getItem("language")]){
             pomos++;
             totalPomos++;
@@ -381,17 +363,21 @@ var browserDoesNotSupportText = {
 function notificationPermission() {
     if (!window.Notification) {
         alert(browserDoesNotSupportText[localStorage.getItem("language")]);
-    }
-    else {
-        if (Notification.permission === 'granted') {
+    } else {
+        if (Notification.permission === 'granted'){
             //alert("granted"); 
-        }
-        else if (Notification.permission !== 'denied') {
+            permission = true;
+        } else if (Notification.permission !== 'denied'){
             //alert("not granted");
             Notification.requestPermission().then(function (p) {
-                if (p === 'granted') {
+                if (p === 'granted'){
+                    permission = true;
+                } else {
+                    permission = false;
                 }
             });
+        } else {
+            permission = false;
         }
     }
 }
@@ -448,30 +434,25 @@ var breakTimeUpText = {
  * Makes a pop up display to notify the user at the end of a period.
  */
 function popupNotification() {
-
     if (currPomos == 1 && document.getElementById("state").textContent == workText[localStorage.getItem("language")]) {
         notification = new Notification(estimatedPomosOverText[localStorage.getItem("language")], {
             body: addPomosText[localStorage.getItem("language")],
         });
-    }
-    else if (document.getElementById("state").textContent == workText[localStorage.getItem("language")] && currPomos > 1) {
+    } else if (document.getElementById("state").textContent == workText[localStorage.getItem("language")] && currPomos > 1) {
         if (longBreakCounter < 3) {
             notification = new Notification(workPeriodOver[localStorage.getItem("language")], {
                 body: shortBreakText[localStorage.getItem("language")],
             });
-        }
-        else {
+        } else {
             notification = new Notification(workPeriodOver[localStorage.getItem("language")], {
                 body: longBreakText[localStorage.getItem("language")],
             });
         }
-    }
-    else if (document.getElementById("state").textContent == shortStateText[localStorage.getItem("language")]) {
+    } else if (document.getElementById("state").textContent == shortStateText[localStorage.getItem("language")]) {
         notification = new Notification(shortBreakOverText[localStorage.getItem("language")], {
             body: breakTimeUpText[localStorage.getItem("language")],
         });
-    }
-    else if (document.getElementById("state").textContent == longStateText[localStorage.getItem("language")]) {
+    } else if (document.getElementById("state").textContent == longStateText[localStorage.getItem("language")]) {
         notification = new Notification(longBreakOverText[localStorage.getItem("language")], {
             body: breakTimeUpText[localStorage.getItem("language")],
         });
@@ -621,50 +602,48 @@ function increasePomos() {
     document.getElementById('currentPomos').innerHTML = currPomos;
 }
 
+var muteButtonText = {
+    en: "Mute Notifications",
+    es: "Silenciar Notificaciones",
+    ch: "靜音通知"
+}
+
+var unmuteButtonText = {
+    en: "Unmute Notifications",
+    es: "Deshacer Notificaciones",
+    ch: "取消靜音通知"
+}
+
+var mutedText = {
+    en: "Notifications are now muted.",
+    es: "Las Notificaciones Ahora Están Silenciadas.",
+    ch: "通知現已靜音."
+}
+
+var unmutedText = {
+    en: "Notifications are now unmuted.",
+    es: "Las Notificaciones Ahora Están Desactivadas.",
+    ch: "通知現已取消靜音."
+}
+
 function mute(){
-    if(document.getElementById("mute-notifications").textContent == "Mute Notifications"){
-        alert("Notifications are now muted");
-        document.getElementById("mute-notifications").textContent = "Unmute Notifications";
+    if (document.getElementById("mute-notifications").textContent == muteButtonText[localStorage.getItem("language")]){
+        alert(mutedText[localStorage.getItem("language")]);
+        document.getElementById("mute-notifications").textContent = unmuteButtonText[localStorage.getItem("language")];
         permission = false;
-    }
-    else if(document.getElementById("mute-notifications").textContent == "Unmute Notifications"){
-        alert("Notifications are now unmuted");
-        document.getElementById("mute-notifications").textContent = "Mute Notifications";
+    } else if (document.getElementById("mute-notifications").textContent == unmuteButtonText[localStorage.getItem("language")]){
+        alert(unmutedText[localStorage.getItem("language")]);
+        document.getElementById("mute-notifications").textContent = muteButtonText[localStorage.getItem("language")];
         permission = true;
     }
 }
 
 function notifications(){
-    if(permission === true){
-        if(seconds == 0 && minutes == 0){
+    if (permission === true){
+        if (seconds == 0 && minutes == 0){
             popupNotification();
             soundNotification();
         }
     }
 }
 
-function notificationPermission(){
-    if (!window.Notification) {
-        alert("Browser does not support notifications");
-    }
-    else {
-        if(Notification.permission === 'granted'){
-            //alert("granted"); 
-            permission = true;
-        }
-        else if (Notification.permission !== 'denied'){
-            //alert("not granted");
-            Notification.requestPermission().then(function (p) {
-                if(p === 'granted'){
-                    permission = true;
-                }
-                else {
-                    permission = false;
-                }
-            });
-        }
-        else {
-            permission = false;
-        }
-    }
-}

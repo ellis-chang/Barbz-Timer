@@ -11,7 +11,12 @@ function setLanguage(language) {
     //change languages depending on what user clicks
     if (language === 'en') {
         document.getElementById('head').textContent = "Barbz Timer";
-        document.getElementById('mute-notifications').textContent = "Mute Notification";
+        if (document.getElementById('mute-notifications').textContent === muteButtonText[localStorage.getItem("language")]) {
+            document.getElementById('mute-notifications').textContent = "Mute Notifications";
+        }
+        else {
+            document.getElementById('mute-notifications').textContent = "Unmute Notifications";
+        }
         document.getElementById('settings').textContent = "Settings";
         document.getElementById('view-activity').textContent = "View Activity";
         document.getElementById('about-page').textContent = "About Page";
@@ -81,7 +86,13 @@ function setLanguage(language) {
         document.getElementById('startButton').style.width = "14vw";
         document.getElementById('workPeriodsHeader').style.fontSize = "2.5vh";
 
-        document.getElementById('mute-notifications').textContent = "Silenciar Notificaciones";
+        if (document.getElementById('mute-notifications').textContent === muteButtonText[localStorage.getItem("language")]) {
+            document.getElementById('mute-notifications').textContent = "Silenciar Notificaciones";
+        }
+        else {
+            document.getElementById('mute-notifications').textContent = "Deshacer Notificaciones";
+        }
+        
         document.getElementById('settings').textContent = "Ajustes";
         document.getElementById('view-activity').textContent = "Ver actividad";
         document.getElementById('about-page').textContent = "Acerca de Page";
@@ -150,7 +161,12 @@ function setLanguage(language) {
     else {
         document.getElementById('head').textContent = "Barbz 时钟";
 
-        document.getElementById('mute-notifications').textContent = "靜音通知";
+        if (document.getElementById('mute-notifications').textContent === muteButtonText[localStorage.getItem("language")]) {
+            document.getElementById('mute-notifications').textContent = "靜音通知";
+        }
+        else {
+            document.getElementById('mute-notifications').textContent = "取消靜音通知";
+        }
         document.getElementById('settings').textContent = "設定值";
         document.getElementById('view-activity').textContent = "查看活動";
         document.getElementById('about-page').textContent = "關於頁面";
