@@ -1,0 +1,933 @@
+@font-face {
+    font-family: roboto;
+    src: url(fonts/Roboto-Medium.ttf);
+}
+
+:root{
+    --background: #E2E5DE;
+    --foreground: #B2BEB5;
+    --hover: #676767;
+}
+
+body {
+    background-color: var(--background);
+    color: #582323;
+
+    /* Account for header offset */
+    padding-top: 10vh;
+
+    /* Roboto font */
+    font-family: roboto;
+}
+
+#head {
+    text-align: center;
+
+    /* Box Sizing */
+    width: 15vw;
+    padding: 1vh;
+    margin: 1vh;
+
+    /* Border Properties */
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    border-radius: 1vh;
+
+    background-color: var(--background);
+    font-size: 2vw;
+}
+
+#barbzHeader {
+    /* Fix the header to the top of the page */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    background-color: var(--foreground);
+    border: 1px solid #582323;
+    box-sizing: border-box;
+} 
+
+a {
+    cursor: pointer;
+}
+
+#en {
+    text-decoration: underline;
+}
+
+.languageMenu {
+    position: absolute;
+    z-index: 1000;
+    bottom: 1.4vw;
+    right: 6.0vw;
+}
+
+.languageMenu > a {
+    margin-right: 10px;
+}
+
+.hamburgerMenu {
+    position: absolute;
+    z-index: 1000;
+    top: 2vh;
+    right: 1.5vw;
+    width: 3vw;
+    height: 5.5vh;
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    cursor: pointer;
+    background-color: var(--background);
+    background-image: url("../images/hamburger-menu.png");
+    background-size: 100%;
+    outline: none;
+}
+
+.hamburgerMenu:hover {
+    background-color: var(--hover);
+    background-image: url("../images/hamburger-menu-white.png");
+    border: 1px solid white;
+}
+
+.showClose {
+    background-image: url("../images/exit.png");
+}
+
+.showClose:hover {
+    background-color: var(--hover);
+    background-image: url("../images/exit-white.png");
+    border: 1px solid white;
+}
+
+.nav {
+    position: absolute;
+    z-index: 1000;
+    top: 0px;
+    right: 2vw;
+    background-color: var(--foreground);
+    width: 13vw;
+    height: 40vh;
+    overflow: hidden;
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    transform: translateY(-100%);
+    transition: transform 0.2s ease;
+}
+
+.showNav {
+    transform: translateY(35%);
+}
+
+.nav ul {
+    width: 60%;
+    height: 90%;
+    list-style: none;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+  
+.nav ul li button {
+    color: #582323;
+    background-color: var(--background);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    text-decoration: none;
+    font-family: roboto;
+    font-size: 1.25vw;
+    align-items: center;
+    width: 10vw;
+    height: 6vh;
+}
+  
+.nav ul li button:hover, .navbar ul li button:focus {
+    background-color: var(--hover);
+    color: white;
+    border-color: white;
+}
+
+#closeSettings {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: white;
+    background-image: url("../images/exit.png");
+    background-size: 100%;
+    height: 3.5vh;
+    width: 2vw;
+    margin-top: 1vh;
+    margin-right: 1vw;
+    border: 1px solid #582323;
+    border-radius: 1vh;
+}
+
+#closeSettings:hover {
+    background-color: var(--hover);
+    background-image: url("../images/exit-white.png");
+    border: 1px solid white;
+}
+
+
+#settingsInput {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1000;
+    background-color: var(--background);
+    height: 55vh;
+    width: 20vw;
+    border: 1px solid #582323;
+    border-radius: 1vh;
+}
+
+#settingsTitle {
+    font-size: 2vw;
+}
+
+#timerSettingsTitle {
+    font-size: 1.5vw;
+}
+
+#timeSettings {
+    font-size: 1vw;
+}
+#volumeSettingsTitle {
+    font-size: 1.5vw;
+}
+
+#saveButton {
+    background-color: white;
+    height: 3.5vh;
+    width: 4vw;
+    margin: 1vh;
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    font-size: 1vw;
+}
+
+#saveButton:hover {
+    background-color: var(--hover);
+    border: 1px solid white;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    display: none;
+}
+
+#aboutPage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    height: 60vh;
+    width: 50vw;
+    padding: 5vh;
+    background-color: var(--foreground);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+}
+
+#aboutTitle {
+    font-size: 2vw;
+    text-align: center;
+    background-color: var(--background);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    padding: 1vh;
+}
+
+#aboutText {
+    font-size: 1.5vw;
+    text-align: left;
+    background-color: var(--background);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    padding: 1vh;
+}
+
+.aboutItems {
+    font-size: 1.25vw;
+    text-align: left;
+}
+
+#closeAbout {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: white;
+    background-image: url("../images/exit.png");
+    background-size: 100%;
+    height: 3.5vh;
+    width: 2vw;
+    margin-top: 1vh;
+    margin-right: 1vw;
+    border: 2px solid black;
+    border-radius: 1vh;
+}
+
+#howTo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    height: 60vh;
+    width: 50vw;
+    padding: 5vh;
+    background-color: var(--foreground);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+}
+
+#howToTitle {
+    font-size: 2vw;
+    text-align: center;
+    background-color: var(--background);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    padding: 1vh;
+}
+
+#howToText {
+    font-size: 1.5vw;
+    text-align: left;
+    background-color: var(--background);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    padding: 3vh;
+}
+
+.howToItems {
+    font-size: 1.25vw;
+    text-align: left;
+}
+
+#closeHowTo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: white;
+    background-image: url("../images/exit.png");
+    background-size: 100%;
+    height: 3.5vh;
+    width: 2vw;
+    margin-top: 1vh;
+    margin-right: 1vw;
+    border: 2px solid black;
+    border-radius: 1vh;
+}
+
+#timeBox {  
+    /* Border Properties */
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0% 4% 5% rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+
+    /* Box Sizing */
+    width: 40vw;
+    height: auto;
+    padding: 5vh;
+    
+    /* Positioning */
+    margin: auto;
+    position: relative;
+    
+    /* Color */
+    background-color: var(--background);
+}
+
+#timer { 
+    /* Border Properties */
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0% 4% 5% rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+
+    /* Box Sizing */
+    width: 60vw;
+    height: auto;
+    padding: 2.5vw 5vh 2.5vw 5vh;
+    
+    /* Positioning */
+    margin: auto;
+    position: relative;
+
+    /* Color */
+    background-color: var(--foreground);
+    
+}
+
+#state {
+    text-align: center;
+    font-size: 4vw;
+} 
+
+#clock {
+    text-align: center;
+    font-weight: 80%;
+    font-size: 8vw;
+    line-height: 1%;
+    color: #582323;
+}
+
+#startButton {
+
+    /* Style */
+    background-color: var(--background);
+    color: #582323;
+    display: inline-block;
+
+    /* Sizing */
+    width: 10vw;
+    padding: 1vh;
+
+    /* Position */
+    margin: auto;
+    display: block;
+
+    font-size: 2vw;
+
+    /* Border */
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+}
+
+#startButton:hover {
+    background-color: var(--hover);
+    color: white;
+}
+
+#startButton:active {
+    background-color: var(--hover);
+    box-shadow: 3px 3px 3px #3d3d3d;
+    transform: translateY(4px);
+}
+
+#middleOfPage {
+    /* Sizing */
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: center;
+    align-items: center;
+    width: 61.15vw;
+    height: auto;
+
+    /* Positioning */
+    margin: auto;
+    position: relative;
+}
+
+#currentTaskBox {
+
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    /* Border Properties */
+    
+    border-radius: 10px;
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+    
+    /* Box Sizing */
+    width: 52.5vw;
+    height: 30vh;
+    padding: 2.5vw 5vh 2.5vw 5vh;
+        
+    /* Positioning */
+    margin: 1vh;
+    position: relative;
+
+    /* Color */
+    background-color: var(--foreground);
+}
+
+#currentTaskHeader {
+    text-align: center;
+    width: 100%;
+    font-size: 2vw;
+}
+
+#check {
+    display: inline-block;
+    width: 4vw;
+    height: 4vh;
+    padding: 1vh;
+    margin: 1vh;
+    text-align: center;
+
+    font-family: roboto;
+    color: #582323;
+    font-size: 1vw;
+
+    /* Color */
+    background-color: var(--background);
+    display: inline-block;
+    
+    /* Border Properties */
+    border-radius: 1vh;
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#check:hover {
+    background-color: var(--hover);
+}
+
+#check:active {
+    background-color: var(--hover);
+    box-shadow: 3px 3px 3px #3d3d3d;
+    transform: translateY(4px);
+}
+
+#currentTask {
+    /* Border Properties */
+    border-radius: 1vh;
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    /* Sizing */
+    text-align: center;
+    width: 25vw;
+    height: 4vh;
+    padding: 1vh;  
+
+    /* Positioning */
+    margin: 1vh;
+    display: inline-block;
+
+
+    /* Color */
+    color: #582323;
+    background-color: var(--background);
+
+    font-size: 2vh;
+}
+
+#currentPomos {
+    /* Border Properties */
+    border-radius: 1vh;
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    text-align: center;
+    width: 4vw;
+    height: 4vh;
+    padding: 1vh;
+
+    /* Positioning */
+    margin: 1vh;
+    display: inline-block;
+
+    /* Color */
+    background-color: var(--background);
+
+    font-size: 2vh;
+}
+
+#pomoCounter {
+    /* Border Properties */
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+
+    text-align: center;
+    width: 12.5vw;
+    padding: 2.5vw 5vh 2.5vw 5vh;
+    height: 30vh;
+
+    /* Positioning */
+    margin: 1vh;
+
+    /* Color */
+    background-color: var(--foreground);
+}
+
+#workPeriodsHeader {
+    font-size: 1.5vw;
+    text-align: center;
+}
+
+#workPeriods {
+    display: inline-block;
+    font-size: 1.5vw;
+
+    /* Border Properties */
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+
+    /* Sizing */
+    width: 5vw;
+    padding: 1vh;
+
+    /* Positioning */
+    margin: 1vh;
+    
+
+    background-color: var(--background);
+}
+
+#taskBox { 
+    /* Border Properties */
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+    
+    /* Box Sizing */
+    width: 60vw;
+    height: auto;
+    padding: 2.5vw 5vh 2.5vw 5vh;
+        
+    /* Positioning */
+    margin: auto;
+    position: relative;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    /* Color */
+    background-color: var(--foreground);
+}
+
+#taskHeader {
+    font-size: 2vw;
+}
+
+#innerTaskBox {
+    /* Border Properties */
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+
+    width: 40vw;
+    height: auto;
+    padding: 2.5vw 5vh 2.5vw 5vh;
+
+    /* Positioning */
+    margin: auto;
+    position: relative;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    /* Color */
+    background-color: var(--background);
+}
+
+#addTask {
+    /* Border Properties */
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+
+
+    font-size: 1.75vw;
+
+    /* Sizing */
+    width: 15vw;
+    padding: 1vw;
+
+    /* Position */
+    margin: auto;
+    display: block;
+
+    background-color: var(--foreground);
+    color: #582323;
+}
+
+#addTask:hover {
+    background-color: var(--hover);
+    color: white;
+}
+
+#addTask:active {
+    background-color: var(--hover);
+    box-shadow: 3px 3px 3px #3d3d3d;
+    transform: translateY(4px);
+}
+
+#taskInput {
+    /* Border Properties */
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+
+    /* Box Sizing */
+    width: 20vw;
+    height: auto;
+    padding: 2.5vw 5vh 2.5vw 5vh;
+    
+    /* Positioning */
+    margin: auto;
+    position: relative;
+
+    /* Color */
+    background-color: var(--foreground);
+}
+
+#taskName{
+    width: 10vw;
+}
+
+#taskPomos {
+    width: 3vw;
+}
+
+#createTask {
+    /* Border */
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+
+    display: inline-block;
+    font-size: 1.75vw;
+    border-radius: 1vh;
+
+    /* Sizing */
+    width: 10vw;
+    padding: 1vh;
+
+    /* Position */
+    margin: auto;
+    display: block;
+
+    /* Style */
+    background-color: var(--background);
+    color: #582323;
+}
+
+#createTask:hover {
+    background-color: var(--hover);
+    color: white;
+}
+
+#createTask:active {
+    background-color: var(--hover);
+    box-shadow: 3px 3px 3px #3d3d3d;
+    transform: translateY(4px);
+
+}
+
+/* TaskList */
+
+#taskList {
+    list-style-type: none;
+    width: 30vw;
+    height: 30vh;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+#activity {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    height: 80vh;
+    width: 50vw;
+    padding: 5vh;
+    background-color: var(--foreground);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+}
+
+#activityTitle {
+    text-align: center;
+    font-size: 2.5vw;
+    background-color: var(--background);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    padding: 1vh;
+}
+
+#activityHeaders {
+    /* Sizing */
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: auto;
+
+    /* Positioning */
+    margin: auto;
+    position: relative;
+}
+
+#totalWorkTime {
+    text-align: center;
+    position: relative;
+    font-size: 1.5vw;
+    background-color: var(--background);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    padding: 1vh;
+}
+
+#totalPomosCompleted {
+    text-align: center;
+    position: relative;
+    font-size: 1.5vw;
+    background-color: var(--background);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    padding: 1vh;
+    margin-left: 10vw;
+}
+
+#activityNumbers {
+    /* Sizing */
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: auto;
+
+    /* Positioning */
+    margin: auto;
+    margin-top: 2vh;
+    position: relative;
+}
+
+#worktimes {
+    /*position*/
+    display: inline-block;
+    width: 3vw;
+    height: 4vh;
+    padding: 2vh;
+    margin-right: 8vw;
+
+    /*border*/
+    border: solid black;
+    border-radius: 1vh;
+    
+    /*text*/
+    text-align: center;
+    font-size: 1.75vw;
+}
+
+#totalCompletedTasks {
+    display: inline-block;
+    width: 3vw;
+    height: 4vh;
+    margin-left: 10vw;
+    padding: 2vh;
+
+    /*border*/
+    border: solid black;
+    border-radius: 1vh;
+    
+    /*text*/
+    text-align: center;
+    font-size: 1.75vw;
+}
+
+#completedTasksListBox {
+    /* Sizing */
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: auto;
+
+    /* Positioning */
+    margin: auto;
+    margin-top: 2vh;
+    position: relative;
+}
+
+#completedTasksList {
+    position: relative;
+    font-size: 1.5vw;
+    text-align: center;
+    background-color: var(--background);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    padding: 1vh;
+    margin-left: 3vw;
+}
+
+#estimatedPomos {
+    position: relative;
+    font-size: 1.5vw;
+    text-align: center;
+    background-color: var(--background);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    padding: 1vh;
+    margin-left: 9vw;
+}
+
+#actualPomos {
+    position: relative;
+    font-size: 1.5vw;
+    text-align: center;
+    background-color: var(--background);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    padding: 1vh;
+    margin-left: 5vw;
+}
+
+#completedTasks {
+    list-style-type: none;
+    width: 50vw;
+    height: 20vh;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+#increasePomosButton {
+    display: inline-block;
+    margin-left: 0.5vw;
+    width: 1.5vw;
+    height: 1.5vw;
+    text-align: center;
+    font-size: 10px;
+    background-image: url("../images/plus.png");
+    background-size: 100%;
+    border: 2px solid black;
+    border-radius: 1vh;
+    background-color: var(--background);
+}
+
+#increasePomosButton:hover {
+    background-image: url("../images/plus-white.png");
+    background-size: 100%;
+    background-color: var(--hover);
+}
