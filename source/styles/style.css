@@ -60,6 +60,8 @@ a {
 }
 
 .languageMenu {
+    /* position: relative;
+    left: 80%; */
     position: absolute;
     z-index: 1000;
     bottom: 1.4vw;
