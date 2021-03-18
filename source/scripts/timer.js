@@ -40,7 +40,7 @@ window.onload = function () {
         valueSound = parseInt(localStorage.getItem('volume-slider'));
         document.getElementById("volume-slider").value = valueSound;
     }
-    if (localStorage.getItem('totalPomos') != null && !isNaN(localStorage.getItem('totalPomos'))) {
+    if (localStorage.getItem('totalPomos') != null &&  !isNaN(localStorage.getItem('totalPomos'))) {
         totalPomos = parseInt(localStorage.getItem('totalPomos'));
     }
     document.getElementById("worktimes").innerHTML = totalPomos;
@@ -60,6 +60,7 @@ var stopButtonText = {
     en: "STOP",
     es: "DETENER",
     ch: "停止"
+
 }
 /**
  * Starts the timer when start button is clicked
@@ -80,7 +81,7 @@ function timeStart() {
         document.getElementById("clock").innerHTML = `${valueWork}:00`;
         document.getElementById("startButton").textContent = stopButtonText[localStorage.getItem("language")];
     } else {
-        if (document.getElementById("state").textContent == workText[localStorage.getItem("language")]) {
+        if(document.getElementById("state").textContent == workText[localStorage.getItem("language")]){
             actualPomos++;
         }
         addTaskActivity();
@@ -147,7 +148,7 @@ function count() {
  */
 function moveTask(state) {
     estimatedPomos = parseInt(document.getElementById('taskList').firstChild.getAttribute('taskPomos'));
-    if (state != "start") {
+    if(state != "start"){
         addTaskActivity();
     }
     currPomos = parseInt(document.getElementById('taskList').firstChild.getAttribute('taskPomos'));
@@ -309,7 +310,7 @@ function stop() {
     document.getElementById("check").disabled = false;
     if (document.getElementById('taskList').firstChild == null) {
         alert(noTasksLeftText[localStorage.getItem("language")]);
-        if (document.getElementById("state").textContent == workText[localStorage.getItem("language")]) {
+        if(document.getElementById("state").textContent == workText[localStorage.getItem("language")]){
             pomos++;
             totalPomos++;
         }
@@ -327,7 +328,7 @@ function stop() {
         longBreakCounter = 0;
         switchThemes();
     } else if (confirm(stopTimerText[localStorage.getItem("language")])) {
-        if (document.getElementById("state").textContent == workText[localStorage.getItem("language")]) {
+        if(document.getElementById("state").textContent == workText[localStorage.getItem("language")]){
             pomos++;
             totalPomos++;
         }
@@ -363,13 +364,13 @@ function notificationPermission() {
     if (!window.Notification) {
         alert(browserDoesNotSupportText[localStorage.getItem("language")]);
     } else {
-        if (Notification.permission === 'granted') {
+        if (Notification.permission === 'granted'){
             //alert("granted"); 
             permission = true;
-        } else if (Notification.permission !== 'denied') {
+        } else if (Notification.permission !== 'denied'){
             //alert("not granted");
             Notification.requestPermission().then(function (p) {
-                if (p === 'granted') {
+                if (p === 'granted'){
                     permission = true;
                 } else {
                     permission = false;
@@ -465,7 +466,7 @@ function popupNotification() {
  */
 function soundNotification() {
     var audio = new Audio("../sounds/samsung_whistle.mp3");
-    audio.volume = document.getElementById("volume-slider").value / 100;
+    audio.volume = document.getElementById("volume-slider").value/100;
     audio.play();
 }
 
@@ -527,12 +528,18 @@ function settingsClose() {
  * moved up and the current period will automatically be switched.
  */
 function taskComplete() {
-    if (document.getElementById("startButton").textContent == startButtonText[localStorage.getItem("language")]) {
+    if (document.getElementById("startButton").textContent == startButtonText[localStorage.getItem("language")]){
         alert("There is no current Task!");
     } 
+    /*else if (document.getElementById("state").textContent == workText[localStorage.getItem("language")]) {
+        clearInterval(interval);
+        clearInterval(interval2);
+        switchTimes();
+        switchThemes();
+    }*/
     if (document.getElementById("startButton").textContent == startButtonText[localStorage.getItem("language")]){
         return;
-    } else if (document.getElementById('taskList').firstChild == null) {
+    } else if (document.getElementById('taskList').firstChild == null ) {
         addTaskActivity();
         currTask.innerHTML = "";
         stop();
@@ -577,7 +584,7 @@ function save() {
     localStorage.setItem('volume-slider', `${valueSound}`);
 }
 
-function addTaskActivity() {
+function addTaskActivity(){
     activityTaskName = currTask.innerHTML;
     var taskActivity = `<activity-item taskName="${activityTaskName}" actualPomos="${actualPomos}" estimatedPomos="${estimatedPomos}">`;
     document.getElementById("completedTasks").insertAdjacentHTML('beforeend', taskActivity);
@@ -620,21 +627,21 @@ var unmutedText = {
     ch: "通知現已取消靜音."
 }
 
-function mute() {
-    if (document.getElementById("mute-notifications").textContent == muteButtonText[localStorage.getItem("language")]) {
+function mute(){
+    if (document.getElementById("mute-notifications").textContent == muteButtonText[localStorage.getItem("language")]){
         alert(mutedText[localStorage.getItem("language")]);
         document.getElementById("mute-notifications").textContent = unmuteButtonText[localStorage.getItem("language")];
         permission = false;
-    } else if (document.getElementById("mute-notifications").textContent == unmuteButtonText[localStorage.getItem("language")]) {
+    } else if (document.getElementById("mute-notifications").textContent == unmuteButtonText[localStorage.getItem("language")]){
         alert(unmutedText[localStorage.getItem("language")]);
         document.getElementById("mute-notifications").textContent = muteButtonText[localStorage.getItem("language")];
         permission = true;
     }
 }
 
-function notifications() {
-    if (permission === true) {
-        if (seconds == 0 && minutes == 0) {
+function notifications(){
+    if (permission === true){
+        if (seconds == 0 && minutes == 0){
             popupNotification();
             soundNotification();
         }
