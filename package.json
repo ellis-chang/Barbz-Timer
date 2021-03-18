@@ -11,8 +11,7 @@
     "jest-localstorage-mock": "^2.4.8"
   },
   "scripts": {
-    "test": "jest",
-    "coverage": "jest --coverage"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
