@@ -3,6 +3,7 @@ let seconds;
 let interval;
 let interval2;
 let pomos = 0;
+let permission;
 var totalPomos = 0;
 let longBreakCounter = 0;
 var currPomos = 0;
@@ -529,12 +530,13 @@ function settingsClose() {
 function taskComplete() {
     if (document.getElementById("startButton").textContent == startButtonText[localStorage.getItem("language")]){
         alert("There is no current Task!");
-    } else if (document.getElementById("state").textContent == workText[localStorage.getItem("language")]) {
+    } 
+    /*else if (document.getElementById("state").textContent == workText[localStorage.getItem("language")]) {
         clearInterval(interval);
         clearInterval(interval2);
         switchTimes();
         switchThemes();
-    }
+    }*/
     if (document.getElementById("startButton").textContent == startButtonText[localStorage.getItem("language")]){
         return;
     } else if (document.getElementById('taskList').firstChild == null ) {
