@@ -2,6 +2,7 @@ TN:
 SF:source\scripts\menu.js
 FN:13,toggleMenu
 FN:19,(anonymous_1)
+
 FN:28,displayAbout
 FN:38,aboutClose
 FN:48,displayHowTo
@@ -19,6 +20,7 @@ DA:2,1
 DA:3,1
 DA:5,1
 DA:6,0
+
 DA:14,0
 DA:15,0
 DA:18,1
@@ -89,6 +91,7 @@ DA:62,0
 DA:63,0
 DA:64,0
 DA:65,0
+
 DA:66,0
 DA:68,0
 DA:71,1
@@ -109,6 +112,7 @@ DA:102,0
 DA:103,0
 DA:104,0
 DA:105,0
+
 DA:106,0
 DA:110,1
 DA:121,0
@@ -128,6 +132,7 @@ DA:141,0
 DA:142,0
 DA:143,0
 DA:144,0
+
 DA:145,0
 DA:149,1
 LF:70
