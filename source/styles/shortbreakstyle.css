@@ -4,8 +4,8 @@
 }
 
 :root{
-    --background: #66D3FA;
-    --foreground: #3C99DC;
+    --background: #ecf3fc;
+    --foreground: #bcdcf3;
     --hover: #0F5298;
 }
 
@@ -31,8 +31,8 @@ body {
     /* Border Properties */
     border: 1px solid #582323;
     box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1vh;
-
     background-color: var(--background);
     font-size: 2vw;
 }
@@ -47,6 +47,8 @@ body {
     background-color: var(--foreground);
     border: 1px solid #582323;
     box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
 } 
 
 a {
@@ -58,6 +60,8 @@ a {
 }
 
 .languageMenu {
+    /* position: relative;
+    left: 80%; */
     position: absolute;
     z-index: 1000;
     bottom: 1.4vw;
@@ -70,13 +74,14 @@ a {
 
 .hamburgerMenu {
     position: absolute;
-    z-index: 1000;
-    top: 2vh;
+    z-index: 1000%;
+    top: 20%;
     right: 1.5vw;
-    width: 3vw;
-    height: 5.5vh;
+    width: 3.4%;
+    height: 68%;
     border: 1px solid #582323;
-    border-radius: 1vh;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6.5px;
     cursor: pointer;
     background-color: var(--background);
     background-image: url("../images/hamburger-menu.png");
@@ -310,7 +315,7 @@ a {
 }
 
 .howToItems {
-    font-size: 1.25vw;
+    font-size: 1vw;
     text-align: left;
 }
 
@@ -333,7 +338,7 @@ a {
     /* Border Properties */
     border: 1px solid #582323;
     box-sizing: border-box;
-    box-shadow: 0% 4% 5% rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1vh;
 
     /* Box Sizing */
@@ -353,7 +358,7 @@ a {
     /* Border Properties */
     border: 1px solid #582323;
     box-sizing: border-box;
-    box-shadow: 0% 4% 5% rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1vh;
 
     /* Box Sizing */
@@ -373,6 +378,7 @@ a {
 #state {
     text-align: center;
     font-size: 4vw;
+
 } 
 
 #clock {
@@ -467,6 +473,19 @@ a {
     font-size: 2vw;
 }
 
+#currentPomosHeader {
+    /* Sizing */
+    width: 100%;
+    height: 1vh;
+    font-size: 1.4vw;
+    padding:0%;
+
+    /* Positioning */
+    text-align: center;
+    margin-left: 30vw;
+    margin-top: -3vw;
+}
+
 #check {
     display: inline-block;
     width: 4vw;
@@ -525,6 +544,7 @@ a {
     font-size: 2vh;
 }
 
+
 #currentPomos {
     /* Border Properties */
     border-radius: 1vh;
@@ -533,6 +553,7 @@ a {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     text-align: center;
+   
     width: 4vw;
     height: 4vh;
     padding: 1vh;
@@ -567,8 +588,8 @@ a {
 }
 
 #workPeriodsHeader {
-    font-size: 1.5vw;
-    text-align: center;
+    font-size: 1vw;
+    /* text-align: top; */
 }
 
 #workPeriods {
@@ -582,11 +603,14 @@ a {
     border-radius: 1vh;
 
     /* Sizing */
-    width: 5vw;
-    padding: 1vh;
-
+    /* width: 5vw;
+    padding: 1vh; */
+    width: 50%;
+    padding: 1%;
+    
     /* Positioning */
     margin: 1vh;
+    position: relative;
     
 
     background-color: var(--background);
@@ -931,3 +955,178 @@ a {
     background-size: 100%;
     background-color: var(--hover);
 }
+
+@media screen and (max-width: 800px) {
+    #barbzHeader {
+        height: 12.6vw;
+    }
+    .hamburgerMenu {
+        width: 6%;
+        height: 45%;
+        top: 35%;
+    }
+    .nav {
+        width: 20vh;
+    }
+    .nav ul li button {
+        width: 15vh;
+        font-size: 4vw;
+    }
+    #settingsInput {
+        top: 40%;
+        height: 41vh;
+        width: 55vw;
+    }
+    #settingsTitle {
+        font-size: 5vw;
+    }
+    
+    #timerSettingsTitle {
+        font-size: 3.5vw;
+    }
+    
+    #timeSettings {
+        font-size: 2vw;
+    }
+    #volumeSettingsTitle {
+        font-size: 3.5vw;
+    }
+    #saveButton {
+        width: 15vw;
+        font-size: 3.5vw;
+
+    }
+    #closeSettings {
+        height: 2.7vh;
+        width: 6vw;
+    }
+    #closeAbout {
+        height: 2.7vh;
+        width: 6vw;
+    }
+    #aboutPage {
+        top: 30%;
+        height: 30vh;
+        width: 50vw;
+    }
+    #aboutTitle {
+        font-size: 3vw;
+    }
+    #aboutText {
+        font-size: 2vw;
+        text-align: center;
+    }
+        
+    .aboutItems {
+        font-size: 2vw;
+        text-align: left;
+    }
+    #closeHowTo {
+        height: 2.7vh;
+        width: 6vw;
+    }
+    #howTo {
+        top: 50%;
+        height: 65vh;
+        width: 50vw;
+    }
+    #howToTitle {
+        font-size: 3vw;
+    }
+    #howToText {
+        font-size: 1vw;
+        text-align: center;
+    }
+        
+    .howToItems {
+        font-size: 2vw;
+        text-align: left;
+    }
+    /* Current Task Box */
+    #check {
+        height: 2vh;
+        width: 6vw;
+        border-radius: 4px;
+        font-size: 1vw;
+        /* padding: 1vh; */
+    }
+    #increasePomosButton{
+        height: 2.7vh;
+        width: 1vw;
+    }
+    
+    #currentTaskBox {
+        width: 62vw;
+        height: 14vh;
+    }
+    #currentTask {
+        width: 10vw;
+        margin-left: 1vh;
+    }
+
+    #currentTaskHeader {
+        font-size: 3vw;
+    }
+    #currentPomosHeader{
+        font-size: 2vw;
+    }
+    #currentPomos{
+        width: 6vw;
+    }
+
+    /* Work period complete */
+
+
+
+    /* Add Task */
+    #taskNameLang {
+        font-size: 3vw;
+    }
+    #expectedPomosLang{
+        font-size: 2.7vw;
+    }
+    #middleOfPage {
+        flex-direction: column;
+        width: 90%;
+    }
+    #taskName {
+        width: 7vw;
+    }
+    #pomoCounter {
+        width: 40vw;
+        height: 11vh;
+    }
+    #workPeriodsHeader {
+        width: 35vh;
+        text-align: center;
+        margin-left: -13vh;
+        font-size: 2.3vw;
+    }
+    #workPeriods {
+        font-size: 7vw;
+        width: 17vw;
+        height: 4vh;
+    }
+
+    #taskBox { 
+        width: 90vw;
+    }
+    #taskHeader {
+        font-size: 3.5vw;
+    }
+    #innerTaskBox {
+        width: 80vw;
+        margin:0%;
+    }
+    #taskInput {  
+        width: 70vw;
+    }
+    #taskList {
+        width: 50vw;
+        height: 30vh;
+    }
+}
+    
+
+
+    
