@@ -378,18 +378,18 @@ function switchThemes() {
   ) {
     document
       .getElementById('style')
-      .setAttribute('href', '../styles/shortbreakstyle.css');
+      .setAttribute('href', './styles/shortbreakstyle.css');
   } else if (
     document.getElementById('state').textContent ==
     longStateText[localStorage.getItem('language')]
   ) {
     document
       .getElementById('style')
-      .setAttribute('href', '../styles/longbreakstyle.css');
+      .setAttribute('href', './styles/longbreakstyle.css');
   } else {
     document
       .getElementById('style')
-      .setAttribute('href', '../styles/style.css');
+      .setAttribute('href', './styles/style.css');
   }
 }
 
