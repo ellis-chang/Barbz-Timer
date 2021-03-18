@@ -26,154 +26,207 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>var taskInput = document.getElementById("taskInput");
-var taskName = document.getElementById("taskName");
-var taskPomos = document.getElementById("taskPomos");
-var numberOfTasks = 0;
+            <pre class="prettyprint source linenums"><code>var numberOfTasks = 0;
+
+/*========================================================================
+ * Language Changes
+ *========================================================================*/
+
+var positiveNumberText = {
+  en: 'Please re-enter a positive number for the number of expected pomos.',
+  es: 'Vuelva a ingresar un número positivo para el número de pomos esperados.',
+  ch: '請重新輸入一個正數，以表示預期的pomos數量。”',
+};
+
+var taskAtTopText = {
+  en: 'The task is at the top already.',
+  es: 'La tarea ya está en la cima.',
+  ch: '任務已經是最重要的。',
+};
+
+var taskAtBottomText = {
+  en: 'The task is at the bottom already.',
+  es: 'La tarea ya está al final.',
+  ch: '任務已經在底部了.',
+};
+
+/*========================================================================
+ * Task Element Creation/Manipulation
+ *========================================================================*/
 
 /**
  * Displays a form to allow users to input a name
- * of the task as well as the expected pomos it 
+ * of the task as well as the expected pomos it
  * would take.
  */
 function displayInput() {
-    if (taskInput.style.display == "none") {
-        taskInput.style.display = "block";
-    }
-    else {
-        taskInput.style.display = "none";
-    }
-}
-
-var positiveNumberText = {
-    en: "Please re-enter a positive number for the number of expected pomos.",
-    es: "Vuelva a ingresar un número positivo para el número de pomos esperados.",
-    ch: "請重新輸入一個正數，以表示預期的pomos數量。”"
+  if (document.getElementById('taskInput').style.display == 'none') {
+    document.getElementById('taskInput').style.display = 'block';
+  } else {
+    document.getElementById('taskInput').style.display = 'none';
+  }
 }
 
 /**
  * Creates the task and adds it to the task list.
  */
 function createTask() {
-    let orderedList = document.getElementById("taskList").children;
-    let i = 0;
-    
-    if(taskName.value == ""){
-        alert("Please enter a name for the task!");
-        return;
-    }
+  let orderedList = document.getElementById('taskList').children;
+  let i = 0;
 
-    while (i &lt; orderedList.length) {
-        if(taskName.value == orderedList[i].shadowRoot.querySelector(".name").innerHTML){
-            alert("That tasks already exists!");
-            return;
-        }
-        console.log(orderedList[i].shadowRoot.querySelector(".name").innerHTML);
-        i++;
+  //Check to see if name is empty
+  if (document.getElementById('taskName').value == '') {
+    alert('Please enter a name for the task!');
+    return;
+  }
+  
+  //Check for duplicate tasks
+  while (i &lt; orderedList.length) {
+    if (
+      document.getElementById('taskName').value ==
+      orderedList[i].shadowRoot.querySelector('.name').innerHTML
+    ) {
+      alert('That tasks already exists!');
+      return;
     }
-    
-    if (taskPomos.value &lt; 1) {
-        alert(positiveNumberText[localStorage.getItem("language")]);
-        return;
-    }
-    numberOfTasks++;
-    var task = `&lt;task-item taskName="${taskName.value}" taskPomos="${taskPomos.value}" id="${numberOfTasks}">`;
-    document.getElementById("taskList").insertAdjacentHTML('beforeend', task);
+    i++;
+  }
+
+  //Check for non positive integers
+  if (document.getElementById('taskPomos').value &lt; 1) {
+    alert(positiveNumberText[localStorage.getItem('language')]);
+    return;
+  }
+  numberOfTasks++;
+  
+  //Create custom element task-item
+  var task = `&lt;task-item taskName="${
+    document.getElementById('taskName').value
+  }" taskPomos="${
+    document.getElementById('taskPomos').value
+  }" id="${numberOfTasks}">`;
+  document.getElementById('taskList').insertAdjacentHTML('beforeend', task);
 }
 
 /**
  * Deletes the event from the task list.
- * 
- * @param {event} event The event related to the task that will be deleted. 
+ *
+ * @param {event} event The event related to the task that will be deleted.
  */
 function deleteTask(event) {
-    let orderedList = document.getElementById("taskList").children;
-    let current = event.target.parentNode.children;
-    let i = 0;
-    while (current[0].innerHTML != orderedList[i].shadowRoot.querySelector(".name").innerHTML) {
-        i++;
-    }
-    document.getElementById("taskList").removeChild(orderedList[i]);
-}
-
-var taskAtTopText = {
-    en: "The task is at the top already.",
-    es: "La tarea ya está en la cima.",
-    ch: "任務已經是最重要的。"
+  let orderedList = document.getElementById('taskList').children;
+  let current = event.target.parentNode.children;
+  let i = 0;
+  
+  //loops through list and deletes specified task
+  while (
+    current[0].innerHTML !=
+    orderedList[i].shadowRoot.querySelector('.name').innerHTML
+  ) {
+    i++;
+  }
+  document.getElementById('taskList').removeChild(orderedList[i]);
 }
 
 /**
  * Swap the current task with the task above it. If there is no task above the current then
  * alert the user and return nothing.
+ *
+ * @param {event} event The event related to the task that will be moved up.
  */
 function upTask(event) {
-    let orderedList = document.getElementById("taskList").children;
-    let current = event.target.parentNode.children;
-    let temp;
-    let tempNum;
-    let i = 0;
+  let orderedList = document.getElementById('taskList').children;
+  let current = event.target.parentNode.children;
+  let temp;
+  let tempNum;
+  let i = 0;
 
-    while (current[0].innerHTML != orderedList[i].shadowRoot.querySelector(".name").innerHTML) {
-        i++;
-    }
+  while (
+    current[0].innerHTML !=
+    orderedList[i].shadowRoot.querySelector('.name').innerHTML
+  ) {
+    i++;
+  }
 
-    if (i == 0) {
-        alert(taskAtTopText[localStorage.getItem("language")]);
-        return;
-    }
-    else {
-        temp = current[0].innerHTML;
-        tempNum = current[1].innerHTML;
-        current[0].innerHTML = orderedList[i - 1].shadowRoot.querySelector(".name").innerHTML;
-        current[1].innerHTML = orderedList[i - 1].shadowRoot.querySelector(".numPomos").innerHTML;
-        orderedList[i].setAttribute("taskName", current[0].innerHTML);
-        orderedList[i].setAttribute("taskPomos", current[1].innerHTML);
-        orderedList[i - 1].setAttribute("taskName", temp);
-        orderedList[i - 1].setAttribute("taskPomos", tempNum);
-        orderedList[i - 1].shadowRoot.querySelector(".name").innerHTML = temp;
-        orderedList[i - 1].shadowRoot.querySelector(".numPomos").innerHTML = tempNum;
-    }
-}
-
-var taskAtBottomText = {
-    en: "The task is at the bottom already.",
-    es: "La tarea ya está al final.",
-    ch: "任務已經在底部了."
+  if (i == 0) {
+    alert(taskAtTopText[localStorage.getItem('language')]);
+    return;
+  } else {
+    temp = current[0].innerHTML;
+    tempNum = current[1].innerHTML;
+    current[0].innerHTML = orderedList[i - 1].shadowRoot.querySelector(
+      '.name',
+    ).innerHTML;
+    current[1].innerHTML = orderedList[i - 1].shadowRoot.querySelector(
+      '.numPomos',
+    ).innerHTML;
+    orderedList[i].setAttribute('taskName', current[0].innerHTML);
+    orderedList[i].setAttribute('taskPomos', current[1].innerHTML);
+    orderedList[i - 1].setAttribute('taskName', temp);
+    orderedList[i - 1].setAttribute('taskPomos', tempNum);
+    orderedList[i - 1].shadowRoot.querySelector('.name').innerHTML = temp;
+    orderedList[i - 1].shadowRoot.querySelector(
+      '.numPomos',
+    ).innerHTML = tempNum;
+  }
 }
 
 /**
  * Swap the current task with the task below it. If there is no task below the current then
  * alert the user and return nothing.
+ *
+ * @param {event} event The event related to the task that will be moved down.
  */
 function downTask(event) {
-    let orderedList = document.getElementById("taskList").children;
-    let current = event.target.parentNode.children;
-    let temp;
-    let tempNum;
-    let i = 0;
+  let orderedList = document.getElementById('taskList').children;
+  let current = event.target.parentNode.children;
+  let temp;
+  let tempNum;
+  let i = 0;
 
-    while (current[0].innerHTML != orderedList[i].shadowRoot.querySelector(".name").innerHTML) {
-        i++;
-    }
+  while (
+    current[0].innerHTML !=
+    orderedList[i].shadowRoot.querySelector('.name').innerHTML
+  ) {
+    i++;
+  }
 
-    if (orderedList[i + 1] == null) {
-        alert(taskAtBottomText[localStorage.get("language")]);
-        return;
-    }
-    else {
-        temp = current[0].innerHTML;
-        tempNum = current[1].innerHTML;
-        current[0].innerHTML = orderedList[i + 1].shadowRoot.querySelector(".name").innerHTML;
-        current[1].innerHTML = orderedList[i + 1].shadowRoot.querySelector(".numPomos").innerHTML;
-        orderedList[i].setAttribute("taskName", current[0].innerHTML);
-        orderedList[i].setAttribute("taskPomos", current[1].innerHTML);
-        orderedList[i + 1].setAttribute("taskName", temp);
-        orderedList[i + 1].setAttribute("taskPomos", tempNum);
-        orderedList[i + 1].shadowRoot.querySelector(".name").innerHTML = temp;
-        orderedList[i + 1].shadowRoot.querySelector(".numPomos").innerHTML = tempNum;
-    }
+  if (orderedList[i + 1] == null) {
+    alert(taskAtBottomText[localStorage.getItem('language')]);
+    return;
+  } else {
+    temp = current[0].innerHTML;
+    tempNum = current[1].innerHTML;
+    current[0].innerHTML = orderedList[i + 1].shadowRoot.querySelector(
+      '.name',
+    ).innerHTML;
+    current[1].innerHTML = orderedList[i + 1].shadowRoot.querySelector(
+      '.numPomos',
+    ).innerHTML;
+    orderedList[i].setAttribute('taskName', current[0].innerHTML);
+    orderedList[i].setAttribute('taskPomos', current[1].innerHTML);
+    orderedList[i + 1].setAttribute('taskName', temp);
+    orderedList[i + 1].setAttribute('taskPomos', tempNum);
+    orderedList[i + 1].shadowRoot.querySelector('.name').innerHTML = temp;
+    orderedList[i + 1].shadowRoot.querySelector(
+      '.numPomos',
+    ).innerHTML = tempNum;
+  }
 }
 
+/*========================================================================
+ * Modules
+ *========================================================================*/
+
+if (typeof exports !== 'undefined') {
+  module.exports = {
+    displayInput,
+    createTask,
+    deleteTask,
+    upTask,
+    downTask,
+  };
+}
 </code></pre>
         </article>
     </section>
@@ -184,13 +237,13 @@ function downTask(event) {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#activityClose">activityClose</a></li><li><a href="global.html#addTime">addTime</a></li><li><a href="global.html#count">count</a></li><li><a href="global.html#createTask">createTask</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#displayActivity">displayActivity</a></li><li><a href="global.html#displayInput">displayInput</a></li><li><a href="global.html#displaySettings">displaySettings</a></li><li><a href="global.html#downTask">downTask</a></li><li><a href="global.html#increasePomos">increasePomos</a></li><li><a href="global.html#moveTask">moveTask</a></li><li><a href="global.html#notificationPermission">notificationPermission</a></li><li><a href="global.html#notifications">notifications</a></li><li><a href="global.html#popupNotification">popupNotification</a></li><li><a href="global.html#save">save</a></li><li><a href="global.html#settingsClose">settingsClose</a></li><li><a href="global.html#soundNotification">soundNotification</a></li><li><a href="global.html#stop">stop</a></li><li><a href="global.html#switchThemes">switchThemes</a></li><li><a href="global.html#switchTimes">switchTimes</a></li><li><a href="global.html#taskComplete">taskComplete</a></li><li><a href="global.html#taskTracker">taskTracker</a></li><li><a href="global.html#timeStart">timeStart</a></li><li><a href="global.html#toggleMenu">toggleMenu</a></li><li><a href="global.html#upTask">upTask</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#aboutClose">aboutClose</a></li><li><a href="global.html#activityClose">activityClose</a></li><li><a href="global.html#addTaskActivity">addTaskActivity</a></li><li><a href="global.html#count">count</a></li><li><a href="global.html#createTask">createTask</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#displayAbout">displayAbout</a></li><li><a href="global.html#displayActivity">displayActivity</a></li><li><a href="global.html#displayHowTo">displayHowTo</a></li><li><a href="global.html#displayInput">displayInput</a></li><li><a href="global.html#displaySettings">displaySettings</a></li><li><a href="global.html#downTask">downTask</a></li><li><a href="global.html#howToClose">howToClose</a></li><li><a href="global.html#increasePomos">increasePomos</a></li><li><a href="global.html#moveTask">moveTask</a></li><li><a href="global.html#mute">mute</a></li><li><a href="global.html#notificationPermission">notificationPermission</a></li><li><a href="global.html#notifications">notifications</a></li><li><a href="global.html#popupNotification">popupNotification</a></li><li><a href="global.html#save">save</a></li><li><a href="global.html#setLanguage">setLanguage</a></li><li><a href="global.html#settingsClose">settingsClose</a></li><li><a href="global.html#soundNotification">soundNotification</a></li><li><a href="global.html#stop">stop</a></li><li><a href="global.html#switchThemes">switchThemes</a></li><li><a href="global.html#switchTimes">switchTimes</a></li><li><a href="global.html#taskComplete">taskComplete</a></li><li><a href="global.html#taskTracker">taskTracker</a></li><li><a href="global.html#timeStart">timeStart</a></li><li><a href="global.html#toggleMenu">toggleMenu</a></li><li><a href="global.html#upTask">upTask</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Sun Mar 14 2021 17:34:33 GMT-0700 (Pacific Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Thu Mar 18 2021 14:45:54 GMT-0700 (Pacific Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

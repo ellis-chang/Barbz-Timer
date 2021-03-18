@@ -26,49 +26,76 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>let navbar = document.querySelector(".nav");
-let hamburgerMenu = document.querySelector(".hamburgerMenu");
-let menuButtons = document.querySelectorAll(".menuButton");
+            <pre class="prettyprint source linenums"><code>let hamburgerMenu = document.querySelector('.hamburgerMenu');
+let menuButtons = document.querySelectorAll('.menuButton');
 
-hamburgerMenu.addEventListener("click", toggleMenu);
+/*========================================================================
+ * Menu Implementation
+ *========================================================================*/
+
+if (document.querySelector('.hamburgerMenu') != null) {
+  hamburgerMenu.addEventListener('click', toggleMenu);
+}
 
 /**
  * Toggles the hamburger menu to show or hide
  * the navigation menu.
  */
 function toggleMenu() {
-    navbar.classList.toggle("showNav");
-    hamburgerMenu.classList.toggle("showClose");
-};
+  document.querySelector('.nav').classList.toggle('showNav');
+  document.querySelector('.hamburgerMenu').classList.toggle('showClose');
+}
 
-menuButtons.forEach(
-    menuButton => {
-        menuButton.addEventListener("click", toggleMenu);
+menuButtons.forEach((menuButton) => {
+  menuButton.addEventListener('click', toggleMenu);
 });
 
-let aboutPage = document.getElementById("aboutPage");
-
+/**
+ * Displays the about page in the menu.
+ */
 function displayAbout() {
-    aboutPage.style.display = "block";
-    overlay.style.display = "block";
+  document.getElementById('aboutPage').style.display = 'block';
+  document.getElementById('overlay').style.display = 'block';
 }
 
+/**
+ * Closes the about page.
+ */
 function aboutClose() {
-    aboutPage.style.display = "none";
-    overlay.style.display = "none";
+  document.getElementById('aboutPage').style.display = 'none';
+  document.getElementById('overlay').style.display = 'none';
 }
 
-let howToPage = document.getElementById("howTo");
-
+/**
+ * Displays the tutorial page.
+ */
 function displayHowTo() {
-    howToPage.style.display = "block";
-    overlay.style.display = "block";
+  document.getElementById('howTo').style.display = 'block';
+  document.getElementById('overlay').style.display = 'block';
 }
 
+/**
+ * Closes the tutorial page.
+ */
 function howToClose() {
-    howToPage.style.display = "none";
-    overlay.style.display = "none";
-}</code></pre>
+  document.getElementById('howTo').style.display = 'none';
+  document.getElementById('overlay').style.display = 'none';
+}
+
+/*========================================================================
+ * Modules
+ *========================================================================*/
+
+if (typeof exports !== 'undefined') {
+  module.exports = {
+    toggleMenu,
+    displayAbout,
+    aboutClose,
+    displayHowTo,
+    howToClose,
+  };
+}
+</code></pre>
         </article>
     </section>
 
@@ -78,13 +105,13 @@ function howToClose() {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#activityClose">activityClose</a></li><li><a href="global.html#addTime">addTime</a></li><li><a href="global.html#count">count</a></li><li><a href="global.html#createTask">createTask</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#displayActivity">displayActivity</a></li><li><a href="global.html#displayInput">displayInput</a></li><li><a href="global.html#displaySettings">displaySettings</a></li><li><a href="global.html#downTask">downTask</a></li><li><a href="global.html#increasePomos">increasePomos</a></li><li><a href="global.html#moveTask">moveTask</a></li><li><a href="global.html#notificationPermission">notificationPermission</a></li><li><a href="global.html#notifications">notifications</a></li><li><a href="global.html#popupNotification">popupNotification</a></li><li><a href="global.html#save">save</a></li><li><a href="global.html#settingsClose">settingsClose</a></li><li><a href="global.html#soundNotification">soundNotification</a></li><li><a href="global.html#stop">stop</a></li><li><a href="global.html#switchThemes">switchThemes</a></li><li><a href="global.html#switchTimes">switchTimes</a></li><li><a href="global.html#taskComplete">taskComplete</a></li><li><a href="global.html#taskTracker">taskTracker</a></li><li><a href="global.html#timeStart">timeStart</a></li><li><a href="global.html#toggleMenu">toggleMenu</a></li><li><a href="global.html#upTask">upTask</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#aboutClose">aboutClose</a></li><li><a href="global.html#activityClose">activityClose</a></li><li><a href="global.html#addTaskActivity">addTaskActivity</a></li><li><a href="global.html#count">count</a></li><li><a href="global.html#createTask">createTask</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#displayAbout">displayAbout</a></li><li><a href="global.html#displayActivity">displayActivity</a></li><li><a href="global.html#displayHowTo">displayHowTo</a></li><li><a href="global.html#displayInput">displayInput</a></li><li><a href="global.html#displaySettings">displaySettings</a></li><li><a href="global.html#downTask">downTask</a></li><li><a href="global.html#howToClose">howToClose</a></li><li><a href="global.html#increasePomos">increasePomos</a></li><li><a href="global.html#moveTask">moveTask</a></li><li><a href="global.html#mute">mute</a></li><li><a href="global.html#notificationPermission">notificationPermission</a></li><li><a href="global.html#notifications">notifications</a></li><li><a href="global.html#popupNotification">popupNotification</a></li><li><a href="global.html#save">save</a></li><li><a href="global.html#setLanguage">setLanguage</a></li><li><a href="global.html#settingsClose">settingsClose</a></li><li><a href="global.html#soundNotification">soundNotification</a></li><li><a href="global.html#stop">stop</a></li><li><a href="global.html#switchThemes">switchThemes</a></li><li><a href="global.html#switchTimes">switchTimes</a></li><li><a href="global.html#taskComplete">taskComplete</a></li><li><a href="global.html#taskTracker">taskTracker</a></li><li><a href="global.html#timeStart">timeStart</a></li><li><a href="global.html#toggleMenu">toggleMenu</a></li><li><a href="global.html#upTask">upTask</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Sun Mar 14 2021 17:34:33 GMT-0700 (Pacific Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Thu Mar 18 2021 14:45:54 GMT-0700 (Pacific Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>
