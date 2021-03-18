@@ -75,10 +75,10 @@ a {
 .hamburgerMenu {
     position: absolute;
     z-index: 1000%;
-    top: 20%;
+    top: 10%;
     right: 1.5vw;
-    width: 3.4%;
-    height: 68%;
+    width: 3.5vw;
+    height: 3.5vw;
     border: 1px solid #582323;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 6.5px;
@@ -86,6 +86,7 @@ a {
     background-color: var(--background);
     background-image: url("../images/hamburger-menu.png");
     background-size: 100%;
+    background-repeat: no-repeat;
     outline: none;
 }
 
@@ -93,16 +94,20 @@ a {
     background-color: var(--hover);
     background-image: url("../images/hamburger-menu-white.png");
     border: 1px solid white;
+    background-repeat: no-repeat;
+
 }
 
 .showClose {
     background-image: url("../images/exit.png");
+    background-repeat: no-repeat;
 }
 
 .showClose:hover {
     background-color: var(--hover);
     background-image: url("../images/exit-white.png");
     border: 1px solid white;
+    background-repeat: no-repeat;
 }
 
 .nav {
@@ -160,6 +165,7 @@ a {
     background-color: white;
     background-image: url("../images/exit.png");
     background-size: 100%;
+    background-repeat: no-repeat;
     height: 3.5vh;
     width: 2vw;
     margin-top: 1vh;
@@ -172,6 +178,7 @@ a {
     background-color: var(--hover);
     background-image: url("../images/exit-white.png");
     border: 1px solid white;
+    background-repeat: no-repeat;
 }
 
 
@@ -274,6 +281,7 @@ a {
     background-color: white;
     background-image: url("../images/exit.png");
     background-size: 100%;
+    background-repeat: no-repeat;
     height: 3.5vh;
     width: 2vw;
     margin-top: 1vh;
@@ -326,6 +334,7 @@ a {
     background-color: white;
     background-image: url("../images/exit.png");
     background-size: 100%;
+    background-repeat: no-repeat;
     height: 3.5vh;
     width: 2vw;
     margin-top: 1vh;
@@ -456,7 +465,7 @@ a {
     
     /* Box Sizing */
     width: 52.5vw;
-    height: 30vh;
+    height: 33vh;
     padding: 2.5vw 5vh 2.5vw 5vh;
         
     /* Positioning */
@@ -487,9 +496,8 @@ a {
 }
 
 #check {
-    display: inline-block;
     width: 4vw;
-    height: 4vh;
+    height: 5vh;
     padding: 1vh;
     margin: 1vh;
     text-align: center;
@@ -578,7 +586,7 @@ a {
     text-align: center;
     width: 12.5vw;
     padding: 2.5vw 5vh 2.5vw 5vh;
-    height: 30vh;
+    height: 33vh;
 
     /* Positioning */
     margin: 1vh;
@@ -588,8 +596,7 @@ a {
 }
 
 #workPeriodsHeader {
-    font-size: 1vw;
-    /* text-align: top; */
+    font-size: 1.5vw;
 }
 
 #workPeriods {
@@ -945,7 +952,8 @@ a {
     font-size: 10px;
     background-image: url("../images/plus.png");
     background-size: 100%;
-    border: 2px solid black;
+    background-repeat: no-repeat;
+    border: 1px solid #582323;
     border-radius: 1vh;
     background-color: var(--background);
 }
@@ -953,24 +961,27 @@ a {
 #increasePomosButton:hover {
     background-image: url("../images/plus-white.png");
     background-size: 100%;
+    background-repeat: no-repeat;
     background-color: var(--hover);
 }
 
 @media screen and (max-width: 800px) {
     #barbzHeader {
-        height: 12.6vw;
+        height: 8.6vw;
+        font-size: 1.5vw;
     }
     .hamburgerMenu {
-        width: 6%;
+        width: 4%;
         height: 45%;
-        top: 35%;
+        top: 25%;
+        background-size: 100%;
     }
     .nav {
         width: 20vh;
     }
     .nav ul li button {
-        width: 15vh;
-        font-size: 4vw;
+        width: 15vw;
+        font-size: 2vw;
     }
     #settingsInput {
         top: 40%;
@@ -1047,11 +1058,13 @@ a {
         height: 2vh;
         width: 6vw;
         border-radius: 4px;
-        font-size: 1vw;
-        /* padding: 1vh; */
+        font-size: 1.2vw;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 0.5vw;
     }
     #increasePomosButton{
-        height: 2.7vh;
+        height: 1.8vw;
         width: 1vw;
     }
     
@@ -1060,12 +1073,12 @@ a {
         height: 14vh;
     }
     #currentTask {
-        width: 10vw;
+        width: 25vw;
         margin-left: 1vh;
     }
 
     #currentTaskHeader {
-        font-size: 3vw;
+        font-size: 2.2vw;
     }
     #currentPomosHeader{
         font-size: 2vw;
@@ -1080,10 +1093,10 @@ a {
 
     /* Add Task */
     #taskNameLang {
-        font-size: 3vw;
+        font-size: 2vw;
     }
     #expectedPomosLang{
-        font-size: 2.7vw;
+        font-size: 2vw;
     }
     #middleOfPage {
         flex-direction: column;
@@ -1094,39 +1107,37 @@ a {
     }
     #pomoCounter {
         width: 40vw;
-        height: 11vh;
+        height: 13vw;
     }
     #workPeriodsHeader {
         width: 35vh;
         text-align: center;
-        margin-left: -13vh;
-        font-size: 2.3vw;
+        margin-left: -5vw;
+        font-size: 2vw;
+        margin-bottom: 1px;
     }
     #workPeriods {
-        font-size: 7vw;
-        width: 17vw;
-        height: 4vh;
+        font-size: 2vw;
+        width: 4vw;
+        height: 4vw;
     }
 
     #taskBox { 
-        width: 90vw;
+        width: 62vw;
     }
     #taskHeader {
         font-size: 3.5vw;
     }
     #innerTaskBox {
-        width: 80vw;
-        margin:0%;
+        width: 42vw;
+        margin: 0%;
     }
     #taskInput {  
-        width: 70vw;
+        width: 22vw;
     }
+
     #taskList {
         width: 50vw;
         height: 30vh;
     }
 }
-    
-
-
-    
