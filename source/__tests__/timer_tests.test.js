@@ -1,5 +1,5 @@
 const {timeStart, count, mute, switchTimes} = require('../scripts/timer');
-
+ 
 describe('timer', () => {
     document.body.innerHTML = `<!DOCTYPE html>
     <html lang="en">
@@ -211,7 +211,7 @@ describe('timer', () => {
         es: "DETENER",
         ch: "停止"
     }
-
+ 
     workText = {
         en: "Work",
         es: "Trabaja",
@@ -222,14 +222,14 @@ describe('timer', () => {
     var testNode = document.createTextNode("test");
     node.appendChild(testNode);
     document.getElementById('taskList').appendChild(node);
-
+ 
     jest.spyOn(window, 'alert').mockImplementation(() => { });
     
     test('start to stop', () => {
         timeStart();
         expect(startButton.textContent).toEqual("STOP");
     });
-
+ 
     test('stop to start', () => {
         startButton.textContent = "START";
         //timeStart();
@@ -241,7 +241,7 @@ describe('timer', () => {
         timeStart();
         expect(document.getElementById("clock").innerHTML).toEqual("25:00");
     });
-
+ 
     test('check that count properly sets the clock', () => {
         //1 minute = 60 seconds
         for(let i = 1; i < 61; i++){
@@ -289,13 +289,13 @@ describe('timer', () => {
         }
         switchTimes();
         expect(document.getElementById("state").textContent).toEqual("Work");
-
+ 
         for(let i = 0; i < 1500; i++){
             count();
         }
         switchTimes();
         expect(document.getElementById("state").textContent).toEqual("Long Break");
-
+ 
         for(let i = 0; i < 1800; i++){
             count();
         }
