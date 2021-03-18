@@ -6,11 +6,18 @@
     "jsdoc": "^3.6.6"
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "cypress": "^6.6.0",
-    "jest": "^26.6.3"
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "lint": "eslint --fix 'source/scripts/' && echo 'Lint complete.'",
+    "prettier-format": "prettier --config .prettierrc  --write 'source/scripts/'"
   },
   "repository": {
     "type": "git",
