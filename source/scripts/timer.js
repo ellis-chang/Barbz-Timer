@@ -83,7 +83,7 @@ function timeStart() {
         }
         addTaskActivity();
         stop();
-  }
+    }
 }
  
 var workText = {
@@ -110,38 +110,33 @@ var longStateText = {
  * timer settings and changes based off the changes.
  */
 function count() {
-  seconds--;
-  if (seconds == -1) {
-    minutes--;
-    if (minutes == -1) {
-      clearInterval(interval);
-      clearInterval(interval2);
-      if (
-        document.getElementById('state').textContent ==
-        workText[localStorage.getItem('language')]
-      ) {
-        taskTracker();
-        if (
-          document.getElementById('taskList').firstChild == null &&
-          currPomos == 0
-        ) {
-          actualPomos++;
-          addTaskActivity();
-          stop();
-          return;
+    seconds--;
+    if (seconds == -1) {
+        minutes--;
+        if (minutes == -1) {
+            clearInterval(interval);
+            clearInterval(interval2);
+            if (document.getElementById("state").textContent == workText[localStorage.getItem("language")]) {
+                taskTracker();
+                if (document.getElementById('taskList').firstChild == null && currPomos == 0) {
+                    actualPomos++;
+                    addTaskActivity();
+                    stop();
+                    return;
+                }
+            }
+            switchTimes();
+            switchThemes();
         }
-      }
-      switchTimes();
-      switchThemes();
-    } else {
-      seconds = 59;
+        else {
+            seconds = 59;
+        }
     }
-  }
-  if (seconds >= 10) {
-    document.getElementById('clock').innerHTML = minutes + ':' + seconds;
-  } else {
-    document.getElementById('clock').innerHTML = minutes + ':0' + seconds;
-  }
+    if (seconds >= 10) {
+        document.getElementById("clock").innerHTML = minutes + ":" + seconds;
+    } else {
+        document.getElementById("clock").innerHTML = minutes + ":0" + seconds;
+    }
 }
  
 /**
@@ -194,58 +189,47 @@ var notChosenText = {
  * Switches the work periods between work, short break, and long break.
  */
 function switchTimes() {
-  if (
-    document.getElementById('state').textContent ==
-    workText[localStorage.getItem('language')]
-  ) {
-    document.getElementById('check').disabled = true;
-    // Increment total pomo counter and update page
-    pomos++;
-    totalPomos++;
-    document.getElementById('workPeriods').innerHTML = pomos;
-    actualPomos++;
-    // Increment long break counter
-    longBreakCounter++;
-    // If less than 4 pomos, take a short break
-    if (longBreakCounter < 4) {
-      document.getElementById('state').textContent =
-        shortStateText[localStorage.getItem('language')];
-      minutes = valueShort;
-      seconds = 0;
-      interval = setInterval(count, 1000);
-      interval2 = setInterval(notifications, 1000);
-      document.getElementById('clock').innerHTML = `${valueShort}:00`;
-    } else {
-      // Take a long break
-      longBreakCounter = 0;
-      document.getElementById('state').textContent =
-        longStateText[localStorage.getItem('language')];
-      minutes = valueLong;
-      seconds = 0;
-      interval = setInterval(count, 1000);
-      interval2 = setInterval(notifications, 1000);
-      document.getElementById('clock').innerHTML = `${valueLong}:00`;
+    if (document.getElementById("state").textContent == workText[localStorage.getItem("language")]) {
+        document.getElementById("check").disabled = true;
+        // Increment total pomo counter and update page
+        pomos++;
+        totalPomos++;
+        document.getElementById("workPeriods").innerHTML = pomos;
+        actualPomos++;
+        // Increment long break counter
+        longBreakCounter++;
+        // If less than 4 pomos, take a short break
+        if (longBreakCounter < 4) {
+            document.getElementById("state").textContent = shortStateText[localStorage.getItem("language")];
+            minutes = valueShort;
+            seconds = 0;
+            interval = setInterval(count, 1000);
+            interval2 = setInterval(notifications, 1000);
+            document.getElementById("clock").innerHTML = `${valueShort}:00`;
+        } else { // Take a long break
+            longBreakCounter = 0;
+            document.getElementById("state").textContent = longStateText[localStorage.getItem("language")];
+            minutes = valueLong;
+            seconds = 0;
+            interval = setInterval(count, 1000);
+            interval2 = setInterval(notifications, 1000);
+            document.getElementById("clock").innerHTML = `${valueLong}:00`;
+        }
+        // After break, get back to work
+    } else if (document.getElementById("state").textContent == shortStateText[localStorage.getItem("language")]
+        || document.getElementById("state").textContent == longStateText[localStorage.getItem("language")]) {
+        document.getElementById("state").textContent = workText[localStorage.getItem("language")];
+        document.getElementById("check").disabled = false;
+        minutes = valueWork;
+        seconds = 0;
+        interval = setInterval(count, 1000);
+        interval2 = setInterval(notifications, 1000);
+        document.getElementById("clock").innerHTML = `${valueWork}:00`;
     }
-    // After break, get back to work
-  } else if (
-    document.getElementById('state').textContent ==
-      shortStateText[localStorage.getItem('language')] ||
-    document.getElementById('state').textContent ==
-      longStateText[localStorage.getItem('language')]
-  ) {
-    document.getElementById('state').textContent =
-      workText[localStorage.getItem('language')];
-    document.getElementById('check').disabled = false;
-    minutes = valueWork;
-    seconds = 0;
-    interval = setInterval(count, 1000);
-    interval2 = setInterval(notifications, 1000);
-    document.getElementById('clock').innerHTML = `${valueWork}:00`;
-  }
 }
-
-theme = document.getElementById('style');
-
+ 
+theme = document.getElementById("style");
+ 
 /**
  * Switches themes from work period to work period.
  */
@@ -257,7 +241,8 @@ function switchThemes() {
     } else {
         theme.setAttribute('href', "../styles/style.css");
     }
- }
+ 
+}
  
 var stopTimerText = {
     en: "This will stop the timer and reset all Pomodoro breaks. Are you sure you want to continue?",
@@ -360,7 +345,8 @@ function stop() {
     } else {
         alert(timeContinueText[localStorage.getItem("language")]);
     }
- }
+ 
+}
  
 var browserDoesNotSupportText = {
     en: "Browser does not support notifications",
@@ -372,25 +358,25 @@ var browserDoesNotSupportText = {
  * Ask the user for notification permissions.
  */
 function notificationPermission() {
-  if (!window.Notification) {
-    alert(browserDoesNotSupportText[localStorage.getItem('language')]);
-  } else {
-    if (Notification.permission === 'granted') {
-      //alert("granted");
-      permission = true;
-    } else if (Notification.permission !== 'denied') {
-      //alert("not granted");
-      Notification.requestPermission().then(function (p) {
-        if (p === 'granted') {
-          permission = true;
-        } else {
-          permission = false;
-        }
-      });
+    if (!window.Notification) {
+        alert(browserDoesNotSupportText[localStorage.getItem("language")]);
     } else {
-      permission = false;
+        if (Notification.permission === 'granted') {
+            //alert("granted"); 
+            permission = true;
+        } else if (Notification.permission !== 'denied') {
+            //alert("not granted");
+            Notification.requestPermission().then(function (p) {
+                if (p === 'granted') {
+                    permission = true;
+                } else {
+                    permission = false;
+                }
+            });
+        } else {
+            permission = false;
+        }
     }
-  }
 }
  
 var estimatedPomosOverText = {
@@ -445,122 +431,84 @@ var breakTimeUpText = {
  * Makes a pop up display to notify the user at the end of a period.
  */
 function popupNotification() {
-  if (
-    currPomos == 1 &&
-    document.getElementById('state').textContent ==
-      workText[localStorage.getItem('language')]
-  ) {
-    notification = new Notification(
-      estimatedPomosOverText[localStorage.getItem('language')],
-      {
-        body: addPomosText[localStorage.getItem('language')],
-      },
-    );
-  } else if (
-    document.getElementById('state').textContent ==
-      workText[localStorage.getItem('language')] &&
-    currPomos > 1
-  ) {
-    if (longBreakCounter < 3) {
-      notification = new Notification(
-        workPeriodOver[localStorage.getItem('language')],
-        {
-          body: shortBreakText[localStorage.getItem('language')],
-        },
-      );
-    } else {
-      notification = new Notification(
-        workPeriodOver[localStorage.getItem('language')],
-        {
-          body: longBreakText[localStorage.getItem('language')],
-        },
-      );
+    if (currPomos == 1 && document.getElementById("state").textContent == workText[localStorage.getItem("language")]) {
+        notification = new Notification(estimatedPomosOverText[localStorage.getItem("language")], {
+            body: addPomosText[localStorage.getItem("language")],
+        });
+    } else if (document.getElementById("state").textContent == workText[localStorage.getItem("language")] && currPomos > 1) {
+        if (longBreakCounter < 3) {
+            notification = new Notification(workPeriodOver[localStorage.getItem("language")], {
+                body: shortBreakText[localStorage.getItem("language")],
+            });
+        } else {
+            notification = new Notification(workPeriodOver[localStorage.getItem("language")], {
+                body: longBreakText[localStorage.getItem("language")],
+            });
+        }
+    } else if (document.getElementById("state").textContent == shortStateText[localStorage.getItem("language")]) {
+        notification = new Notification(shortBreakOverText[localStorage.getItem("language")], {
+            body: breakTimeUpText[localStorage.getItem("language")],
+        });
+    } else if (document.getElementById("state").textContent == longStateText[localStorage.getItem("language")]) {
+        notification = new Notification(longBreakOverText[localStorage.getItem("language")], {
+            body: breakTimeUpText[localStorage.getItem("language")],
+        });
     }
-  } else if (
-    document.getElementById('state').textContent ==
-    shortStateText[localStorage.getItem('language')]
-  ) {
-    notification = new Notification(
-      shortBreakOverText[localStorage.getItem('language')],
-      {
-        body: breakTimeUpText[localStorage.getItem('language')],
-      },
-    );
-  } else if (
-    document.getElementById('state').textContent ==
-    longStateText[localStorage.getItem('language')]
-  ) {
-    notification = new Notification(
-      longBreakOverText[localStorage.getItem('language')],
-      {
-        body: breakTimeUpText[localStorage.getItem('language')],
-      },
-    );
-  }
-  setTimeout(notification.close(), 1 * 1000);
+    setTimeout(notification.close(), 1 * 1000);
+ 
 }
  
 /**
  * Plays an audio notification for the user.
  */
 function soundNotification() {
-  var audio = new Audio('../sounds/samsung_whistle.mp3');
-  audio.volume = document.getElementById('volume-slider').value / 100;
-  audio.play();
+    var audio = new Audio("../sounds/samsung_whistle.mp3");
+    audio.volume = document.getElementById("volume-slider").value / 100;
+    audio.play();
 }
-
-/**
- * Notifications will be activated at the end of each period.
- */
-function notifications() {
-  if (permission === true) {
-    if (seconds == 0 && minutes == 0) {
-      popupNotification();
-      soundNotification();
-    }
-  }
-}
-
-let settingsInput = document.getElementById('settingsInput');
-let overlay = document.getElementById('overlay');
-let activity = document.getElementById('activity');
-
+ 
+ 
+let settingsInput = document.getElementById("settingsInput");
+let overlay = document.getElementById("overlay");
+let activity = document.getElementById("activity");
+ 
 /**
  * Opens the activity display.
  */
 function displayActivity() {
-  activity.style.display = 'block';
-  overlay.style.display = 'block';
+    activity.style.display = "block";
+    overlay.style.display = "block";
 }
  
 /**
  * Closes the activity display.
  */
 function activityClose() {
-  activity.style.display = 'none';
-  overlay.style.display = 'none';
+    activity.style.display = "none";
+    overlay.style.display = "none";
 }
  
 /**
  * Makes the settings visible.
  */
 function displaySettings() {
-  settingsInput.style.display = 'block';
-  overlay.style.display = 'block';
+    settingsInput.style.display = "block";
+    overlay.style.display = "block";
 }
  
 /**
  * Closes the settings page.
  */
 function settingsClose() {
-  settingsInput.style.display = 'none';
-  overlay.style.display = 'none';
-  document.getElementById('workSettings').value = valueWork;
-  document.getElementById('shortBreakSettings').value = valueShort;
-  document.getElementById('longBreakSettings').value = valueLong;
-  document.getElementById('volume-slider').value = valueSound;
+    settingsInput.style.display = "none";
+    overlay.style.display = "none";
+    document.getElementById("workSettings").value = valueWork;
+    document.getElementById("shortBreakSettings").value = valueShort;
+    document.getElementById("longBreakSettings").value = valueLong;
+    document.getElementById("volume-slider").value = valueSound;
 }
-
+ 
+ 
 /**
  * Clicking the done button will mark the current task as complete
  * and remove it from the current task bar. The next task will be
@@ -617,9 +565,6 @@ function save() {
     localStorage.setItem('volume-slider', `${valueSound}`);
 }
 
-/**
- * Adding the completed task to the activity page.
- */
 function addTaskActivity() {
     activityTaskName = currTask.innerHTML;
     var taskActivity = `<activity-item taskName="${activityTaskName}" actualPomos="${actualPomos}" estimatedPomos="${estimatedPomos}">`;
@@ -635,8 +580,8 @@ function addTaskActivity() {
  * task.
  */
 function increasePomos() {
-  currPomos++;
-  document.getElementById('currentPomos').innerHTML = currPomos;
+    currPomos++;
+    document.getElementById('currentPomos').innerHTML = currPomos;
 }
  
 var muteButtonText = {
@@ -663,9 +608,6 @@ var unmutedText = {
     ch: "通知現已取消靜音."
 }
 
-/**
- * Allows user to mute pop up notifications.
- */
 function mute() {
     if (document.getElementById("mute-notifications").textContent == muteButtonText[localStorage.getItem("language")]) {
         alert(mutedText[localStorage.getItem("language")]);
@@ -678,6 +620,14 @@ function mute() {
     }
 }
 
+function notifications() {
+    if (permission === true) {
+        if (seconds == 0 && minutes == 0) {
+            popupNotification();
+            soundNotification();
+        }
+    }
+}
 if (typeof exports !== 'undefined') {
     module.exports = {
         timeStart, 
@@ -687,3 +637,4 @@ if (typeof exports !== 'undefined') {
         switchTimes
     };
 }
+

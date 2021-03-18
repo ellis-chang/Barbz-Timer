@@ -23,7 +23,6 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-
                 <span class="strong">52.38% </span>
                 <span class="quiet">Statements</span>
                 <span class='fraction'>11/21</span>
@@ -31,7 +30,6 @@
         
             
             <div class='fl pad1y space-right2'>
-
                 <span class="strong">66.67% </span>
                 <span class="quiet">Branches</span>
                 <span class='fraction'>4/6</span>
@@ -39,7 +37,6 @@
         
             
             <div class='fl pad1y space-right2'>
-
                 <span class="strong">16.67% </span>
                 <span class="quiet">Functions</span>
                 <span class='fraction'>1/6</span>
@@ -47,7 +44,6 @@
         
             
             <div class='fl pad1y space-right2'>
-
                 <span class="strong">52.38% </span>
                 <span class="quiet">Lines</span>
                 <span class='fraction'>11/21</span>
@@ -59,7 +55,6 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-
     <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
@@ -122,7 +117,6 @@
 <a name='L58'></a><a href='#L58'>58</a>
 <a name='L59'></a><a href='#L59'>59</a>
 <a name='L60'></a><a href='#L60'>60</a>
-
 <a name='L61'></a><a href='#L61'>61</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -136,7 +130,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -146,7 +139,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -155,7 +147,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -163,7 +154,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -175,7 +165,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -184,7 +173,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -201,7 +189,6 @@ let menuButtons = document.querySelectorAll(".menuButton");
  * Toggles the hamburger menu to show or hide
  * the navigation menu.
  */
-
 function <span class="fstat-no" title="function not covered" >toggleMenu(</span>) {
 <span class="cstat-no" title="statement not covered" >    navbar.classList.toggle("showNav");</span>
 <span class="cstat-no" title="statement not covered" >    hamburgerMenu.classList.toggle("showClose");</span>
@@ -212,14 +199,12 @@ menuButtons.forEach(
 <span class="cstat-no" title="statement not covered" >        menuButton.addEventListener("click", toggleMenu);</span>
 });
 &nbsp;
-
 let aboutPage = document.getElementById("aboutPage");
 &nbsp;
 /**
  * Displays the about page in the menu.
  */
 function displayAbout() {
-
     <span class="missing-if-branch" title="else path not taken" >E</span>if(document.getElementById("aboutPage") != null &amp;&amp; document.getElementById("overlay") != null){
         document.getElementById("aboutPage").style.display = "block";
         document.getElementById("overlay").style.display = "block";
@@ -229,7 +214,6 @@ function displayAbout() {
 /**
  * Closes the about page.
  */
-
 function <span class="fstat-no" title="function not covered" >aboutClose(</span>) {
 <span class="cstat-no" title="statement not covered" >    aboutPage.style.display = "none";</span>
 <span class="cstat-no" title="statement not covered" >    overlay.style.display = "none";</span>
@@ -248,7 +232,6 @@ function <span class="fstat-no" title="function not covered" >displayHowTo(</spa
 /**
  * Closes the tutorial page.
  */
-
 function <span class="fstat-no" title="function not covered" >howToClose(</span>) {
 <span class="cstat-no" title="statement not covered" >    howToPage.style.display = "none";</span>
 <span class="cstat-no" title="statement not covered" >    overlay.style.display = "none";</span>
@@ -261,7 +244,6 @@ module.exports = {displayAbout};</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-
                 at Thu Mar 18 2021 00:21:23 GMT-0700 (Pacific Daylight Time)
             </div>
         </div>
