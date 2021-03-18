@@ -235,3 +235,4 @@ function setLanguage(language) {
     }
 }
 
+module.exports = {setLanguage};
