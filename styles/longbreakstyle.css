@@ -1,0 +1,1064 @@
+@font-face {
+    font-family: roboto;
+    src: url(fonts/Roboto-Medium.ttf);
+}
+
+:root{
+    --background: #ffffff;
+    --foreground: #C7C6B4;
+    --hover: #6B6C5A;
+}
+
+/*===========================================================
+ * Main Components of the Page
+ *===========================================================*/
+
+ body {
+    background-color: var(--background);
+    color: #582323;
+    padding-top: 10vh;
+    font-family: roboto;
+}
+
+#head {
+    text-align: center;
+    width: 15vw;
+    padding: 1vh;
+    margin: 1vh;
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+    background-color: var(--background);
+    font-size: 2vw;
+}
+
+#barbzHeader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--foreground);
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+} 
+
+
+/*===========================================================
+ * Language Features
+ *===========================================================*/
+
+a {
+    cursor: pointer;
+}
+
+#en {
+    text-decoration: underline;
+}
+
+.languageMenu {
+    position: absolute;
+    z-index: 1000;
+    bottom: 1.4vw;
+    right: 6.0vw;
+}
+
+.languageMenu > a {
+    margin-right: 10px;
+}
+
+/*===========================================================
+ * Nav Menu
+ *===========================================================*/
+
+.hamburgerMenu {
+    position: absolute;
+    z-index: 1000%;
+    top: 10%;
+    right: 1.5vw;
+    width: 3.5vw;
+    height: 3.5vw;
+    border: 1px solid #582323;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6.5px;
+    cursor: pointer;
+    background-color: var(--background);
+    background-image: url("../images/hamburger-menu.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    outline: none;
+}
+
+.hamburgerMenu:hover {
+    background-color: var(--hover);
+    background-image: url("../images/hamburger-menu-white.png");
+    border: 1px solid white;
+    background-repeat: no-repeat;
+
+}
+
+.showClose {
+    background-image: url("../images/exit.png");
+    background-repeat: no-repeat;
+}
+
+.showClose:hover {
+    background-color: var(--hover);
+    background-image: url("../images/exit-white.png");
+    border: 1px solid white;
+    background-repeat: no-repeat;
+}
+
+.nav {
+    position: absolute;
+    z-index: 1000;
+    top: 0px;
+    right: 2vw;
+    background-color: var(--foreground);
+    width: 13vw;
+    height: 40vh;
+    overflow: hidden;
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    transform: translateY(-100%);
+    transition: transform 0.2s ease;
+}
+
+.showNav {
+    transform: translateY(35%);
+}
+
+.nav ul {
+    width: 60%;
+    height: 90%;
+    list-style: none;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+  
+.nav ul li button {
+    color: #582323;
+    background-color: var(--background);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    text-decoration: none;
+    font-family: roboto;
+    font-size: 1.25vw;
+    align-items: center;
+    width: 10vw;
+    height: 6vh;
+}
+  
+.nav ul li button:hover, .navbar ul li button:focus {
+    background-color: var(--hover);
+    color: white;
+    border-color: white;
+}
+
+/*===========================================================
+ * Settings
+ *===========================================================*/
+
+#closeSettings {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: white;
+    background-image: url("../images/exit.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 3.5vh;
+    width: 2vw;
+    margin-top: 1vh;
+    margin-right: 1vw;
+    border: 1px solid #582323;
+    border-radius: 1vh;
+}
+
+#closeSettings:hover {
+    background-color: var(--hover);
+    background-image: url("../images/exit-white.png");
+    border: 1px solid white;
+    background-repeat: no-repeat;
+}
+
+#settingsInput {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1000;
+    background-color: var(--background);
+    height: 55vh;
+    width: 20vw;
+    border: 1px solid #582323;
+    border-radius: 1vh;
+}
+
+#settingsTitle {
+    font-size: 2vw;
+}
+
+#timerSettingsTitle {
+    font-size: 1.5vw;
+}
+
+#timeSettings {
+    font-size: 1vw;
+}
+
+#volumeSettingsTitle {
+    font-size: 1.5vw;
+}
+
+#saveButton {
+    background-color: white;
+    height: 3.5vh;
+    width: 4vw;
+    margin: 1vh;
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    font-size: 1vw;
+}
+
+#saveButton:hover {
+    background-color: var(--hover);
+    border: 1px solid white;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    display: none;
+}
+
+/*===========================================================
+ * About Page
+ *===========================================================*/
+
+#aboutPage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    height: 60vh;
+    width: 50vw;
+    padding: 5vh;
+    background-color: var(--foreground);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+}
+
+#aboutTitle {
+    font-size: 2vw;
+    text-align: center;
+    background-color: var(--background);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    padding: 1vh;
+}
+
+#aboutText {
+    font-size: 1.5vw;
+    text-align: left;
+    background-color: var(--background);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    padding: 1vh;
+}
+
+.aboutItems {
+    font-size: 1.25vw;
+    text-align: left;
+}
+
+#closeAbout {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: white;
+    background-image: url("../images/exit.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 3.5vh;
+    width: 2vw;
+    margin-top: 1vh;
+    margin-right: 1vw;
+    border: 2px solid black;
+    border-radius: 1vh;
+}
+
+/*===========================================================
+ * How To Page
+ *===========================================================*/
+
+#howTo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    height: 60vh;
+    width: 50vw;
+    padding: 5vh;
+    background-color: var(--foreground);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+}
+
+#howToTitle {
+    font-size: 2vw;
+    text-align: center;
+    background-color: var(--background);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    padding: 1vh;
+}
+
+#howToText {
+    font-size: 1.5vw;
+    text-align: left;
+    background-color: var(--background);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    padding: 3vh;
+}
+
+.howToItems {
+    font-size: 1vw;
+    text-align: left;
+}
+
+#closeHowTo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: white;
+    background-image: url("../images/exit.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 3.5vh;
+    width: 2vw;
+    margin-top: 1vh;
+    margin-right: 1vw;
+    border: 2px solid black;
+    border-radius: 1vh;
+}
+
+/*===========================================================
+ * Timer Display
+ *===========================================================*/
+
+#timeBox {  
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+    width: 40vw;
+    height: auto;
+    padding: 5vh;
+    margin: auto;
+    position: relative;
+    background-color: var(--background);
+}
+
+#timer { 
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+    width: 60vw;
+    height: auto;
+    padding: 2.5vw 5vh 2.5vw 5vh;
+    margin: auto;
+    position: relative;
+    background-color: var(--foreground);
+}
+
+#state {
+    text-align: center;
+    font-size: 4vw;
+} 
+
+#clock {
+    text-align: center;
+    font-weight: 80%;
+    font-size: 8vw;
+    line-height: 1%;
+    color: #582323;
+}
+
+#startButton {
+    background-color: var(--background);
+    color: #582323;
+    display: inline-block;
+    width: 10vw;
+    padding: 1vh;
+    margin: auto;
+    display: block;
+    font-size: 2vw;
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+}
+
+#startButton:hover {
+    background-color: var(--hover);
+    color: white;
+}
+
+#startButton:active {
+    background-color: var(--hover);
+    box-shadow: 3px 3px 3px #3d3d3d;
+    transform: translateY(4px);
+}
+
+/*===========================================================
+ * Middle of Page: Current Task Bar and Pomo Tracker
+ *===========================================================*/
+
+#middleOfPage {
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: center;
+    align-items: center;
+    width: 61.15vw;
+    height: auto;
+    margin: auto;
+    position: relative;
+}
+
+#currentTaskBox {
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+    width: 52.5vw;
+    height: 33vh;
+    padding: 2.5vw 5vh 2.5vw 5vh;
+    margin: 1vh;
+    position: relative;
+    background-color: var(--foreground);
+}
+
+#currentTaskHeader {
+    text-align: center;
+    width: 100%;
+    font-size: 2vw;
+}
+
+#currentPomosHeader {
+    width: 100%;
+    height: 1vh;
+    font-size: 1.4vw;
+    padding:0%;
+    text-align: center;
+    margin-left: 30vw;
+    margin-top: -3vw;
+}
+
+#check {
+    width: 4vw;
+    height: 5vh;
+    padding: 1vh;
+    margin: 1vh;
+    text-align: center;
+    font-family: roboto;
+    color: #582323;
+    font-size: 1vw;
+    background-color: var(--background);
+    display: inline-block;
+    border-radius: 1vh;
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#check:hover {
+    background-color: var(--hover);
+}
+
+#check:active {
+    background-color: var(--hover);
+    box-shadow: 3px 3px 3px #3d3d3d;
+    transform: translateY(4px);
+}
+
+#currentTask {
+    border-radius: 1vh;
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    width: 25vw;
+    height: 4vh;
+    padding: 1vh;  
+    margin: 1vh;
+    display: inline-block;
+    color: #582323;
+    background-color: var(--background);
+    font-size: 2vh;
+}
+
+#increasePomosButton {
+    display: inline-block;
+    margin-left: 0.5vw;
+    width: 1.5vw;
+    height: 1.5vw;
+    text-align: center;
+    font-size: 10px;
+    background-image: url("../images/plus.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    background-color: var(--background);
+}
+
+#increasePomosButton:hover {
+    background-image: url("../images/plus-white.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: var(--hover);
+}
+
+#currentPomos {
+    border-radius: 1vh;
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    width: 4vw;
+    height: 4vh;
+    padding: 1vh;
+    margin: 1vh;
+    display: inline-block;
+    background-color: var(--background);
+    font-size: 2vh;
+}
+
+#pomoCounter {
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+    text-align: center;
+    width: 12.5vw;
+    padding: 2.5vw 5vh 2.5vw 5vh;
+    height: 33vh;
+    margin: 1vh;
+    background-color: var(--foreground);
+}
+
+#workPeriodsHeader {
+    font-size: 1.5vw;
+}
+
+#workPeriods {
+    display: inline-block;
+    font-size: 1.5vw;
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+    width: 50%;
+    padding: 1%;
+    margin: 1vh;
+    position: relative;
+    background-color: var(--background);
+}
+
+/*===========================================================
+ * Task List
+ *===========================================================*/
+
+#taskBox { 
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+    width: 60vw;
+    height: auto;
+    padding: 2.5vw 5vh 2.5vw 5vh;
+    margin: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--foreground);
+}
+
+#taskHeader {
+    font-size: 2vw;
+}
+
+#innerTaskBox {
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+    width: 40vw;
+    height: auto;
+    padding: 2.5vw 5vh 2.5vw 5vh;
+    margin: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--background);
+}
+
+#addTask {
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+    font-size: 1.75vw;
+    width: 15vw;
+    padding: 1vw;
+    margin: auto;
+    display: block;
+    background-color: var(--foreground);
+    color: #582323;
+}
+
+#addTask:hover {
+    background-color: var(--hover);
+    color: white;
+}
+
+#addTask:active {
+    background-color: var(--hover);
+    box-shadow: 3px 3px 3px #3d3d3d;
+    transform: translateY(4px);
+}
+
+#taskInput {
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+    width: 20vw;
+    height: auto;
+    padding: 2.5vw 5vh 2.5vw 5vh;
+    margin: auto;
+    position: relative;
+    background-color: var(--foreground);
+}
+
+#taskName{
+    width: 10vw;
+}
+
+#taskPomos {
+    width: 3vw;
+}
+
+#createTask {
+    border: 1px solid #582323;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+
+    display: inline-block;
+    font-size: 1.75vw;
+    border-radius: 1vh;
+    width: 10vw;
+    padding: 1vh;
+    margin: auto;
+    display: block;
+    background-color: var(--background);
+    color: #582323;
+}
+
+#createTask:hover {
+    background-color: var(--hover);
+    color: white;
+}
+
+#createTask:active {
+    background-color: var(--hover);
+    box-shadow: 3px 3px 3px #3d3d3d;
+    transform: translateY(4px);
+
+}
+
+#taskList {
+    list-style-type: none;
+    width: 30vw;
+    height: 30vh;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+/*===========================================================
+ * Activity Page
+ *===========================================================*/
+
+#activity {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    height: 80vh;
+    width: 50vw;
+    padding: 5vh;
+    background-color: var(--foreground);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+}
+
+#activityTitle {
+    text-align: center;
+    font-size: 2.5vw;
+    background-color: var(--background);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    padding: 1vh;
+}
+
+#activityHeaders {
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: auto;
+    margin: auto;
+    position: relative;
+}
+
+#totalWorkTime {
+    text-align: center;
+    position: relative;
+    font-size: 1.5vw;
+    background-color: var(--background);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    padding: 1vh;
+}
+
+#totalPomosCompleted {
+    text-align: center;
+    position: relative;
+    font-size: 1.5vw;
+    background-color: var(--background);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    padding: 1vh;
+    margin-left: 10vw;
+}
+
+#activityNumbers {
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: auto;
+    margin: auto;
+    margin-top: 2vh;
+    position: relative;
+}
+
+#worktimes {
+    display: inline-block;
+    width: 3vw;
+    height: 4vh;
+    padding: 2vh;
+    margin-right: 8vw;
+    border: solid black;
+    border-radius: 1vh;
+    text-align: center;
+    font-size: 1.75vw;
+}
+
+#totalCompletedTasks {
+    display: inline-block;
+    width: 3vw;
+    height: 4vh;
+    margin-left: 10vw;
+    padding: 2vh;
+    border: solid black;
+    border-radius: 1vh;
+    text-align: center;
+    font-size: 1.75vw;
+}
+
+#completedTasksListBox {
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: auto;
+    margin: auto;
+    margin-top: 2vh;
+    position: relative;
+}
+
+#completedTasksList {
+    position: relative;
+    font-size: 1.5vw;
+    text-align: center;
+    background-color: var(--background);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    padding: 1vh;
+    margin-left: 3vw;
+}
+
+#estimatedPomos {
+    position: relative;
+    font-size: 1.5vw;
+    text-align: center;
+    background-color: var(--background);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    padding: 1vh;
+    margin-left: 9vw;
+}
+
+#actualPomos {
+    position: relative;
+    font-size: 1.5vw;
+    text-align: center;
+    background-color: var(--background);
+    border: 1px solid #582323;
+    border-radius: 1vh;
+    padding: 1vh;
+    margin-left: 5vw;
+}
+
+#completedTasks {
+    list-style-type: none;
+    width: 50vw;
+    height: 20vh;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+/*===========================================================
+ * Page Responsiveness
+ *===========================================================*/
+
+@media screen and (max-width: 800px) {
+    
+    #barbzHeader {
+        height: 8.6vw;
+        font-size: 1.5vw;
+    }
+
+    .hamburgerMenu {
+        width: 4%;
+        height: 45%;
+        top: 25%;
+        background-size: 100%;
+    }
+
+    .nav {
+        width: 20vh;
+    }
+
+    .nav ul li button {
+        width: 15vw;
+        font-size: 2vw;
+    }
+
+    #settingsInput {
+        top: 40%;
+        height: 41vh;
+        width: 55vw;
+    }
+
+    #settingsTitle {
+        font-size: 5vw;
+    }
+    
+    #timerSettingsTitle {
+        font-size: 3.5vw;
+    }
+    
+    #timeSettings {
+        font-size: 2vw;
+    }
+
+    #volumeSettingsTitle {
+        font-size: 3.5vw;
+    }
+
+    #saveButton {
+        width: 15vw;
+        font-size: 3.5vw;
+
+    }
+
+    #closeSettings {
+        height: 2.7vh;
+        width: 6vw;
+    }
+
+    #closeAbout {
+        height: 2.7vh;
+        width: 6vw;
+    }
+
+    #aboutPage {
+        top: 30%;
+        height: 30vh;
+        width: 50vw;
+    }
+
+    #aboutTitle {
+        font-size: 3vw;
+    }
+
+    #aboutText {
+        font-size: 2vw;
+        text-align: center;
+    }
+        
+    .aboutItems {
+        font-size: 2vw;
+        text-align: left;
+    }
+
+    #closeHowTo {
+        height: 2.7vh;
+        width: 6vw;
+    }
+
+    #howTo {
+        top: 50%;
+        height: 65vh;
+        width: 50vw;
+    }
+
+    #howToTitle {
+        font-size: 3vw;
+    }
+
+    #howToText {
+        font-size: 1vw;
+        text-align: center;
+    }
+        
+    .howToItems {
+        font-size: 2vw;
+        text-align: left;
+    }
+
+    #check {
+        height: 2vh;
+        width: 6vw;
+        border-radius: 4px;
+        font-size: 1.2vw;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 0.5vw;
+    }
+
+    #increasePomosButton{
+        height: 1.8vw;
+        width: 1vw;
+    }
+    
+    #currentTaskBox {
+        width: 62vw;
+        height: 14vh;
+    }
+
+    #currentTask {
+        width: 25vw;
+        margin-left: 1vh;
+    }
+
+    #currentTaskHeader {
+        font-size: 2.2vw;
+    }
+
+    #currentPomosHeader{
+        font-size: 2vw;
+    }
+
+    #currentPomos{
+        width: 6vw;
+    }
+
+    #taskNameLang {
+        font-size: 2vw;
+    }
+
+    #expectedPomosLang{
+        font-size: 2vw;
+    }
+
+    #middleOfPage {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    #taskName {
+        width: 7vw;
+    }
+
+    #pomoCounter {
+        width: 40vw;
+        height: 13vw;
+    }
+
+    #workPeriodsHeader {
+        width: 35vh;
+        text-align: center;
+        margin-left: -5vw;
+        font-size: 2vw;
+        margin-bottom: 1px;
+    }
+
+    #workPeriods {
+        font-size: 2vw;
+        width: 4vw;
+        height: 4vw;
+    }
+
+    #taskBox { 
+        width: 62vw;
+    }
+
+    #taskHeader {
+        font-size: 3.5vw;
+    }
+
+    #innerTaskBox {
+        width: 42vw;
+        margin: 0%;
+    }
+    
+    #taskInput {  
+        width: 22vw;
+    }
+
+    #taskList {
+        width: 50vw;
+        height: 30vh;
+    }
+}
