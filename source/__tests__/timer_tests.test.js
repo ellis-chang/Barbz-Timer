@@ -1,4 +1,4 @@
-const {timeStart, count, mute, switchTimes} = require('../scripts/timer');
+const {timeStart, count, mute, switchTimes, switchThemes, stop, taskTracker, displayActivity, activityClose, displaySettings, settingsClose, addTaskActivity, increasePomos} = require('../scripts/timer');
  
 describe('timer', () => {
     document.body.innerHTML = `<!DOCTYPE html>
@@ -311,4 +311,62 @@ describe('timer', () => {
         expect(document.getElementById("workPeriods").textContent).toEqual("5");
         expect(document.getElementById("state").textContent).toEqual("Short Break");
     });
+
+    test('switch themes', () => {
+        switchThemes();
+        expect(document.getElementById('style').getAttribute('href')).toBe("../styles/shortbreakstyle.css");
+    });
+
+    test('stop disables done button', () => {
+        stop();
+        expect(document.getElementById("check").disabled).toBeFalsy();
+    });
+
+    test('increase Pomos increment', () => {
+        increasePomos();
+        expect(document.getElementById('currentPomos').innerHTML).toEqual("1");
+    });
+
+    test('taskTracker sets current pomos', () => {
+        taskTracker();
+        expect(document.getElementById('currentPomos').innerHTML).toBe("0");
+    });
+
+    test('activity displayed', () => {
+        displayActivity();
+        expect(document.getElementById("activity").style.display).toEqual("block");
+        expect(document.getElementById("overlay").style.display).toEqual("block");
+    });
+
+    test('activity close', () => {
+        activityClose();
+        expect(document.getElementById("activity").style.display).toEqual("none");
+        expect(document.getElementById("overlay").style.display).toEqual("none");
+    });
+
+    test('settings displayed', () => {
+        displaySettings();
+        expect(document.getElementById("settingsInput").style.display).toEqual("block");
+        expect(document.getElementById("overlay").style.display).toEqual("block");
+    });
+
+    test('settings close', () => {
+        settingsClose();
+        expect(document.getElementById("settingsInput").style.display).toEqual("none");
+        expect(document.getElementById("overlay").style.display).toEqual("none");
+    });
+
+    test('store settings', () => {
+        settingsClose();
+        expect(document.getElementById('workSettings').value).toEqual("25");
+        expect(document.getElementById('shortBreakSettings').value).toEqual("5");
+        expect(document.getElementById('longBreakSettings').value).toEqual("30");
+        expect(document.getElementById('volume-slider').value).toEqual("100");
+    });
+
+    test('addTaskActivity html check', () => {
+        addTaskActivity();
+        expect(document.getElementById("totalCompletedTasks").innerHTML).toEqual("1");
+    });
+
 });

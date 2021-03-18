@@ -8,7 +8,6 @@ var totalPomos = 0;
 let longBreakCounter = 0;
 var currPomos = 0;
 var currTask = document.getElementById('currentTask');
-var check = document.getElementById('check');
 var valueWork = 25;
 var valueShort = 5;
 var valueLong = 30;
@@ -245,18 +244,16 @@ function switchTimes() {
   }
 }
 
-theme = document.getElementById('style');
-
 /**
  * Switches themes from work period to work period.
  */
 function switchThemes() {
     if (document.getElementById("state").textContent == shortStateText[localStorage.getItem("language")]) {
-        theme.setAttribute('href', "../styles/shortbreakstyle.css");
+        document.getElementById('style').setAttribute('href', "../styles/shortbreakstyle.css");
     } else if (document.getElementById("state").textContent == longStateText[localStorage.getItem("language")]) {
-        theme.setAttribute('href', "../styles/longbreakstyle.css");
+        document.getElementById('style').setAttribute('href', "../styles/longbreakstyle.css");
     } else {
-        theme.setAttribute('href', "../styles/style.css");
+        document.getElementById('style').setAttribute('href', "../styles/style.css");
     }
  }
  
@@ -335,7 +332,7 @@ function stop() {
         document.getElementById("clock").innerHTML = `${valueWork}:00`;
         document.getElementById("startButton").textContent = startButtonText[localStorage.getItem("language")];
         document.getElementById("state").textContent = workText[localStorage.getItem("language")];
-        currTask.innerHTML = "";
+        document.getElementById('currentTask').innerHTML = "";
         document.getElementById('currentPomos').innerHTML = "";
         currPomos = 0;
         longBreakCounter = 0;
@@ -522,40 +519,37 @@ function notifications() {
   }
 }
 
-let settingsInput = document.getElementById('settingsInput');
-let overlay = document.getElementById('overlay');
-let activity = document.getElementById('activity');
 
 /**
  * Opens the activity display.
  */
 function displayActivity() {
-  activity.style.display = 'block';
-  overlay.style.display = 'block';
+    document.getElementById('activity').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
 }
  
 /**
  * Closes the activity display.
  */
 function activityClose() {
-  activity.style.display = 'none';
-  overlay.style.display = 'none';
+    document.getElementById('activity').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
 }
  
 /**
  * Makes the settings visible.
  */
 function displaySettings() {
-  settingsInput.style.display = 'block';
-  overlay.style.display = 'block';
+    document.getElementById('settingsInput').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
 }
  
 /**
  * Closes the settings page.
  */
 function settingsClose() {
-  settingsInput.style.display = 'none';
-  overlay.style.display = 'none';
+  document.getElementById('settingsInput').style.display = 'none';
+  document.getElementById('overlay').style.display = 'none';
   document.getElementById('workSettings').value = valueWork;
   document.getElementById('shortBreakSettings').value = valueShort;
   document.getElementById('longBreakSettings').value = valueLong;
@@ -629,7 +623,7 @@ function save() {
  * Adding the completed task to the activity page.
  */
 function addTaskActivity() {
-    activityTaskName = currTask.innerHTML;
+    activityTaskName = document.getElementById('currentTask').innerHTML;
     var taskActivity = `<activity-item taskName="${activityTaskName}" actualPomos="${actualPomos}" estimatedPomos="${estimatedPomos}">`;
     document.getElementById("completedTasks").insertAdjacentHTML('beforeend', taskActivity);
     actualPomos = 0;
@@ -692,6 +686,14 @@ if (typeof exports !== 'undefined') {
         count, 
         taskTracker, 
         mute, 
-        switchTimes
+        switchTimes,
+        switchThemes,
+        stop,
+        displayActivity,
+        activityClose,
+        displaySettings,
+        settingsClose,
+        addTaskActivity,
+        increasePomos
     };
 }

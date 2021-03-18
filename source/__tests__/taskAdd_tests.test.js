@@ -20,6 +20,8 @@ document.body.innerHTML = `
             </div>
 `;
 
+jest.spyOn(window, 'alert').mockImplementation(() => {});
+
 describe('Input form is ', () => {
     test('displayed', () => {
         displayInput();

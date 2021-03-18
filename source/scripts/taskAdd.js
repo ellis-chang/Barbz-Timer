@@ -41,7 +41,6 @@ function createTask() {
       alert('That tasks already exists!');
       return;
     }
-    console.log(orderedList[i].shadowRoot.querySelector('.name').innerHTML);
     i++;
   }
 
