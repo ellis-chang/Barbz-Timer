@@ -1,6 +1,30 @@
-//var taskName = document.getElementById("taskName");
-//var taskPomos = document.getElementById("taskPomos");
 var numberOfTasks = 0;
+
+/*========================================================================
+ * Language Changes
+ *========================================================================*/
+
+var positiveNumberText = {
+  en: 'Please re-enter a positive number for the number of expected pomos.',
+  es: 'Vuelva a ingresar un número positivo para el número de pomos esperados.',
+  ch: '請重新輸入一個正數，以表示預期的pomos數量。”',
+};
+
+var taskAtTopText = {
+  en: 'The task is at the top already.',
+  es: 'La tarea ya está en la cima.',
+  ch: '任務已經是最重要的。',
+};
+
+var taskAtBottomText = {
+  en: 'The task is at the bottom already.',
+  es: 'La tarea ya está al final.',
+  ch: '任務已經在底部了.',
+};
+
+/*========================================================================
+ * Task Element Creation/Manipulation
+ *========================================================================*/
 
 /**
  * Displays a form to allow users to input a name
@@ -15,12 +39,6 @@ function displayInput() {
   }
 }
 
-var positiveNumberText = {
-  en: 'Please re-enter a positive number for the number of expected pomos.',
-  es: 'Vuelva a ingresar un número positivo para el número de pomos esperados.',
-  ch: '請重新輸入一個正數，以表示預期的pomos數量。”',
-};
-
 /**
  * Creates the task and adds it to the task list.
  */
@@ -28,11 +46,13 @@ function createTask() {
   let orderedList = document.getElementById('taskList').children;
   let i = 0;
 
+  //Check to see if name is empty
   if (document.getElementById('taskName').value == '') {
     alert('Please enter a name for the task!');
     return;
   }
-
+  
+  //Check for duplicate tasks
   while (i < orderedList.length) {
     if (
       document.getElementById('taskName').value ==
@@ -44,11 +64,14 @@ function createTask() {
     i++;
   }
 
+  //Check for non positive integers
   if (document.getElementById('taskPomos').value < 1) {
     alert(positiveNumberText[localStorage.getItem('language')]);
     return;
   }
   numberOfTasks++;
+  
+  //Create custom element task-item
   var task = `<task-item taskName="${
     document.getElementById('taskName').value
   }" taskPomos="${
@@ -66,6 +89,8 @@ function deleteTask(event) {
   let orderedList = document.getElementById('taskList').children;
   let current = event.target.parentNode.children;
   let i = 0;
+  
+  //loops through list and deletes specified task
   while (
     current[0].innerHTML !=
     orderedList[i].shadowRoot.querySelector('.name').innerHTML
@@ -74,12 +99,6 @@ function deleteTask(event) {
   }
   document.getElementById('taskList').removeChild(orderedList[i]);
 }
-
-var taskAtTopText = {
-  en: 'The task is at the top already.',
-  es: 'La tarea ya está en la cima.',
-  ch: '任務已經是最重要的。',
-};
 
 /**
  * Swap the current task with the task above it. If there is no task above the current then
@@ -124,12 +143,6 @@ function upTask(event) {
   }
 }
 
-var taskAtBottomText = {
-  en: 'The task is at the bottom already.',
-  es: 'La tarea ya está al final.',
-  ch: '任務已經在底部了.',
-};
-
 /**
  * Swap the current task with the task below it. If there is no task below the current then
  * alert the user and return nothing.
@@ -172,6 +185,10 @@ function downTask(event) {
     ).innerHTML = tempNum;
   }
 }
+
+/*========================================================================
+ * Modules
+ *========================================================================*/
 
 if (typeof exports !== 'undefined') {
   module.exports = {

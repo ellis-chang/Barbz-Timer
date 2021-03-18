@@ -1,11 +1,20 @@
+/*========================================================================
+ * Local Variables
+ *========================================================================*/
+
 let minutes;
 let seconds;
 let interval;
 let interval2;
 let pomos = 0;
 let permission;
-var totalPomos = 0;
 let longBreakCounter = 0;
+
+/*========================================================================
+ * Global Variables
+ *========================================================================*/
+
+var totalPomos = 0;
 var currPomos = 0;
 var currTask = document.getElementById('currentTask');
 var valueWork = 25;
@@ -15,8 +24,155 @@ var valueSound = 100;
 var actualPomos = 0;
 var estimatedPomos = 0;
 var activityTaskName;
+var notification;
+
+/*========================================================================
+ * Local Storage
+ *========================================================================*/
+
 myStorage = window.localStorage;
- 
+
+/*========================================================================
+ * Language Changes
+ *========================================================================*/
+
+var startButtonText = {
+  en: "START",
+  es: "COMIENZO",
+  ch: "開始"
+}
+
+var stopButtonText = {
+  en: "STOP",
+  es: "DETENER",
+  ch: "停止"
+
+}
+
+var workText = {
+  en: "Work",
+  es: "Trabaja",
+  ch: "工作"
+}
+
+var shortStateText = {
+  en: "Short Break",
+  es: "Pequeño Descanso",
+  ch: "短暫休息"
+}
+
+var longStateText = {
+  en: "Long Break",
+  es: "Largo Descanso",
+  ch: "長時間休息"
+}
+
+var stopTimerText = {
+  en: "This will stop the timer and reset all Pomodoro breaks. Are you sure you want to continue?",
+  es: "Esto detendrá el temporizador y reiniciará todos los descansos Pomodoro. Estás seguro de que quieres continuar?",
+  ch: "這將停止計時器並重置所有番茄時間。你確定你要繼續嗎"
+}
+
+var noTasksLeftText = {
+  en: "No tasks left to do!",
+  es: "¡No quedan tareas por hacer!",
+  ch: "沒有任務可做！"
+}
+
+var timeContinueText = {
+  en: "The timer will continue!",
+  es: "¡El temporizador continuará!",
+  ch: "計時器將繼續!"
+}
+
+var browserDoesNotSupportText = {
+  en: "Browser does not support notifications",
+  es: "El navegador no admite notificaciones",
+  ch: "瀏覽器不支持通知"
+}
+
+var estimatedPomosOverText = {
+  en: "Task's Estimated Pomos Over",
+  es: "Pomos Estimado de la Tarea Sobre",
+  ch: "任務估計Pomos結束"
+}
+
+var addPomosText = {
+  en: "Good job! The current task's estimated pomos are over. \nPlease return to the website to input whether you want to add more pomos to this task.",
+  es: "¡Buen trabajo! Los pomos estimados de la tarea actual han terminado. \nRegrese al sitio web para ingresar si desea agregar más pomos a esta tarea.",
+  ch: "做得好！當前任務的估計工作量已結束。\n請返回網站以輸入是否要向此任務添加更多的表情。"
+}
+
+var workPeriodOver = {
+  en: "Work Period Over",
+  es: "Período de trabajo terminado",
+  ch: "工作期結束"
+}
+
+var shortBreakText = {
+  en: "Good job on the work so far! \nHere is a short break.",
+  es: "¡Buen trabajo hasta ahora! \nAquí hay un breve descanso.",
+  ch: "到目前為止工作做得不錯！\n這是一個短暫的休息。"
+}
+
+var longBreakText = {
+  en: "Good job staying on task! \nHere is a well-deserved long break.",
+  es: "¡Buen trabajo permaneciendo concentrado! \nAquí hay un merecido largo descanso.",
+  ch: "幹得好，任重道遠！\n這是當之無愧的長假。"
+}
+
+var shortBreakOverText = {
+  en: "Short Break Over",
+  es: "Breve descanso",
+  ch: "短暫突破"
+}
+
+var longBreakOverText = {
+  en: "Long Break Over",
+  es: "Largo descanso",
+  ch: "漫長的突破"
+}
+
+var breakTimeUpText = {
+  en: "Your break time is up \n You should resume working",
+  es: "Tu tiempo de descanso se acabó \n Deberías reanudar el trabajo",
+  ch: "你的休息時間到了 \n 你應該繼續工作"
+}
+
+var usePositiveNumberText = {
+  en: "Please use positive number for the inputs!",
+  es: "¡Utilice un número positivo para las entradas!",
+  ch: "請使用正數作為輸入！"
+}
+
+var muteButtonText = {
+  en: "Mute Notifications",
+  es: "Silenciar Notificaciones",
+  ch: "靜音通知"
+}
+
+var unmuteButtonText = {
+  en: "Unmute Notifications",
+  es: "Deshacer Notificaciones",
+  ch: "取消靜音通知"
+}
+
+var mutedText = {
+  en: "Notifications are now muted.",
+  es: "Las Notificaciones Ahora Están Silenciadas.",
+  ch: "通知現已靜音."
+}
+
+var unmutedText = {
+  en: "Notifications are now unmuted.",
+  es: "Las Notificaciones Ahora Están Desactivadas.",
+  ch: "通知現已取消靜音."
+}
+
+/*========================================================================
+ * Run on Reload
+ *========================================================================*/
+
 /**
  * On page load, the function sets the settings to what was stored in the
  * local storage.
@@ -42,23 +198,15 @@ window.onload = function () {
     if (localStorage.getItem('totalPomos') != null &&  !isNaN(localStorage.getItem('totalPomos'))) {
         totalPomos = parseInt(localStorage.getItem('totalPomos'));
     }
+
     document.getElementById("worktimes").innerHTML = totalPomos;
 }
  
-var notification;
- 
-var startButtonText = {
-    en: "START",
-    es: "COMIENZO",
-    ch: "開始"
-}
- 
-var stopButtonText = {
-    en: "STOP",
-    es: "DETENER",
-    ch: "停止"
 
-}
+/*========================================================================
+ * Timer Functionality
+ *========================================================================*/
+
 /**
  * Starts the timer when start button is clicked
  * and lets user know if they don't have tasks to do.
@@ -69,41 +217,30 @@ function timeStart() {
             alert(noTasksLeftText[localStorage.getItem("language")]);
             return;
         }
+        
+        //Set the Current Task with the first child of the task list
         moveTask("start");
- 
         minutes = valueWork;
         seconds = 0;
+        
+        //Start Intervals for both count and notifications
         interval = setInterval(count, 1000);
         interval2 = setInterval(notifications, 1000);
+        
+        //Set Initial Clock Value and change Start to Stop
         document.getElementById("clock").innerHTML = `${valueWork}:00`;
         document.getElementById("startButton").textContent = stopButtonText[localStorage.getItem("language")];
     } else {
+        //If the state is a work period then increment actual pomos
         if(document.getElementById("state").textContent == workText[localStorage.getItem("language")]){
             actualPomos++;
         }
+        
+        //Add the completed task to activity page and then stop the timer
         addTaskActivity();
         stop();
   }
 }
- 
-var workText = {
-    en: "Work",
-    es: "Trabaja",
-    ch: "工作"
-}
- 
-var shortStateText = {
-    en: "Short Break",
-    es: "Pequeño Descanso",
-    ch: "短暫休息"
-}
- 
-var longStateText = {
-    en: "Long Break",
-    es: "Largo Descanso",
-    ch: "長時間休息"
-}
- 
  
 /**
  * Timer to countdown every second based off the default
@@ -111,16 +248,24 @@ var longStateText = {
  */
 function count() {
   seconds--;
+  
+  //decrement minutes when seconds equals -1
   if (seconds == -1) {
     minutes--;
+    
+    //clear the interval when both seconds and minutes equal -1
     if (minutes == -1) {
       clearInterval(interval);
       clearInterval(interval2);
+      
+      //If the state is a work period then check the current task
       if (
         document.getElementById('state').textContent ==
         workText[localStorage.getItem('language')]
       ) {
         taskTracker();
+        
+        //Stop the timer if there are no tasks left to do
         if (
           document.getElementById('taskList').firstChild == null &&
           currPomos == 0
@@ -131,81 +276,44 @@ function count() {
           return;
         }
       }
+
+      //Switch the states and theme
       switchTimes();
       switchThemes();
     } else {
       seconds = 59;
     }
   }
+
+  //Pads a zero in front of seconds if it is a single digit
   if (seconds >= 10) {
     document.getElementById('clock').innerHTML = minutes + ':' + seconds;
   } else {
     document.getElementById('clock').innerHTML = minutes + ':0' + seconds;
   }
 }
- 
-/**
- * Moves the task up the task list. The task at the top of the task list is moved
- * to the current task bar.
- */
-function moveTask(state) {
-    estimatedPomos = parseInt(document.getElementById('taskList').firstChild.getAttribute('taskPomos'));
-    if(state != "start"){
-        addTaskActivity();
-    }
-    currPomos = parseInt(document.getElementById('taskList').firstChild.getAttribute('taskPomos'));
-    document.getElementById('currentTask').innerHTML = document.getElementById('taskList').firstChild.getAttribute('taskName');
-    document.getElementById('currentPomos').innerHTML = currPomos;
-    document.getElementById('taskList').removeChild(document.getElementById('taskList').firstChild);
-}
- 
-/**
- * Keeps track of the pomos left for the current task and then calls moveTask() when
- * the pomos left for the current task is zero.
- */
-function taskTracker() {
-    currPomos--;
-    document.getElementById('currentPomos').innerHTML = currPomos;
- 
-    if (currPomos == 0 && document.getElementById('taskList').firstChild != null) {
-        moveTask("next");
-    }
-}
- 
-var addWorkPeriodText = {
-    en: "The estimated pomos are up. \nHow many work periods would you like to add? \nPlease input a number:",
-    es: "Los pomos estimados han subido. \n¿Cuántos períodos de trabajo le gustaría agregar? \nPor favor ingrese un número:",
-    ch: "估計的情緒高漲了. \n您要添加多少個工作時間？\n請輸入一個數字:"
-}
- 
-var notEnteredNumText = {
-    en: "You have not entered a number. \nPlease re-enter a number of work periods you would like to add:",
-    es: "Los pomos estimados han subido. \nVuelva a ingresar una cantidad de períodos de trabajo que le gustaría agregar:",
-    ch: "您尚未輸入數字。\n請重新輸入您要添加的多個工作期間:"
-}
- 
-var notChosenText = {
-    en: "You have chosen not to add additional pomos to this task",
-    es: "Has elegido no agregar pomos adicionales a esta tarea",
-    ch: "您已選擇不向此任務添加其他pomos"
-}
- 
+
 /**
  * Switches the work periods between work, short break, and long break.
  */
-function switchTimes() {
+ function switchTimes() {
+  
+  //If the current state is work then switch to a break period
   if (
     document.getElementById('state').textContent ==
     workText[localStorage.getItem('language')]
   ) {
     document.getElementById('check').disabled = true;
+    
     // Increment total pomo counter and update page
     pomos++;
     totalPomos++;
     document.getElementById('workPeriods').innerHTML = pomos;
     actualPomos++;
+    
     // Increment long break counter
     longBreakCounter++;
+    
     // If less than 4 pomos, take a short break
     if (longBreakCounter < 4) {
       document.getElementById('state').textContent =
@@ -216,6 +324,7 @@ function switchTimes() {
       interval2 = setInterval(notifications, 1000);
       document.getElementById('clock').innerHTML = `${valueShort}:00`;
     } else {
+      
       // Take a long break
       longBreakCounter = 0;
       document.getElementById('state').textContent =
@@ -226,6 +335,7 @@ function switchTimes() {
       interval2 = setInterval(notifications, 1000);
       document.getElementById('clock').innerHTML = `${valueLong}:00`;
     }
+    
     // After break, get back to work
   } else if (
     document.getElementById('state').textContent ==
@@ -257,59 +367,6 @@ function switchThemes() {
     }
  }
  
-var stopTimerText = {
-    en: "This will stop the timer and reset all Pomodoro breaks. Are you sure you want to continue?",
-    es: "Esto detendrá el temporizador y reiniciará todos los descansos Pomodoro. Estás seguro de que quieres continuar?",
-    ch: "這將停止計時器並重置所有番茄時間。你確定你要繼續嗎"
-}
- 
-var noTasksLeftText = {
-    en: "No tasks left to do!",
-    es: "¡No quedan tareas por hacer!",
-    ch: "沒有任務可做！"
-}
- 
-var timeContinueText = {
-    en: "The timer will continue!",
-    es: "¡El temporizador continuará!",
-    ch: "計時器將繼續!"
-}
- 
-var stopTimerText = {
-    en: "This will stop the timer and reset all Pomodoro breaks. Are you sure you want to continue?",
-    es: "Esto detendrá el temporizador y reiniciará todos los descansos Pomodoro. Estás seguro de que quieres continuar?",
-    ch: "這將停止計時器並重置所有番茄時間。你確定你要繼續嗎"
-}
- 
-var noTasksLeftText = {
-    en: "No tasks left to do!",
-    es: "¡No quedan tareas por hacer!",
-    ch: "沒有任務可做！"
-}
- 
-var timeContinueText = {
-    en: "The timer will continue!",
-    es: "¡El temporizador continuará!",
-    ch: "計時器將繼續!"
-}
- 
-var stopTimerText = {
-    en: "This will stop the timer and reset all Pomodoro breaks. Are you sure you want to continue?",
-    es: "Esto detendrá el temporizador y reiniciará todos los descansos Pomodoro. Estás seguro de que quieres continuar?",
-    ch: "這將停止計時器並重置所有番茄時間。你確定你要繼續嗎"
-}
- 
-var noTasksLeftText = {
-    en: "No tasks left to do!",
-    es: "¡No quedan tareas por hacer!",
-    ch: "沒有任務可做！"
-}
- 
-var timeContinueText = {
-    en: "The timer will continue!",
-    es: "¡El temporizador continuará!",
-    ch: "計時器將繼續!"
-}
  
 /**
  * Depending on whether the Stop button is clicked or there are no tasks left, the stop
@@ -317,9 +374,15 @@ var timeContinueText = {
  * original state.
  */
 function stop() {
+    
+    //enable button
     document.getElementById("check").disabled = false;
+    
+    //Timer is stopped because there is no more task
     if (document.getElementById('taskList').firstChild == null) {
         alert(noTasksLeftText[localStorage.getItem("language")]);
+        
+        //Increment pomos if the current state is work
         if(document.getElementById("state").textContent == workText[localStorage.getItem("language")]){
             pomos++;
             totalPomos++;
@@ -337,6 +400,8 @@ function stop() {
         currPomos = 0;
         longBreakCounter = 0;
         switchThemes();
+
+        //Timer is stopped because the stop button was pressed
     } else if (confirm(stopTimerText[localStorage.getItem("language")])) {
         if(document.getElementById("state").textContent == workText[localStorage.getItem("language")]){
             pomos++;
@@ -355,17 +420,76 @@ function stop() {
         currPomos = 0;
         longBreakCounter = 0;
         switchThemes();
+        //Else continue Timer 
     } else {
         alert(timeContinueText[localStorage.getItem("language")]);
     }
  }
- 
-var browserDoesNotSupportText = {
-    en: "Browser does not support notifications",
-    es: "El navegador no admite notificaciones",
-    ch: "瀏覽器不支持通知"
+
+/*========================================================================
+ * Task List Functionality
+ *========================================================================*/
+
+/**
+ * Moves the task up the task list. The task at the top of the task list is moved
+ * to the current task bar.
+ */
+function moveTask(state) {
+    estimatedPomos = parseInt(document.getElementById('taskList').firstChild.getAttribute('taskPomos'));
+    if(state != "start"){
+        addTaskActivity();
+    }
+    currPomos = parseInt(document.getElementById('taskList').firstChild.getAttribute('taskPomos'));
+    document.getElementById('currentTask').innerHTML = document.getElementById('taskList').firstChild.getAttribute('taskName');
+    document.getElementById('currentPomos').innerHTML = currPomos;
+    document.getElementById('taskList').removeChild(document.getElementById('taskList').firstChild);
 }
  
+/**
+ * Keeps track of the pomos left for the current task and then calls moveTask() when
+ * the pomos left for the current task is zero.
+ */
+function taskTracker() {
+    currPomos--;
+    document.getElementById('currentPomos').innerHTML = currPomos;
+    if (currPomos == 0 && document.getElementById('taskList').firstChild != null) {
+        moveTask("next");
+    }
+}
+
+/**
+ * Clicking the done button will mark the current task as complete
+ * and remove it from the current task bar. The next task will be
+ * moved up and the current period will automatically be switched.
+ */
+ function taskComplete() {
+  if (document.getElementById("startButton").textContent == startButtonText[localStorage.getItem("language")]){
+      alert("There is no current Task!");
+  } 
+  if (document.getElementById("startButton").textContent == startButtonText[localStorage.getItem("language")]){
+      return;
+  } else if (document.getElementById('taskList').firstChild == null ) {
+      addTaskActivity();
+      currTask.innerHTML = "";
+      stop();
+  } else {
+      moveTask("complete");
+  }
+}
+
+/**
+ * Allows user to increase the estimated pomos on their current
+ * task.
+ */
+ function increasePomos() {
+  currPomos++;
+  document.getElementById('currentPomos').innerHTML = currPomos;
+}
+ 
+/*========================================================================
+ * Notifications
+ *========================================================================*/
+
 /**
  * Ask the user for notification permissions.
  */
@@ -389,54 +513,6 @@ function notificationPermission() {
       permission = false;
     }
   }
-}
- 
-var estimatedPomosOverText = {
-    en: "Task's Estimated Pomos Over",
-    es: "Pomos Estimado de la Tarea Sobre",
-    ch: "任務估計Pomos結束"
-}
- 
-var addPomosText = {
-    en: "Good job! The current task's estimated pomos are over. \nPlease return to the website to input whether you want to add more pomos to this task.",
-    es: "¡Buen trabajo! Los pomos estimados de la tarea actual han terminado. \nRegrese al sitio web para ingresar si desea agregar más pomos a esta tarea.",
-    ch: "做得好！當前任務的估計工作量已結束。\n請返回網站以輸入是否要向此任務添加更多的表情。"
-}
- 
-var workPeriodOver = {
-    en: "Work Period Over",
-    es: "Período de trabajo terminado",
-    ch: "工作期結束"
-}
- 
-var shortBreakText = {
-    en: "Good job on the work so far! \nHere is a short break.",
-    es: "¡Buen trabajo hasta ahora! \nAquí hay un breve descanso.",
-    ch: "到目前為止工作做得不錯！\n這是一個短暫的休息。"
-}
- 
-var longBreakText = {
-    en: "Good job staying on task! \nHere is a well-deserved long break.",
-    es: "¡Buen trabajo permaneciendo concentrado! \nAquí hay un merecido largo descanso.",
-    ch: "幹得好，任重道遠！\n這是當之無愧的長假。"
-}
- 
-var shortBreakOverText = {
-    en: "Short Break Over",
-    es: "Breve descanso",
-    ch: "短暫突破"
-}
- 
-var longBreakOverText = {
-    en: "Long Break Over",
-    es: "Largo descanso",
-    ch: "漫長的突破"
-}
- 
-var breakTimeUpText = {
-    en: "Your break time is up \n You should resume working",
-    es: "Tu tiempo de descanso se acabó \n Deberías reanudar el trabajo",
-    ch: "你的休息時間到了 \n 你應該繼續工作"
 }
  
 /**
@@ -519,6 +595,24 @@ function notifications() {
   }
 }
 
+/**
+ * Allows user to mute pop up notifications.
+ */
+ function mute() {
+  if (document.getElementById("mute-notifications").textContent == muteButtonText[localStorage.getItem("language")]) {
+      alert(mutedText[localStorage.getItem("language")]);
+      document.getElementById("mute-notifications").textContent = unmuteButtonText[localStorage.getItem("language")];
+      permission = false;
+  } else if (document.getElementById("mute-notifications").textContent == unmuteButtonText[localStorage.getItem("language")]){
+      alert(unmutedText[localStorage.getItem("language")]);
+      document.getElementById("mute-notifications").textContent = muteButtonText[localStorage.getItem("language")];
+      permission = true;
+  }
+}
+
+/*========================================================================
+ * Menu Pages Display
+ *========================================================================*/
 
 /**
  * Opens the activity display.
@@ -535,7 +629,7 @@ function activityClose() {
     document.getElementById('activity').style.display = 'none';
     document.getElementById('overlay').style.display = 'none';
 }
- 
+
 /**
  * Makes the settings visible.
  */
@@ -554,39 +648,6 @@ function settingsClose() {
   document.getElementById('shortBreakSettings').value = valueShort;
   document.getElementById('longBreakSettings').value = valueLong;
   document.getElementById('volume-slider').value = valueSound;
-}
-
-/**
- * Clicking the done button will mark the current task as complete
- * and remove it from the current task bar. The next task will be
- * moved up and the current period will automatically be switched.
- */
-function taskComplete() {
-    if (document.getElementById("startButton").textContent == startButtonText[localStorage.getItem("language")]){
-        alert("There is no current Task!");
-    } 
-    /*else if (document.getElementById("state").textContent == workText[localStorage.getItem("language")]) {
-        clearInterval(interval);
-        clearInterval(interval2);
-        switchTimes();
-        switchThemes();
-    }*/
-    if (document.getElementById("startButton").textContent == startButtonText[localStorage.getItem("language")]){
-        return;
-    } else if (document.getElementById('taskList').firstChild == null ) {
-        addTaskActivity();
-        currTask.innerHTML = "";
-        stop();
-    } else {
-        moveTask("complete");
-    }
-}
- 
- 
-var usePositiveNumberText = {
-    en: "Please use positive number for the inputs!",
-    es: "¡Utilice un número positivo para las entradas!",
-    ch: "請使用正數作為輸入！"
 }
  
 /**
@@ -618,7 +679,6 @@ function save() {
     localStorage.setItem('volume-slider', `${valueSound}`);
 }
 
-
 /**
  * Adding the completed task to the activity page.
  */
@@ -631,54 +691,10 @@ function addTaskActivity() {
     document.getElementById("worktimes").innerHTML = totalPomos;
     localStorage.setItem('totalPomos', `${totalPomos}`);
 }
- 
-/**
- * Allows user to increase the estimated pomos on their current
- * task.
- */
-function increasePomos() {
-  currPomos++;
-  document.getElementById('currentPomos').innerHTML = currPomos;
-}
- 
-var muteButtonText = {
-    en: "Mute Notifications",
-    es: "Silenciar Notificaciones",
-    ch: "靜音通知"
-}
- 
-var unmuteButtonText = {
-    en: "Unmute Notifications",
-    es: "Deshacer Notificaciones",
-    ch: "取消靜音通知"
-}
- 
-var mutedText = {
-    en: "Notifications are now muted.",
-    es: "Las Notificaciones Ahora Están Silenciadas.",
-    ch: "通知現已靜音."
-}
- 
-var unmutedText = {
-    en: "Notifications are now unmuted.",
-    es: "Las Notificaciones Ahora Están Desactivadas.",
-    ch: "通知現已取消靜音."
-}
 
-/**
- * Allows user to mute pop up notifications.
- */
-function mute() {
-    if (document.getElementById("mute-notifications").textContent == muteButtonText[localStorage.getItem("language")]) {
-        alert(mutedText[localStorage.getItem("language")]);
-        document.getElementById("mute-notifications").textContent = unmuteButtonText[localStorage.getItem("language")];
-        permission = false;
-    } else if (document.getElementById("mute-notifications").textContent == unmuteButtonText[localStorage.getItem("language")]){
-        alert(unmutedText[localStorage.getItem("language")]);
-        document.getElementById("mute-notifications").textContent = muteButtonText[localStorage.getItem("language")];
-        permission = true;
-    }
-}
+/*========================================================================
+ * Modules
+ *========================================================================*/
 
 if (typeof exports !== 'undefined') {
     module.exports = {

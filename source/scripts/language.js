@@ -1,3 +1,7 @@
+/*========================================================================
+ * Local Storage Check
+ *========================================================================*/
+
 if (!localStorage.getItem('language')) {
 
     localStorage.setItem('language', 'en');
@@ -7,12 +11,17 @@ else {
     setLanguage(localStorage.getItem('language'));
 }
 
+
 /**
  * Sets the language of the page.
  * @param {String} language This takes in a string that indicates the user's selected language
  */
 function setLanguage(language) {
-    //change languages depending on what user clicks
+
+    /*========================================================================
+    * Set Language as English
+    *========================================================================*/
+
     if (language === 'en') {
         document.getElementById('head').textContent = "Barbz Timer";
         document.getElementById('mute-notifications').textContent = "Mute Notification";
@@ -97,6 +106,11 @@ function setLanguage(language) {
         localStorage.setItem('language', 'en');
 
     }
+
+    /*========================================================================
+    * Set Language as Spanish
+    *========================================================================*/
+
     else if (language === 'es') {
         document.getElementById('head').textContent = "Barbz Reloj";
         document.getElementById('startButton').style.width = "14vw";
@@ -185,6 +199,11 @@ function setLanguage(language) {
         localStorage.setItem('language', 'es');
 
     }
+
+    /*========================================================================
+    * Set Language as Chinese Traditional
+    *========================================================================*/
+
     else {
         document.getElementById('head').textContent = "Barbz 时钟";
 
@@ -270,6 +289,10 @@ function setLanguage(language) {
         localStorage.setItem('language', 'ch');
     }
 }
+
+/*========================================================================
+* Modules
+*========================================================================*/
 
 if (typeof exports !== 'undefined') {
   module.exports = { setLanguage };

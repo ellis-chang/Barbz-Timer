@@ -1,6 +1,10 @@
 let hamburgerMenu = document.querySelector('.hamburgerMenu');
 let menuButtons = document.querySelectorAll('.menuButton');
 
+/*========================================================================
+ * Menu Implementation
+ *========================================================================*/
+
 if (document.querySelector('.hamburgerMenu') != null) {
   hamburgerMenu.addEventListener('click', toggleMenu);
 }
@@ -49,6 +53,10 @@ function howToClose() {
   document.getElementById('howTo').style.display = 'none';
   document.getElementById('overlay').style.display = 'none';
 }
+
+/*========================================================================
+ * Modules
+ *========================================================================*/
 
 if (typeof exports !== 'undefined') {
   module.exports = {
