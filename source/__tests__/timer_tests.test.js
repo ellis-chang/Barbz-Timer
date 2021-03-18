@@ -9,8 +9,8 @@ describe('timer', () => {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Barbz Timer</title>
-        <link id="style" rel="stylesheet" href="../styles/style.css">
-        <link rel="icon" href="../images/other-pomo2.png">
+        <link id="style" rel="stylesheet" href="./styles/style.css">
+        <link rel="icon" href="./images/other-pomo2.png">
     
     </head>
     
@@ -182,12 +182,12 @@ describe('timer', () => {
                 </div>
                 <div id="overlay"></div>
                 <br>
-                <script src="../scripts/timer.js"></script>
-                <script src="../scripts/taskAdd.js"></script>
-                <script src="../components/task-item.js"></script>
-                <script src="../components/activity-item.js"></script>
-                <script src="../scripts/menu.js"></script>
-                <script src="../scripts/language.js"></script>
+                <script src="./scripts/timer.js"></script>
+                <script src="./scripts/taskAdd.js"></script>
+                <script src="./components/task-item.js"></script>
+                <script src="./components/activity-item.js"></script>
+                <script src="./scripts/menu.js"></script>
+                <script src="./scripts/language.js"></script>
     </body>
     
     </html>`;
@@ -314,7 +314,7 @@ describe('timer', () => {
 
     test('switch themes', () => {
         switchThemes();
-        expect(document.getElementById('style').getAttribute('href')).toBe("../styles/shortbreakstyle.css");
+        expect(document.getElementById('style').getAttribute('href')).toBe("./styles/shortbreakstyle.css");
     });
 
     test('stop disables done button', () => {

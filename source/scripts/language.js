@@ -20,7 +20,7 @@ function setLanguage(language) {
   if (language === 'en') {
     document.getElementById('head').textContent = 'Barbz Timer';
     document.getElementById('mute-notifications').textContent =
-      'Mute Notification';
+      'Mute Notifications';
     document.getElementById('settings').textContent = 'Settings';
     document.getElementById('view-activity').textContent = 'View Activity';
     document.getElementById('about-page').textContent = 'About Page';
