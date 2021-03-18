@@ -27,7 +27,7 @@ body {
     margin: 1vh;
     border: 1px solid #582323;
     box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1vh;
     background-color: var(--background);
     font-size: 2vw;
@@ -41,9 +41,9 @@ body {
     background-color: var(--foreground);
     border: 1px solid #582323;
     box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 
-} 
+}
 
 
 /*===========================================================
@@ -81,7 +81,7 @@ a {
     width: 3.5vw;
     height: 3.5vw;
     border: 1px solid #582323;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 6.5px;
     cursor: pointer;
     background-color: var(--background);
@@ -114,7 +114,7 @@ a {
 .nav {
     position: absolute;
     z-index: 1000;
-    top: 0px;
+    top: 0;
     right: 2vw;
     background-color: var(--foreground);
     width: 13vw;
@@ -360,10 +360,10 @@ a {
  * Timer Display
  *===========================================================*/
 
-#timeBox {  
+#timeBox {
     border: 1px solid #582323;
     box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1vh;
     width: 40vw;
     height: auto;
@@ -373,14 +373,14 @@ a {
     background-color: var(--background);
 }
 
-#timer { 
+#timer {
     border: 1px solid #582323;
     box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1vh;
     width: 60vw;
     height: auto;
-    padding: 2.5vw 5vh 2.5vw 5vh;
+    padding: 2.5vw 5vh;
     margin: auto;
     position: relative;
     background-color: var(--foreground);
@@ -389,7 +389,7 @@ a {
 #state {
     text-align: center;
     font-size: 4vw;
-} 
+}
 
 #clock {
     text-align: center;
@@ -410,7 +410,7 @@ a {
     font-size: 2vw;
     border: 1px solid #582323;
     box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1vh;
 }
 
@@ -449,11 +449,11 @@ a {
     border-radius: 10px;
     border: 1px solid #582323;
     box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1vh;
     width: 52.5vw;
     height: 33vh;
-    padding: 2.5vw 5vh 2.5vw 5vh;
+    padding: 2.5vw 5vh;
     margin: 1vh;
     position: relative;
     background-color: var(--foreground);
@@ -489,7 +489,7 @@ a {
     border-radius: 1vh;
     border: 1px solid #582323;
     box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 #check:hover {
@@ -506,11 +506,11 @@ a {
     border-radius: 1vh;
     border: 1px solid #582323;
     box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     text-align: center;
     width: 25vw;
     height: 4vh;
-    padding: 1vh;  
+    padding: 1vh;
     margin: 1vh;
     display: inline-block;
     color: #582323;
@@ -544,7 +544,7 @@ a {
     border-radius: 1vh;
     border: 1px solid #582323;
     box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     text-align: center;
     width: 4vw;
     height: 4vh;
@@ -558,11 +558,11 @@ a {
 #pomoCounter {
     border: 1px solid #582323;
     box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1vh;
     text-align: center;
     width: 12.5vw;
-    padding: 2.5vw 5vh 2.5vw 5vh;
+    padding: 2.5vw 5vh;
     height: 33vh;
     margin: 1vh;
     background-color: var(--foreground);
@@ -577,7 +577,7 @@ a {
     font-size: 1.5vw;
     border: 1px solid #582323;
     box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1vh;
     width: 50%;
     padding: 1%;
@@ -590,14 +590,14 @@ a {
  * Task List
  *===========================================================*/
 
-#taskBox { 
+#taskBox {
     border: 1px solid #582323;
     box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1vh;
     width: 60vw;
     height: auto;
-    padding: 2.5vw 5vh 2.5vw 5vh;
+    padding: 2.5vw 5vh;
     margin: auto;
     position: relative;
     display: flex;
@@ -613,11 +613,11 @@ a {
 #innerTaskBox {
     border: 1px solid #582323;
     box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1vh;
     width: 40vw;
     height: auto;
-    padding: 2.5vw 5vh 2.5vw 5vh;
+    padding: 2.5vw 5vh;
     margin: auto;
     position: relative;
     display: flex;
@@ -629,7 +629,7 @@ a {
 #addTask {
     border: 1px solid #582323;
     box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1vh;
     font-size: 1.75vw;
     width: 15vw;
@@ -654,11 +654,11 @@ a {
 #taskInput {
     border: 1px solid #582323;
     box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1vh;
     width: 20vw;
     height: auto;
-    padding: 2.5vw 5vh 2.5vw 5vh;
+    padding: 2.5vw 5vh;
     margin: auto;
     position: relative;
     background-color: var(--foreground);
@@ -675,16 +675,14 @@ a {
 #createTask {
     border: 1px solid #582323;
     box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1vh;
 
     display: inline-block;
     font-size: 1.75vw;
-    border-radius: 1vh;
     width: 10vw;
     padding: 1vh;
     margin: auto;
-    display: block;
     background-color: var(--background);
     color: #582323;
 }
@@ -1040,7 +1038,7 @@ a {
         height: 4vw;
     }
 
-    #taskBox { 
+    #taskBox {
         width: 62vw;
     }
 
@@ -1053,7 +1051,7 @@ a {
         margin: 0%;
     }
     
-    #taskInput {  
+    #taskInput {
         width: 22vw;
     }
 

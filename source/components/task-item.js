@@ -7,7 +7,7 @@ template.innerHTML = `
         /*position*/
         display: inline-block;
         width: 17vw;
-        margin-left: 0px;
+        margin-left: 0;
         
         /*border*/
         border: 2px solid black;
@@ -40,7 +40,7 @@ template.innerHTML = `
         height: 1.2vw;
         text-align: center;
         font-size: 10px;
-        background-image: url("../images/exit.png");
+        background-image: url("./images/exit.png");
         background-size: 100%;
         background-repeat: no-repeat;
         border: 2px solid black;
@@ -48,7 +48,7 @@ template.innerHTML = `
     }
 
     .delete:hover {
-        background-image: url("../images/exit-white.png");
+        background-image: url("./images/exit-white.png");
         background-size: 100%;
         background-repeat: no-repeat;
     }
@@ -60,7 +60,7 @@ template.innerHTML = `
         height: 1.2vw;
         text-align: center;
         font-size: 10px;
-        background-image: url("../images/up.png");
+        background-image: url("./images/up.png");
         background-size: 100%;
         background-repeat: no-repeat;
         border: 2px solid black;
@@ -68,7 +68,7 @@ template.innerHTML = `
     }
 
     .upTask:hover {
-        background-image: url("../images/up-white.png");
+        background-image: url("./images/up-white.png");
         background-size: 100%;
         background-repeat: no-repeat;
     }
@@ -80,7 +80,7 @@ template.innerHTML = `
         height: 1.2vw;
         text-align: center;
         font-size: 10px;
-        background-image: url("../images/down.png");
+        background-image: url("./images/down.png");
         background-size: 100%;
         background-repeat: no-repeat;
         border: 2px solid black;
@@ -88,7 +88,7 @@ template.innerHTML = `
     }
 
     .downTask:hover {
-        background-image: url("../images/down-white.png");
+        background-image: url("./images/down-white.png");
         background-size: 100%;
         background-repeat: no-repeat;
     }
