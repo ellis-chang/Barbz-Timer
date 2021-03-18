@@ -9,11 +9,11 @@ var numberOfTasks = 0;
  * would take.
  */
 function displayInput() {
-    if (taskInput.style.display == "none") {
-        taskInput.style.display = "block";
+    if (document.getElementById("taskInput").style.display == "none") {
+        document.getElementById("taskInput").style.display = "block";
     }
     else {
-        taskInput.style.display = "none";
+        document.getElementById("taskInput").style.display = "none";
     }
 }
 
@@ -30,9 +30,9 @@ function createTask() {
     let orderedList = document.getElementById("taskList").children;
     let i = 0;
     
-    if(taskName.value == ""){
+    if(document.getElementById("taskName").value == ""){
         alert("Please enter a name for the task!");
-        return;
+        return "No Name";
     }
 
     while (i < orderedList.length) {
@@ -146,3 +146,4 @@ function downTask(event) {
     }
 }
 
+module.exports = {displayInput, createTask};
