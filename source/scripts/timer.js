@@ -633,4 +633,12 @@ function notifications(){
         }
     }
 }
-module.exports = {timeStart, count, taskTracker, mute, switchTimes, stop};
+if (typeof exports !== 'undefined') {
+    module.exports = {
+        timeStart, 
+        count, 
+        taskTracker, 
+        mute, 
+        switchTimes
+    };
+}

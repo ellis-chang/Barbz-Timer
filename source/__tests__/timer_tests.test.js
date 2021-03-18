@@ -1,4 +1,4 @@
-const {timeStart, count, mute, switchTimes, stop} = require('../scripts/timer');
+const {timeStart, count, mute, switchTimes} = require('../scripts/timer');
 
 describe('timer', () => {
     document.body.innerHTML = `<!DOCTYPE html>
