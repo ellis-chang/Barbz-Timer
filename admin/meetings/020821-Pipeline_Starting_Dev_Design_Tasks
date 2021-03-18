@@ -13,13 +13,11 @@
 - Talk about the pipeline and discuss about getting the essay and video done
 - Design team continue working on Designs
 - Dev team will get started on static version of webpage
--
 
 #### Design and Dev Tasks
 - Dev team Wednesday 6pm
 - Meetings changed to Fridays at 1:20 pm
 - Dev/Design team start working
--
 
 #### Other Notes and Discussions:
 - N/A
@@ -29,8 +27,6 @@
 - Fridays will be new meeting time
 
 #### To-Do List:
-- [ ] Static Version of Pomo
-- [ ] Design do more design
-- [ ] Finish CI/CD Assignment
-- [ ]
-
+- [x] Static Version of Pomo
+- [x] Design do more design
+- [x] Finish CI/CD Assignment

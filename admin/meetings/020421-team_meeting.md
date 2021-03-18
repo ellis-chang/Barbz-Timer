@@ -1,4 +1,4 @@
-## MM/DD Meeting Notes
+## 02/04 Meeting Notes
 
 #### Attendance:
 - Ellis Chang
@@ -25,4 +25,4 @@
 
 
 #### To-Do List:
-- [ ] Everyone read the "Shape Up" book
+- [x] Everyone read the "Shape Up" book

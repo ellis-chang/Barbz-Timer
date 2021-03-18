@@ -24,8 +24,5 @@
 
 
 #### To-Do List:
-- [ ] miro with ideas
-- [ ] final draft of miro with ideas
-- [ ]
-- [ ]
-
+- [x] miro with ideas
+- [x] final draft of miro with ideas
