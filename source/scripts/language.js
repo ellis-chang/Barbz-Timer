@@ -108,7 +108,7 @@ function setLanguage(language) {
     document.getElementById('en').style.textDecoration = 'underline';
     document.getElementById('es').style.textDecoration = 'none';
     document.getElementById('ch').style.textDecoration = 'none';
-
+    
     localStorage.setItem('language', 'en');
   } else if (language === 'es') {
     document.getElementById('head').textContent = 'Barbz Reloj';
