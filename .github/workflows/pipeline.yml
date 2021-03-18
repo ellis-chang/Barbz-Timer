@@ -6,12 +6,10 @@ name: Node.js CI
 on:
   push:
     branches:
-      - 'DemoProject'
-      - '!master'
+      - 'master'
   pull_request:
     branches:
-      - 'DemoProject'
-      - '!master'
+      - 'master'
 
 jobs:
   build:
@@ -44,8 +42,8 @@ jobs:
         config_file: conf.json
         recurse: true
         output_dir: ./out
-        #template: minami
-        #front_page: README.md
+        template: minami
+        front_page: README.md
         
 #     - name: Deployment
 #       uses: JamesIves/github-pages-deploy-action@4.1.0
