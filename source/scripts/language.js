@@ -7,6 +7,10 @@ else {
     setLanguage(localStorage.getItem('language'));
 }
 
+/**
+ * Sets the language of the page.
+ * @param {String} language This takes in a string that indicates the user's selected language
+ */
 function setLanguage(language) {
     //change languages depending on what user clicks
     if (language === 'en') {
@@ -264,8 +268,9 @@ function setLanguage(language) {
         document.getElementById('en').style.textDecoration = "none";
 
         localStorage.setItem('language', 'ch');
-
-
     }
 }
 
+if (typeof exports !== 'undefined') {
+  module.exports = { setLanguage };
+}

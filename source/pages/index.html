@@ -24,10 +24,9 @@
         <div>
             <nav class="nav">
                 <ul id="menu">
-                    <li><button class="menuButton" id="mute-notifications">Mute Notifications</button></li>
+                    <li><button class="menuButton" id="mute-notifications" onclick="mute()">Mute Notifications</button></li>
                     <li><button class="menuButton" id="settings" onclick=displaySettings()>Settings</button></li>
-                    <li><button class="menuButton" id="view-activity" onclick=displayActivity()>View Activity</button>
-                    </li>
+                    <li><button class="menuButton" id="view-activity" onclick=displayActivity()>View Activity</button></li>
                     <li><button class="menuButton" id="about-page" onclick=displayAbout()>About Page</button></li>
                     <li><button class="menuButton" id="howto-page" onclick=displayHowTo()>Getting Started</button></li>
                 </ul>
@@ -144,7 +143,7 @@
             <button id="check" onclick="taskComplete()">Done</button>
             <p id="currentTask"></p>
             <p id="currentPomos"></p>
-            <button id="increasePomosButton" onclick="increasePomos()">+</button>
+            <button id="increasePomosButton" onclick="increasePomos()"></button>
         </span>
 
         <span id="pomoCounter">
