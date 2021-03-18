@@ -1,5 +1,5 @@
 let minutes;
-let seconds;
+var seconds;
 let interval;
 let interval2;
 let pomos = 0;

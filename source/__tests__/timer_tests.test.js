@@ -245,7 +245,9 @@ describe('timer', () => {
 
     test('check count sets the clock', () => {
         let clock = document.getElementById("clock").innerHTML;
+        seconds = 1;
         count();
-        expect(clock).toEqual("25:00");
+        console.log(seconds);
+        expect(seconds).toEqual(0);
     });
 })
