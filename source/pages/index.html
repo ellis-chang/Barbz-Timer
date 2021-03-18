@@ -24,10 +24,9 @@
         <div>
             <nav class="nav">
                 <ul id="menu">
-                    <li><button class="menuButton" id="mute-notifications">Mute Notifications</button></li>
+                    <li><button class="menuButton" id="mute-notifications" onclick="mute()">Mute Notifications</button></li>
                     <li><button class="menuButton" id="settings" onclick=displaySettings()>Settings</button></li>
-                    <li><button class="menuButton" id="view-activity" onclick=displayActivity()>View Activity</button>
-                    </li>
+                    <li><button class="menuButton" id="view-activity" onclick=displayActivity()>View Activity</button></li>
                     <li><button class="menuButton" id="about-page" onclick=displayAbout()>About Page</button></li>
                     <li><button class="menuButton" id="howto-page" onclick=displayHowTo()>Getting Started</button></li>
                 </ul>
@@ -138,19 +137,19 @@
     <br>
 
     <div id="middleOfPage">
-        <span id="currentTaskBox">
+        <div id="currentTaskBox">
             <h2 id="currentTaskHeader">Current Task</h2>
            <h1 id="currentPomosHeader">Estimated Pomos</h1>
             <button id="check" onclick="taskComplete()">Done</button>
             <p id="currentTask"></p>
             <p id="currentPomos"></p>
-            <button id="increasePomosButton" onclick="increasePomos()">+</button>
-        </span>
+            <button id="increasePomosButton" onclick="increasePomos()"></button>
+        </div>
 
-        <span id="pomoCounter">
-            <h2 id="workPeriodsHeader">Work Periods Completed</h2>
-            <p id="workPeriods">0</p>
-        </span>
+        <div id="pomoCounter">
+            <h1 id="workPeriodsHeader">Work Periods Completed</h1>          
+              <p id="workPeriods">0</p>
+        </div>
     </div>
 
     <br>

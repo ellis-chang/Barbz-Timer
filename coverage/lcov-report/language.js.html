@@ -1,0 +1,911 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for language.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="prettify.css" />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="index.html">All files</a> language.js</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">95.1% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>194/204</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">57.69% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>15/26</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>1/1</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">95.1% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>194/204</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+    </div>
+    <div class='status-line high'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a>
+<a name='L122'></a><a href='#L122'>122</a>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a>
+<a name='L146'></a><a href='#L146'>146</a>
+<a name='L147'></a><a href='#L147'>147</a>
+<a name='L148'></a><a href='#L148'>148</a>
+<a name='L149'></a><a href='#L149'>149</a>
+<a name='L150'></a><a href='#L150'>150</a>
+<a name='L151'></a><a href='#L151'>151</a>
+<a name='L152'></a><a href='#L152'>152</a>
+<a name='L153'></a><a href='#L153'>153</a>
+<a name='L154'></a><a href='#L154'>154</a>
+<a name='L155'></a><a href='#L155'>155</a>
+<a name='L156'></a><a href='#L156'>156</a>
+<a name='L157'></a><a href='#L157'>157</a>
+<a name='L158'></a><a href='#L158'>158</a>
+<a name='L159'></a><a href='#L159'>159</a>
+<a name='L160'></a><a href='#L160'>160</a>
+<a name='L161'></a><a href='#L161'>161</a>
+<a name='L162'></a><a href='#L162'>162</a>
+<a name='L163'></a><a href='#L163'>163</a>
+<a name='L164'></a><a href='#L164'>164</a>
+<a name='L165'></a><a href='#L165'>165</a>
+<a name='L166'></a><a href='#L166'>166</a>
+<a name='L167'></a><a href='#L167'>167</a>
+<a name='L168'></a><a href='#L168'>168</a>
+<a name='L169'></a><a href='#L169'>169</a>
+<a name='L170'></a><a href='#L170'>170</a>
+<a name='L171'></a><a href='#L171'>171</a>
+<a name='L172'></a><a href='#L172'>172</a>
+<a name='L173'></a><a href='#L173'>173</a>
+<a name='L174'></a><a href='#L174'>174</a>
+<a name='L175'></a><a href='#L175'>175</a>
+<a name='L176'></a><a href='#L176'>176</a>
+<a name='L177'></a><a href='#L177'>177</a>
+<a name='L178'></a><a href='#L178'>178</a>
+<a name='L179'></a><a href='#L179'>179</a>
+<a name='L180'></a><a href='#L180'>180</a>
+<a name='L181'></a><a href='#L181'>181</a>
+<a name='L182'></a><a href='#L182'>182</a>
+<a name='L183'></a><a href='#L183'>183</a>
+<a name='L184'></a><a href='#L184'>184</a>
+<a name='L185'></a><a href='#L185'>185</a>
+<a name='L186'></a><a href='#L186'>186</a>
+<a name='L187'></a><a href='#L187'>187</a>
+<a name='L188'></a><a href='#L188'>188</a>
+<a name='L189'></a><a href='#L189'>189</a>
+<a name='L190'></a><a href='#L190'>190</a>
+<a name='L191'></a><a href='#L191'>191</a>
+<a name='L192'></a><a href='#L192'>192</a>
+<a name='L193'></a><a href='#L193'>193</a>
+<a name='L194'></a><a href='#L194'>194</a>
+<a name='L195'></a><a href='#L195'>195</a>
+<a name='L196'></a><a href='#L196'>196</a>
+<a name='L197'></a><a href='#L197'>197</a>
+<a name='L198'></a><a href='#L198'>198</a>
+<a name='L199'></a><a href='#L199'>199</a>
+<a name='L200'></a><a href='#L200'>200</a>
+<a name='L201'></a><a href='#L201'>201</a>
+<a name='L202'></a><a href='#L202'>202</a>
+<a name='L203'></a><a href='#L203'>203</a>
+<a name='L204'></a><a href='#L204'>204</a>
+<a name='L205'></a><a href='#L205'>205</a>
+<a name='L206'></a><a href='#L206'>206</a>
+<a name='L207'></a><a href='#L207'>207</a>
+<a name='L208'></a><a href='#L208'>208</a>
+<a name='L209'></a><a href='#L209'>209</a>
+<a name='L210'></a><a href='#L210'>210</a>
+<a name='L211'></a><a href='#L211'>211</a>
+<a name='L212'></a><a href='#L212'>212</a>
+<a name='L213'></a><a href='#L213'>213</a>
+<a name='L214'></a><a href='#L214'>214</a>
+<a name='L215'></a><a href='#L215'>215</a>
+<a name='L216'></a><a href='#L216'>216</a>
+<a name='L217'></a><a href='#L217'>217</a>
+<a name='L218'></a><a href='#L218'>218</a>
+<a name='L219'></a><a href='#L219'>219</a>
+<a name='L220'></a><a href='#L220'>220</a>
+<a name='L221'></a><a href='#L221'>221</a>
+<a name='L222'></a><a href='#L222'>222</a>
+<a name='L223'></a><a href='#L223'>223</a>
+<a name='L224'></a><a href='#L224'>224</a>
+<a name='L225'></a><a href='#L225'>225</a>
+<a name='L226'></a><a href='#L226'>226</a>
+<a name='L227'></a><a href='#L227'>227</a>
+<a name='L228'></a><a href='#L228'>228</a>
+<a name='L229'></a><a href='#L229'>229</a>
+<a name='L230'></a><a href='#L230'>230</a>
+<a name='L231'></a><a href='#L231'>231</a>
+<a name='L232'></a><a href='#L232'>232</a>
+<a name='L233'></a><a href='#L233'>233</a>
+<a name='L234'></a><a href='#L234'>234</a>
+<a name='L235'></a><a href='#L235'>235</a>
+<a name='L236'></a><a href='#L236'>236</a>
+<a name='L237'></a><a href='#L237'>237</a>
+<a name='L238'></a><a href='#L238'>238</a>
+<a name='L239'></a><a href='#L239'>239</a>
+<a name='L240'></a><a href='#L240'>240</a>
+<a name='L241'></a><a href='#L241'>241</a>
+<a name='L242'></a><a href='#L242'>242</a>
+<a name='L243'></a><a href='#L243'>243</a>
+<a name='L244'></a><a href='#L244'>244</a>
+<a name='L245'></a><a href='#L245'>245</a>
+<a name='L246'></a><a href='#L246'>246</a>
+<a name='L247'></a><a href='#L247'>247</a>
+<a name='L248'></a><a href='#L248'>248</a>
+<a name='L249'></a><a href='#L249'>249</a>
+<a name='L250'></a><a href='#L250'>250</a>
+<a name='L251'></a><a href='#L251'>251</a>
+<a name='L252'></a><a href='#L252'>252</a>
+<a name='L253'></a><a href='#L253'>253</a>
+<a name='L254'></a><a href='#L254'>254</a>
+<a name='L255'></a><a href='#L255'>255</a>
+<a name='L256'></a><a href='#L256'>256</a>
+<a name='L257'></a><a href='#L257'>257</a>
+<a name='L258'></a><a href='#L258'>258</a>
+<a name='L259'></a><a href='#L259'>259</a>
+<a name='L260'></a><a href='#L260'>260</a>
+<a name='L261'></a><a href='#L261'>261</a>
+<a name='L262'></a><a href='#L262'>262</a>
+<a name='L263'></a><a href='#L263'>263</a>
+<a name='L264'></a><a href='#L264'>264</a>
+<a name='L265'></a><a href='#L265'>265</a>
+<a name='L266'></a><a href='#L266'>266</a>
+<a name='L267'></a><a href='#L267'>267</a>
+<a name='L268'></a><a href='#L268'>268</a>
+<a name='L269'></a><a href='#L269'>269</a>
+<a name='L270'></a><a href='#L270'>270</a>
+<a name='L271'></a><a href='#L271'>271</a>
+<a name='L272'></a><a href='#L272'>272</a>
+<a name='L273'></a><a href='#L273'>273</a>
+<a name='L274'></a><a href='#L274'>274</a>
+<a name='L275'></a><a href='#L275'>275</a>
+<a name='L276'></a><a href='#L276'>276</a>
+<a name='L277'></a><a href='#L277'>277</a>
+<a name='L278'></a><a href='#L278'>278</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="missing-if-branch" title="else path not taken" >E</span>if (!localStorage.getItem('language')) {
+&nbsp;
+    localStorage.setItem('language', 'en');
+&nbsp;
+}
+else {
+<span class="cstat-no" title="statement not covered" >    setLanguage(localStorage.getItem('language'));</span>
+}
+&nbsp;
+/**
+ * Sets the language of the page.
+ * @param {String} language This takes in a string that indicates the user's selected language
+ */
+function setLanguage(language) {
+    //change languages depending on what user clicks
+    if (language === 'en') {
+        document.getElementById('head').textContent = "Barbz Timer";
+        document.getElementById('mute-notifications').textContent = "Mute Notification";
+        document.getElementById('settings').textContent = "Settings";
+        document.getElementById('view-activity').textContent = "View Activity";
+        document.getElementById('about-page').textContent = "About Page";
+        document.getElementById("howto-page").textContent = "Getting Started";
+&nbsp;
+        document.getElementById('settingsTitle').textContent = "Settings";
+        document.getElementById('timerSettingsTitle').textContent = "Timer Settings";
+        document.getElementById('timeSettings').textContent = "Time (minutes)";
+        document.getElementById('workSettingsLang').textContent = "Work";
+        document.getElementById('shortBreakSettingsLang').textContent = "Short Break";
+        document.getElementById('longBreakSettingsLang').textContent = "Long Break";
+        document.getElementById('volumeSettingsTitle').textContent = "Volume Settings";
+        document.getElementById('volume-text').textContent = "Volume";
+        document.getElementById('saveButton').textContent = "Save";
+&nbsp;
+        document.getElementById('activityTitle').textContent = "Session Activity";
+        document.getElementById('totalWorkTime').textContent = "Total Work Time";
+        document.getElementById('totalPomosCompleted').textContent = "Total Tasks Completed";
+&nbsp;
+        document.getElementById('completedTasksList').textContent = "Tasks Completed";
+        document.getElementById('estimatedPomos').textContent = "Estimated Pomos";
+        document.getElementById('actualPomos').textContent = "Actual Pomos";
+&nbsp;
+        document.getElementById('aboutTitle').textContent = "The Pomodoro Technique";
+        document.getElementById('aboutTestDescription').textContent = "The Pomodoro Technique will provide a simple tool/process for improving productivity (your own and that of your team members) which can do the following:";
+        document.getElementById('aboutItemsLine1').textContent = "Alleviate anxiety linked to beginning";
+        document.getElementById('aboutItemsLine2').textContent = "Enhance focus and concentration by cutting down on interruptions";
+        document.getElementById('aboutItemsLine3').textContent = "Increase awareness of your decisions";
+        document.getElementById('aboutItemsLine4').textContent = "Boost motivation and keep it constant";
+        document.getElementById('aboutItemsLine5').textContent = "Bolster the determination to achieve your goals";
+        document.getElementById('aboutItemsLine6').textContent = "Refine the estimation process, both in qualitative and quantitative terms";
+        document.getElementById('aboutItemsLine7').textContent = "Improve your work or study process";
+        document.getElementById('aboutItemsLine8').textContent = "Strengthen your resolve to keep on applying yourself in the face of complex situations";
+&nbsp;
+        document.getElementById('howToTitle').textContent = "How to use Barbz Timer";
+        document.getElementById('howToItemsLine1').textContent = "Add tasks to work on for the day in the \"Upcoming Tasks.\"";
+        document.getElementById('howToItemsLine2').textContent = "Set the estimated that it will take to finish for each task (one defaulted pomo = 25 minutes of work).";
+        document.getElementById('howToItemsLine3').textContent = "You are able to change the priority in task lists using the arrow buttons.";
+        document.getElementById('howToItemsLine4').textContent = "Current task will be the top priority task.";
+        document.getElementById('howToItemsLine5').textContent = "Start the timer and work on your current task until time is up.";
+        document.getElementById('howToItemsLine6').textContent = "Finished pomos will be keep track and record in \"Work Periods Completed.\"";
+        document.getElementById('howToItemsLine7').textContent = "If you finish your task, press \"Done\" button on your \"Current Task.\"";
+        document.getElementById('howToItemsLine8').textContent = "If you need more time to finish your task, press \"+\" to add more pomos in \"Estimated Pomos.\"";
+        document.getElementById('howToItemsLine9').textContent = "Automatically take a short break (5 minutes) when the first work period is done or if you finish a task. You deserve it!";
+        document.getElementById('howToItemsLine10').textContent = "The timer will repeat these steps 3 times then will automatically start a long break (15 minutes).";
+        document.getElementById('howToItemsLine11').textContent = "The timer will repeat this process until all tasks are completed.";
+        document.getElementById('howToItemsLine12').textContent = "If you want to stop to work on the task, click \"Stop\". The whole work period will be reset.";
+        document.getElementById('howToItemsLine13').textContent = "Reward yourself for working so hard!";
+&nbsp;
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (document.getElementById('state').textContent === longStateText[localStorage.getItem("language")]) {
+<span class="cstat-no" title="statement not covered" >            document.getElementById('state').textContent = "Long Break";</span>
+        } else <span class="missing-if-branch" title="if path not taken" >I</span>if (document.getElementById('state').textContent === shortStateText[localStorage.getItem("language")]) {
+<span class="cstat-no" title="statement not covered" >            document.getElementById('state').textContent = "Short Break";</span>
+        }
+        else {
+            document.getElementById('state').textContent = "Work";
+        }
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (document.getElementById('startButton').textContent === startButtonText[localStorage.getItem("language")]) {
+            document.getElementById('startButton').textContent = "START";
+        }
+        else {
+<span class="cstat-no" title="statement not covered" >            document.getElementById('startButton').textContent = "STOP";</span>
+        }
+        document.getElementById('currentTaskHeader').textContent = "Current Task";
+        document.getElementById('check').textContent = "Done";
+        document.getElementById('workPeriodsHeader').textContent = "Work Periods Completed";
+        document.getElementById('taskHeader').textContent = "Upcoming Tasks";
+        document.getElementById('addTask').textContent = "Add a task";
+        document.getElementById('taskNameLang').textContent = "Task Name:";
+        document.getElementById('expectedPomosLang').textContent = "Number of Expected Pomos:"
+        document.getElementById('createTask').textContent = "Create";
+&nbsp;
+        document.getElementById('en').style.textDecoration = "underline";
+        document.getElementById('es').style.textDecoration = "none";
+        document.getElementById('ch').style.textDecoration = "none";
+&nbsp;
+        localStorage.setItem('language', 'en');
+&nbsp;
+    }
+    else if (language === 'es') {
+        document.getElementById('head').textContent = "Barbz Reloj";
+        document.getElementById('startButton').style.width = "14vw";
+        document.getElementById('workPeriodsHeader').style.fontSize = "2.5vh";
+&nbsp;
+        document.getElementById('mute-notifications').textContent = "Silenciar Notificaciones";
+        document.getElementById('settings').textContent = "Ajustes";
+        document.getElementById('view-activity').textContent = "Ver actividad";
+        document.getElementById('about-page').textContent = "Acerca de Page";
+        document.getElementById("howto-page").textContent = "Empezando";
+    
+&nbsp;
+        document.getElementById('settingsTitle').textContent = "Ajustes";
+        document.getElementById('timerSettingsTitle').textContent = "Configuración del Temporizador";
+        document.getElementById('timeSettings').textContent = "Hora (minutos)";
+        document.getElementById('workSettingsLang').textContent = "Trabaja";
+        document.getElementById('shortBreakSettingsLang').textContent = "Pequeño Descanso";
+        document.getElementById('longBreakSettingsLang').textContent = "Largo Descanso";
+&nbsp;
+        document.getElementById('volumeSettingsTitle').textContent = "Configuraciones de Volumen";
+        document.getElementById('volume-text').textContent = "Volumen";
+        document.getElementById('saveButton').textContent = "Salvar";
+&nbsp;
+&nbsp;
+        document.getElementById('activityTitle').textContent = "Actividad de la sesión";
+        document.getElementById('totalWorkTime').textContent = "Tiempo total de trabajo";
+        document.getElementById('totalPomosCompleted').textContent = "Total Tareas Completado";
+        document.getElementById('completedTasksList').textContent = "Tareas Completadas";
+        document.getElementById('estimatedPomos').textContent = "Pomos Estimado";
+        document.getElementById('actualPomos').textContent = "Pomos Actuales";
+&nbsp;
+        document.getElementById('aboutTitle').textContent = "La Técnica Pomodoro";
+        document.getElementById('aboutTestDescription').textContent = "La Técnica Pomodoro proporcionará una herramienta / proceso simple para mejorar la productividad (la suya y la de los miembros de su equipo) que puede hacer lo siguiente";
+        document.getElementById('aboutItemsLine1').textContent = "Aliviar la ansiedad vinculada al comienzo";
+        document.getElementById('aboutItemsLine2').textContent = "Mejore el enfoque y la concentración reduciendo las interrupciones";
+        document.getElementById('aboutItemsLine3').textContent = "Aumente el conocimiento de sus decisiones";
+        document.getElementById('aboutItemsLine4').textContent = "Aumenta la motivación y mantenla constante";
+        document.getElementById('aboutItemsLine5').textContent = "Refuerce la determinación para lograr sus objetivos";
+        document.getElementById('aboutItemsLine6').textContent = "Perfeccionar el proceso de estimación, tanto en términos cualitativos como cuantitativos";
+        document.getElementById('aboutItemsLine7').textContent = "Mejora tu proceso de trabajo o estudio";
+        document.getElementById('aboutItemsLine8').textContent = "Fortalece tu determinación de seguir aplicándote frente a situaciones complejas";
+        
+        document.getElementById('howToTitle').textContent = "Cómo usar Barbz Timer";
+        document.getElementById('howToItemsLine1').textContent = "Agregue tareas en las que trabajar durante el día en \"Próximas tareas\".";
+        document.getElementById('howToItemsLine2').textContent = "Establezca el estimado que tomará terminar para cada tarea (un pomo predeterminado = 25 minutos de trabajo).";
+        document.getElementById('howToItemsLine3').textContent = "Puede cambiar la prioridad en las listas de tareas utilizando los botones de flecha.";
+        document.getElementById('howToItemsLine4').textContent = "La tarea actual será la tarea de máxima prioridad.";
+        document.getElementById('howToItemsLine5').textContent = "Inicie el temporizador y trabaje en su tarea actual hasta que se acabe el tiempo.";
+        document.getElementById('howToItemsLine6').textContent = "Los pomos terminados se realizarán un seguimiento y se registrarán en \"Períodos de trabajo completados\".";
+        document.getElementById('howToItemsLine7').textContent = "Si finaliza su tarea, presione el botón \"Listo\" en su \"Tarea actual\".";
+        document.getElementById('howToItemsLine8').textContent = "Si necesita más tiempo para terminar su tarea, presione \"+\" para agregar más pomos en \"Pomos estimados\".";
+        document.getElementById('howToItemsLine9').textContent = "Tómese automáticamente un breve descanso (5 minutos) cuando termine el primer período de trabajo o si termina una tarea. ¡Te lo mereces!";
+        document.getElementById('howToItemsLine10').textContent = "El temporizador repetirá estos pasos 3 veces y luego iniciará automáticamente una pausa larga (15 minutos).";
+        document.getElementById('howToItemsLine11').textContent = "El temporizador repetirá este proceso hasta que se completen todas las tareas.";
+        document.getElementById('howToItemsLine12').textContent = "Si desea dejar de trabajar en la tarea, haga clic en \"Detener\". Se reiniciará todo el período de trabajo.";
+        document.getElementById('howToItemsLine13').textContent = "¡Recompénsese por trabajar tan duro!";
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (document.getElementById('state').textContent === longStateText[localStorage.getItem("language")]) {
+<span class="cstat-no" title="statement not covered" >            document.getElementById('state').textContent = "Largo Descanso";</span>
+        } else <span class="missing-if-branch" title="if path not taken" >I</span>if (document.getElementById('state').textContent === shortStateText[localStorage.getItem("language")]) {
+<span class="cstat-no" title="statement not covered" >            document.getElementById('state').textContent = "Pequeño Descanso";</span>
+        }
+        else {
+            document.getElementById('state').textContent = "Trabaja";
+        }
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (document.getElementById('startButton').textContent === stopButtonText[localStorage.getItem("language")]) {
+<span class="cstat-no" title="statement not covered" >            document.getElementById('startButton').textContent = "DETENER";</span>
+        }
+        else {
+            document.getElementById('startButton').textContent = "COMIENZO";
+        }
+        document.getElementById('currentTaskHeader').textContent = "Tarea Actual";
+        document.getElementById('check').textContent = "Hecho";
+        document.getElementById('workPeriodsHeader').textContent = "Períodos de Trabajo Completados";
+        document.getElementById('taskHeader').textContent = "Próximas Tareas";
+        document.getElementById('addTask').textContent = "Agregar una Tarea";
+        document.getElementById('taskNameLang').textContent = "Nombre de la Tarea:";
+        document.getElementById('expectedPomosLang').textContent = "Número de Pomos Esperados:"
+        document.getElementById('createTask').textContent = "Crear";
+&nbsp;
+        document.getElementById('es').style.textDecoration = "underline";
+        document.getElementById('en').style.textDecoration = "none";
+        document.getElementById('ch').style.textDecoration = "none";
+&nbsp;
+        localStorage.setItem('language', 'es');
+&nbsp;
+    }
+    else {
+        document.getElementById('head').textContent = "Barbz 时钟";
+&nbsp;
+        document.getElementById('mute-notifications').textContent = "靜音通知";
+        document.getElementById('settings').textContent = "設定值";
+        document.getElementById('view-activity').textContent = "查看活動";
+        document.getElementById('about-page').textContent = "關於頁面";
+        document.getElementById("howto-page").textContent = "入門";
+&nbsp;
+        document.getElementById('settingsTitle').textContent = "設定值";
+        document.getElementById('timerSettingsTitle').textContent = "計時器設定";
+        document.getElementById('timeSettings').textContent = "時間 (分鐘)";
+        document.getElementById('workSettingsLang').textContent = "工作";
+        document.getElementById('shortBreakSettingsLang').textContent = "短暫休息";
+        document.getElementById('longBreakSettingsLang').textContent = "長時間休息";
+&nbsp;
+        document.getElementById('volumeSettingsTitle').textContent = "音量设置";
+        document.getElementById('volume-text').textContent = "体积";
+        document.getElementById('saveButton').textContent = "救";
+&nbsp;
+        document.getElementById('activityTitle').textContent = "会议活动";
+        document.getElementById('totalWorkTime').textContent = "總工作時間";
+        document.getElementById('totalPomosCompleted').textContent = "完成的任务总数";
+&nbsp;
+        document.getElementById('completedTasksList').textContent = "任務完成";
+        document.getElementById('estimatedPomos').textContent = "估計的Pomos";
+        document.getElementById('actualPomos').textContent = "實際的Pomos";
+&nbsp;
+        document.getElementById('aboutTitle').textContent = "番茄技術";
+        document.getElementById('aboutTestDescription').textContent = "番茄技術將提供一個簡單的工具/流程來提高生產力（您自己和您的團隊成員的生產力），可以執行以下操作：";
+        document.getElementById('aboutItemsLine1').textContent = "減輕與開始有關的焦慮";
+        document.getElementById('aboutItemsLine2').textContent = "通過減少打擾來增強注意力和專注力";
+        document.getElementById('aboutItemsLine3').textContent = "增強您的決策意識";
+        document.getElementById('aboutItemsLine4').textContent = "增強動力並保持恆久不變";
+        document.getElementById('aboutItemsLine5').textContent = "堅定實現目標的決心";
+        document.getElementById('aboutItemsLine6').textContent = "在定性和定量方面完善估算過程";
+        document.getElementById('aboutItemsLine7').textContent = "改善您的工作或學習過程";
+        document.getElementById('aboutItemsLine8').textContent = "增強您的決心，以面對複雜的情況繼續努力";
+&nbsp;
+        document.getElementById('howToTitle').textContent = "獎勵自己這麼努力！";
+        document.getElementById('howToItemsLine1').textContent = "在接下來的任務中添加當天要處理的任務。";
+        document.getElementById('howToItemsLine2').textContent = "設置完成每個任務所需的估計時間（一個默認的pomo = 25分鐘的工作時間）。";
+        document.getElementById('howToItemsLine3').textContent = "您可以使用箭頭按鈕更改任務列表中的優先級";
+        document.getElementById('howToItemsLine4').textContent = "當前任務將是最優先的任務。";
+        document.getElementById('howToItemsLine5').textContent = "啟動計時器並處理您當前的任務，直到時間到了。";
+        document.getElementById('howToItemsLine6').textContent = "完成的pomos將在工作期間跟踪和記錄。";
+        document.getElementById('howToItemsLine7').textContent = "如果完成任務，請在當前任務上按完成按鈕";
+        document.getElementById('howToItemsLine8').textContent = "如果您需要更多時間來完成任務，請按加號以在估計的pomos中添加更多pomos。";
+        document.getElementById('howToItemsLine9').textContent = "在完成第一個工作時間或完成任務後，系統會自動休息片刻（5分鐘）。你應得的！";
+        document.getElementById('howToItemsLine10').textContent = "計時器將重複這些步驟3次，然後將自動開始長時間休息（15分鐘）。";
+        document.getElementById('howToItemsLine11').textContent = "計時器將重複此過程，直到完成所有任務。";
+        document.getElementById('howToItemsLine12').textContent = "如果要停止執行該任務，請單擊“停止”。整個工作週期將被重置。";
+        document.getElementById('howToItemsLine13').textContent = "獎勵自己這麼努力！";
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (document.getElementById('state').textContent === longStateText[localStorage.getItem("language")]) {
+<span class="cstat-no" title="statement not covered" >            document.getElementById('state').textContent = "長時間休息";</span>
+        } else <span class="missing-if-branch" title="if path not taken" >I</span>if (document.getElementById('state').textContent === shortStateText[localStorage.getItem("language")]) {
+<span class="cstat-no" title="statement not covered" >            document.getElementById('state').textContent = "短暫休息";</span>
+        }
+        else {
+            document.getElementById('state').textContent = "工作";
+        }
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (document.getElementById('startButton').textContent === stopButtonText[localStorage.getItem("language")]) {
+<span class="cstat-no" title="statement not covered" >            document.getElementById('startButton').textContent = "停止";</span>
+        }
+        else {
+            document.getElementById('startButton').textContent = "開始";
+        }
+        document.getElementById('currentTaskHeader').textContent = "當前任務";
+        document.getElementById('check').textContent = "完畢";
+        document.getElementById('workPeriodsHeader').textContent = "工作期完成";
+        document.getElementById('taskHeader').textContent = "即將完成的任務";
+        document.getElementById('addTask').textContent = "添加任務";
+        document.getElementById('taskNameLang').textContent = "任務名稱：";
+        document.getElementById('expectedPomosLang').textContent = "預期Pomos數量："
+        document.getElementById('createTask').textContent = "創建";
+&nbsp;
+        document.getElementById('ch').style.textDecoration = "underline";
+        document.getElementById('es').style.textDecoration = "none";
+        document.getElementById('en').style.textDecoration = "none";
+&nbsp;
+        localStorage.setItem('language', 'ch');
+&nbsp;
+&nbsp;
+    }
+}
+<span class="missing-if-branch" title="else path not taken" >E</span>if (typeof exports !== 'undefined') {
+  module.exports = { setLanguage };
+}
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
+                at Thu Mar 18 2021 03:29:20 GMT-0700 (Pacific Daylight Time)
+            </div>
+        </div>
+        <script src="prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="sorter.js"></script>
+        <script src="block-navigation.js"></script>
+    </body>
+</html>
+    

@@ -42,6 +42,7 @@ template.innerHTML = `
         font-size: 10px;
         background-image: url("../images/exit.png");
         background-size: 100%;
+        background-repeat: no-repeat;
         border: 2px solid black;
         border-radius: 1vh;
     }
@@ -49,6 +50,7 @@ template.innerHTML = `
     .delete:hover {
         background-image: url("../images/exit-white.png");
         background-size: 100%;
+        background-repeat: no-repeat;
     }
     
     .upTask {
@@ -60,6 +62,7 @@ template.innerHTML = `
         font-size: 10px;
         background-image: url("../images/up.png");
         background-size: 100%;
+        background-repeat: no-repeat;
         border: 2px solid black;
         border-radius: 1vh;
     }
@@ -67,6 +70,7 @@ template.innerHTML = `
     .upTask:hover {
         background-image: url("../images/up-white.png");
         background-size: 100%;
+        background-repeat: no-repeat;
     }
 
     .downTask {
@@ -78,6 +82,7 @@ template.innerHTML = `
         font-size: 10px;
         background-image: url("../images/down.png");
         background-size: 100%;
+        background-repeat: no-repeat;
         border: 2px solid black;
         border-radius: 1vh;
     }
@@ -85,6 +90,7 @@ template.innerHTML = `
     .downTask:hover {
         background-image: url("../images/down-white.png");
         background-size: 100%;
+        background-repeat: no-repeat;
     }
 
 

@@ -4,9 +4,9 @@
 }
 
 :root{
-    --background: #E2E5DE;
-    --foreground: #B2BEB5;
-    --hover: #676767;
+    --background: #ffffff;
+    --foreground: #C7C6B4;
+    --hover: #6B6C5A;
 }
 
 body {
@@ -31,8 +31,8 @@ body {
     /* Border Properties */
     border: 1px solid #582323;
     box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1vh;
-
     background-color: var(--background);
     font-size: 2vw;
 }
@@ -47,6 +47,8 @@ body {
     background-color: var(--foreground);
     border: 1px solid #582323;
     box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
 } 
 
 a {
@@ -58,6 +60,8 @@ a {
 }
 
 .languageMenu {
+    /* position: relative;
+    left: 80%; */
     position: absolute;
     z-index: 1000;
     bottom: 1.4vw;
@@ -70,17 +74,19 @@ a {
 
 .hamburgerMenu {
     position: absolute;
-    z-index: 1000;
-    top: 2vh;
+    z-index: 1000%;
+    top: 10%;
     right: 1.5vw;
-    width: 3vw;
-    height: 5.5vh;
+    width: 3.5vw;
+    height: 3.5vw;
     border: 1px solid #582323;
-    border-radius: 1vh;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6.5px;
     cursor: pointer;
     background-color: var(--background);
     background-image: url("../images/hamburger-menu.png");
     background-size: 100%;
+    background-repeat: no-repeat;
     outline: none;
 }
 
@@ -88,16 +94,20 @@ a {
     background-color: var(--hover);
     background-image: url("../images/hamburger-menu-white.png");
     border: 1px solid white;
+    background-repeat: no-repeat;
+
 }
 
 .showClose {
     background-image: url("../images/exit.png");
+    background-repeat: no-repeat;
 }
 
 .showClose:hover {
     background-color: var(--hover);
     background-image: url("../images/exit-white.png");
     border: 1px solid white;
+    background-repeat: no-repeat;
 }
 
 .nav {
@@ -155,6 +165,7 @@ a {
     background-color: white;
     background-image: url("../images/exit.png");
     background-size: 100%;
+    background-repeat: no-repeat;
     height: 3.5vh;
     width: 2vw;
     margin-top: 1vh;
@@ -167,6 +178,7 @@ a {
     background-color: var(--hover);
     background-image: url("../images/exit-white.png");
     border: 1px solid white;
+    background-repeat: no-repeat;
 }
 
 
@@ -269,6 +281,7 @@ a {
     background-color: white;
     background-image: url("../images/exit.png");
     background-size: 100%;
+    background-repeat: no-repeat;
     height: 3.5vh;
     width: 2vw;
     margin-top: 1vh;
@@ -310,7 +323,7 @@ a {
 }
 
 .howToItems {
-    font-size: 1.25vw;
+    font-size: 1vw;
     text-align: left;
 }
 
@@ -321,6 +334,7 @@ a {
     background-color: white;
     background-image: url("../images/exit.png");
     background-size: 100%;
+    background-repeat: no-repeat;
     height: 3.5vh;
     width: 2vw;
     margin-top: 1vh;
@@ -333,7 +347,7 @@ a {
     /* Border Properties */
     border: 1px solid #582323;
     box-sizing: border-box;
-    box-shadow: 0% 4% 5% rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1vh;
 
     /* Box Sizing */
@@ -353,7 +367,7 @@ a {
     /* Border Properties */
     border: 1px solid #582323;
     box-sizing: border-box;
-    box-shadow: 0% 4% 5% rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1vh;
 
     /* Box Sizing */
@@ -373,6 +387,7 @@ a {
 #state {
     text-align: center;
     font-size: 4vw;
+
 } 
 
 #clock {
@@ -450,7 +465,7 @@ a {
     
     /* Box Sizing */
     width: 52.5vw;
-    height: 30vh;
+    height: 33vh;
     padding: 2.5vw 5vh 2.5vw 5vh;
         
     /* Positioning */
@@ -467,10 +482,22 @@ a {
     font-size: 2vw;
 }
 
+#currentPomosHeader {
+    /* Sizing */
+    width: 100%;
+    height: 1vh;
+    font-size: 1.4vw;
+    padding:0%;
+
+    /* Positioning */
+    text-align: center;
+    margin-left: 30vw;
+    margin-top: -3vw;
+}
+
 #check {
-    display: inline-block;
     width: 4vw;
-    height: 4vh;
+    height: 5vh;
     padding: 1vh;
     margin: 1vh;
     text-align: center;
@@ -525,6 +552,7 @@ a {
     font-size: 2vh;
 }
 
+
 #currentPomos {
     /* Border Properties */
     border-radius: 1vh;
@@ -533,6 +561,7 @@ a {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     text-align: center;
+   
     width: 4vw;
     height: 4vh;
     padding: 1vh;
@@ -557,7 +586,7 @@ a {
     text-align: center;
     width: 12.5vw;
     padding: 2.5vw 5vh 2.5vw 5vh;
-    height: 30vh;
+    height: 33vh;
 
     /* Positioning */
     margin: 1vh;
@@ -568,7 +597,6 @@ a {
 
 #workPeriodsHeader {
     font-size: 1.5vw;
-    text-align: center;
 }
 
 #workPeriods {
@@ -582,11 +610,14 @@ a {
     border-radius: 1vh;
 
     /* Sizing */
-    width: 5vw;
-    padding: 1vh;
-
+    /* width: 5vw;
+    padding: 1vh; */
+    width: 50%;
+    padding: 1%;
+    
     /* Positioning */
     margin: 1vh;
+    position: relative;
     
 
     background-color: var(--background);
@@ -921,7 +952,8 @@ a {
     font-size: 10px;
     background-image: url("../images/plus.png");
     background-size: 100%;
-    border: 2px solid black;
+    background-repeat: no-repeat;
+    border: 1px solid #582323;
     border-radius: 1vh;
     background-color: var(--background);
 }
@@ -929,5 +961,183 @@ a {
 #increasePomosButton:hover {
     background-image: url("../images/plus-white.png");
     background-size: 100%;
+    background-repeat: no-repeat;
     background-color: var(--hover);
+}
+
+@media screen and (max-width: 800px) {
+    #barbzHeader {
+        height: 8.6vw;
+        font-size: 1.5vw;
+    }
+    .hamburgerMenu {
+        width: 4%;
+        height: 45%;
+        top: 25%;
+        background-size: 100%;
+    }
+    .nav {
+        width: 20vh;
+    }
+    .nav ul li button {
+        width: 15vw;
+        font-size: 2vw;
+    }
+    #settingsInput {
+        top: 40%;
+        height: 41vh;
+        width: 55vw;
+    }
+    #settingsTitle {
+        font-size: 5vw;
+    }
+    
+    #timerSettingsTitle {
+        font-size: 3.5vw;
+    }
+    
+    #timeSettings {
+        font-size: 2vw;
+    }
+    #volumeSettingsTitle {
+        font-size: 3.5vw;
+    }
+    #saveButton {
+        width: 15vw;
+        font-size: 3.5vw;
+
+    }
+    #closeSettings {
+        height: 2.7vh;
+        width: 6vw;
+    }
+    #closeAbout {
+        height: 2.7vh;
+        width: 6vw;
+    }
+    #aboutPage {
+        top: 30%;
+        height: 30vh;
+        width: 50vw;
+    }
+    #aboutTitle {
+        font-size: 3vw;
+    }
+    #aboutText {
+        font-size: 2vw;
+        text-align: center;
+    }
+        
+    .aboutItems {
+        font-size: 2vw;
+        text-align: left;
+    }
+    #closeHowTo {
+        height: 2.7vh;
+        width: 6vw;
+    }
+    #howTo {
+        top: 50%;
+        height: 65vh;
+        width: 50vw;
+    }
+    #howToTitle {
+        font-size: 3vw;
+    }
+    #howToText {
+        font-size: 1vw;
+        text-align: center;
+    }
+        
+    .howToItems {
+        font-size: 2vw;
+        text-align: left;
+    }
+    /* Current Task Box */
+    #check {
+        height: 2vh;
+        width: 6vw;
+        border-radius: 4px;
+        font-size: 1.2vw;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 0.5vw;
+    }
+    #increasePomosButton{
+        height: 1.8vw;
+        width: 1vw;
+    }
+    
+    #currentTaskBox {
+        width: 62vw;
+        height: 14vh;
+    }
+    #currentTask {
+        width: 25vw;
+        margin-left: 1vh;
+    }
+
+    #currentTaskHeader {
+        font-size: 2.2vw;
+    }
+    #currentPomosHeader{
+        font-size: 2vw;
+    }
+    #currentPomos{
+        width: 6vw;
+    }
+
+    /* Work period complete */
+
+
+
+    /* Add Task */
+    #taskNameLang {
+        font-size: 2vw;
+    }
+    #expectedPomosLang{
+        font-size: 2vw;
+    }
+    #middleOfPage {
+        flex-direction: column;
+        width: 90%;
+    }
+    #taskName {
+        width: 7vw;
+    }
+    #pomoCounter {
+        width: 40vw;
+        height: 13vw;
+    }
+    #workPeriodsHeader {
+        width: 35vh;
+        text-align: center;
+        margin-left: -5vw;
+        font-size: 2vw;
+        margin-bottom: 1px;
+    }
+    #workPeriods {
+        font-size: 2vw;
+        width: 4vw;
+        height: 4vw;
+    }
+
+    #taskBox { 
+        width: 62vw;
+    }
+    #taskHeader {
+        font-size: 3.5vw;
+    }
+    #innerTaskBox {
+        width: 42vw;
+        margin: 0%;
+    }
+    #taskInput {  
+        width: 22vw;
+    }
+
+    #taskList {
+        width: 50vw;
+        height: 30vh;
+    }
 }
