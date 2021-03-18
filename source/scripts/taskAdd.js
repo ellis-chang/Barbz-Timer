@@ -51,7 +51,7 @@ function createTask() {
     alert('Please enter a name for the task!');
     return;
   }
-  
+
   //Check for duplicate tasks
   while (i < orderedList.length) {
     if (
@@ -70,7 +70,7 @@ function createTask() {
     return;
   }
   numberOfTasks++;
-  
+
   //Create custom element task-item
   var task = `<task-item taskName="${
     document.getElementById('taskName').value
@@ -89,7 +89,7 @@ function deleteTask(event) {
   let orderedList = document.getElementById('taskList').children;
   let current = event.target.parentNode.children;
   let i = 0;
-  
+
   //loops through list and deletes specified task
   while (
     current[0].innerHTML !=
