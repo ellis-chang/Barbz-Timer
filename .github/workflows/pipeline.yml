@@ -6,12 +6,10 @@ name: Node.js CI
 on:
   push:
     branches:
-      - 'DemoProject'
-      - '!master'
+      - 'master'
   pull_request:
     branches:
-      - 'DemoProject'
-      - '!master'
+      - 'master'
 
 jobs:
   build:
@@ -25,17 +23,30 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    
+    - name: Build ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install --save-dev jest
     - run: npm ci
     - run: npm run build --if-present
-    - run: npm test
-    - name: Build
+    
+    - name: Testing
+      run: npm test
+      
+    - name: Build Documentation
       uses: andstor/jsdoc-action@v1
       with:
-        source_dir: ./source/scripts
+        source_dir: ./source
+        config_file: conf.json
         recurse: true
         output_dir: ./out
+        #template: minami
+        #front_page: README.md
+        
+    - name: Deployment
+      uses: JamesIves/github-pages-deploy-action@4.1.0
+      with:
+        branch: master
+        folder: ./source/pages
