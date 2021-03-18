@@ -15,6 +15,7 @@ function setLanguage(language) {
         document.getElementById('settings').textContent = "Settings";
         document.getElementById('view-activity').textContent = "View Activity";
         document.getElementById('about-page').textContent = "About Page";
+        document.getElementById("howto-page").textContent = "Getting Started";
 
         document.getElementById('settingsTitle').textContent = "Settings";
         document.getElementById('timerSettingsTitle').textContent = "Timer Settings";
@@ -44,6 +45,22 @@ function setLanguage(language) {
         document.getElementById('aboutItemsLine6').textContent = "Refine the estimation process, both in qualitative and quantitative terms";
         document.getElementById('aboutItemsLine7').textContent = "Improve your work or study process";
         document.getElementById('aboutItemsLine8').textContent = "Strengthen your resolve to keep on applying yourself in the face of complex situations";
+
+        document.getElementById('howToTitle').textContent = "How to use Barbz Timer";
+        document.getElementById('howToItemsLine1').textContent = "Add tasks to work on for the day in the \"Upcoming Tasks.\"";
+        document.getElementById('howToItemsLine2').textContent = "Set the estimated that it will take to finish for each task (one defaulted pomo = 25 minutes of work).";
+        document.getElementById('howToItemsLine3').textContent = "You are able to change the priority in task lists using the arrow buttons.";
+        document.getElementById('howToItemsLine4').textContent = "Current task will be the top priority task.";
+        document.getElementById('howToItemsLine5').textContent = "Start the timer and work on your current task until time is up.";
+        document.getElementById('howToItemsLine6').textContent = "Finished pomos will be keep track and record in \"Work Periods Completed.\"";
+        document.getElementById('howToItemsLine7').textContent = "If you finish your task, press \"Done\" button on your \"Current Task.\"";
+        document.getElementById('howToItemsLine8').textContent = "If you need more time to finish your task, press \"+\" to add more pomos in \"Estimated Pomos.\"";
+        document.getElementById('howToItemsLine9').textContent = "Automatically take a short break (5 minutes) when the first work period is done or if you finish a task. You deserve it!";
+        document.getElementById('howToItemsLine10').textContent = "The timer will repeat these steps 3 times then will automatically start a long break (15 minutes).";
+        document.getElementById('howToItemsLine11').textContent = "The timer will repeat this process until all tasks are completed.";
+        document.getElementById('howToItemsLine12').textContent = "If you want to stop to work on the task, click \"Stop\". The whole work period will be reset.";
+        document.getElementById('howToItemsLine13').textContent = "Reward yourself for working so hard!";
+
 
         if (document.getElementById('state').textContent === longStateText[localStorage.getItem("language")]) {
             document.getElementById('state').textContent = "Long Break";
@@ -85,6 +102,8 @@ function setLanguage(language) {
         document.getElementById('settings').textContent = "Ajustes";
         document.getElementById('view-activity').textContent = "Ver actividad";
         document.getElementById('about-page').textContent = "Acerca de Page";
+        document.getElementById("howto-page").textContent = "Empezando";
+    
 
         document.getElementById('settingsTitle').textContent = "Ajustes";
         document.getElementById('timerSettingsTitle').textContent = "Configuración del Temporizador";
@@ -116,6 +135,21 @@ function setLanguage(language) {
         document.getElementById('aboutItemsLine7').textContent = "Mejora tu proceso de trabajo o estudio";
         document.getElementById('aboutItemsLine8').textContent = "Fortalece tu determinación de seguir aplicándote frente a situaciones complejas";
         
+        document.getElementById('howToTitle').textContent = "Cómo usar Barbz Timer";
+        document.getElementById('howToItemsLine1').textContent = "Agregue tareas en las que trabajar durante el día en \"Próximas tareas\".";
+        document.getElementById('howToItemsLine2').textContent = "Establezca el estimado que tomará terminar para cada tarea (un pomo predeterminado = 25 minutos de trabajo).";
+        document.getElementById('howToItemsLine3').textContent = "Puede cambiar la prioridad en las listas de tareas utilizando los botones de flecha.";
+        document.getElementById('howToItemsLine4').textContent = "La tarea actual será la tarea de máxima prioridad.";
+        document.getElementById('howToItemsLine5').textContent = "Inicie el temporizador y trabaje en su tarea actual hasta que se acabe el tiempo.";
+        document.getElementById('howToItemsLine6').textContent = "Los pomos terminados se realizarán un seguimiento y se registrarán en \"Períodos de trabajo completados\".";
+        document.getElementById('howToItemsLine7').textContent = "Si finaliza su tarea, presione el botón \"Listo\" en su \"Tarea actual\".";
+        document.getElementById('howToItemsLine8').textContent = "Si necesita más tiempo para terminar su tarea, presione \"+\" para agregar más pomos en \"Pomos estimados\".";
+        document.getElementById('howToItemsLine9').textContent = "Tómese automáticamente un breve descanso (5 minutos) cuando termine el primer período de trabajo o si termina una tarea. ¡Te lo mereces!";
+        document.getElementById('howToItemsLine10').textContent = "El temporizador repetirá estos pasos 3 veces y luego iniciará automáticamente una pausa larga (15 minutos).";
+        document.getElementById('howToItemsLine11').textContent = "El temporizador repetirá este proceso hasta que se completen todas las tareas.";
+        document.getElementById('howToItemsLine12').textContent = "Si desea dejar de trabajar en la tarea, haga clic en \"Detener\". Se reiniciará todo el período de trabajo.";
+        document.getElementById('howToItemsLine13').textContent = "¡Recompénsese por trabajar tan duro!";
+
         if (document.getElementById('state').textContent === longStateText[localStorage.getItem("language")]) {
             document.getElementById('state').textContent = "Largo Descanso";
         } else if (document.getElementById('state').textContent === shortStateText[localStorage.getItem("language")]) {
@@ -154,6 +188,7 @@ function setLanguage(language) {
         document.getElementById('settings').textContent = "設定值";
         document.getElementById('view-activity').textContent = "查看活動";
         document.getElementById('about-page').textContent = "關於頁面";
+        document.getElementById("howto-page").textContent = "入門";
 
         document.getElementById('settingsTitle').textContent = "設定值";
         document.getElementById('timerSettingsTitle').textContent = "計時器設定";
@@ -184,6 +219,21 @@ function setLanguage(language) {
         document.getElementById('aboutItemsLine6').textContent = "在定性和定量方面完善估算過程";
         document.getElementById('aboutItemsLine7').textContent = "改善您的工作或學習過程";
         document.getElementById('aboutItemsLine8').textContent = "增強您的決心，以面對複雜的情況繼續努力";
+
+        document.getElementById('howToTitle').textContent = "獎勵自己這麼努力！";
+        document.getElementById('howToItemsLine1').textContent = "在接下來的任務中添加當天要處理的任務。";
+        document.getElementById('howToItemsLine2').textContent = "設置完成每個任務所需的估計時間（一個默認的pomo = 25分鐘的工作時間）。";
+        document.getElementById('howToItemsLine3').textContent = "您可以使用箭頭按鈕更改任務列表中的優先級";
+        document.getElementById('howToItemsLine4').textContent = "當前任務將是最優先的任務。";
+        document.getElementById('howToItemsLine5').textContent = "啟動計時器並處理您當前的任務，直到時間到了。";
+        document.getElementById('howToItemsLine6').textContent = "完成的pomos將在工作期間跟踪和記錄。";
+        document.getElementById('howToItemsLine7').textContent = "如果完成任務，請在當前任務上按完成按鈕";
+        document.getElementById('howToItemsLine8').textContent = "如果您需要更多時間來完成任務，請按加號以在估計的pomos中添加更多pomos。";
+        document.getElementById('howToItemsLine9').textContent = "在完成第一個工作時間或完成任務後，系統會自動休息片刻（5分鐘）。你應得的！";
+        document.getElementById('howToItemsLine10').textContent = "計時器將重複這些步驟3次，然後將自動開始長時間休息（15分鐘）。";
+        document.getElementById('howToItemsLine11').textContent = "計時器將重複此過程，直到完成所有任務。";
+        document.getElementById('howToItemsLine12').textContent = "如果要停止執行該任務，請單擊“停止”。整個工作週期將被重置。";
+        document.getElementById('howToItemsLine13').textContent = "獎勵自己這麼努力！";
 
         if (document.getElementById('state').textContent === longStateText[localStorage.getItem("language")]) {
             document.getElementById('state').textContent = "長時間休息";
