@@ -208,6 +208,8 @@ window.onload = function () {
   }
 
   document.getElementById('worktimes').innerHTML = totalPomos;
+  document.getElementById('howTo').style.display = 'block';
+  document.getElementById('overlay').style.display = 'block';
 };
 
 /*========================================================================

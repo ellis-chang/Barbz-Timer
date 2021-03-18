@@ -7,7 +7,7 @@ template.innerHTML = `
         /*position*/
         display: inline-block;
         width: 17vw;
-        margin-left: 0px;
+        margin-left: 0;
         
         /*border*/
         border: 2px solid black;
