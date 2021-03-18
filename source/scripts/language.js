@@ -268,10 +268,9 @@ function setLanguage(language) {
         document.getElementById('en').style.textDecoration = "none";
 
         localStorage.setItem('language', 'ch');
-
-
     }
 }
+
 if (typeof exports !== 'undefined') {
   module.exports = { setLanguage };
 }

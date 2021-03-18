@@ -7,13 +7,11 @@
 - Linh Le
 - Andrew Ngo
 - Jamsine Takei
--
 
 ### Agenda:
 - Going over sprint process
 - Going over team logistics
 - What we want done by the end of the week
--
 
 #### Sprint Process and Team Logistics
 - Plan roadmaps and most process recording using notion
@@ -35,8 +33,6 @@
 - Team Logistics and Sprint Process
 
 #### To-Do List:
-- [ ] Work on tasks in the roadmap for the upcoming tasks on the roadmap
-- [ ] Team Logistics and Sprint Process
-- [ ] 
-- [ ]
+- [x] Work on tasks in the roadmap for the upcoming tasks on the roadmap
+- [x] Team Logistics and Sprint Process
 

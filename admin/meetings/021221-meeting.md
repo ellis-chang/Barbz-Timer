@@ -1,3 +1,5 @@
+## 02/21 Meeting Notes
+
 #### Attendance:
 - Nathan Bui
 - Andrew Ngo
@@ -5,7 +7,6 @@
 - Thang Phan
 - Ellis Chang
 - Jasmine Takei
--
 
 ### Agenda:
 - Development Updates
@@ -20,7 +21,4 @@
 - Design will mock up new features 
 
 #### To-Do List:
-- [ ] 
-- [ ]
-- [ ]
-- [ ]
+- [x] Work on basic outline of design and dev side 

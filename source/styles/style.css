@@ -31,8 +31,8 @@ body {
     /* Border Properties */
     border: 1px solid #582323;
     box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1vh;
-
     background-color: var(--background);
     font-size: 2vw;
 }
@@ -47,6 +47,8 @@ body {
     background-color: var(--foreground);
     border: 1px solid #582323;
     box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
 } 
 
 a {
@@ -58,6 +60,8 @@ a {
 }
 
 .languageMenu {
+    /* position: relative;
+    left: 80%; */
     position: absolute;
     z-index: 1000;
     bottom: 1.4vw;
@@ -76,6 +80,7 @@ a {
     width: 3vw;
     height: 5.5vh;
     border: 1px solid #582323;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1vh;
     cursor: pointer;
     background-color: var(--background);
@@ -310,7 +315,7 @@ a {
 }
 
 .howToItems {
-    font-size: 1.25vw;
+    font-size: 1vw;
     text-align: left;
 }
 
@@ -333,7 +338,7 @@ a {
     /* Border Properties */
     border: 1px solid #582323;
     box-sizing: border-box;
-    box-shadow: 0% 4% 5% rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1vh;
 
     /* Box Sizing */
@@ -353,7 +358,7 @@ a {
     /* Border Properties */
     border: 1px solid #582323;
     box-sizing: border-box;
-    box-shadow: 0% 4% 5% rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1vh;
 
     /* Box Sizing */
@@ -467,6 +472,19 @@ a {
     font-size: 2vw;
 }
 
+#currentPomosHeader {
+    /* Sizing */
+    width: 100%;
+    height: 1vh;
+    font-size: 1.4vw;
+    padding:0%;
+
+    /* Positioning */
+    text-align: center;
+    margin-left: 30vw;
+    margin-top: -3vw;
+}
+
 #check {
     display: inline-block;
     width: 4vw;
@@ -525,6 +543,7 @@ a {
     font-size: 2vh;
 }
 
+
 #currentPomos {
     /* Border Properties */
     border-radius: 1vh;
@@ -533,6 +552,7 @@ a {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     text-align: center;
+   
     width: 4vw;
     height: 4vh;
     padding: 1vh;
