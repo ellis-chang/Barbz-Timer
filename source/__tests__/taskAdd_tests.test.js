@@ -1,5 +1,4 @@
-const displayInput = require('../scripts/taskAdd');
-const creatTask = require('../scripts/taskAdd');
+const {displayInput, createTask} = require('../scripts/taskAdd');
 
 describe('taskInput is ', () => {
     document.body.innerHTML = `<div id="taskInput" style="display: none;"></div> 
@@ -17,7 +16,6 @@ describe('taskInput is ', () => {
     let taskName = document.getElementById("taskName");
     
     test('alerts if there is no name',() =>{
-        console.log(createTask());
         expect(taskName.value).toEqual("");
     });
 });

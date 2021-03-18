@@ -46,8 +46,6 @@ window.onload = function () {
 }
 
 var notification;
-var endOfEstimated = false;
-
 
 var startButtonText = {
     en: "START",
@@ -635,5 +633,4 @@ function notifications(){
         }
     }
 }
-
-module.exports = {timeStart, count};
+module.exports = {timeStart, count, taskTracker, mute, switchTimes, stop};

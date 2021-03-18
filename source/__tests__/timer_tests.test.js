@@ -1,4 +1,4 @@
-const {timeStart, count} = require('../scripts/timer');
+const {timeStart, count, mute, switchTimes, stop} = require('../scripts/timer');
 
 describe('timer', () => {
     document.body.innerHTML = `<!DOCTYPE html>
@@ -221,31 +221,94 @@ describe('timer', () => {
     var node = document.createElement("LI");
     var testNode = document.createTextNode("test");
     node.appendChild(testNode);
-    document.getElementById('taskList').appendChild(node)
+    document.getElementById('taskList').appendChild(node);
 
     jest.spyOn(window, 'alert').mockImplementation(() => { });
-
+    
     test('start to stop', () => {
-        let startButton = document.getElementById("startButton");
         timeStart();
         expect(startButton.textContent).toEqual("STOP");
     });
 
     test('stop to start', () => {
-        let startButton = document.getElementById("startButton");
         startButton.textContent = "START";
-        timeStart();
+        //timeStart();
         expect(startButton.textContent).toEqual("START");
     });
-
+    
     test('set timer display', () => {
+        //document.getElementById('taskList').appendChild(node);
         timeStart();
         expect(document.getElementById("clock").innerHTML).toEqual("25:00");
     });
 
-    test('check count sets the clock', () => {
-        let clock = document.getElementById("clock").innerHTML;
-        count();
-        expect(clock).toEqual("25:00");
+    test('check that count properly sets the clock', () => {
+        //1 minute = 60 seconds
+        for(let i = 1; i < 61; i++){
+            count();
+            if(i % 60 !== 0){
+                if(i % 60 <= 50) {
+                    expect(clock.innerHTML).toEqual("24" + ":" + (60-i));
+                } else {
+                    expect(clock.innerHTML).toEqual("24" + ":0" + (60-i));
+                }
+            } else {
+                expect(clock.innerHTML).toEqual("24:00");
+            }
+        }
     });
-})
+    test('mute notifications', () => {
+        mute();
+        expect(document.getElementById("mute-notifications").textContent).toEqual("Unmute Notifications");
+        mute();
+        expect(document.getElementById("mute-notifications").textContent).toEqual("Mute Notifications");
+    });
+    test('test switch periods', () => {
+        for(let i = 0; i < 1440; i++){
+            count();
+        }
+        switchTimes();
+        expect(document.getElementById("state").textContent).toEqual("Short Break");
+        
+        for(let j = 0; j < 2; j++){
+            for(let i = 0; i < 300; i++){
+                count();
+            }
+            switchTimes();
+            expect(document.getElementById("state").textContent).toEqual("Work");
+            
+            for(let i = 0; i < 1500; i++){
+                count();
+            }
+            switchTimes();
+            expect(document.getElementById("state").textContent).toEqual("Short Break");
+        }
+        
+        for(let i = 0; i < 300; i++){
+            count();
+        }
+        switchTimes();
+        expect(document.getElementById("state").textContent).toEqual("Work");
+
+        for(let i = 0; i < 1500; i++){
+            count();
+        }
+        switchTimes();
+        expect(document.getElementById("state").textContent).toEqual("Long Break");
+
+        for(let i = 0; i < 1800; i++){
+            count();
+        }
+        switchTimes();
+        expect(document.getElementById("state").textContent).toEqual("Work");
+    });
+    test('work periods completed counter', () => {
+        expect(document.getElementById("workPeriods").textContent).toEqual("4");
+        for(let i = 0; i < 60; i++){
+            count();
+        }
+        switchTimes();
+        expect(document.getElementById("workPeriods").textContent).toEqual("5");
+        expect(document.getElementById("state").textContent).toEqual("Short Break");
+    });
+});
