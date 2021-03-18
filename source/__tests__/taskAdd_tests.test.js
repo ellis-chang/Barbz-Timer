@@ -34,16 +34,7 @@ describe('Input form is ', () => {
 
 describe('Creating a task ', () => {
     test('works', () => {
-        //const alert = jest.fn();
         createTask();
         expect(document.getElementById("taskList").children.length).toBe(0);
-        //expect(alert).toBeCalledTimes(1);
     })
 })
-
-/*describe('Deleting a task ', () => {
-    test('works', () => {
-        deleteTask(event);
-        expect(document.getElementById("taskList").children.length).toBe(0);
-    })
-})*/

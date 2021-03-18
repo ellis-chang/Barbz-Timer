@@ -23,30 +23,34 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20.59% </span>
+
+                <span class="strong">15.71% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/68</span>
+                <span class='fraction'>11/70</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.57% </span>
+
+                <span class="strong">16.67% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/14</span>
+                <span class='fraction'>2/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+
+                <span class="strong">20% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/5</span>
+                <span class='fraction'>1/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20.59% </span>
+
+                <span class="strong">15.71% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/68</span>
+                <span class='fraction'>11/70</span>
             </div>
         
             
@@ -205,15 +209,10 @@
 <a name='L146'></a><a href='#L146'>146</a>
 <a name='L147'></a><a href='#L147'>147</a>
 <a name='L148'></a><a href='#L148'>148</a>
-<a name='L149'></a><a href='#L149'>149</a>
-<a name='L150'></a><a href='#L150'>150</a>
-<a name='L151'></a><a href='#L151'>151</a>
-<a name='L152'></a><a href='#L152'>152</a>
-<a name='L153'></a><a href='#L153'>153</a>
-<a name='L154'></a><a href='#L154'>154</a>
-<a name='L155'></a><a href='#L155'>155</a>
-<a name='L156'></a><a href='#L156'>156</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+
+<a name='L149'></a><a href='#L149'>149</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -240,12 +239,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -359,16 +359,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">//var taskName = document.getElementById("taskName");
-//var taskPomos = document.getElementById("taskPomos");
+
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">var taskInput = document.getElementById("taskInput");
+var taskName = document.getElementById("taskName");
+var taskPomos = document.getElementById("taskPomos");
 var numberOfTasks = 0;
 &nbsp;
 /**
@@ -394,17 +388,18 @@ var positiveNumberText = {
 /**
  * Creates the task and adds it to the task list.
  */
-function createTask() {
-    let orderedList = document.getElementById("taskList").children;
-    let i = 0;
+
+function <span class="fstat-no" title="function not covered" >createTask(</span>) {
+    let orderedList = <span class="cstat-no" title="statement not covered" >document.getElementById("taskList").children;</span>
+    let i = <span class="cstat-no" title="statement not covered" >0;</span>
     
-    <span class="missing-if-branch" title="else path not taken" >E</span>if(document.getElementById("taskName").value == ""){
-        alert("Please enter a name for the task!");
-        return;
+<span class="cstat-no" title="statement not covered" >    if(document.getElementById("taskName").value == ""){</span>
+<span class="cstat-no" title="statement not covered" >        alert("Please enter a name for the task!");</span>
+<span class="cstat-no" title="statement not covered" >        return "No Name";</span>
     }
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    while (i &lt; orderedList.length) {</span>
-<span class="cstat-no" title="statement not covered" >        if(document.getElementById("taskName").value == orderedList[i].shadowRoot.querySelector(".name").innerHTML){</span>
+<span class="cstat-no" title="statement not covered" >        if(taskName.value == orderedList[i].shadowRoot.querySelector(".name").innerHTML){</span>
 <span class="cstat-no" title="statement not covered" >            alert("That tasks already exists!");</span>
 <span class="cstat-no" title="statement not covered" >            return;</span>
         }
@@ -412,12 +407,14 @@ function createTask() {
 <span class="cstat-no" title="statement not covered" >        i++;</span>
     }
     
-<span class="cstat-no" title="statement not covered" >    if (document.getElementById("taskPomos").value &lt; 1) {</span>
+
+<span class="cstat-no" title="statement not covered" >    if (taskPomos.value &lt; 1) {</span>
 <span class="cstat-no" title="statement not covered" >        alert(positiveNumberText[localStorage.getItem("language")]);</span>
 <span class="cstat-no" title="statement not covered" >        return;</span>
     }
 <span class="cstat-no" title="statement not covered" >    numberOfTasks++;</span>
-    var task = <span class="cstat-no" title="statement not covered" >`&lt;task-item taskName="${document.getElementById("taskName").value}" taskPomos="${document.getElementById("taskPomos").value}" id="${numberOfTasks}"&gt;`;</span>
+
+    var task = <span class="cstat-no" title="statement not covered" >`&lt;task-item taskName="${taskName.value}" taskPomos="${taskPomos.value}" id="${numberOfTasks}"&gt;`;</span>
 <span class="cstat-no" title="statement not covered" >    document.getElementById("taskList").insertAdjacentHTML('beforeend', task);</span>
 }
 &nbsp;
@@ -514,22 +511,16 @@ function <span class="fstat-no" title="function not covered" >downTask(</span>ev
     }
 }
 &nbsp;
-<span class="missing-if-branch" title="else path not taken" >E</span>if (typeof exports !== 'undefined') {
-    module.exports = {
-        displayInput,
-        createTask,
-        deleteTask,
-        upTask,
-        downTask
-    };
-}</pre></td></tr></table></pre>
+
+module.exports = {displayInput, createTask};</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Mar 17 2021 23:04:30 GMT-0700 (Pacific Daylight Time)
+
+                at Thu Mar 18 2021 00:21:23 GMT-0700 (Pacific Daylight Time)
             </div>
         </div>
         <script src="prettify.js"></script>

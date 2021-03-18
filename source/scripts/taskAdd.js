@@ -152,7 +152,7 @@ function downTask(event) {
   }
 
   if (orderedList[i + 1] == null) {
-    alert(taskAtBottomText[localStorage.get('language')]);
+    alert(taskAtBottomText[localStorage.getItem('language')]);
     return;
   } else {
     temp = current[0].innerHTML;

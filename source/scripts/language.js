@@ -308,3 +308,7 @@ function setLanguage(language) {
     localStorage.setItem('language', 'ch');
   }
 }
+
+if (typeof exports !== 'undefined') {
+  module.exports = { setLanguage };
+}
