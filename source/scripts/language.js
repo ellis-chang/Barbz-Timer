@@ -92,7 +92,7 @@ function setLanguage(language) {
         else {
             document.getElementById('mute-notifications').textContent = "Deshacer Notificaciones";
         }
-        
+
         document.getElementById('settings').textContent = "Ajustes";
         document.getElementById('view-activity').textContent = "Ver actividad";
         document.getElementById('about-page').textContent = "Acerca de Page";
@@ -126,7 +126,7 @@ function setLanguage(language) {
         document.getElementById('aboutItemsLine6').textContent = "Perfeccionar el proceso de estimación, tanto en términos cualitativos como cuantitativos";
         document.getElementById('aboutItemsLine7').textContent = "Mejora tu proceso de trabajo o estudio";
         document.getElementById('aboutItemsLine8').textContent = "Fortalece tu determinación de seguir aplicándote frente a situaciones complejas";
-        
+
         if (document.getElementById('state').textContent === longStateText[localStorage.getItem("language")]) {
             document.getElementById('state').textContent = "Largo Descanso";
         } else if (document.getElementById('state').textContent === shortStateText[localStorage.getItem("language")]) {
@@ -235,3 +235,4 @@ function setLanguage(language) {
     }
 }
 
+module.exports = { setLanguage };
