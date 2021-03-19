@@ -402,7 +402,7 @@ a {
 #startButton {
     background-color: var(--background);
     color: #582323;
-    display: inline-block;
+    display: block;
     width: 10vw;
     padding: 1vh;
     margin: auto;
