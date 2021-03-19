@@ -53,16 +53,22 @@ template2.innerHTML = `
     <p class="name"></p>
     <p class="estimatedPomos"></p>
     <p class="actualPomos"></p>
-</li>`
+</li>`;
 class ActivityItem extends HTMLElement {
-    constructor(){
-        super();
-        this.attachShadow({mode: 'open'});
-        this.shadowRoot.appendChild(template2.content.cloneNode(true));
-        this.shadowRoot.querySelector('.name').innerHTML = this.getAttribute('taskName');
-        this.shadowRoot.querySelector('.actualPomos').innerHTML = this.getAttribute('actualPomos');
-        this.shadowRoot.querySelector('.estimatedPomos').innerHTML = this.getAttribute('estimatedPomos');
-    }
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+    this.shadowRoot.appendChild(template2.content.cloneNode(true));
+    this.shadowRoot.querySelector('.name').innerHTML = this.getAttribute(
+      'taskName',
+    );
+    this.shadowRoot.querySelector('.actualPomos').innerHTML = this.getAttribute(
+      'actualPomos',
+    );
+    this.shadowRoot.querySelector(
+      '.estimatedPomos',
+    ).innerHTML = this.getAttribute('estimatedPomos');
+  }
 }
 
 customElements.define('activity-item', ActivityItem);
