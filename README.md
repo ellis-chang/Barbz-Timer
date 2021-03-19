@@ -6,4 +6,4 @@ If you want to know more about the team members and a bit of the process of our 
 
 [Click here to go to the pomodoro timer.](https://elliscchang.github.io/cse110-w21-group8) <br/>
 [Click here to go to the public video.](https://youtu.be/Gb3nT9bin3c) <br/>
-[Click here to go to the private video.]() <br/>
+[Click here to go to the private video.](https://youtu.be/HFrvVqa-tmg) <br/>
