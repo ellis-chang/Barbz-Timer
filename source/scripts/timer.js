@@ -387,9 +387,7 @@ function switchThemes() {
       .getElementById('style')
       .setAttribute('href', './styles/longbreakstyle.css');
   } else {
-    document
-      .getElementById('style')
-      .setAttribute('href', './styles/style.css');
+    document.getElementById('style').setAttribute('href', './styles/style.css');
   }
 }
 
@@ -405,7 +403,6 @@ function stop() {
   //Timer is stopped because there is no more task
   if (document.getElementById('taskList').firstChild == null) {
     alert(noTasksLeftText[localStorage.getItem('language')]);
-  
     document.getElementById('workPeriods').innerHTML = pomos;
     clearInterval(interval);
     clearInterval(interval2);

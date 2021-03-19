@@ -101,15 +101,19 @@ template.innerHTML = `
     <button class="upTask" onclick="upTask(event)"></button>
     <button class="downTask" onclick="downTask(event)"></button>
     <button class="delete" onclick="deleteTask(event)"></button>
-</li>`
+</li>`;
 class TaskItem extends HTMLElement {
-    constructor(){
-        super();
-        this.attachShadow({mode: 'open'});
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
-        this.shadowRoot.querySelector('.name').innerHTML = this.getAttribute('taskName');
-        this.shadowRoot.querySelector('.numPomos').innerHTML = this.getAttribute('taskPomos');
-    }
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.shadowRoot.querySelector('.name').innerHTML = this.getAttribute(
+      'taskName',
+    );
+    this.shadowRoot.querySelector('.numPomos').innerHTML = this.getAttribute(
+      'taskPomos',
+    );
+  }
 }
 
 customElements.define('task-item', TaskItem);
