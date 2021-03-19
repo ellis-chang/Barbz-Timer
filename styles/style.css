@@ -717,7 +717,7 @@ a {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
-    height: 80vh;
+    height: 85vh;
     width: 50vw;
     padding: 5vh;
     background-color: var(--foreground);
@@ -849,7 +849,7 @@ a {
 
 #completedTasks {
     list-style-type: none;
-    width: 50vw;
+    width: 48vw;
     height: 20vh;
     overflow: hidden;
     overflow-y: scroll;

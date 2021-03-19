@@ -405,15 +405,7 @@ function stop() {
   //Timer is stopped because there is no more task
   if (document.getElementById('taskList').firstChild == null) {
     alert(noTasksLeftText[localStorage.getItem('language')]);
-
-    //Increment pomos if the current state is work
-    if (
-      document.getElementById('state').textContent ==
-      workText[localStorage.getItem('language')]
-    ) {
-      pomos++;
-      totalPomos++;
-    }
+  
     document.getElementById('workPeriods').innerHTML = pomos;
     clearInterval(interval);
     clearInterval(interval2);
@@ -432,13 +424,6 @@ function stop() {
 
     //Timer is stopped because the stop button was pressed
   } else if (confirm(stopTimerText[localStorage.getItem('language')])) {
-    if (
-      document.getElementById('state').textContent ==
-      workText[localStorage.getItem('language')]
-    ) {
-      pomos++;
-      totalPomos++;
-    }
     document.getElementById('workPeriods').innerHTML = pomos;
     clearInterval(interval);
     clearInterval(interval2);
